@@ -9,7 +9,6 @@ add_library(dl STATIC
     dl/tensor/tensor.cpp
 )
 target_compile_features(dl PUBLIC cxx_std_23)
-set_property(TARGET dl PROPERTY CXX_STANDARD 23)
 target_include_directories(dl PUBLIC ${CMAKE_CURRENT_LIST_DIR}/../include)
 
 # Tell the code about the current git commit hash
@@ -47,7 +46,16 @@ FetchContent_MakeAvailable(xsimd)
 
 FetchContent_Declare(xtensor GIT_REPOSITORY https://github.com/xtensor-stack/xtensor.git GIT_TAG 0.24.7)
 FetchContent_MakeAvailable(xtensor)
-target_link_libraries(dl PUBLIC xtensor xsimd)
+
+# Dependency of xtensor-blas
+FetchContent_Declare(openblas GIT_REPOSITORY https://github.com/OpenMathLib/OpenBLAS.git GIT_TAG v0.3.25)
+FetchContent_MakeAvailable(openblas)
+
+# Dependency of xtensor
+FetchContent_Declare(xblas GIT_REPOSITORY https://github.com/xtensor-stack/xtensor-blas.git GIT_TAG 0.20.0)
+FetchContent_MakeAvailable(xblas)
+target_link_libraries(dl PUBLIC xtensor xsimd xtensor-blas openblas)
+
 
 # spdlog for logging
 FetchContent_Declare(spdlog GIT_REPOSITORY https://github.com/gabime/spdlog.git GIT_TAG v1.11.0)

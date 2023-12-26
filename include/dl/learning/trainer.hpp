@@ -41,24 +41,32 @@ namespace dl {
 		Trainer& operator=(Trainer&& other) = delete;
 
 	public:
-		explicit Trainer(Settings&& settings) : settings(settings) {}
+		explicit Trainer(Settings&& settings) : settings(std::move(settings)) {
+			assert(this->settings.createDataset != nullptr);
+			assert(this->settings.loss != nullptr);
+		}
 
 		void fit(Model<T>& model) noexcept {
 			auto dataset = settings.createDataset();
+			assert(dataset != nullptr);
 			auto dataloader = dataset->trainingData();
+			assert(dataloader != nullptr);
 			// model.fit();
 			for (unsigned epoch = 0; settings.limitEpochs == 0 || epoch < settings.limitEpochs; ++epoch) {
 				for (auto&& [out, in] : *dataloader) {
 					auto loss = settings.loss(model(in), out);
 					settings.optimizer->step(loss);
 				}
+				/** \todo: validation loss if configured **/
 			}
 			
 		}
 
 		void validate(const Model<T>& model) const noexcept {
 			auto dataset = settings.createDataset();
+			assert(dataset != nullptr);
 			auto dataloader = dataset->testData();
+			assert(dataloader != nullptr);
 			// model.inference();
 			for (auto&& [out, in] : *dataloader) {
 				auto loss = settings.loss(model(in), out);
@@ -67,7 +75,9 @@ namespace dl {
 
 		void test(const Model<T>& model) const noexcept {
 			auto dataset = settings.createDataset();
+			assert(dataset != nullptr);
 			auto dataloader = dataset->testData();
+			assert(dataloader != nullptr);
 			// model.inference();
 			for (auto&& [out, in] : *dataloader) {
 				auto loss = settings.loss(model(in), out);

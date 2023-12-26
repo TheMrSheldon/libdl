@@ -9,8 +9,9 @@ using TensorPtr = dl::TensorPtr;
 Linear::Linear(unsigned inFeatures, unsigned outFeatures, const Device& device, bool bias) noexcept
 		: weights(dl::empty({inFeatures, outFeatures}, device)),
 		  bias(bias ? dl::empty({outFeatures}, device) : dl::zero({outFeatures}, device)) {
-	registerWeights(weights);
-	registerWeights(this->bias);
+	registerParameter(weights);
+	if (bias)
+		registerParameter(this->bias);
 }
 
 Linear::Linear(unsigned inFeatures, unsigned outFeatures, bool bias) noexcept

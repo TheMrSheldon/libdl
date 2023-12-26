@@ -55,6 +55,7 @@ namespace dl {
 
 		virtual TensorPtr matmul(const TensorPtr& other) const noexcept = 0;
 
+		virtual TensorPtr pow(float exponent) const noexcept = 0;
 		virtual TensorPtr mean() const noexcept = 0;
 		
 	};

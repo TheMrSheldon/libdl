@@ -16,7 +16,9 @@ namespace dl {
 		using Batch = std::vector<Instance>;
 	private:
 	public:
-		virtual dl::utils::GenericIterator<std::tuple<R, Args...>> begin() = 0;
-		virtual dl::utils::GenericIterator<std::tuple<R, Args...>> end() = 0;
+		virtual ~Dataloader() = default;
+
+		virtual dl::utils::GenericIterator<Instance> begin() = 0;
+		virtual dl::utils::GenericIterator<Instance> end() = 0;
 	};
 } // namespace dl

@@ -4,6 +4,8 @@
 #include <xtensor/xarray.hpp>
 #include <xtensor/xexpression.hpp>
 #include <xtensor/xio.hpp>
+#include <xtensor-blas/xlinalg.hpp>
+
 
 namespace dl {
 	class CPUDenseFloatTensor final : public Tensor {
@@ -37,8 +39,11 @@ namespace dl {
 
 
 		virtual TensorPtr matmul(const TensorPtr& other) const noexcept override {
-			/** \todo implement **/
-			throw std::runtime_error("Not implemented");
+			return createResult(std::move(xt::linalg::dot(data, downcast(other).data)), requiresGrad());
+		}
+
+		virtual TensorPtr pow(float exponent) const noexcept override {
+			return createResult(std::move(xt::pow(data, exponent)), requiresGrad());
 		}
 
 		virtual TensorPtr mean() const noexcept override {

@@ -3,6 +3,11 @@
 
 using namespace dl;
 
+TensorPtr dl::pow(TensorPtr base, float exponent) noexcept {
+	/** \todo add support for autograd **/
+	return base->pow(exponent);
+}
+
 TensorPtr dl::mean(TensorPtr x) noexcept {
 	/** \todo add support for autograd **/
 	return x->mean();

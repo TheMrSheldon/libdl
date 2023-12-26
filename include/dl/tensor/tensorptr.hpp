@@ -25,6 +25,15 @@ namespace dl {
         using std::shared_ptr<Tensor>::operator*;
         using std::shared_ptr<Tensor>::operator->;
         using std::shared_ptr<Tensor>::operator=;
+
+        TensorPtr& operator=(const TensorPtr& other) {
+            this->std::shared_ptr<Tensor>::operator=(other);
+            return *this;
+        }
+        TensorPtr& operator=(TensorPtr&& other) {
+            this->std::shared_ptr<Tensor>::operator=(std::move(other));
+            return *this;
+        }
     };
 }
 
