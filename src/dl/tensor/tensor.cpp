@@ -14,6 +14,11 @@ bool Tensor::requiresGrad() const noexcept { return _requiresGrad; }
 
 const Device& Tensor::device() const noexcept { return _device; }
 
+/*
 TensorPtr dl::empty(Shape size, const Device& device) { return device.empty(size); }
 TensorPtr dl::zero(Shape size, const Device& device) { return device.zero(size); }
 TensorPtr dl::ones(Shape size, const Device& device) { return device.ones(size); }
+
+TensorPtr constant(int value, Device const& device);
+TensorPtr constant(float value, Device const& device);
+TensorPtr constant(double value, Device const& device) { return device.constant(); }*/

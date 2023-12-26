@@ -48,13 +48,14 @@ namespace dl {
 		bool requiresGrad() const noexcept;
 
 		virtual std::ostream& writeToStream(std::ostream& stream) const noexcept = 0;
+		virtual TensorPtr add(const TensorPtr& other) const noexcept = 0;
+		virtual TensorPtr sub(const TensorPtr& other) const noexcept = 0;
+		virtual TensorPtr mul(const TensorPtr& other) const noexcept = 0;
+		virtual TensorPtr div(const TensorPtr& other) const noexcept = 0;
+
+		virtual TensorPtr matmul(const TensorPtr& other) const noexcept = 0;
+
+		virtual TensorPtr mean() const noexcept = 0;
 		
 	};
-} // namespace dl
-
-#include "../device.hpp"
-namespace dl {
-	TensorPtr empty(Shape size, Device const& device = Device::getDefault());
-	TensorPtr zero(Shape size, Device const& device = Device::getDefault());
-	TensorPtr ones(Shape size, Device const& device = Device::getDefault());
 } // namespace dl

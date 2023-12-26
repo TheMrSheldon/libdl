@@ -40,12 +40,14 @@ public:
 int main(int argc, char* argv[]) {
 	std::cout << "Hello world" << std::endl;
 
-	auto tensor = dl::ones({2, 2});
-	std::cout << tensor << std::endl;
+	auto tensorA = dl::ones({2, 2});
+	auto tensorB = dl::ones({2, 2});
+	auto tensorC = dl::constant(2.5);
+	
+	std::cout << dl::mean(2.5 * tensorB / 2) << std::endl;
 
 	/*MyModel model;
 
-	// using Trainer = dl::InferTrainer<MyModel>;
 	using Trainer = dl::InferTrainer<MyModel>;
 	static_assert(!std::is_same_v<Trainer, void>);
 	static_assert(std::is_same_v<Trainer, dl::Trainer<dl::TensorPtr(dl::TensorPtr)>>);

@@ -9,6 +9,7 @@ add_library(dl STATIC
     dl/tensor/tensor.cpp
 )
 target_compile_features(dl PUBLIC cxx_std_23)
+set_property(TARGET dl PROPERTY CXX_STANDARD 23)
 target_include_directories(dl PUBLIC ${CMAKE_CURRENT_LIST_DIR}/../include)
 
 # Tell the code about the current git commit hash

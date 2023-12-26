@@ -19,10 +19,12 @@ namespace dl {
 	public:
 		static Device const& cpu;
 
-
 		virtual TensorPtr empty(Shape shape, bool requiresGrad = false) const noexcept = 0;
 		virtual TensorPtr zero(Shape shape, bool requiresGrad = false) const noexcept = 0;
 		virtual TensorPtr ones(Shape shape, bool requiresGrad = false) const noexcept = 0;
+		virtual TensorPtr constant(int value, bool requiresGrad = false) const noexcept = 0;
+		virtual TensorPtr constant(float value, bool requiresGrad = false) const noexcept = 0;
+		virtual TensorPtr constant(double value, bool requiresGrad = false) const noexcept = 0;
 
 		template <typename T>
 		void setDefaultFloatTensorType();
@@ -40,4 +42,17 @@ namespace dl {
 	void Device::setDefaultFloatTensorType<float>();
 	template <>
 	void Device::setDefaultFloatTensorType<double>();
+
+	inline TensorPtr empty(const Shape& size, Device const& device = Device::getDefault()) {
+		return device.empty(size);
+	}
+	inline TensorPtr zero(const Shape& size, Device const& device = Device::getDefault()) { return device.zero(size); }
+	inline TensorPtr ones(const Shape& size, Device const& device = Device::getDefault()) { return device.ones(size); }
+	inline TensorPtr constant(int value, Device const& device = Device::getDefault()) { return device.constant(value); }
+	inline TensorPtr constant(float value, Device const& device = Device::getDefault()) {
+		return device.constant(value);
+	}
+	inline TensorPtr constant(double value, Device const& device = Device::getDefault()) {
+		return device.constant(value);
+	}
 } // namespace dl

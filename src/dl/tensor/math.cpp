@@ -3,23 +3,33 @@
 
 using namespace dl;
 
+TensorPtr dl::mean(TensorPtr x) noexcept {
+	/** \todo add support for autograd **/
+	return x->mean();
+}
+
 // TensorPtr relu(TensorPtr x) noexcept { return max(x, 0); }
 
 TensorPtr dl::operator+(TensorPtr left, TensorPtr right) noexcept {
-	/** \todo implement **/
-	throw std::runtime_error("Not yet implemented");
+	/** \todo add support for autograd **/
+	return left->add(right);
 }
 TensorPtr dl::operator-(TensorPtr left, TensorPtr right) noexcept {
-	/** \todo implement **/
-	throw std::runtime_error("Not yet implemented");
+	/** \todo add support for autograd **/
+	return left->sub(right);
 }
 TensorPtr dl::operator*(TensorPtr left, TensorPtr right) noexcept {
-	/** \todo implement **/
-	throw std::runtime_error("Not yet implemented");
+	/** \todo add support for autograd **/
+	return left->mul(right);
 }
 TensorPtr dl::operator/(TensorPtr left, TensorPtr right) noexcept {
-	/** \todo implement **/
-	throw std::runtime_error("Not yet implemented");
+	/** \todo add support for autograd **/
+	return left->div(right);
+}
+
+TensorPtr dl::matmul(TensorPtr left, TensorPtr right) noexcept {
+	/** \todo add support for autograd **/
+	return left->matmul(right);
 }
 
 std::ostream& dl::operator<<(std::ostream& stream, TensorPtr tensor) noexcept {

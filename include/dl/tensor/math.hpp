@@ -18,5 +18,7 @@ namespace dl {
 	TensorPtr operator*(TensorPtr left, TensorPtr right) noexcept;
 	TensorPtr operator/(TensorPtr left, TensorPtr right) noexcept;
 
+    TensorPtr matmul(TensorPtr left, TensorPtr right) noexcept;
+
     std::ostream& operator<<(std::ostream&, TensorPtr tensor) noexcept;
 }
