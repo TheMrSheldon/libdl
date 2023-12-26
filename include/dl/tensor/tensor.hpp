@@ -1,20 +1,19 @@
 #pragma once
 
-#include <vector>
-#include <memory>
+#include "tensorptr.hpp"
+#include <iostream>
 
 namespace dl {
 	class Device;
 
-	using Shape = std::vector<unsigned>;
-	using TensorPtr = std::shared_ptr<Tensor>;
-
 	class Tensor {
 	private:
 		bool _requiresGrad;
-		const Device& _device;
+		Device const& _device;
+
 	protected:
-		Tensor(const Device& device, bool requiresGrad) noexcept;
+		Tensor(Device const& device, bool requiresGrad) noexcept;
+
 	public:
 		/**
 		 * @brief Creates a copy of this tensor on the requested device and returns a pointer to it. If the new device
@@ -24,14 +23,14 @@ namespace dl {
 		 * @return The newly created tensor on the specified device.
 		 * @see Tensor::device()
 		 */
-		TensorPtr to(const Device& other) const noexcept;
+		TensorPtr to(Device const& other) const noexcept;
 		/**
 		 * @brief Returns the device this tensor is stored on.
 		 * 
 		 * @return The device this tensor is stored on.
 		 * @see Tensor::to(const Device& other)
 		 */
-		const Device& device() const noexcept;
+		Device const& device() const noexcept;
 
 		/**
 		 * @brief Set this tensors requirements for a gradient.
@@ -47,14 +46,15 @@ namespace dl {
 		 * @see Tensor::setRequiresGrad()
 		 */
 		bool requiresGrad() const noexcept;
+
+		virtual std::ostream& writeToStream(std::ostream& stream) const noexcept = 0;
+		
 	};
+} // namespace dl
 
-	TensorPtr operator+(TensorPtr left, TensorPtr right);
-	TensorPtr operator-(TensorPtr left, TensorPtr right);
-	TensorPtr operator*(TensorPtr left, TensorPtr right);
-	TensorPtr operator/(TensorPtr left, TensorPtr right);
-
-	TensorPtr emptyTensor(Shape size, Device& device);
-	TensorPtr zeroTensor(Shape size, Device& device);
-
+#include "../device.hpp"
+namespace dl {
+	TensorPtr empty(Shape size, Device const& device = Device::getDefault());
+	TensorPtr zero(Shape size, Device const& device = Device::getDefault());
+	TensorPtr ones(Shape size, Device const& device = Device::getDefault());
 } // namespace dl
