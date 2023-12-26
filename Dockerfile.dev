@@ -1,0 +1,27 @@
+FROM ubuntu:22.04
+
+
+########################################################################################################################
+# Install Dependencies                                                                                                 #
+########################################################################################################################
+USER root
+# only needed for add-apt-repository
+RUN apt-get update && apt-get install -y software-properties-common
+RUN add-apt-repository ppa:ubuntu-toolchain-r/test && apt-get update
+RUN apt-get -y install g++-13 cmake git
+
+# Needed for the dev environment
+RUN apt-get -y install cppcheck doxygen graphviz gdb
+
+# Dependencies
+RUN apt-get -y install libopenblas-dev
+
+
+########################################################################################################################
+# Create User                                                                                                          #
+########################################################################################################################
+# Change root Password to 1234
+RUN echo 'root:1234' | chpasswd
+# Create new user: "dev"
+RUN useradd -ms /bin/bash dev
+USER dev
