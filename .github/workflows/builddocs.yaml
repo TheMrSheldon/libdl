@@ -15,6 +15,9 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt-get install -y doxygen graphviz
+          mkdir -p build/docs
+      - name: Build Documentation
+        run: |
           doxygen Doxyfile
           touch build/docs/html/.nojekyll
       - name: Deploy
