@@ -1,0 +1,4 @@
+<map id="dl::utils::GenericIterator&lt; T &gt;::AIter" name="dl::utils::GenericIterator&lt; T &gt;::AIter">
+<area shape="rect" id="node1" title="The &quot;abstract iterator&quot; (AIter) provides a class interface for forward iterators (i...." alt="" coords="5,5,181,47"/>
+<area shape="rect" id="node2" href="$classdl_1_1utils_1_1GenericIterator_1_1Iter.html" title="The Iter class wraps objects that suffice the std::input_or_output_iterator concept to implement the ..." alt="" coords="5,95,181,136"/>
+</map>
