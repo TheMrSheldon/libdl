@@ -6,6 +6,12 @@
 namespace dl {
 	class Device {
 	private:
+		/**
+		 * @brief The default device for this thread.
+		 * 
+		 * @see Device::getDefault()
+		 * @see Device::changeDefaultDevice(Device&)
+		 */
 		thread_local static Device const* defaultDevice;
 
 		Device(const Device& other) = delete;
@@ -17,8 +23,20 @@ namespace dl {
 		Device() = default;
 
 	public:
+		virtual ~Device() = default;
+
+		/**
+		 * @brief The CPU-device implementation.
+		 */
 		static Device const& cpu;
 
+		/**
+		 * @brief Creates a new tensor of the specified shape without initializing the memory.
+		 * 
+		 * @param shape The shape of the tensor.
+		 * @param requiresGrad True if a gradient should be calculate for the newly constructed tensor.
+		 * @return The newly created tensor.
+		 */
 		virtual TensorPtr empty(Shape shape, bool requiresGrad = false) const noexcept = 0;
 		virtual TensorPtr zero(Shape shape, bool requiresGrad = false) const noexcept = 0;
 		virtual TensorPtr ones(Shape shape, bool requiresGrad = false) const noexcept = 0;
@@ -29,8 +47,31 @@ namespace dl {
 		template <typename T>
 		void setDefaultFloatTensorType();
 
+		/**
+		 * @brief Returns the default device for this thread.
+		 * @details The default device is thread local. That means that modifying the default device from another thread
+		 * will not effect other threads.
+		 * 
+		 * @return The current default device.
+		 * @see Device::changeDefaultDevice(Device&)
+		 */
 		static const Device& getDefault() noexcept { return *defaultDevice; }
 
+		/**
+		 * @brief Temporarily modifies the default device.
+		 * @details
+		 * Example call:
+		 * ```
+		 * {Device::changeDefaultDevice(mydevice);
+		 *     mydevice is default.
+		 * }
+		 * mydevice is not default anymore.
+		 * ```
+		 * 
+		 * @param device The device that should be default for the current scope.
+		 * @return A scopeguard for the default device.
+		 * @see Device::getDefault()
+		 */
 		static auto changeDefaultDevice(Device& device) {
 			auto oldDefault = defaultDevice;
 			defaultDevice = &device;
