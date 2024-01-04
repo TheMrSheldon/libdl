@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['userdata_82',['userdata',['../classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a06f9ea57691fc6c3c2a918e32f7b98b6',1,'dl::utils::GenericIterator::Iter']]]
+  ['defaultdevice_89',['defaultDevice',['../classdl_1_1Device.html#ac1b9a8959bfd3e957a1700b8db34d06d',1,'dl::Device']]]
 ];

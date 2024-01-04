@@ -3,6 +3,7 @@ var classdl_1_1Device =
     [ "Device", "classdl_1_1Device.html#aa3c0f76953c6231257f1cd4118ad482e", null ],
     [ "Device", "classdl_1_1Device.html#a1fec99a6e3d31365e89086f12546f82a", null ],
     [ "Device", "classdl_1_1Device.html#a03061b27a15ea3c6118ee858464b15ee", null ],
+    [ "~Device", "classdl_1_1Device.html#a9d1a94d3d254362bbff528c56c7baa6e", null ],
     [ "changeDefaultDevice", "classdl_1_1Device.html#afbcd1ab1f1e55005ad93d06dd06d9cfb", null ],
     [ "constant", "classdl_1_1Device.html#aa747f84006a76a92467258ac13b073a5", null ],
     [ "constant", "classdl_1_1Device.html#a49068a99ca30c273dbc7c7daebc05e6a", null ],

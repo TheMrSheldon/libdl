@@ -135,8 +135,8 @@ Collaboration diagram for dl::Device:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6707cc2271e15daecb6bb6c7625dc675"><td class="memItemLeft" align="right" valign="top"><a id="a6707cc2271e15daecb6bb6c7625dc675"></a>
-virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><b>empty</b> (Shape shape, bool requiresGrad=false) const noexcept=0</td></tr>
+<tr class="memitem:a6707cc2271e15daecb6bb6c7625dc675"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Device.html#a6707cc2271e15daecb6bb6c7625dc675">empty</a> (Shape shape, bool requiresGrad=false) const noexcept=0</td></tr>
+<tr class="memdesc:a6707cc2271e15daecb6bb6c7625dc675"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new tensor of the specified shape without initializing the memory.  <a href="classdl_1_1Device.html#a6707cc2271e15daecb6bb6c7625dc675">More...</a><br /></td></tr>
 <tr class="separator:a6707cc2271e15daecb6bb6c7625dc675"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1751225c670c4a1d51fae3c62ba12bde"><td class="memItemLeft" align="right" valign="top"><a id="a1751225c670c4a1d51fae3c62ba12bde"></a>
 virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><b>zero</b> (Shape shape, bool requiresGrad=false) const noexcept=0</td></tr>
@@ -168,17 +168,18 @@ template&lt;&gt; </td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aafd5fab7afae2a184b99615caa9d89eb"><td class="memItemLeft" align="right" valign="top"><a id="aafd5fab7afae2a184b99615caa9d89eb"></a>
-static const <a class="el" href="classdl_1_1Device.html">Device</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getDefault</b> () noexcept</td></tr>
+<tr class="memitem:aafd5fab7afae2a184b99615caa9d89eb"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="classdl_1_1Device.html">Device</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Device.html#aafd5fab7afae2a184b99615caa9d89eb">getDefault</a> () noexcept</td></tr>
+<tr class="memdesc:aafd5fab7afae2a184b99615caa9d89eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the default device for this thread.  <a href="classdl_1_1Device.html#aafd5fab7afae2a184b99615caa9d89eb">More...</a><br /></td></tr>
 <tr class="separator:aafd5fab7afae2a184b99615caa9d89eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbcd1ab1f1e55005ad93d06dd06d9cfb"><td class="memItemLeft" align="right" valign="top"><a id="afbcd1ab1f1e55005ad93d06dd06d9cfb"></a>
-static auto&#160;</td><td class="memItemRight" valign="bottom"><b>changeDefaultDevice</b> (<a class="el" href="classdl_1_1Device.html">Device</a> &amp;device)</td></tr>
+<tr class="memitem:afbcd1ab1f1e55005ad93d06dd06d9cfb"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Device.html#afbcd1ab1f1e55005ad93d06dd06d9cfb">changeDefaultDevice</a> (<a class="el" href="classdl_1_1Device.html">Device</a> &amp;device)</td></tr>
+<tr class="memdesc:afbcd1ab1f1e55005ad93d06dd06d9cfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporarily modifies the default device.  <a href="classdl_1_1Device.html#afbcd1ab1f1e55005ad93d06dd06d9cfb">More...</a><br /></td></tr>
 <tr class="separator:afbcd1ab1f1e55005ad93d06dd06d9cfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:ab5da9f21b4127c17527df1a415c20271"><td class="memItemLeft" align="right" valign="top"><a id="ab5da9f21b4127c17527df1a415c20271"></a>
-static <a class="el" href="classdl_1_1Device.html">Device</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>cpu</b></td></tr>
+static <a class="el" href="classdl_1_1Device.html">Device</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Device.html#ab5da9f21b4127c17527df1a415c20271">cpu</a></td></tr>
+<tr class="memdesc:ab5da9f21b4127c17527df1a415c20271"><td class="mdescLeft">&#160;</td><td class="mdescRight">The CPU-device implementation. <br /></td></tr>
 <tr class="separator:ab5da9f21b4127c17527df1a415c20271"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
@@ -198,10 +199,156 @@ Private Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
-<tr class="memitem:ac1b9a8959bfd3e957a1700b8db34d06d"><td class="memItemLeft" align="right" valign="top"><a id="ac1b9a8959bfd3e957a1700b8db34d06d"></a>
-static thread_local <a class="el" href="classdl_1_1Device.html">Device</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><b>defaultDevice</b></td></tr>
+<tr class="memitem:ac1b9a8959bfd3e957a1700b8db34d06d"><td class="memItemLeft" align="right" valign="top">static thread_local <a class="el" href="classdl_1_1Device.html">Device</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Device.html#ac1b9a8959bfd3e957a1700b8db34d06d">defaultDevice</a></td></tr>
+<tr class="memdesc:ac1b9a8959bfd3e957a1700b8db34d06d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default device for this thread.  <a href="classdl_1_1Device.html#ac1b9a8959bfd3e957a1700b8db34d06d">More...</a><br /></td></tr>
 <tr class="separator:ac1b9a8959bfd3e957a1700b8db34d06d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="afbcd1ab1f1e55005ad93d06dd06d9cfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbcd1ab1f1e55005ad93d06dd06d9cfb">&#9670;&nbsp;</a></span>changeDefaultDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static auto dl::Device::changeDefaultDevice </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classdl_1_1Device.html">Device</a> &amp;&#160;</td>
+          <td class="paramname"><em>device</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Temporarily modifies the default device. </p>
+<p>Example call: </p><div class="fragment"><div class="line">{<a class="code" href="classdl_1_1Device.html#afbcd1ab1f1e55005ad93d06dd06d9cfb">Device::changeDefaultDevice</a>(mydevice);</div>
+<div class="line">    mydevice is <span class="keywordflow">default</span>.</div>
+<div class="line">}</div>
+<div class="line">mydevice is not <span class="keywordflow">default</span> anymore.</div>
+<div class="ttc" id="aclassdl_1_1Device_html_afbcd1ab1f1e55005ad93d06dd06d9cfb"><div class="ttname"><a href="classdl_1_1Device.html#afbcd1ab1f1e55005ad93d06dd06d9cfb">dl::Device::changeDefaultDevice</a></div><div class="ttdeci">static auto changeDefaultDevice(Device &amp;device)</div><div class="ttdoc">Temporarily modifies the default device.</div><div class="ttdef"><b>Definition:</b> device.hpp:75</div></div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">device</td><td>The device that should be default for the current scope. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A scopeguard for the default device. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classdl_1_1Device.html#aafd5fab7afae2a184b99615caa9d89eb" title="Returns the default device for this thread.">Device::getDefault()</a> </dd></dl>
+
+</div>
+</div>
+<a id="a6707cc2271e15daecb6bb6c7625dc675"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6707cc2271e15daecb6bb6c7625dc675">&#9670;&nbsp;</a></span>empty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> dl::Device::empty </td>
+          <td>(</td>
+          <td class="paramtype">Shape&#160;</td>
+          <td class="paramname"><em>shape</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>requiresGrad</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a new tensor of the specified shape without initializing the memory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shape</td><td>The shape of the tensor. </td></tr>
+    <tr><td class="paramname">requiresGrad</td><td>True if a gradient should be calculate for the newly constructed tensor. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The newly created tensor. </dd></dl>
+
+</div>
+</div>
+<a id="aafd5fab7afae2a184b99615caa9d89eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafd5fab7afae2a184b99615caa9d89eb">&#9670;&nbsp;</a></span>getDefault()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const <a class="el" href="classdl_1_1Device.html">Device</a>&amp; dl::Device::getDefault </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the default device for this thread. </p>
+<p>The default device is thread local. That means that modifying the default device from another thread will not effect other threads.</p>
+<dl class="section return"><dt>Returns</dt><dd>The current default device. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classdl_1_1Device.html#afbcd1ab1f1e55005ad93d06dd06d9cfb" title="Temporarily modifies the default device.">Device::changeDefaultDevice(Device&amp;)</a> </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac1b9a8959bfd3e957a1700b8db34d06d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1b9a8959bfd3e957a1700b8db34d06d">&#9670;&nbsp;</a></span>defaultDevice</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">thread_local <a class="el" href="classdl_1_1Device.html">Device</a> const* dl::Device::defaultDevice</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The default device for this thread. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classdl_1_1Device.html#aafd5fab7afae2a184b99615caa9d89eb" title="Returns the default device for this thread.">Device::getDefault()</a> </dd>
+<dd>
+<a class="el" href="classdl_1_1Device.html#afbcd1ab1f1e55005ad93d06dd06d9cfb" title="Temporarily modifies the default device.">Device::changeDefaultDevice(Device&amp;)</a> </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>dl/<a class="el" href="device_8hpp_source.html">device.hpp</a></li>
 </ul>
