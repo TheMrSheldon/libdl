@@ -4,7 +4,15 @@
 #include <functional>
 
 namespace dl::utils {
-	template <typename T>
+	/**
+	 * @brief 
+	 * @details
+	 * ```{cpp}
+	 * {ScopeGuard _([] { std::cout << "Scope Exited" << std::endl; });
+	 *     std::cout << "Inside Scope" << std::endl;
+	 * }
+	 * ```
+	 */
 	class ScopeGuard final {
 	private:
 		std::function<void()> onScopeExit;
@@ -13,7 +21,7 @@ namespace dl::utils {
 		ScopeGuard& operator=(const ScopeGuard&) = delete;
 
 	public:
-		explicit ScopeGuard(T && onScopeExit) try : onScopeExit(std::forward<T>(onScopeExit)) {
+		explicit ScopeGuard(auto&& onScopeExit) try : onScopeExit(std::forward<decltype(onScopeExit)>(onScopeExit)) {
 		} catch (...) {
 			onScopeExit();
 			throw;

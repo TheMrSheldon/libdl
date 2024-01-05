@@ -38,7 +38,21 @@ namespace dl {
 		 * @return The newly created tensor.
 		 */
 		virtual TensorPtr empty(Shape shape, bool requiresGrad = false) const noexcept = 0;
+		/**
+		 * @brief Creates a new tensor of the specified shape. All entries are initialized to zero.
+		 * 
+		 * @param shape The shape of the tensor.
+		 * @param requiresGrad True if a gradient should be calculate for the newly constructed tensor.
+		 * @return The newly created tensor.
+		 */
 		virtual TensorPtr zero(Shape shape, bool requiresGrad = false) const noexcept = 0;
+		/**
+		 * @brief Creates a new tensor of the specified shape. All entries are initialized to one.
+		 * 
+		 * @param shape The shape of the tensor.
+		 * @param requiresGrad True if a gradient should be calculate for the newly constructed tensor.
+		 * @return The newly created tensor.
+		 */
 		virtual TensorPtr ones(Shape shape, bool requiresGrad = false) const noexcept = 0;
 		virtual TensorPtr constant(int value, bool requiresGrad = false) const noexcept = 0;
 		virtual TensorPtr constant(float value, bool requiresGrad = false) const noexcept = 0;
@@ -61,11 +75,11 @@ namespace dl {
 		 * @brief Temporarily modifies the default device.
 		 * @details
 		 * Example call:
-		 * ```
+		 * ```{cpp}
 		 * {Device::changeDefaultDevice(mydevice);
-		 *     mydevice is default.
+		 *     // mydevice is default.
 		 * }
-		 * mydevice is not default anymore.
+		 * // mydevice is not default anymore.
 		 * ```
 		 * 
 		 * @param device The device that should be default for the current scope.
