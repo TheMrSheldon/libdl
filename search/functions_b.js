@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7eaiter_87',['~AIter',['../classdl_1_1utils_1_1GenericIterator_1_1AIter.html#a29f9d38b6c93bd91f0858deffff4b73b',1,'dl::utils::GenericIterator::AIter']]]
+  ['zero_90',['zero',['../classdl_1_1Device.html#a1751225c670c4a1d51fae3c62ba12bde',1,'dl::Device']]]
 ];

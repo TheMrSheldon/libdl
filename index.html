@@ -117,8 +117,15 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="title">libdl </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md__home_runner_work_libdl_libdl_README"></a></p>
-</div></div><!-- PageDoc -->
+<div class="textblock"><p><a class="anchor" id="md__home_runner_work_libdl_libdl_README"></a> </p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Usage</h1>
+<h2><a class="anchor" id="autotoc_md2"></a>
+CMake</h2>
+<div class="fragment"><div class="line">FetchContent_Declare(libdl GIT_REPOSITORY https://github.com/TheMrSheldon/libdl.git)</div>
+<div class="line">FetchContent_MakeAvailable(libdl)</div>
+<div class="line">target_link_libraries(&lt;mytarget&gt; PUBLIC libdl)</div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

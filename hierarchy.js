@@ -17,7 +17,7 @@ var hierarchy =
       [ "dl::Linear", "classdl_1_1Linear.html", null ]
     ] ],
     [ "dl::Optimizer", "classdl_1_1Optimizer.html", null ],
-    [ "dl::utils::ScopeGuard< T >", "classdl_1_1utils_1_1ScopeGuard.html", null ],
+    [ "dl::utils::ScopeGuard", "classdl_1_1utils_1_1ScopeGuard.html", null ],
     [ "dl::Trainer< R(Args...)>::Settings", "structdl_1_1Trainer_3_01R_07Args_8_8_8_08_4_1_1Settings.html", null ],
     [ "std::shared_ptr< T >", null, [
       [ "dl::TensorPtr", "classdl_1_1TensorPtr.html", null ]

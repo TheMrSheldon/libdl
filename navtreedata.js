@@ -25,6 +25,9 @@
 var NAVTREE =
 [
   [ "libdl", "index.html", [
+    [ "Usage", "index.html#autotoc_md1", [
+      [ "CMake", "index.html#autotoc_md2", null ]
+    ] ],
     [ "Todo List", "todo.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],

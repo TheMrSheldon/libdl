@@ -138,11 +138,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6707cc2271e15daecb6bb6c7625dc675"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Device.html#a6707cc2271e15daecb6bb6c7625dc675">empty</a> (Shape shape, bool requiresGrad=false) const noexcept=0</td></tr>
 <tr class="memdesc:a6707cc2271e15daecb6bb6c7625dc675"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new tensor of the specified shape without initializing the memory.  <a href="classdl_1_1Device.html#a6707cc2271e15daecb6bb6c7625dc675">More...</a><br /></td></tr>
 <tr class="separator:a6707cc2271e15daecb6bb6c7625dc675"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1751225c670c4a1d51fae3c62ba12bde"><td class="memItemLeft" align="right" valign="top"><a id="a1751225c670c4a1d51fae3c62ba12bde"></a>
-virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><b>zero</b> (Shape shape, bool requiresGrad=false) const noexcept=0</td></tr>
+<tr class="memitem:a1751225c670c4a1d51fae3c62ba12bde"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Device.html#a1751225c670c4a1d51fae3c62ba12bde">zero</a> (Shape shape, bool requiresGrad=false) const noexcept=0</td></tr>
+<tr class="memdesc:a1751225c670c4a1d51fae3c62ba12bde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new tensor of the specified shape. All entries are initialized to zero.  <a href="classdl_1_1Device.html#a1751225c670c4a1d51fae3c62ba12bde">More...</a><br /></td></tr>
 <tr class="separator:a1751225c670c4a1d51fae3c62ba12bde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade866918a944886aefc4cb98465f0d51"><td class="memItemLeft" align="right" valign="top"><a id="ade866918a944886aefc4cb98465f0d51"></a>
-virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ones</b> (Shape shape, bool requiresGrad=false) const noexcept=0</td></tr>
+<tr class="memitem:ade866918a944886aefc4cb98465f0d51"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Device.html#ade866918a944886aefc4cb98465f0d51">ones</a> (Shape shape, bool requiresGrad=false) const noexcept=0</td></tr>
+<tr class="memdesc:ade866918a944886aefc4cb98465f0d51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new tensor of the specified shape. All entries are initialized to one.  <a href="classdl_1_1Device.html#ade866918a944886aefc4cb98465f0d51">More...</a><br /></td></tr>
 <tr class="separator:ade866918a944886aefc4cb98465f0d51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6c091cbec4493390a2d4bf4e593088a"><td class="memItemLeft" align="right" valign="top"><a id="ad6c091cbec4493390a2d4bf4e593088a"></a>
 virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><b>constant</b> (int value, bool requiresGrad=false) const noexcept=0</td></tr>
@@ -230,10 +230,10 @@ Static Private Attributes</h2></td></tr>
 
 <p>Temporarily modifies the default device. </p>
 <p>Example call: </p><div class="fragment"><div class="line">{<a class="code" href="classdl_1_1Device.html#afbcd1ab1f1e55005ad93d06dd06d9cfb">Device::changeDefaultDevice</a>(mydevice);</div>
-<div class="line">    mydevice is <span class="keywordflow">default</span>.</div>
+<div class="line">    <span class="comment">// mydevice is default.</span></div>
 <div class="line">}</div>
-<div class="line">mydevice is not <span class="keywordflow">default</span> anymore.</div>
-<div class="ttc" id="aclassdl_1_1Device_html_afbcd1ab1f1e55005ad93d06dd06d9cfb"><div class="ttname"><a href="classdl_1_1Device.html#afbcd1ab1f1e55005ad93d06dd06d9cfb">dl::Device::changeDefaultDevice</a></div><div class="ttdeci">static auto changeDefaultDevice(Device &amp;device)</div><div class="ttdoc">Temporarily modifies the default device.</div><div class="ttdef"><b>Definition:</b> device.hpp:75</div></div>
+<div class="line"><span class="comment">// mydevice is not default anymore.</span></div>
+<div class="ttc" id="aclassdl_1_1Device_html_afbcd1ab1f1e55005ad93d06dd06d9cfb"><div class="ttname"><a href="classdl_1_1Device.html#afbcd1ab1f1e55005ad93d06dd06d9cfb">dl::Device::changeDefaultDevice</a></div><div class="ttdeci">static auto changeDefaultDevice(Device &amp;device)</div><div class="ttdoc">Temporarily modifies the default device.</div><div class="ttdef"><b>Definition:</b> device.hpp:89</div></div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">device</td><td>The device that should be default for the current scope. </td></tr>
@@ -318,6 +318,98 @@ Static Private Attributes</h2></td></tr>
 <p>The default device is thread local. That means that modifying the default device from another thread will not effect other threads.</p>
 <dl class="section return"><dt>Returns</dt><dd>The current default device. </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classdl_1_1Device.html#afbcd1ab1f1e55005ad93d06dd06d9cfb" title="Temporarily modifies the default device.">Device::changeDefaultDevice(Device&amp;)</a> </dd></dl>
+
+</div>
+</div>
+<a id="ade866918a944886aefc4cb98465f0d51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade866918a944886aefc4cb98465f0d51">&#9670;&nbsp;</a></span>ones()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> dl::Device::ones </td>
+          <td>(</td>
+          <td class="paramtype">Shape&#160;</td>
+          <td class="paramname"><em>shape</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>requiresGrad</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a new tensor of the specified shape. All entries are initialized to one. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shape</td><td>The shape of the tensor. </td></tr>
+    <tr><td class="paramname">requiresGrad</td><td>True if a gradient should be calculate for the newly constructed tensor. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The newly created tensor. </dd></dl>
+
+</div>
+</div>
+<a id="a1751225c670c4a1d51fae3c62ba12bde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1751225c670c4a1d51fae3c62ba12bde">&#9670;&nbsp;</a></span>zero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> dl::Device::zero </td>
+          <td>(</td>
+          <td class="paramtype">Shape&#160;</td>
+          <td class="paramname"><em>shape</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>requiresGrad</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a new tensor of the specified shape. All entries are initialized to zero. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shape</td><td>The shape of the tensor. </td></tr>
+    <tr><td class="paramname">requiresGrad</td><td>True if a gradient should be calculate for the newly constructed tensor. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The newly created tensor. </dd></dl>
 
 </div>
 </div>
