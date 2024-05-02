@@ -5,9 +5,9 @@
     <a><img alt="GPL 2.0 License" src="https://img.shields.io/github/license/TheMrSheldon/libdl.svg"/></a>
     <a><img alt="Current Release" src="https://img.shields.io/github/release/TheMrSheldon/libdl.svg"/></a>
     <br>
-    <a href="https://tira-io.github.io/tira/">Documentation</a> &nbsp;|&nbsp;
-    <a href="./python-client/">API</a> &nbsp;|&nbsp;
-    <a href="./python-client/">Examples</a> &nbsp;|&nbsp;
+    <a href="https://themrsheldon.github.io/libdl">Documentation</a> &nbsp;|&nbsp;
+    <a href="https://themrsheldon.github.io/libdl/namespaces.html">API</a> &nbsp;|&nbsp;
+    <a href="https://github.com/TheMrSheldon/libdl/tree/main/examples">Examples</a> &nbsp;|&nbsp;
     <a href="#citation">Citation</a>
 </p>
 
