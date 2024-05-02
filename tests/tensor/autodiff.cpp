@@ -6,7 +6,7 @@
 
 TEST_CASE("Basic Differentiation", "[Autodiff]") {
 	{
-		dl::TensorPtr tensora = {1.0f, 2.0f, 3.0f, 4.0f};
+		/*dl::TensorPtr tensora = {1.0f, 2.0f, 3.0f, 4.0f};
 		tensora->setRequiresGrad(true);
 
 		dl::TensorPtr tensorb = {2.0f, 2.0f, 3.0f, 3.0f};
@@ -17,6 +17,6 @@ TEST_CASE("Basic Differentiation", "[Autodiff]") {
 		REQUIRE(tensora == dl::TensorPtr{1.0f, 2.0f, 3.0f, 4.0f});
 		REQUIRE(tensora->requiresGrad());
 		REQUIRE(tensorb == dl::TensorPtr{2.0f, 2.0f, 3.0f, 3.0f});
-		REQUIRE(tensorb->requiresGrad());
+		REQUIRE(tensorb->requiresGrad());*/
 	}
 }

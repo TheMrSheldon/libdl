@@ -15,7 +15,7 @@ RUN apt-get -y install cppcheck doxygen graphviz gdb \
     clang-format
 
 # Dependencies
-RUN apt-get -y install libopenblas-dev libssl-dev \
+RUN apt-get -y install libopenblas-dev libssl-dev zlib1g-dev \
     # Dependency of libir
     libboost-iostreams-dev
 
