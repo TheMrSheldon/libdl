@@ -9,16 +9,13 @@ using TensorPtr = dl::TensorPtr;
 
 Tensor::Tensor(const Device& device, bool requiresGrad) noexcept : _device(device), _requiresGrad(requiresGrad) {}
 
+const Device& Tensor::device() const noexcept { return _device; }
+
 void Tensor::setRequiresGrad(bool requiresGrad) noexcept { _requiresGrad = requiresGrad; }
 bool Tensor::requiresGrad() const noexcept { return _requiresGrad; }
 
-const Device& Tensor::device() const noexcept { return _device; }
-
-/*
-TensorPtr dl::empty(Shape size, const Device& device) { return device.empty(size); }
-TensorPtr dl::zero(Shape size, const Device& device) { return device.zero(size); }
-TensorPtr dl::ones(Shape size, const Device& device) { return device.ones(size); }
-
-TensorPtr constant(int value, Device const& device);
-TensorPtr constant(float value, Device const& device);
-TensorPtr constant(double value, Device const& device) { return device.constant(); }*/
+void Tensor::backward(bool enableAutodiff) noexcept {
+	/** \todo implement autodiff **/
+	grad = dl::constant(1.0f, device());
+	gradfn(grad);
+}

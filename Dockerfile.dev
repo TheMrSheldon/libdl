@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:23.04
 
 
 ########################################################################################################################
@@ -14,7 +14,7 @@ RUN apt-get -y install g++-13 cmake git
 RUN apt-get -y install cppcheck doxygen graphviz gdb
 
 # Dependencies
-RUN apt-get -y install libopenblas-dev
+RUN apt-get -y install libopenblas-dev libssl-dev
 
 
 ########################################################################################################################

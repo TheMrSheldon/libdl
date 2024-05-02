@@ -1,15 +1,25 @@
 #pragma once
 
+#include "shape.hpp"
 #include "tensorptr.hpp"
+
+#include <functional>
 #include <iostream>
 
 namespace dl {
 	class Device;
 
 	class Tensor {
+		using GradFn = std::function<void(TensorPtr)>;
+
 	private:
 		bool _requiresGrad;
 		Device const& _device;
+
+	public:
+		GradFn gradfn = nullptr;
+		TensorPtr grad = nullptr;
+		/** \todo add retain graph option **/
 
 	protected:
 		Tensor(Device const& device, bool requiresGrad) noexcept;
@@ -47,6 +57,14 @@ namespace dl {
 		 */
 		bool requiresGrad() const noexcept;
 
+		void backward(bool enableAutodiff = false) noexcept;
+
+		const TensorPtr gradient() const noexcept { return grad; }
+		void discardGradient() noexcept {
+			gradfn = nullptr;
+			grad = nullptr;
+		}
+
 		virtual std::ostream& writeToStream(std::ostream& stream) const noexcept = 0;
 		virtual TensorPtr add(const TensorPtr& other) const noexcept = 0;
 		virtual TensorPtr sub(const TensorPtr& other) const noexcept = 0;
@@ -57,6 +75,14 @@ namespace dl {
 
 		virtual TensorPtr pow(float exponent) const noexcept = 0;
 		virtual TensorPtr mean() const noexcept = 0;
-		
+
+		virtual void mul_inplace(const TensorPtr& other) noexcept = 0;
+
+		virtual TensorPtr clone() const noexcept = 0;
+
+		virtual Shape shape() const noexcept = 0;
+		virtual size_t shape(size_t dim) const noexcept = 0;
+
+		virtual TensorPtr flatten() const noexcept = 0;
 	};
 } // namespace dl

@@ -1,5 +1,6 @@
 #include <iostream>
 
+#include <dl/device.hpp>
 #include <dl/learning/dataset.hpp>
 #include <dl/learning/loss.hpp>
 #include <dl/learning/trainer.hpp>
@@ -8,6 +9,8 @@
 #include <dl/tensor/math.hpp>
 #include <dl/tensor/tensor.hpp>
 
+#include <cmath>
+
 class MyModel : public dl::Model<dl::TensorPtr(dl::TensorPtr)> {
 private:
 	dl::Linear linear;
@@ -15,6 +18,7 @@ private:
 public:
 	MyModel() : linear(1, 1, false) { registerSubmodel(linear); }
 
+	//Maybe this solves the duplication https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0847r7.html
 	dl::TensorPtr forward(dl::TensorPtr input) { return linear(input); }
 	dl::TensorPtr forward(dl::TensorPtr input) const { return linear(input); }
 };
@@ -54,13 +58,28 @@ public:
 	}
 };
 
+class GradientDescent : public dl::Optimizer {
+private:
+	const std::vector<dl::TensorPtr> parameters;
+	const float learnrate;
+
+public:
+	explicit GradientDescent(std::vector<dl::TensorPtr>&& parameters, float learnrate = 0.001)
+			: dl::Optimizer(), parameters(std::move(parameters)), learnrate(learnrate) {}
+
+	virtual void step(dl::TensorPtr loss) override {
+		for (auto& tensor : parameters)
+			tensor->mul_inplace(tensor->grad);
+	}
+};
+
 // https://arxiv.org/abs/1412.6980
 class Adam : public dl::Optimizer {
 private:
-	float lr;
-	float beta1;
-	float beta2;
-	float eps;
+	const float lr;
+	const float beta1;
+	const float beta2;
+	const float eps;
 
 public:
 	Adam(float lr = 0.001, float beta1 = 0.9, float beta2 = 0.999, float eps = 1e-8)
@@ -74,16 +93,26 @@ public:
 };
 
 int main(int argc, char* argv[]) {
-	MyModel model;
+	dl::TensorPtr tensora = {1.0f, 2.0f, 3.0f, 4.0f};
+	tensora->setRequiresGrad(true);
+
+	dl::TensorPtr tensorb = {2.0f, 2.0f, 3.0f, 3.0f};
+	tensorb->setRequiresGrad(true);
+	auto tensorc = tensora * tensorb;
+	auto tensord = dl::mean(tensorc);
+	// std::cout << tensord << std::endl; // Expected: 6.75
+	tensord->backward();
+	std::cout << tensora->gradient() << std::endl; // Expected: (0.50, 0.50, 0.75, 0.75)
+	/*MyModel model;
 
 	using Trainer = dl::InferTrainer<MyModel>;
 	Trainer trainer(Trainer::Settings{
 			.createDataset = [] { return std::make_unique<MyDataset>(); },
 			.loss = dl::loss::mse,
-			.optimizer = std::make_unique<Adam>(),
+			.optimizer = std::make_unique<GradientDescent>(),
 			.limitEpochs = 10,
 	});
 	trainer.fit(model);
-	trainer.test(model);
+	trainer.test(model);*/
 	return 0;
 }

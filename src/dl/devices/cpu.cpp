@@ -1,11 +1,10 @@
 #include <dl/device.hpp>
 #include <dl/tensor/tensor.hpp>
 
+#include <xtensor-blas/xlinalg.hpp>
 #include <xtensor/xarray.hpp>
 #include <xtensor/xexpression.hpp>
 #include <xtensor/xio.hpp>
-#include <xtensor-blas/xlinalg.hpp>
-
 
 namespace dl {
 	class CPUDenseFloatTensor final : public Tensor {
@@ -37,7 +36,6 @@ namespace dl {
 			return createResult(data / downcast(other).data, requiresGrad() || other->requiresGrad());
 		}
 
-
 		virtual TensorPtr matmul(const TensorPtr& other) const noexcept override {
 			return createResult(std::move(xt::linalg::dot(data, downcast(other).data)), requiresGrad());
 		}
@@ -48,6 +46,18 @@ namespace dl {
 
 		virtual TensorPtr mean() const noexcept override {
 			return createResult(std::move(xt::mean(data)), requiresGrad());
+		}
+
+		virtual void mul_inplace(const TensorPtr& other) noexcept override { data *= downcast(other).data; }
+
+		virtual TensorPtr clone() const noexcept override { return {std::make_shared<CPUDenseFloatTensor>(*this)}; }
+
+		virtual size_t shape(size_t dim) const noexcept { return data.shape(dim); }
+
+		virtual Shape shape() const noexcept { return Shape(std::begin(data.shape()), std::end(data.shape())); }
+
+		virtual TensorPtr flatten() const noexcept {
+			return createResult(std::move(xt::flatten(data)), requiresGrad());
 		}
 
 		inline TensorPtr createResult(xt::xarray<float> data, bool requireGrad) const noexcept {
@@ -88,6 +98,10 @@ namespace dl {
 		}
 		virtual TensorPtr constant(double value, bool requiresGrad) const noexcept override {
 			xt::xarray<float> expr = value; /** \todo: allow tensors of different datatypes **/
+			return {std::make_shared<CPUDenseFloatTensor>(expr, *this, requiresGrad)};
+		}
+		virtual TensorPtr constant(std::initializer_list<float> value, bool requiresGrad) const noexcept override {
+			xt::xarray<float> expr = value;
 			return {std::make_shared<CPUDenseFloatTensor>(expr, *this, requiresGrad)};
 		}
 	};

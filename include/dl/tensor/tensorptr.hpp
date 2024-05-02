@@ -2,41 +2,50 @@
 
 #include <concepts>
 #include <memory>
-#include <vector>
 
 namespace dl {
-    class Tensor;
-	using Shape = std::vector<std::size_t>;
-    class TensorPtr;
+	class Tensor;
 
-    class TensorPtr : std::shared_ptr<Tensor> {
-    private:
-        /** \todo add autograd graph **/
-    public:
-        TensorPtr(std::shared_ptr<Tensor>&& other) : std::shared_ptr<Tensor>(std::move(other)) {};
-        TensorPtr(const std::shared_ptr<Tensor>& other) : std::shared_ptr<Tensor>(other) {};
-        TensorPtr(TensorPtr&& other) : std::shared_ptr<Tensor>(std::move(other)) {};
-        TensorPtr(const TensorPtr& other) : std::shared_ptr<Tensor>(other) {};
+	class TensorPtr : public std::shared_ptr<Tensor> {
+	public:
+		TensorPtr(std::shared_ptr<Tensor>&& other) : std::shared_ptr<Tensor>(std::move(other)){};
+		TensorPtr(const std::shared_ptr<Tensor>& other) : std::shared_ptr<Tensor>(other){};
+		TensorPtr(TensorPtr&& other) : std::shared_ptr<Tensor>(std::move(other)){};
+		TensorPtr(const TensorPtr& other) : std::shared_ptr<Tensor>(other){};
 
-        TensorPtr(std::integral auto value);
-        TensorPtr(std::floating_point auto value);
+		TensorPtr(std::nullptr_t p) : std::shared_ptr<Tensor>(p) {}
+		TensorPtr(int value);
+		TensorPtr(float value);
+		TensorPtr(double value);
+		TensorPtr(std::initializer_list<int> value);
+		TensorPtr(std::initializer_list<float> value);
+		TensorPtr(std::initializer_list<double> value);
 
-        using std::shared_ptr<Tensor>::operator bool;
+		/*using std::shared_ptr<Tensor>::operator bool;
         using std::shared_ptr<Tensor>::operator*;
         using std::shared_ptr<Tensor>::operator->;
-        using std::shared_ptr<Tensor>::operator=;
+        using std::shared_ptr<Tensor>::operator=;*/
 
-        TensorPtr& operator=(const TensorPtr& other) {
-            this->std::shared_ptr<Tensor>::operator=(other);
-            return *this;
-        }
-        TensorPtr& operator=(TensorPtr&& other) {
-            this->std::shared_ptr<Tensor>::operator=(std::move(other));
-            return *this;
-        }
-    };
+		TensorPtr& operator=(const TensorPtr& other) {
+			this->std::shared_ptr<Tensor>::operator=(other);
+			return *this;
+		}
+		TensorPtr& operator=(TensorPtr&& other) {
+			this->std::shared_ptr<Tensor>::operator=(std::move(other));
+			return *this;
+		}
+
+		bool operator==(const std::nullptr_t& other) { return get() == nullptr; }
+	};
+} // namespace dl
+
+// These are OK since we only add template specializations: https://en.cppreference.com/w/cpp/language/extending_std
+/*
+template <>
+auto std::begin(dl::TensorPtr& ptr) {
+	return ptr->begin();
 }
-
-#include "../device.hpp"
-dl::TensorPtr::TensorPtr(std::integral auto value) : dl::TensorPtr(std::move(constant(value))) {}
-dl::TensorPtr::TensorPtr(std::floating_point auto value) : dl::TensorPtr(std::move(constant(value))) {}
+template <>
+auto std::end(dl::TensorPtr& ptr) {
+	return ptr->end();
+}*/

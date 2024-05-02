@@ -1,1 +1,2 @@
 add_subdirectory(01_simple)
+add_subdirectory(02_ranking)
