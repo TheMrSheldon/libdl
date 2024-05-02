@@ -1,71 +1,114 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Heavily based on https://github.com/jothepro/doxygen-awesome-css/blob/main/doxygen-custom/header.html -->
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.9.1"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<!-- BEGIN opengraph metadata -->
-<meta property="og:title" content="Doxygen Awesome" />
-<meta property="og:image" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
-<meta property="og:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
-<meta property="og:url" content="https://jothepro.github.io/doxygen-awesome-css/" />
-<!-- END opengraph metadata -->
-<!-- BEGIN twitter metadata -->
-<meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/348492097/4f16df80-88fb-11eb-9d31-4015ff22c452" />
-<meta name="twitter:title" content="Doxygen Awesome" />
-<meta name="twitter:description" content="Custom CSS theme for doxygen html-documentation with lots of customization parameters." />
-<!-- END twitter metadata -->
-<title>libdl: dl::utils::GenericIterator&lt; T &gt; Class Template Reference</title>
-<link href="tabs.css" rel="stylesheet" type="text/css"/>
-<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="dynsections.js"></script>
-<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
-<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
-<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
-<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
-<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
-<script type="text/javascript" src="toggle-alternative-theme.js"></script>
-<script type="text/javascript">
-    DoxygenAwesomeFragmentCopyButton.init()
-    DoxygenAwesomeDarkModeToggle.init()
-    DoxygenAwesomeParagraphLink.init()
-    DoxygenAwesomeInteractiveToc.init()
-    DoxygenAwesomeTabs.init()
-</script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta name="generator" content="Doxygen 1.9.1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- BEGIN opengraph metadata -->
+    <meta property="og:title" content=libdl />
+    <meta property="og:image" content="twemoji-brain.png" />
+    <meta property="og:description" content="Simple yet powerful deep learning" />
+    <meta property="og:url" content="https://github.com/TheMrSheldon/libdl" />
+    <!-- END opengraph metadata -->
+    <!-- BEGIN twitter metadata -->
+    <meta name="twitter:image:src" content="twemoji-brain.png" />
+    <meta name="twitter:title" content="libdl" />
+    <meta name="twitter:description" content="Simple yet powerful deep learning" />
+    <!-- END twitter metadata -->
+    <title>libdl: dl::utils::GenericIterator&lt; T &gt; Class Template Reference</title>
+    <link href="tabs.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/svg+xml" href="twemoji-brain.png" />
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="dynsections.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+    <script type="text/javascript" src="toggle-alternative-theme.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeFragmentCopyButton.init()
+        DoxygenAwesomeDarkModeToggle.init()
+        DoxygenAwesomeParagraphLink.init()
+        DoxygenAwesomeInteractiveToc.init()
+        DoxygenAwesomeTabs.init()
+    </script>
+    <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
+    <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+    <link href="doxygen.css" rel="stylesheet" type="text/css" />
+    <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-tabs.js" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<!-- https://tholman.com/github-corners/ -->
-<a href="https://github.com/jothepro/doxygen-awesome-css" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
-    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
-    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
-<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
-<div id="titlearea">
-<table cellspacing="0" cellpadding="0">
- <tbody>
- <tr style="height: 56px;">
-  <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">libdl
-   </div>
-  </td>
- </tr>
- </tbody>
-</table>
-</div>
-<!-- end header part -->
-<!-- Generated by Doxygen 1.9.1 -->
+    <!-- https://tholman.com/github-corners/ -->
+    <a href="https://github.com/TheMrSheldon/libdl" class="github-corner" title="View source on GitHub" target="_blank"
+        rel="noopener noreferrer">
+        <svg viewBox="0 0 250 250" width="40" height="40"
+            style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+            <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+            <path
+                d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+                fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+            <path
+                d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+                fill="currentColor" class="octo-body"></path>
+        </svg></a>
+    <style>
+        .github-corner:hover .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+        }
+        @keyframes octocat-wave {
+            0%,
+            100% {
+                transform: rotate(0)
+            }
+            20%,
+            60% {
+                transform: rotate(-25deg)
+            }
+            40%,
+            80% {
+                transform: rotate(10deg)
+            }
+        }
+        @media (max-width:500px) {
+            .github-corner:hover .octo-arm {
+                animation: none
+            }
+            .github-corner .octo-arm {
+                animation: octocat-wave 560ms ease-in-out
+            }
+        }
+    </style>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+        <div id="titlearea">
+            <table cellspacing="0" cellpadding="0">
+                <tbody>
+                    <tr style="height: 56px;">
+                        <td id="projectlogo"><img alt="Logo" src="twemoji-brain.png" /></td>
+                        <td id="projectalign" style="padding-left: 0.5em;">
+                            <div id="projectname">libdl
+                                &#160;<span
+                                    id="projectnumber">0.0.1</span>
+                            </div>
+                            <div id="projectbrief">Simple yet powerful deep learning</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- end header part --><!-- Generated by Doxygen 1.9.1 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
@@ -127,16 +170,7 @@ $(document).ready(function(){initNavTree('classdl_1_1utils_1_1GenericIterator.ht
 <p>Represents a generic iterator that can be initialized to hold any other class instance that satisfies the std::input_or_output_iterator concept.  
  <a href="classdl_1_1utils_1_1GenericIterator.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="generic__iterator_8hpp_source.html">dl/utils/generic_iterator.hpp</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for dl::utils::GenericIterator&lt; T &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="classdl_1_1utils_1_1GenericIterator__coll__graph.png" border="0" usemap="#adl_1_1utils_1_1GenericIterator_3_01T_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="adl_1_1utils_1_1GenericIterator_3_01T_01_4_coll__map" id="adl_1_1utils_1_1GenericIterator_3_01T_01_4_coll__map">
-<area shape="rect" title="Represents a generic iterator that can be initialized to hold any other class instance that satisfies..." alt="" coords="5,124,220,151"/>
-<area shape="rect" title=" " alt="" coords="31,5,195,61"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<p><code>#include &lt;<a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -226,6 +260,8 @@ class dl::utils::GenericIterator&lt; T &gt;</h3>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="generic__iterator_8hpp_source.html#l00024">24</a> of file <a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a60758be64239ac7ae0f9359b6a2e7209"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a60758be64239ac7ae0f9359b6a2e7209">&#9670;&nbsp;</a></span>GenericIterator() <span class="overload">[1/4]</span></h2>
@@ -261,6 +297,10 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="generic__iterator_8hpp_source.html#l00158">158</a> of file <a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;: <a class="code" href="classdl_1_1utils_1_1GenericIterator.html#a61de33f7cc1ca6acd54724e40324d3ad">impl</a>(other.impl-&gt;clone()) {}</div>
+<div class="ttc" id="aclassdl_1_1utils_1_1GenericIterator_html_a61de33f7cc1ca6acd54724e40324d3ad"><div class="ttname"><a href="classdl_1_1utils_1_1GenericIterator.html#a61de33f7cc1ca6acd54724e40324d3ad">dl::utils::GenericIterator::impl</a></div><div class="ttdeci">std::unique_ptr&lt; AIter &gt; impl</div><div class="ttdoc">The AIter implementation used to implement the generic iterator.</div><div class="ttdef"><b>Definition:</b> <a href="generic__iterator_8hpp_source.html#l00139">generic_iterator.hpp:139</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ab877b01da4585fde2e745af1a1ce922e"></a>
@@ -297,6 +337,9 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="generic__iterator_8hpp_source.html#l00165">165</a> of file <a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;: <a class="code" href="classdl_1_1utils_1_1GenericIterator.html#a61de33f7cc1ca6acd54724e40324d3ad">impl</a>(std::move(other.impl)) {}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ae28368e562669cd9125357918ef9dc98"></a>
@@ -342,6 +385,9 @@ template&lt;std::input_or_output_iterator TIt&gt; </div>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classdl_1_1utils_1_1GenericIterator.html#af33b7262fe791c0de07cb7fe6c73e585" title="Constructs a new GenericIterator from the provided arbitrary object that satisfies the std::input_or_...">GenericIterator(TIt, std::shared_ptr&lt;auto&gt;)</a> </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="generic__iterator_8hpp_source.html#l00176">176</a> of file <a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;: <a class="code" href="classdl_1_1utils_1_1GenericIterator.html#a61de33f7cc1ca6acd54724e40324d3ad">impl</a>(std::make_unique&lt;Iter&lt;TIt&gt;&gt;(iterator)) {}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="af33b7262fe791c0de07cb7fe6c73e585"></a>
@@ -398,6 +444,9 @@ template&lt;std::input_or_output_iterator TIt&gt; </div>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classdl_1_1utils_1_1GenericIterator.html#ae28368e562669cd9125357918ef9dc98" title="Constructs a new GenericIterator from the provided arbitrary object that satisfies the std::input_or_...">GenericIterator(TIt)</a> </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="generic__iterator_8hpp_source.html#l00189">189</a> of file <a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                : <a class="code" href="classdl_1_1utils_1_1GenericIterator.html#a61de33f7cc1ca6acd54724e40324d3ad">impl</a>(std::make_unique&lt;Iter&lt;TIt&gt;&gt;(iterator, userdata)) {}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -429,6 +478,9 @@ template&lt;typename T &gt; </div>
 <p>Dereferences the iterator. That is, returns the data it currently points at. </p>
 <dl class="section return"><dt>Returns</dt><dd>The data the iterator currently points at. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="generic__iterator_8hpp_source.html#l00219">219</a> of file <a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classdl_1_1utils_1_1GenericIterator.html#a61de33f7cc1ca6acd54724e40324d3ad">impl</a>-&gt;deref(); }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ad1dec85e57f8de6d8a420165cbbd461d"></a>
@@ -459,6 +511,12 @@ template&lt;typename T &gt; </div>
 <p>Increments the iterator. That is, advancing it forward by one. </p>
 <dl class="section return"><dt>Returns</dt><dd>A reference to this iterator. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="generic__iterator_8hpp_source.html#l00225">225</a> of file <a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                                                  {</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            <a class="code" href="classdl_1_1utils_1_1GenericIterator.html#a61de33f7cc1ca6acd54724e40324d3ad">impl</a>-&gt;advance();</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a0f8ccd250b4fff490cfcb3432a371d09"></a>
@@ -490,6 +548,13 @@ template&lt;typename T &gt; </div>
 <p>Late increments the iterator. That is, advances the iterator by one but returns a copy of the iterator prior to advancing. </p>
 <dl class="section return"><dt>Returns</dt><dd>The iterator before it got advanced. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="generic__iterator_8hpp_source.html#l00235">235</a> of file <a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                                                    {</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            <span class="keyword">auto</span> copy = *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            (*this)++;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;            <span class="keywordflow">return</span> copy;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a520c5e990211413d08ed4f9f44bcc9c8"></a>
@@ -527,6 +592,12 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to this. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="generic__iterator_8hpp_source.html#l00198">198</a> of file <a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                                                                                {</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            <a class="code" href="classdl_1_1utils_1_1GenericIterator.html#a61de33f7cc1ca6acd54724e40324d3ad">impl</a> = other.impl;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ad3affc62064b8f3fdc9d04b8fee7e26e"></a>
@@ -564,6 +635,12 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to this. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="generic__iterator_8hpp_source.html#l00209">209</a> of file <a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                                                                           {</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            <a class="code" href="classdl_1_1utils_1_1GenericIterator.html#a61de33f7cc1ca6acd54724e40324d3ad">impl</a> = std::move(other.impl);</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a22e93ece9df054ec9e4c6a45693848ee"></a>
@@ -601,6 +678,9 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if and only if this iterator is equal to <code>other</code>. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="generic__iterator_8hpp_source.html#l00246">246</a> of file <a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classdl_1_1utils_1_1GenericIterator.html#a61de33f7cc1ca6acd54724e40324d3ad">impl</a>-&gt;equals(*other.impl); }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>

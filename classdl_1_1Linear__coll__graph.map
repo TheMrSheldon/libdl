@@ -1,7 +1,6 @@
 <map id="dl::Linear" name="dl::Linear">
-<area shape="rect" id="node1" title=" " alt="" coords="64,289,147,316"/>
-<area shape="rect" id="node2" href="$classdl_1_1Model.html" title=" " alt="" coords="5,171,163,212"/>
-<area shape="rect" id="node3" href="$classdl_1_1TensorPtr.html" title=" " alt="" coords="187,178,290,205"/>
-<area shape="rect" id="node4" title=" " alt="" coords="160,95,317,121"/>
-<area shape="rect" id="node5" title=" " alt="" coords="219,5,258,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="64,200,147,227"/>
+<area shape="rect" id="node2" href="$classdl_1_1Model.html" title=" " alt="" coords="5,81,163,123"/>
+<area shape="rect" id="node3" href="$classdl_1_1TensorPtr.html" title=" " alt="" coords="187,89,290,115"/>
+<area shape="rect" id="node4" title=" " alt="" coords="143,5,334,32"/>
 </map>

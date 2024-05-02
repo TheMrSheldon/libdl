@@ -8,6 +8,7 @@ var classdl_1_1Device =
     [ "constant", "classdl_1_1Device.html#aa747f84006a76a92467258ac13b073a5", null ],
     [ "constant", "classdl_1_1Device.html#a49068a99ca30c273dbc7c7daebc05e6a", null ],
     [ "constant", "classdl_1_1Device.html#ad6c091cbec4493390a2d4bf4e593088a", null ],
+    [ "constant", "classdl_1_1Device.html#af1e95d25b37cdf4fe0bc817ad803ff3b", null ],
     [ "empty", "classdl_1_1Device.html#a6707cc2271e15daecb6bb6c7625dc675", null ],
     [ "getDefault", "classdl_1_1Device.html#aafd5fab7afae2a184b99615caa9d89eb", null ],
     [ "ones", "classdl_1_1Device.html#ade866918a944886aefc4cb98465f0d51", null ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zero_90',['zero',['../classdl_1_1Device.html#a1751225c670c4a1d51fae3c62ba12bde',1,'dl::Device']]]
+  ['urlstream_115',['URLStream',['../classdl_1_1utils_1_1URLStream.html#acc7561a0856e6e083f6f4910846fa091',1,'dl::utils::URLStream']]]
 ];

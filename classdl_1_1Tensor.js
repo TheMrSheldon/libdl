@@ -1,18 +1,29 @@
 var classdl_1_1Tensor =
 [
+    [ "GradFn", "classdl_1_1Tensor.html#a5bd3c4186cc35f1b5704acdd936c4b84", null ],
     [ "Tensor", "classdl_1_1Tensor.html#a0b3c044d614cb186215d026063a9eaf3", null ],
     [ "add", "classdl_1_1Tensor.html#a1c92e534154d7614a541930bc137c4ab", null ],
+    [ "backward", "classdl_1_1Tensor.html#ada5c66385fcac222b4275dfb773fe6b9", null ],
+    [ "clone", "classdl_1_1Tensor.html#a61bf18137321992aea50138db1f4b9cf", null ],
     [ "device", "classdl_1_1Tensor.html#a9c55213db09c4af9987c21cafc56e6c3", null ],
+    [ "discardGradient", "classdl_1_1Tensor.html#aa0b3ad8db3465a870ca58bb34c9b972d", null ],
     [ "div", "classdl_1_1Tensor.html#aeaa24ef19c910e24c7fda32b06c362d1", null ],
+    [ "flatten", "classdl_1_1Tensor.html#aeaa92b67bbfec86833b66a451d6d6804", null ],
+    [ "gradient", "classdl_1_1Tensor.html#afabf7bfaa71dd33db48a0b9dfb7eea42", null ],
     [ "matmul", "classdl_1_1Tensor.html#a13e63e923fc3a76e132e2f1e03d1ab57", null ],
     [ "mean", "classdl_1_1Tensor.html#a700103308b3dd44c4f7131768d8bfb26", null ],
     [ "mul", "classdl_1_1Tensor.html#a86d190732988738c478ff04ade54685b", null ],
+    [ "mul_inplace", "classdl_1_1Tensor.html#a312cba94d3023a5ab13d8e730dc78305", null ],
     [ "pow", "classdl_1_1Tensor.html#ab6b49c9c1147734feda78774733bb0a9", null ],
     [ "requiresGrad", "classdl_1_1Tensor.html#a49ec4a718a05dc6204f2639e84da51d0", null ],
     [ "setRequiresGrad", "classdl_1_1Tensor.html#a63c8df3fadf495ec1b5636476ea7f9fc", null ],
+    [ "shape", "classdl_1_1Tensor.html#a84f17918151cae88ff916d01f7dcf472", null ],
+    [ "shape", "classdl_1_1Tensor.html#af995972308138732f0e14abba9a6a707", null ],
     [ "sub", "classdl_1_1Tensor.html#ae7f37901d1b657bca13384416ffe6453", null ],
     [ "to", "classdl_1_1Tensor.html#a51fbc5e992da2fa63d6174bab14c58df", null ],
     [ "writeToStream", "classdl_1_1Tensor.html#a7b92ceefcd960b69d68d4b380da6e563", null ],
     [ "_device", "classdl_1_1Tensor.html#a3354abbb7da11e3824c109772571c39f", null ],
-    [ "_requiresGrad", "classdl_1_1Tensor.html#ad248098c4b0b44bb064b2d7b23a742a7", null ]
+    [ "_requiresGrad", "classdl_1_1Tensor.html#ad248098c4b0b44bb064b2d7b23a742a7", null ],
+    [ "grad", "classdl_1_1Tensor.html#a8e9be471ec3e5663d00d4792d3a59caf", null ],
+    [ "gradfn", "classdl_1_1Tensor.html#a5c9bd1a2191fed184a0897d4691f40bf", null ]
 ];

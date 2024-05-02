@@ -25,10 +25,14 @@
 var NAVTREE =
 [
   [ "libdl", "index.html", [
-    [ "Usage", "index.html#autotoc_md1", [
+    [ "Usage", "index.html#autotoc_md0", null ],
+    [ "Installation", "index.html#autotoc_md1", [
       [ "CMake", "index.html#autotoc_md2", null ]
     ] ],
     [ "Todo List", "todo.html", null ],
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -47,7 +51,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"annotated.html",
+"math_8hpp.html#a6222b998a59fc10a1336e9ad63ce9bf9"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

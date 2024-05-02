@@ -1,4 +1,6 @@
 <map id="dl::Tensor" name="dl::Tensor">
-<area shape="rect" id="node1" title=" " alt="" coords="7,97,91,124"/>
-<area shape="rect" id="node2" href="$classdl_1_1Device.html" title=" " alt="" coords="5,7,92,33"/>
+<area shape="rect" id="node1" title=" " alt="" coords="117,173,201,200"/>
+<area shape="rect" id="node2" href="$classdl_1_1TensorPtr.html" title=" " alt="" coords="49,83,152,109"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,5,196,32"/>
+<area shape="rect" id="node4" href="$classdl_1_1Device.html" title=" " alt="" coords="176,83,263,109"/>
 </map>

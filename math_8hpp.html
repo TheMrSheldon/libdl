@@ -1,0 +1,250 @@
+<!-- Heavily based on https://github.com/jothepro/doxygen-awesome-css/blob/main/doxygen-custom/header.html -->
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta name="generator" content="Doxygen 1.9.1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- BEGIN opengraph metadata -->
+    <meta property="og:title" content=libdl />
+    <meta property="og:image" content="twemoji-brain.png" />
+    <meta property="og:description" content="Simple yet powerful deep learning" />
+    <meta property="og:url" content="https://github.com/TheMrSheldon/libdl" />
+    <!-- END opengraph metadata -->
+    <!-- BEGIN twitter metadata -->
+    <meta name="twitter:image:src" content="twemoji-brain.png" />
+    <meta name="twitter:title" content="libdl" />
+    <meta name="twitter:description" content="Simple yet powerful deep learning" />
+    <!-- END twitter metadata -->
+    <title>libdl: dl/tensor/math.hpp File Reference</title>
+    <link href="tabs.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/svg+xml" href="twemoji-brain.png" />
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="dynsections.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+    <script type="text/javascript" src="toggle-alternative-theme.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeFragmentCopyButton.init()
+        DoxygenAwesomeDarkModeToggle.init()
+        DoxygenAwesomeParagraphLink.init()
+        DoxygenAwesomeInteractiveToc.init()
+        DoxygenAwesomeTabs.init()
+    </script>
+    <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+    <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <link href="doxygen.css" rel="stylesheet" type="text/css" />
+    <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-tabs.js" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <!-- https://tholman.com/github-corners/ -->
+    <a href="https://github.com/TheMrSheldon/libdl" class="github-corner" title="View source on GitHub" target="_blank"
+        rel="noopener noreferrer">
+        <svg viewBox="0 0 250 250" width="40" height="40"
+            style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+            <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+            <path
+                d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+                fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+            <path
+                d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+                fill="currentColor" class="octo-body"></path>
+        </svg></a>
+    <style>
+        .github-corner:hover .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+        }
+        @keyframes octocat-wave {
+            0%,
+            100% {
+                transform: rotate(0)
+            }
+            20%,
+            60% {
+                transform: rotate(-25deg)
+            }
+            40%,
+            80% {
+                transform: rotate(10deg)
+            }
+        }
+        @media (max-width:500px) {
+            .github-corner:hover .octo-arm {
+                animation: none
+            }
+            .github-corner .octo-arm {
+                animation: octocat-wave 560ms ease-in-out
+            }
+        }
+    </style>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+        <div id="titlearea">
+            <table cellspacing="0" cellpadding="0">
+                <tbody>
+                    <tr style="height: 56px;">
+                        <td id="projectlogo"><img alt="Logo" src="twemoji-brain.png" /></td>
+                        <td id="projectalign" style="padding-left: 0.5em;">
+                            <div id="projectname">libdl
+                                &#160;<span
+                                    id="projectnumber">0.0.1</span>
+                            </div>
+                            <div id="projectbrief">Simple yet powerful deep learning</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- end header part --><!-- Generated by Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('math_8hpp.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle">
+<div class="title">math.hpp File Reference</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Implements auto-diff enabled wrapers around their concrete tensor implementations.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;tensorptr.hpp&quot;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for math.hpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="math_8hpp__incl.png" border="0" usemap="#adl_2tensor_2math_8hpp" alt=""/></div>
+<map name="adl_2tensor_2math_8hpp" id="adl_2tensor_2math_8hpp">
+<area shape="rect" title="Implements auto&#45;diff enabled wrapers around their concrete tensor implementations." alt="" coords="82,5,227,32"/>
+<area shape="rect" href="tensorptr_8hpp_source.html" title=" " alt="" coords="42,80,150,107"/>
+<area shape="rect" title=" " alt="" coords="175,80,255,107"/>
+<area shape="rect" title=" " alt="" coords="5,155,85,181"/>
+<area shape="rect" title=" " alt="" coords="109,155,187,181"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="math_8hpp__dep__incl.png" border="0" usemap="#adl_2tensor_2math_8hppdep" alt=""/></div>
+<map name="adl_2tensor_2math_8hppdep" id="adl_2tensor_2math_8hppdep">
+<area shape="rect" title="Implements auto&#45;diff enabled wrapers around their concrete tensor implementations." alt="" coords="7,5,153,32"/>
+<area shape="rect" href="loss_8hpp_source.html" title=" " alt="" coords="5,80,155,107"/>
+</map>
+</div>
+</div>
+<p><a href="math_8hpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a4ba4e220a507c0be472da13d2fccb89e"><td class="memItemLeft" align="right" valign="top"><a id="a4ba4e220a507c0be472da13d2fccb89e"></a>
+TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::pow</b> (TensorPtr base, float exponent) noexcept</td></tr>
+<tr class="separator:a4ba4e220a507c0be472da13d2fccb89e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24c204f46dfd23fc5e2136dd50785ddf"><td class="memItemLeft" align="right" valign="top"><a id="a24c204f46dfd23fc5e2136dd50785ddf"></a>
+TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::mean</b> (TensorPtr x) noexcept</td></tr>
+<tr class="separator:a24c204f46dfd23fc5e2136dd50785ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f7cb3b53798da5ef166e6fda187651b"><td class="memItemLeft" align="right" valign="top"><a id="a5f7cb3b53798da5ef166e6fda187651b"></a>
+TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::sum</b> (TensorPtr x) noexcept</td></tr>
+<tr class="separator:a5f7cb3b53798da5ef166e6fda187651b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7566df6a9429c14d8a92065ca36502cd"><td class="memItemLeft" align="right" valign="top"><a id="a7566df6a9429c14d8a92065ca36502cd"></a>
+TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::min</b> (TensorPtr x, float bound) noexcept</td></tr>
+<tr class="separator:a7566df6a9429c14d8a92065ca36502cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4247a3a1cf547713e30aef07d0778f1"><td class="memItemLeft" align="right" valign="top"><a id="ae4247a3a1cf547713e30aef07d0778f1"></a>
+TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::max</b> (TensorPtr x, float bound) noexcept</td></tr>
+<tr class="separator:ae4247a3a1cf547713e30aef07d0778f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96c8715e97a9a1f5beb86243ecde189d"><td class="memItemLeft" align="right" valign="top"><a id="a96c8715e97a9a1f5beb86243ecde189d"></a>
+TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::relu</b> (TensorPtr x) noexcept</td></tr>
+<tr class="separator:a96c8715e97a9a1f5beb86243ecde189d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c3dfe6d813227bc23ec9cff56d9483f"><td class="memItemLeft" align="right" valign="top"><a id="a5c3dfe6d813227bc23ec9cff56d9483f"></a>
+TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator+</b> (TensorPtr left, TensorPtr right) noexcept</td></tr>
+<tr class="separator:a5c3dfe6d813227bc23ec9cff56d9483f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4575270ce699755c2a365dc84381e28d"><td class="memItemLeft" align="right" valign="top"><a id="a4575270ce699755c2a365dc84381e28d"></a>
+TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator-</b> (TensorPtr left, TensorPtr right) noexcept</td></tr>
+<tr class="separator:a4575270ce699755c2a365dc84381e28d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71c215278036c3a4c73ff35b16604409"><td class="memItemLeft" align="right" valign="top"><a id="a71c215278036c3a4c73ff35b16604409"></a>
+TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator*</b> (TensorPtr left, TensorPtr right) noexcept</td></tr>
+<tr class="separator:a71c215278036c3a4c73ff35b16604409"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6222b998a59fc10a1336e9ad63ce9bf9"><td class="memItemLeft" align="right" valign="top"><a id="a6222b998a59fc10a1336e9ad63ce9bf9"></a>
+TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator/</b> (TensorPtr left, TensorPtr right) noexcept</td></tr>
+<tr class="separator:a6222b998a59fc10a1336e9ad63ce9bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20dd5b7ea1517a7881f47c48b7a25697"><td class="memItemLeft" align="right" valign="top"><a id="a20dd5b7ea1517a7881f47c48b7a25697"></a>
+TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::matmul</b> (TensorPtr left, TensorPtr right) noexcept</td></tr>
+<tr class="separator:a20dd5b7ea1517a7881f47c48b7a25697"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c80e38e4d47a8a97640b5fe70534762"><td class="memItemLeft" align="right" valign="top"><a id="a9c80e38e4d47a8a97640b5fe70534762"></a>
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator&lt;&lt;</b> (std::ostream &amp;, TensorPtr tensor) noexcept</td></tr>
+<tr class="separator:a9c80e38e4d47a8a97640b5fe70534762"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a667a834f8e51a91975626a1afd3f99d9"><td class="memItemLeft" align="right" valign="top"><a id="a667a834f8e51a91975626a1afd3f99d9"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator==</b> (TensorPtr left, TensorPtr right) noexcept</td></tr>
+<tr class="separator:a667a834f8e51a91975626a1afd3f99d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implements auto-diff enabled wrapers around their concrete tensor implementations. </p>
+
+<p class="definition">Definition in file <a class="el" href="math_8hpp_source.html">math.hpp</a>.</p>
+</div></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_17297ffb27ce571941f5fb5008f01a1f.html">dl</a></li><li class="navelem"><a class="el" href="dir_04adc1e89fc6fba9db5bc76db1a2abc6.html">tensor</a></li><li class="navelem"><a class="el" href="math_8hpp.html">math.hpp</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>
