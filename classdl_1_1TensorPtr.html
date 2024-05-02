@@ -158,38 +158,20 @@ $(document).ready(function(){initNavTree('classdl_1_1TensorPtr.html',''); initRe
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classdl_1_1TensorPtr-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">dl::TensorPtr Class Reference</div>  </div>
+<div class="title">dl::TensorPtr Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="dynheader">
-Inheritance diagram for dl::TensorPtr:</div>
-<div class="dyncontent">
-<div class="center"><img src="classdl_1_1TensorPtr__inherit__graph.png" border="0" usemap="#adl_1_1TensorPtr_inherit__map" alt="Inheritance graph"/></div>
-<map name="adl_1_1TensorPtr_inherit__map" id="adl_1_1TensorPtr_inherit__map">
-<area shape="rect" title=" " alt="" coords="49,80,152,107"/>
-<area shape="rect" title=" " alt="" coords="5,5,196,32"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for dl::TensorPtr:</div>
-<div class="dyncontent">
-<div class="center"><img src="classdl_1_1TensorPtr__coll__graph.png" border="0" usemap="#adl_1_1TensorPtr_coll__map" alt="Collaboration graph"/></div>
-<map name="adl_1_1TensorPtr_coll__map" id="adl_1_1TensorPtr_coll__map">
-<area shape="rect" title=" " alt="" coords="49,80,152,107"/>
-<area shape="rect" title=" " alt="" coords="5,5,196,32"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+
+<p>The <a class="el" href="classdl_1_1TensorPtr.html" title="The TensorPtr is a reference counted pointer to a tensor. It can generally be thought of like an std:...">TensorPtr</a> is a reference counted pointer to a tensor. It can generally be thought of like an std::shared_ptr&lt;Tensor&gt;.  
+ <a href="classdl_1_1TensorPtr.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6d10fa1c49bffd3d22bc43f881e58dc9"><td class="memItemLeft" align="right" valign="top"><a id="a6d10fa1c49bffd3d22bc43f881e58dc9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TensorPtr</b> (std::shared_ptr&lt; <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &gt; &amp;&amp;other)</td></tr>
-<tr class="separator:a6d10fa1c49bffd3d22bc43f881e58dc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5e4cbf3fb7cb7d2ffc43e1f9f891302"><td class="memItemLeft" align="right" valign="top"><a id="ae5e4cbf3fb7cb7d2ffc43e1f9f891302"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TensorPtr</b> (const std::shared_ptr&lt; <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &gt; &amp;other)</td></tr>
-<tr class="separator:ae5e4cbf3fb7cb7d2ffc43e1f9f891302"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf8a9c939be848402121b988223a40a7"><td class="memItemLeft" align="right" valign="top"><a id="adf8a9c939be848402121b988223a40a7"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>TensorPtr</b> (<a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp;&amp;other)</td></tr>
 <tr class="separator:adf8a9c939be848402121b988223a40a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -226,10 +208,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aae276b8cf4ffd964a84d904a23994bfe"><td class="memItemLeft" align="right" valign="top"><a id="aae276b8cf4ffd964a84d904a23994bfe"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const std::nullptr_t &amp;other)</td></tr>
 <tr class="separator:aae276b8cf4ffd964a84d904a23994bfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a8ec18e77835358d44c367b4ca51b4ad5"><td class="memItemLeft" align="right" valign="top"><a id="a8ec18e77835358d44c367b4ca51b4ad5"></a>
+std::shared_ptr&lt; std::experimental::propagate_const&lt; <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>data</b></td></tr>
+<tr class="separator:a8ec18e77835358d44c367b4ca51b4ad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00009">9</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
+<div class="textblock"><p>The <a class="el" href="classdl_1_1TensorPtr.html" title="The TensorPtr is a reference counted pointer to a tensor. It can generally be thought of like an std:...">TensorPtr</a> is a reference counted pointer to a tensor. It can generally be thought of like an std::shared_ptr&lt;Tensor&gt;. </p>
+<p>The <a class="el" href="classdl_1_1TensorPtr.html" title="The TensorPtr is a reference counted pointer to a tensor. It can generally be thought of like an std:...">TensorPtr</a> serves multiple purposes: (1) implementation hiding and (2) memory management. (1) is important since the concrete tensor implementation could be, e.g., a sparse tensor, a dense tensor or even tensors on different devices (i.e., using different drivers like cuda or xtensor). The implementation, generally, is agnostic to these differences and <a class="el" href="classdl_1_1TensorPtr.html" title="The TensorPtr is a reference counted pointer to a tensor. It can generally be thought of like an std:...">TensorPtr</a> hides them. (2) is necessary since, in some cases, holding multiple references to the same tensor can improve memory consumption (e.g., no need to copy the tensor for gradient calculation when storing it for automatic differentation in the computation graph).</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Design decision: maybe it would make sense to make the <a class="el" href="classdl_1_1TensorPtr.html" title="The TensorPtr is a reference counted pointer to a tensor. It can generally be thought of like an std:...">TensorPtr</a> a unique_ptr and only consider (1) implementation hiding. Automatic differentiation could keep temporary results without copying and inputs have to be cloned (at least right now) anyway. Without the reference counted pointer behavior, users could maybe better optimize the data usage in their code and choose to move or copy their data appropriately. It could also be more natural to C++ developers that </dd></dl>
+<div class="fragment"><div class="line">TensorPtr a = ...;</div>
+<div class="line">TensorPtr b = a;</div>
+</div><!-- fragment --><p> copies the data instead of referencing it (though the "Ptr" suffix to this class should make that clear anyway). </p>
+
+<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00030">30</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>dl/tensor/<a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a></li>
 </ul>

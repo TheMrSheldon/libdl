@@ -165,6 +165,8 @@ $(document).ready(function(){initNavTree('todo.html',''); initResizable(); });
 <dd><a class="anchor" id="_todo000001"></a>refine to check that T is actually a <a class="el" href="classdl_1_1Model.html">Model</a>  </dd>
 <dt>Member <a class="el" href="classdl_1_1Tensor.html#a0b3c044d614cb186215d026063a9eaf3">dl::Tensor::Tensor</a>  (<a class="el" href="classdl_1_1Device.html">Device</a> const &amp;device, bool requiresGrad) noexcept</dt>
 <dd><a class="anchor" id="_todo000003"></a>add retain graph option  </dd>
+<dt>Class <a class="el" href="classdl_1_1TensorPtr.html">dl::TensorPtr</a>  </dt>
+<dd><a class="anchor" id="_todo000004"></a>Design decision: maybe it would make sense to make the <a class="el" href="classdl_1_1TensorPtr.html" title="The TensorPtr is a reference counted pointer to a tensor. It can generally be thought of like an std:...">TensorPtr</a> a unique_ptr and only consider (1) implementation hiding. Automatic differentiation could keep temporary results without copying and inputs have to be cloned (at least right now) anyway. Without the reference counted pointer behavior, users could maybe better optimize the data usage in their code and choose to move or copy their data appropriately. It could also be more natural to C++ developers that  </dd>
 <dt>Member <a class="el" href="classdl_1_1Trainer_3_01R_07Args_8_8_8_08_4.html#a086f918c723a7f84db3237750fb46005">dl::Trainer&lt; R(Args...)&gt;::fit</a>  (Model&lt; T &gt; &amp;model) noexcept</dt>
 <dd><a class="anchor" id="_todo000002"></a>validation loss if configured </dd>
 </dl>

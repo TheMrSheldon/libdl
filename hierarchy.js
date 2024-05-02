@@ -32,15 +32,13 @@ var hierarchy =
     [ "ir::Query", "structir_1_1Query.html", null ],
     [ "dl::utils::ScopeGuard", "classdl_1_1utils_1_1ScopeGuard.html", null ],
     [ "dl::Trainer< R(Args...)>::Settings", "structdl_1_1Trainer_3_01R_07Args_8_8_8_08_4_1_1Settings.html", null ],
-    [ "std::shared_ptr", null, [
-      [ "dl::TensorPtr", "classdl_1_1TensorPtr.html", null ]
-    ] ],
     [ "std::streambuf", null, [
       [ "dl::utils::URLStreamBase", "classdl_1_1utils_1_1URLStreamBase.html", [
         [ "dl::utils::URLStream", "classdl_1_1utils_1_1URLStream.html", null ]
       ] ]
     ] ],
     [ "dl::Tensor", "classdl_1_1Tensor.html", null ],
+    [ "dl::TensorPtr", "classdl_1_1TensorPtr.html", null ],
     [ "dl::Trainer< typename >", "classdl_1_1Trainer.html", null ],
     [ "dl::Trainer< R(Args...)>", "classdl_1_1Trainer_3_01R_07Args_8_8_8_08_4.html", null ]
 ];
