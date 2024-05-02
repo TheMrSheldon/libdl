@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../tensor/tensorptr.hpp"
 #include "../tensor/tensor.hpp"
+#include "../tensor/tensorptr.hpp"
 
 #include <ranges>
 #include <vector>
@@ -15,11 +15,13 @@ namespace dl {
 	template <typename R, typename... Args>
 	class Model<R(Args...)> {
 	public:
-		using signature=R(Args...);
+		using signature = R(Args...);
+
 	private:
 		std::vector<TensorPtr> _parameters;
+
 	protected:
-		template<typename T>
+		template <typename T>
 		void registerSubmodel(const Model<T>& model) {
 			registerParameters(model.parameters());
 		}
@@ -40,7 +42,6 @@ namespace dl {
 	public:
 		void to(const Device& device) noexcept;
 		const std::vector<TensorPtr>& parameters() const noexcept { return _parameters; }
-		
 
 		R operator()(Args... args) { return this->forward(std::forward<Args>(args)...); }
 		R operator()(Args... args) const { return this->forward(std::forward<Args>(args)...); }

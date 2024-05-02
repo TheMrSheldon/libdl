@@ -18,7 +18,7 @@ namespace dl {
 	/**
 	 * @brief A utilizty class for fitting and evaluating models.
 	 */
-	template<typename>
+	template <typename>
 	class Trainer;
 
 	template <typename R, typename... Args>
@@ -37,6 +37,7 @@ namespace dl {
 			std::unique_ptr<Optimizer> optimizer;
 			unsigned limitEpochs = 0;
 		};
+
 	private:
 		Settings settings;
 
@@ -85,7 +86,6 @@ namespace dl {
 				/** \todo validation loss if configured **/
 				// auto valLoss = validation_step(validationData);
 			}
-			
 		}
 
 		void validate(const Model<T>& model) const noexcept {
@@ -119,18 +119,18 @@ namespace dl {
 		 * 
 		 * @tparam T the model type for which to infer the model signature.
 		 */
-		template<typename T>
+		template <typename T>
 		struct _ModelSignature {
 			using type = T::signature;
 		};
-	}
+	} // namespace detail
 
 	/**
 	 * @brief Infers the model signature from the provided model type.
 	 * 
 	 * @tparam T the model type for which to infer the model signature.
 	 */
-	template<typename T>
+	template <typename T>
 	using ModelSignature = typename detail::_ModelSignature<T>::type;
 
 	/**
@@ -138,6 +138,6 @@ namespace dl {
 	 * 
 	 * @tparam T the type of the model that should be trained.
 	 */
-	template<typename T>
+	template <typename T>
 	using InferTrainer = Trainer<ModelSignature<T>>;
 } // namespace dl

@@ -3,27 +3,30 @@ on:
   push:
     branches:
       - main
+      - master
 permissions:
   contents: write
+
 jobs:
   build-doc:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          submodules: 'true'
       - name: Install Dependencies
-        run: |
-          sudo apt-get install -y doxygen graphviz
-          mkdir -p build/docs
+        run: sudo apt-get install -y cmake doxygen graphviz
+      - name: Configure CMake
+        # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a
+        # single-configuration generator such as make.
+        # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
+        run: cmake -B ${{github.workspace}}/build -D NETSPEAK_ONLY_DOCS=YES
       - name: Build Documentation
         run: |
-          doxygen Doxyfile
-          touch build/docs/html/.nojekyll
+          cmake --build ${{github.workspace}}/build --target netspeak_docs
+          touch build/documentation/html/.nojekyll
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build/docs/html
+          folder: build/documentation/html
           target-folder: ./
           clean-exclude: nightly

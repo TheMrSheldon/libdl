@@ -3,5 +3,5 @@
     "files.exclude": {
         "build/": false
     },
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
 }

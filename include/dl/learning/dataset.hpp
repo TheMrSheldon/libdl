@@ -11,8 +11,8 @@ namespace dl {
 	public:
 		virtual ~Dataset() = default;
 
-        virtual std::unique_ptr<Dataloader<R(Args...)>> trainingData() = 0;
-        virtual std::unique_ptr<Dataloader<R(Args...)>> validationData() = 0;
-        virtual std::unique_ptr<Dataloader<R(Args...)>> testData() = 0;
+		virtual std::unique_ptr<Dataloader<R(Args...)>> trainingData() = 0;
+		virtual std::unique_ptr<Dataloader<R(Args...)>> validationData() = 0;
+		virtual std::unique_ptr<Dataloader<R(Args...)>> testData() = 0;
 	};
 }; // namespace dl

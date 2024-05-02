@@ -14,6 +14,7 @@ namespace dl {
 	public:
 		using Instance = std::tuple<R, Args...>;
 		using Batch = std::vector<Instance>;
+
 	private:
 	public:
 		virtual ~Dataloader() = default;

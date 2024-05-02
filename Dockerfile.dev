@@ -1,4 +1,4 @@
-FROM ubuntu:23.04
+FROM ubuntu:24.04
 
 
 ########################################################################################################################
@@ -11,10 +11,14 @@ RUN add-apt-repository ppa:ubuntu-toolchain-r/test && apt-get update
 RUN apt-get -y install g++-13 cmake git
 
 # Needed for the dev environment
-RUN apt-get -y install cppcheck doxygen graphviz gdb
+RUN apt-get -y install cppcheck doxygen graphviz gdb \
+    clang-format
 
 # Dependencies
-RUN apt-get -y install libopenblas-dev libssl-dev
+RUN apt-get -y install libopenblas-dev libssl-dev \
+    # Dependency of libir
+    libboost-iostreams-dev
+
 
 
 ########################################################################################################################
