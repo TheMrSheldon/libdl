@@ -165,8 +165,11 @@ $(document).ready(function(){initNavTree('loss_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../tensor/math.hpp&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span>dl::loss {</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    TensorPtr mse(TensorPtr x, TensorPtr y) noexcept { <span class="keywordflow">return</span> mean(pow(x - y, 2)); }</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;} <span class="comment">// namespace dl::loss</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="comment">// TensorPtr mse(TensorPtr&amp; x, TensorPtr&amp; y) noexcept { return dl::mean(dl::pow(x - y, 2.0f)); }</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    TensorPtr mse(TensorPtr&amp;&amp; x, TensorPtr&amp; y) noexcept { <span class="keywordflow">return</span> dl::mean(dl::pow(x - y, 2.0f)); }</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="comment">// TensorPtr mse(TensorPtr&amp; x, TensorPtr&amp;&amp; y) noexcept { return dl::mean(dl::pow(x - y, 2.0f)); }</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="comment">// TensorPtr mse(TensorPtr&amp;&amp; x, TensorPtr&amp;&amp; y) noexcept { return dl::mean(dl::pow(x - y, 2.0f)); }</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;} <span class="comment">// namespace dl::loss</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

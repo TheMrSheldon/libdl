@@ -1,16 +1,19 @@
 var math_8hpp =
 [
-    [ "matmul", "math_8hpp.html#a20dd5b7ea1517a7881f47c48b7a25697", null ],
-    [ "max", "math_8hpp.html#ae4247a3a1cf547713e30aef07d0778f1", null ],
-    [ "mean", "math_8hpp.html#a24c204f46dfd23fc5e2136dd50785ddf", null ],
-    [ "min", "math_8hpp.html#a7566df6a9429c14d8a92065ca36502cd", null ],
-    [ "operator*", "math_8hpp.html#a71c215278036c3a4c73ff35b16604409", null ],
-    [ "operator+", "math_8hpp.html#a5c3dfe6d813227bc23ec9cff56d9483f", null ],
-    [ "operator-", "math_8hpp.html#a4575270ce699755c2a365dc84381e28d", null ],
-    [ "operator/", "math_8hpp.html#a6222b998a59fc10a1336e9ad63ce9bf9", null ],
-    [ "operator<<", "math_8hpp.html#a9c80e38e4d47a8a97640b5fe70534762", null ],
-    [ "operator==", "math_8hpp.html#a667a834f8e51a91975626a1afd3f99d9", null ],
-    [ "pow", "math_8hpp.html#a4ba4e220a507c0be472da13d2fccb89e", null ],
-    [ "relu", "math_8hpp.html#a96c8715e97a9a1f5beb86243ecde189d", null ],
-    [ "sum", "math_8hpp.html#a5f7cb3b53798da5ef166e6fda187651b", null ]
+    [ "matmul", "math_8hpp.html#ade1b98f6823484acc8bdd4071ccfb7cf", null ],
+    [ "max", "math_8hpp.html#a2737c57f8bb54ff235e554317c9f73ec", null ],
+    [ "mean", "math_8hpp.html#a718cfa9e487dd27e62495e62e0c79704", null ],
+    [ "mean", "math_8hpp.html#ac50f187bab3899c7ff330ae99d596c5e", null ],
+    [ "min", "math_8hpp.html#aff29b1c89c0669112113fb7cbfa1749d", null ],
+    [ "operator*", "math_8hpp.html#a7b07a124ef568154ffe4ce15df82aaaa", null ],
+    [ "operator+", "math_8hpp.html#a4355fece852b1d300568e04812eb7289", null ],
+    [ "operator-", "math_8hpp.html#a347c1a31e6d5488831ca1d60c1f04d9b", null ],
+    [ "operator/", "math_8hpp.html#a9bc7237d3218c86e58edefeef64b1a69", null ],
+    [ "operator/", "math_8hpp.html#a978e7674e08a9ec5e155e6e46d34e718", null ],
+    [ "operator<<", "math_8hpp.html#a335307f92762c0327a76e84e20e9c85b", null ],
+    [ "operator==", "math_8hpp.html#a92e7431fe89b8ae3f6864a733223c0d7", null ],
+    [ "pow", "math_8hpp.html#a2f72f71757c9c0ea62c53458bb6a97ba", null ],
+    [ "pow", "math_8hpp.html#a1f437c311c72049fc420c8c8f0076a00", null ],
+    [ "relu", "math_8hpp.html#a4c7463af550c9b7aa09983744268108f", null ],
+    [ "sum", "math_8hpp.html#a7b28600ef6f5f5c30b49044a7e831252", null ]
 ];

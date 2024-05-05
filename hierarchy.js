@@ -25,7 +25,7 @@ var hierarchy =
     ] ],
     [ "dl::Model< typename >", "classdl_1_1Model.html", null ],
     [ "dl::Model< R(Args...)>", "classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html", null ],
-    [ "dl::Model< TensorPtr(TensorPtr)>", "classdl_1_1Model.html", [
+    [ "dl::Model< TensorPtr(TensorPtr &)>", "classdl_1_1Model.html", [
       [ "dl::Linear", "classdl_1_1Linear.html", null ]
     ] ],
     [ "dl::Optimizer", "classdl_1_1Optimizer.html", null ],

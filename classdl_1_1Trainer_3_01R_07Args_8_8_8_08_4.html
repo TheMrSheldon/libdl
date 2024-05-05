@@ -187,9 +187,9 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>TDataloader</b> = <a
 <tr class="memitem:aa069610bba42f2f9a3af60aeccf425ba"><td class="memItemLeft" align="right" valign="top"><a id="aa069610bba42f2f9a3af60aeccf425ba"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>DatasetSetupFn</b> = std::function&lt; std::unique_ptr&lt; <a class="el" href="classdl_1_1Dataset.html">TDataset</a> &gt;(void)&gt;</td></tr>
 <tr class="separator:aa069610bba42f2f9a3af60aeccf425ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f2080e74f875fba04cc288f47b73068"><td class="memItemLeft" align="right" valign="top"><a id="a9f2080e74f875fba04cc288f47b73068"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>LossFn</b> = std::function&lt; <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>(R, R)&gt;</td></tr>
-<tr class="separator:a9f2080e74f875fba04cc288f47b73068"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ba97019ae770a15ad5c5cf56d98eb47"><td class="memItemLeft" align="right" valign="top"><a id="a4ba97019ae770a15ad5c5cf56d98eb47"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>LossFn</b> = std::function&lt; <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>(R &amp;&amp;, R &amp;)&gt;</td></tr>
+<tr class="separator:a4ba97019ae770a15ad5c5cf56d98eb47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -202,9 +202,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aadb40d7146a32aedcd8a78413f54f9b2"><td class="memItemLeft" align="right" valign="top"><a id="aadb40d7146a32aedcd8a78413f54f9b2"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>validate</b> (const <a class="el" href="classdl_1_1Model.html">Model</a>&lt; T &gt; &amp;model) const noexcept</td></tr>
 <tr class="separator:aadb40d7146a32aedcd8a78413f54f9b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e4625cf447d28f2d30719025456cbb3"><td class="memItemLeft" align="right" valign="top"><a id="a3e4625cf447d28f2d30719025456cbb3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>test</b> (const <a class="el" href="classdl_1_1Model.html">Model</a>&lt; T &gt; &amp;model) const noexcept</td></tr>
-<tr class="separator:a3e4625cf447d28f2d30719025456cbb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac37695d658537313d97b005508fe21c4"><td class="memItemLeft" align="right" valign="top"><a id="ac37695d658537313d97b005508fe21c4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>test</b> (<a class="el" href="classdl_1_1Model.html">Model</a>&lt; T &gt; &amp;model) const noexcept</td></tr>
+<tr class="separator:ac37695d658537313d97b005508fe21c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>

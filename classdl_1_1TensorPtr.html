@@ -158,6 +158,8 @@ $(document).ready(function(){initNavTree('classdl_1_1TensorPtr.html',''); initRe
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classdl_1_1TensorPtr-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -165,7 +167,7 @@ $(document).ready(function(){initNavTree('classdl_1_1TensorPtr.html',''); initRe
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="classdl_1_1TensorPtr.html" title="The TensorPtr is a reference counted pointer to a tensor. It can generally be thought of like an std:...">TensorPtr</a> is a reference counted pointer to a tensor. It can generally be thought of like an std::shared_ptr&lt;Tensor&gt;.  
+<p>The <a class="el" href="classdl_1_1TensorPtr.html" title="The TensorPtr is a managed pointer to a tensor. It can generally be thought of like an std::unique_pt...">TensorPtr</a> is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;Tensor&gt;.  
  <a href="classdl_1_1TensorPtr.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>&gt;</code></p>
@@ -199,31 +201,55 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aab173a8e4117cea39aa4e7c5cc1b53c1"><td class="memItemLeft" align="right" valign="top"><a id="aab173a8e4117cea39aa4e7c5cc1b53c1"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>TensorPtr</b> (std::initializer_list&lt; double &gt; value)</td></tr>
 <tr class="separator:aab173a8e4117cea39aa4e7c5cc1b53c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dbe2b733167023a7fc28313eeb640a1"><td class="memItemLeft" align="right" valign="top"><a id="a9dbe2b733167023a7fc28313eeb640a1"></a>
+<a class="el" href="classdl_1_1Tensor.html">Tensor</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>operator-&gt;</b> () noexcept</td></tr>
+<tr class="separator:a9dbe2b733167023a7fc28313eeb640a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf659dde93a893e0cd1de249c05ae7ba"><td class="memItemLeft" align="right" valign="top"><a id="aaf659dde93a893e0cd1de249c05ae7ba"></a>
+const <a class="el" href="classdl_1_1Tensor.html">Tensor</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>operator-&gt;</b> () const noexcept</td></tr>
+<tr class="separator:aaf659dde93a893e0cd1de249c05ae7ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec74246b9b426e9028d3d30164c4e5d2"><td class="memItemLeft" align="right" valign="top"><a id="aec74246b9b426e9028d3d30164c4e5d2"></a>
+<a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> () noexcept</td></tr>
+<tr class="separator:aec74246b9b426e9028d3d30164c4e5d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe5e296ad4d45fa87fa7c3b2ddb26702"><td class="memItemLeft" align="right" valign="top"><a id="afe5e296ad4d45fa87fa7c3b2ddb26702"></a>
+const <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> () const noexcept</td></tr>
+<tr class="separator:afe5e296ad4d45fa87fa7c3b2ddb26702"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4221255cfacdb3e1d56dddd8d7e916bb"><td class="memItemLeft" align="right" valign="top"><a id="a4221255cfacdb3e1d56dddd8d7e916bb"></a>
 <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp;other)</td></tr>
 <tr class="separator:a4221255cfacdb3e1d56dddd8d7e916bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad68264f0d6d2b3df7b6cac8ca18f7158"><td class="memItemLeft" align="right" valign="top"><a id="ad68264f0d6d2b3df7b6cac8ca18f7158"></a>
 <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp;&amp;other)</td></tr>
 <tr class="separator:ad68264f0d6d2b3df7b6cac8ca18f7158"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae276b8cf4ffd964a84d904a23994bfe"><td class="memItemLeft" align="right" valign="top"><a id="aae276b8cf4ffd964a84d904a23994bfe"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const std::nullptr_t &amp;other)</td></tr>
-<tr class="separator:aae276b8cf4ffd964a84d904a23994bfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef0b685ca6bcb79d36bfdf4ab9103dc3"><td class="memItemLeft" align="right" valign="top"><a id="aef0b685ca6bcb79d36bfdf4ab9103dc3"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const std::nullptr_t &amp;other) const noexcept</td></tr>
+<tr class="separator:aef0b685ca6bcb79d36bfdf4ab9103dc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91b61a5ac67df1d035af7a273f694592"><td class="memItemLeft" align="right" valign="top"><a id="a91b61a5ac67df1d035af7a273f694592"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>operator bool</b> () const noexcept</td></tr>
+<tr class="separator:a91b61a5ac67df1d035af7a273f694592"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a58cb9b6cfbcbd88fdc17df6b2d96f3c5"><td class="memTemplParams" colspan="2"><a id="a58cb9b6cfbcbd88fdc17df6b2d96f3c5"></a>
+template&lt;typename T , typename... Args&gt; </td></tr>
+<tr class="memitem:a58cb9b6cfbcbd88fdc17df6b2d96f3c5"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create</b> (Args &amp;&amp;... args) noexcept</td></tr>
+<tr class="separator:a58cb9b6cfbcbd88fdc17df6b2d96f3c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a27357c4db3aa5c9cedad646e91e0834d"><td class="memItemLeft" align="right" valign="top"><a id="a27357c4db3aa5c9cedad646e91e0834d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TensorPtr</b> (std::experimental::propagate_const&lt; std::unique_ptr&lt; <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &gt;&gt; &amp;&amp;data)</td></tr>
+<tr class="separator:a27357c4db3aa5c9cedad646e91e0834d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a8ec18e77835358d44c367b4ca51b4ad5"><td class="memItemLeft" align="right" valign="top"><a id="a8ec18e77835358d44c367b4ca51b4ad5"></a>
-std::shared_ptr&lt; std::experimental::propagate_const&lt; <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>data</b></td></tr>
-<tr class="separator:a8ec18e77835358d44c367b4ca51b4ad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a160401e52595c2df17b0a68edab1cbe7"><td class="memItemLeft" align="right" valign="top"><a id="a160401e52595c2df17b0a68edab1cbe7"></a>
+std::experimental::propagate_const&lt; std::unique_ptr&lt; <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>data</b></td></tr>
+<tr class="separator:a160401e52595c2df17b0a68edab1cbe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="classdl_1_1TensorPtr.html" title="The TensorPtr is a reference counted pointer to a tensor. It can generally be thought of like an std:...">TensorPtr</a> is a reference counted pointer to a tensor. It can generally be thought of like an std::shared_ptr&lt;Tensor&gt;. </p>
-<p>The <a class="el" href="classdl_1_1TensorPtr.html" title="The TensorPtr is a reference counted pointer to a tensor. It can generally be thought of like an std:...">TensorPtr</a> serves multiple purposes: (1) implementation hiding and (2) memory management. (1) is important since the concrete tensor implementation could be, e.g., a sparse tensor, a dense tensor or even tensors on different devices (i.e., using different drivers like cuda or xtensor). The implementation, generally, is agnostic to these differences and <a class="el" href="classdl_1_1TensorPtr.html" title="The TensorPtr is a reference counted pointer to a tensor. It can generally be thought of like an std:...">TensorPtr</a> hides them. (2) is necessary since, in some cases, holding multiple references to the same tensor can improve memory consumption (e.g., no need to copy the tensor for gradient calculation when storing it for automatic differentation in the computation graph).</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Design decision: maybe it would make sense to make the <a class="el" href="classdl_1_1TensorPtr.html" title="The TensorPtr is a reference counted pointer to a tensor. It can generally be thought of like an std:...">TensorPtr</a> a unique_ptr and only consider (1) implementation hiding. Automatic differentiation could keep temporary results without copying and inputs have to be cloned (at least right now) anyway. Without the reference counted pointer behavior, users could maybe better optimize the data usage in their code and choose to move or copy their data appropriately. It could also be more natural to C++ developers that </dd></dl>
-<div class="fragment"><div class="line">TensorPtr a = ...;</div>
-<div class="line">TensorPtr b = a;</div>
-</div><!-- fragment --><p> copies the data instead of referencing it (though the "Ptr" suffix to this class should make that clear anyway). </p>
+<div class="textblock"><p>The <a class="el" href="classdl_1_1TensorPtr.html" title="The TensorPtr is a managed pointer to a tensor. It can generally be thought of like an std::unique_pt...">TensorPtr</a> is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;Tensor&gt;. </p>
+<p>The <a class="el" href="classdl_1_1TensorPtr.html" title="The TensorPtr is a managed pointer to a tensor. It can generally be thought of like an std::unique_pt...">TensorPtr</a>'s main purpose is implementation hiding, which is especially importan since the concrete tensor implementation could be, e.g., a sparse tensor, a dense tensor or even tensors on different devices (i.e., using different drivers like cuda or xtensor). The implementation, generally, is agnostic to these differences and <a class="el" href="classdl_1_1TensorPtr.html" title="The TensorPtr is a managed pointer to a tensor. It can generally be thought of like an std::unique_pt...">TensorPtr</a> hides them. </p>
 
-<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00030">30</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00017">17</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>dl/tensor/<a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a></li>
 </ul>

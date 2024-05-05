@@ -173,7 +173,7 @@ Collaboration diagram for dl::Tensor:</div>
 <div class="center"><img src="classdl_1_1Tensor__coll__graph.png" border="0" usemap="#adl_1_1Tensor_coll__map" alt="Collaboration graph"/></div>
 <map name="adl_1_1Tensor_coll__map" id="adl_1_1Tensor_coll__map">
 <area shape="rect" title=" " alt="" coords="60,97,144,124"/>
-<area shape="rect" href="classdl_1_1TensorPtr.html" title="The TensorPtr is a reference counted pointer to a tensor. It can generally be thought of like an std:..." alt="" coords="5,7,108,33"/>
+<area shape="rect" href="classdl_1_1TensorPtr.html" title="The TensorPtr is a managed pointer to a tensor. It can generally be thought of like an std::unique_pt..." alt="" coords="5,7,108,33"/>
 <area shape="rect" href="classdl_1_1Device.html" title=" " alt="" coords="132,7,219,33"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -257,9 +257,9 @@ Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
 Private Types</h2></td></tr>
-<tr class="memitem:a5bd3c4186cc35f1b5704acdd936c4b84"><td class="memItemLeft" align="right" valign="top"><a id="a5bd3c4186cc35f1b5704acdd936c4b84"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>GradFn</b> = std::function&lt; void(<a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>)&gt;</td></tr>
-<tr class="separator:a5bd3c4186cc35f1b5704acdd936c4b84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af36c2991a7137eb75f3c7a9950267426"><td class="memItemLeft" align="right" valign="top"><a id="af36c2991a7137eb75f3c7a9950267426"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>GradFn</b> = std::function&lt; void(<a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp;)&gt;</td></tr>
+<tr class="separator:af36c2991a7137eb75f3c7a9950267426"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -307,7 +307,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_requiresGrad</b></td
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>add retain graph option </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>add retain graph option </dd></dl>
 
 </div>
 </div>

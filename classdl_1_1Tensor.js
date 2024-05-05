@@ -1,6 +1,6 @@
 var classdl_1_1Tensor =
 [
-    [ "GradFn", "classdl_1_1Tensor.html#a5bd3c4186cc35f1b5704acdd936c4b84", null ],
+    [ "GradFn", "classdl_1_1Tensor.html#af36c2991a7137eb75f3c7a9950267426", null ],
     [ "Tensor", "classdl_1_1Tensor.html#a0b3c044d614cb186215d026063a9eaf3", null ],
     [ "add", "classdl_1_1Tensor.html#a1c92e534154d7614a541930bc137c4ab", null ],
     [ "backward", "classdl_1_1Tensor.html#ada5c66385fcac222b4275dfb773fe6b9", null ],

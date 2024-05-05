@@ -172,7 +172,7 @@ $(document).ready(function(){initNavTree('tensor_8hpp_source.html',''); initResi
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">class </span>Device;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classdl_1_1Tensor.html">   12</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classdl_1_1Tensor.html">Tensor</a> {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keyword">using</span> GradFn = std::function&lt;void(<a class="code" href="classdl_1_1TensorPtr.html">TensorPtr</a>)&gt;;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keyword">using</span> GradFn = std::function&lt;void(<a class="code" href="classdl_1_1TensorPtr.html">TensorPtr</a>&amp;)&gt;;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordtype">bool</span> _requiresGrad;</div>
@@ -221,7 +221,7 @@ $(document).ready(function(){initNavTree('tensor_8hpp_source.html',''); initResi
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    };</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;} <span class="comment">// namespace dl</span></div>
 <div class="ttc" id="aclassdl_1_1Device_html"><div class="ttname"><a href="classdl_1_1Device.html">dl::Device</a></div><div class="ttdef"><b>Definition:</b> <a href="device_8hpp_source.html#l00008">device.hpp:8</a></div></div>
-<div class="ttc" id="aclassdl_1_1TensorPtr_html"><div class="ttname"><a href="classdl_1_1TensorPtr.html">dl::TensorPtr</a></div><div class="ttdoc">The TensorPtr is a reference counted pointer to a tensor. It can generally be thought of like an std:...</div><div class="ttdef"><b>Definition:</b> <a href="tensorptr_8hpp_source.html#l00030">tensorptr.hpp:30</a></div></div>
+<div class="ttc" id="aclassdl_1_1TensorPtr_html"><div class="ttname"><a href="classdl_1_1TensorPtr.html">dl::TensorPtr</a></div><div class="ttdoc">The TensorPtr is a managed pointer to a tensor. It can generally be thought of like an std::unique_pt...</div><div class="ttdef"><b>Definition:</b> <a href="tensorptr_8hpp_source.html#l00017">tensorptr.hpp:17</a></div></div>
 <div class="ttc" id="aclassdl_1_1Tensor_html"><div class="ttname"><a href="classdl_1_1Tensor.html">dl::Tensor</a></div><div class="ttdef"><b>Definition:</b> <a href="tensor_8hpp_source.html#l00012">tensor.hpp:12</a></div></div>
 <div class="ttc" id="aclassdl_1_1Tensor_html_a0b3c044d614cb186215d026063a9eaf3"><div class="ttname"><a href="classdl_1_1Tensor.html#a0b3c044d614cb186215d026063a9eaf3">dl::Tensor::Tensor</a></div><div class="ttdeci">Tensor(Device const &amp;device, bool requiresGrad) noexcept</div></div>
 <div class="ttc" id="aclassdl_1_1Tensor_html_a49ec4a718a05dc6204f2639e84da51d0"><div class="ttname"><a href="classdl_1_1Tensor.html#a49ec4a718a05dc6204f2639e84da51d0">dl::Tensor::requiresGrad</a></div><div class="ttdeci">bool requiresGrad() const noexcept</div><div class="ttdoc">Returns true iff this tensor requires a gradient, i.e., needs to be updated during backpropagation.</div></div>
