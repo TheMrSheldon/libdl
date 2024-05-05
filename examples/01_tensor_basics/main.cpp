@@ -20,7 +20,7 @@ public:
 
 	//Maybe this solves the duplication https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0847r7.html
 	dl::TensorPtr forward(dl::TensorPtr input) { return linear(input); }
-	dl::TensorPtr forward(dl::TensorPtr input) const { return linear(input); }
+	// dl::TensorPtr forward(dl::TensorPtr input) const { return linear(input); }
 };
 
 class MemoryDataloader : public dl::Dataloader<dl::TensorPtr(dl::TensorPtr)> {
@@ -60,15 +60,15 @@ public:
 
 class GradientDescent : public dl::Optimizer {
 private:
-	const std::vector<dl::TensorPtr> parameters;
+	const std::vector<dl::TensorRef> parameters;
 	const float learnrate;
 
 public:
-	explicit GradientDescent(std::vector<dl::TensorPtr>&& parameters, float learnrate = 0.001)
+	explicit GradientDescent(std::vector<dl::TensorRef>&& parameters, float learnrate = 0.001)
 			: dl::Optimizer(), parameters(std::move(parameters)), learnrate(learnrate) {}
 
-	virtual void step(dl::TensorPtr loss) override {
-		for (auto& tensor : parameters)
+	virtual void step(const dl::TensorPtr& loss) override {
+		for (dl::TensorPtr& tensor : parameters)
 			tensor->mul_inplace(tensor->grad);
 	}
 };
@@ -85,7 +85,7 @@ public:
 	Adam(float lr = 0.001, float beta1 = 0.9, float beta2 = 0.999, float eps = 1e-8)
 			: dl::Optimizer(), lr(lr), beta1(beta1), beta2(beta2), eps(eps) {}
 
-	virtual void step(dl::TensorPtr loss) override {
+	virtual void step(const dl::TensorPtr& loss) override {
 		auto m0 = 0;
 		auto v0 = 0;
 		int t = 0;
@@ -98,9 +98,14 @@ int main(int argc, char* argv[]) {
 
 	dl::TensorPtr tensorb = {2.0f, 2.0f, 3.0f, 3.0f};
 	tensorb->setRequiresGrad(true);
-	auto tensorc = tensora * tensorb;
-	auto tensord = dl::mean(tensorc);
-	// std::cout << tensord << std::endl; // Expected: 6.75
+	dl::TensorPtr tensord = nullptr;
+	{
+		auto tensorc = tensora * tensorb;
+		// Important: move tensorc's ownership into dl::mean, otherwise it will be deleted before backward() can be
+		// called.
+		tensord = std::move(dl::mean(std::move(tensorc)));
+	}
+	std::cout << tensord << std::endl; // Expected: 6.75
 	tensord->backward();
 	std::cout << tensora->gradient() << std::endl; // Expected: (0.50, 0.50, 0.75, 0.75)
 	/*MyModel model;

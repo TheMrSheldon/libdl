@@ -10,7 +10,7 @@ namespace dl {
 	class Device;
 
 	class Tensor {
-		using GradFn = std::function<void(TensorPtr)>;
+		using GradFn = std::function<void(TensorPtr&)>;
 
 	private:
 		bool _requiresGrad;

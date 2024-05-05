@@ -28,7 +28,7 @@ namespace dl {
 		using TDataset = Dataset<T>;
 		using TDataloader = Dataloader<T>;
 		using DatasetSetupFn = std::function<std::unique_ptr<TDataset>(void)>;
-		using LossFn = std::function<TensorPtr(R, R)>;
+		using LossFn = std::function<TensorPtr(R&&, R&)>;
 
 		struct Settings {
 			bool enableCheckpointing = false;
@@ -99,7 +99,7 @@ namespace dl {
 			}
 		}
 
-		void test(const Model<T>& model) const noexcept {
+		void test(/*const */ Model<T>& model) const noexcept {
 			auto dataset = settings.createDataset();
 			assert(dataset != nullptr);
 			auto dataloader = dataset->testData();

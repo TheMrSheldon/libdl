@@ -105,7 +105,7 @@ namespace dl {
 	}
 	inline TensorPtr zero(const Shape& size, Device const& device = Device::getDefault()) { return device.zero(size); }
 	inline TensorPtr ones(const Shape& size, Device const& device = Device::getDefault()) { return device.ones(size); }
-	TensorPtr ones_like(const TensorPtr tensor, Device const& device = Device::getDefault());
+	TensorPtr ones_like(const TensorPtr& tensor, Device const& device = Device::getDefault());
 	inline TensorPtr constant(int value, Device const& device = Device::getDefault()) { return device.constant(value); }
 	inline TensorPtr constant(float value, Device const& device = Device::getDefault()) {
 		return device.constant(value);
@@ -117,5 +117,5 @@ namespace dl {
 		return device.constant(std::move(value));
 	}
 
-	TensorPtr clone(const TensorPtr tensor);
+	TensorPtr clone(const TensorPtr& tensor);
 } // namespace dl

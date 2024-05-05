@@ -1,13 +1,20 @@
 #include <dl/device.hpp>
+#include <dl/tensor/tensor.hpp>
 #include <dl/tensor/tensorptr.hpp>
 
-/** \todo move this to tensorptr.hpp **/
-dl::TensorPtr::TensorPtr(int value) : dl::TensorPtr(std::move(dl::constant(value))) {}
-dl::TensorPtr::TensorPtr(float value) : dl::TensorPtr(std::move(dl::constant(value))) {}
-dl::TensorPtr::TensorPtr(double value) : dl::TensorPtr(std::move(dl::constant(value))) {}
-// dl::TensorPtr::TensorPtr(std::initializer_list<int> value) : dl::TensorPtr(std::move(dl::constant(std::move(value)))) {}
-dl::TensorPtr::TensorPtr(std::initializer_list<float> value)
-		: dl::TensorPtr(std::move(dl::constant(std::move(value)))) {}
+using dl::TensorPtr;
 
-// dl::TensorPtr::TensorPtr(std::initializer_list<double> value)
-//      : dl::TensorPtr(std::move(dl::constant(std::move(value)))) {}
+TensorPtr::TensorPtr(const TensorPtr& other) : TensorPtr(std::move(other->clone())) {}
+TensorPtr::TensorPtr(int value) : TensorPtr(std::move(dl::constant(value))) {}
+TensorPtr::TensorPtr(float value) : TensorPtr(std::move(dl::constant(value))) {}
+TensorPtr::TensorPtr(double value) : TensorPtr(std::move(dl::constant(value))) {}
+// TensorPtr::TensorPtr(std::initializer_list<int> value) : TensorPtr(std::move(dl::constant(std::move(value)))) {}
+TensorPtr::TensorPtr(std::initializer_list<float> value) : TensorPtr(std::move(dl::constant(std::move(value)))) {}
+
+// TensorPtr::TensorPtr(std::initializer_list<double> value)
+//      : TensorPtr(std::move(dl::constant(std::move(value)))) {}
+
+TensorPtr& TensorPtr::operator=(const TensorPtr& other) {
+	*this = std::move(other->clone());
+	return *this;
+}

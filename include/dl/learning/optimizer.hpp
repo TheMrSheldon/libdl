@@ -17,7 +17,7 @@ namespace dl {
 	public:
 		virtual ~Optimizer() = default;
 
-		virtual void step(TensorPtr tensor) = 0;
+		virtual void step(const TensorPtr& tensor) = 0;
 	};
 
 } // namespace dl

@@ -1,2 +1,3 @@
-add_subdirectory(01_simple)
-add_subdirectory(02_ranking)
+add_subdirectory(01_tensor_basics)
+add_subdirectory(02_training_basics)
+add_subdirectory(03_ranking)

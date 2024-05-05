@@ -17,6 +17,6 @@ Linear::Linear(unsigned inFeatures, unsigned outFeatures, const Device& device, 
 Linear::Linear(unsigned inFeatures, unsigned outFeatures, bool bias) noexcept
 		: Linear(inFeatures, outFeatures, Device::getDefault(), bias) {}
 
-TensorPtr Linear::forward(TensorPtr input) noexcept { return dl::matmul(input, weights) + bias; }
+TensorPtr Linear::forward(TensorPtr& input) noexcept { return dl::matmul(input, weights) + bias; }
 
-TensorPtr Linear::forward(TensorPtr input) const noexcept { return dl::matmul(input, weights) + bias; }
+// TensorPtr Linear::forward(TensorPtr& input) const noexcept { return dl::matmul(input, weights) + bias; }
