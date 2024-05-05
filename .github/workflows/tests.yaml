@@ -55,4 +55,4 @@ jobs:
       - name: Check codestyle
         working-directory: ${{github.workspace}}
         run: |
-          find src/ include/ -type f -iregex '^.*\.\(c\|h\|cpp\|hpp\|cc\|hh\)$' | xargs clang-format --dry-run -Werror
+          find src/ include/ -type f -iregex '^.*\.\(c\|h\|cpp\|hpp\|cc\|hh\)$' | xargs clang-format --dry-run -Werror --Wno-error=unknown
