@@ -1,21 +1,19 @@
-#include <dl/tensor/tensor.hpp>
-
 #include <dl/device.hpp>
+#include <dl/tensor/tensor.hpp>
+#include <dl/tensor/tensorimpl.hpp>
 
-using Device = dl::Device;
-using Shape = dl::Shape;
-using Tensor = dl::Tensor;
-using TensorPtr = dl::TensorPtr;
+using dl::Tensor;
 
-Tensor::Tensor(const Device& device, bool requiresGrad) noexcept : _device(device), _requiresGrad(requiresGrad) {}
+Tensor::Tensor(const Tensor& other) : Tensor(std::move(other->clone())) {}
+Tensor::Tensor(int value) : Tensor(std::move(dl::constant(value))) {}
+Tensor::Tensor(float value) : Tensor(std::move(dl::constant(value))) {}
+Tensor::Tensor(double value) : Tensor(std::move(dl::constant(value))) {}
+// Tensor::Tensor(std::initializer_list<int> value) : Tensor(std::move(dl::constant(std::move(value)))) {}
+Tensor::Tensor(std::initializer_list<float> value) : Tensor(std::move(dl::constant(std::move(value)))) {}
 
-const Device& Tensor::device() const noexcept { return _device; }
+// Tensor::Tensor(std::initializer_list<double> value) : Tensor(std::move(dl::constant(std::move(value)))) {}
 
-void Tensor::setRequiresGrad(bool requiresGrad) noexcept { _requiresGrad = requiresGrad; }
-bool Tensor::requiresGrad() const noexcept { return _requiresGrad; }
-
-void Tensor::backward(bool enableAutodiff) noexcept {
-	/** \todo implement autodiff **/
-	grad = dl::constant(1.0f, device());
-	gradfn(grad);
+Tensor& Tensor::operator=(const Tensor& other) {
+	*this = std::move(other->clone());
+	return *this;
 }

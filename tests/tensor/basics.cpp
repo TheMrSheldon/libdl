@@ -2,7 +2,7 @@
 #include <catch2/matchers/catch_matchers_range_equals.hpp>
 
 #include <dl/device.hpp>
-#include <dl/tensor/tensor.hpp>
+#include <dl/tensor/tensorimpl.hpp>
 
 using Catch::Matchers::RangeEquals;
 

@@ -1,5 +1,5 @@
 #include <dl/device.hpp>
-#include <dl/tensor/tensor.hpp>
+#include <dl/tensor/tensorimpl.hpp>
 
 #include <xtensor-blas/xlinalg.hpp>
 #include <xtensor/xarray.hpp>
@@ -7,7 +7,7 @@
 #include <xtensor/xio.hpp>
 
 namespace dl {
-	class CPUDenseFloatTensor final : public Tensor {
+	class CPUDenseFloatTensor final : public TensorImpl {
 	private:
 		xt::xarray<float> data;
 
@@ -17,53 +17,51 @@ namespace dl {
 		CPUDenseFloatTensor(CPUDenseFloatTensor&& other)
 				: CPUDenseFloatTensor(other.data, other.device(), other.requiresGrad()) {}
 		explicit CPUDenseFloatTensor(const xt::xarray<float>& data, const Device& device, bool requiresGrad)
-				: Tensor(device, requiresGrad), data(data) {}
+				: TensorImpl(device, requiresGrad), data(data) {}
 		explicit CPUDenseFloatTensor(xt::xarray<float>&& data, const Device& device, bool requiresGrad)
-				: Tensor(device, requiresGrad), data(data) {}
+				: TensorImpl(device, requiresGrad), data(data) {}
 
 		virtual std::ostream& writeToStream(std::ostream& stream) const noexcept override { return stream << data; }
 
-		virtual TensorPtr add(const TensorPtr& other) const noexcept override {
+		virtual Tensor add(const Tensor& other) const noexcept override {
 			return createResult(data + downcast(other).data, requiresGrad() || other->requiresGrad());
 		}
-		virtual TensorPtr sub(const TensorPtr& other) const noexcept override {
+		virtual Tensor sub(const Tensor& other) const noexcept override {
 			return createResult(data - downcast(other).data, requiresGrad() || other->requiresGrad());
 		}
-		virtual TensorPtr mul(const TensorPtr& other) const noexcept override {
+		virtual Tensor mul(const Tensor& other) const noexcept override {
 			return createResult(data * downcast(other).data, requiresGrad() || other->requiresGrad());
 		}
-		virtual TensorPtr div(const TensorPtr& other) const noexcept override {
+		virtual Tensor div(const Tensor& other) const noexcept override {
 			return createResult(data / downcast(other).data, requiresGrad() || other->requiresGrad());
 		}
 
-		virtual TensorPtr matmul(const TensorPtr& other) const noexcept override {
+		virtual Tensor matmul(const Tensor& other) const noexcept override {
 			return createResult(std::move(xt::linalg::dot(data, downcast(other).data)), requiresGrad());
 		}
 
-		virtual TensorPtr pow(float exponent) const noexcept override {
+		virtual Tensor pow(float exponent) const noexcept override {
 			return createResult(std::move(xt::pow(data, exponent)), requiresGrad());
 		}
 
-		virtual TensorPtr mean() const noexcept override {
+		virtual Tensor mean() const noexcept override {
 			return createResult(std::move(xt::mean(data)), requiresGrad());
 		}
 
-		virtual void mul_inplace(const TensorPtr& other) noexcept override { data *= downcast(other).data; }
+		virtual void mul_inplace(const Tensor& other) noexcept override { data *= downcast(other).data; }
 
-		virtual TensorPtr clone() const noexcept override { return TensorPtr::create<CPUDenseFloatTensor>(*this); }
+		virtual Tensor clone() const noexcept override { return Tensor::create<CPUDenseFloatTensor>(*this); }
 
 		virtual size_t shape(size_t dim) const noexcept { return data.shape(dim); }
 
 		virtual Shape shape() const noexcept { return Shape(std::begin(data.shape()), std::end(data.shape())); }
 
-		virtual TensorPtr flatten() const noexcept {
-			return createResult(std::move(xt::flatten(data)), requiresGrad());
-		}
+		virtual Tensor flatten() const noexcept { return createResult(std::move(xt::flatten(data)), requiresGrad()); }
 
-		inline TensorPtr createResult(xt::xarray<float> data, bool requireGrad) const noexcept {
-			return TensorPtr::create<CPUDenseFloatTensor>(std::move(data), device(), requireGrad);
+		inline Tensor createResult(xt::xarray<float> data, bool requireGrad) const noexcept {
+			return Tensor::create<CPUDenseFloatTensor>(std::move(data), device(), requireGrad);
 		}
-		inline static const CPUDenseFloatTensor& downcast(const TensorPtr& other) noexcept {
+		inline static const CPUDenseFloatTensor& downcast(const Tensor& other) noexcept {
 			return static_cast<const CPUDenseFloatTensor&>(*other);
 		}
 	};
@@ -73,36 +71,36 @@ namespace dl {
 	public:
 		CPUDevice() = default;
 
-		virtual TensorPtr empty(Shape shape, bool requiresGrad) const noexcept override {
+		virtual Tensor empty(Shape shape, bool requiresGrad) const noexcept override {
 			xt::xarray<float> expr = xt::empty<float>(shape);
-			return TensorPtr::create<CPUDenseFloatTensor>(expr, *this, requiresGrad);
+			return Tensor::create<CPUDenseFloatTensor>(expr, *this, requiresGrad);
 		}
 
-		virtual TensorPtr zero(Shape shape, bool requiresGrad) const noexcept override {
+		virtual Tensor zero(Shape shape, bool requiresGrad) const noexcept override {
 			xt::xarray<float> expr = xt::zeros<float>(shape);
-			return TensorPtr::create<CPUDenseFloatTensor>(expr, *this, requiresGrad);
+			return Tensor::create<CPUDenseFloatTensor>(expr, *this, requiresGrad);
 		}
 
-		virtual TensorPtr ones(Shape shape, bool requiresGrad) const noexcept override {
+		virtual Tensor ones(Shape shape, bool requiresGrad) const noexcept override {
 			xt::xarray<float> expr = xt::ones<float>(shape);
-			return TensorPtr::create<CPUDenseFloatTensor>(expr, *this, requiresGrad);
+			return Tensor::create<CPUDenseFloatTensor>(expr, *this, requiresGrad);
 		}
 
-		virtual TensorPtr constant(int value, bool requiresGrad) const noexcept override {
+		virtual Tensor constant(int value, bool requiresGrad) const noexcept override {
 			xt::xarray<float> expr = value; /** \todo: allow tensors of different datatypes **/
-			return TensorPtr::create<CPUDenseFloatTensor>(expr, *this, requiresGrad);
+			return Tensor::create<CPUDenseFloatTensor>(expr, *this, requiresGrad);
 		}
-		virtual TensorPtr constant(float value, bool requiresGrad) const noexcept override {
+		virtual Tensor constant(float value, bool requiresGrad) const noexcept override {
 			xt::xarray<float> expr = value; /** \todo: allow tensors of different datatypes **/
-			return TensorPtr::create<CPUDenseFloatTensor>(expr, *this, requiresGrad);
+			return Tensor::create<CPUDenseFloatTensor>(expr, *this, requiresGrad);
 		}
-		virtual TensorPtr constant(double value, bool requiresGrad) const noexcept override {
+		virtual Tensor constant(double value, bool requiresGrad) const noexcept override {
 			xt::xarray<float> expr = value; /** \todo: allow tensors of different datatypes **/
-			return TensorPtr::create<CPUDenseFloatTensor>(expr, *this, requiresGrad);
+			return Tensor::create<CPUDenseFloatTensor>(expr, *this, requiresGrad);
 		}
-		virtual TensorPtr constant(std::initializer_list<float> value, bool requiresGrad) const noexcept override {
+		virtual Tensor constant(std::initializer_list<float> value, bool requiresGrad) const noexcept override {
 			xt::xarray<float> expr = value;
-			return TensorPtr::create<CPUDenseFloatTensor>(expr, *this, requiresGrad);
+			return Tensor::create<CPUDenseFloatTensor>(expr, *this, requiresGrad);
 		}
 	};
 

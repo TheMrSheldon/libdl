@@ -1,26 +1,26 @@
 #include <dl/tensor/math.hpp>
-#include <dl/tensor/tensor.hpp>
+#include <dl/tensor/tensorimpl.hpp>
 
 #include <dl/device.hpp>
 
 using namespace dl;
 
-TensorPtr dl::pow(TensorPtr& base, float exponent) noexcept {
+Tensor dl::pow(Tensor& base, float exponent) noexcept {
 	/** \todo add support for autograd **/
 	return base->pow(exponent);
 }
 
-TensorPtr dl::pow(TensorPtr&& base, float exponent) noexcept {
+Tensor dl::pow(Tensor&& base, float exponent) noexcept {
 	/** \todo add support for autograd **/
 	return base->pow(exponent);
 }
 
-TensorPtr dl::mean(TensorPtr& x) noexcept {
+Tensor dl::mean(Tensor& x) noexcept {
 	/** \todo add support for autograd **/
 	auto tensor = x->mean();
 	if (tensor->requiresGrad()) {
 		auto size = (float)x->shape(0);
-		tensor->gradfn = [x, size](TensorPtr& ptr) mutable {
+		tensor->gradfn = [x, size](Tensor& ptr) mutable {
 			if (x->grad == nullptr)
 				x->grad = std::move(ptr * dl::ones_like(x) / size);
 			else
@@ -34,11 +34,11 @@ TensorPtr dl::mean(TensorPtr& x) noexcept {
 	return tensor;
 }
 
-TensorPtr dl::mean(TensorPtr&& x) noexcept {
+Tensor dl::mean(Tensor&& x) noexcept {
 	auto tensor = x->mean();
 	if (tensor->requiresGrad()) {
 		auto size = (float)x->shape(0);
-		tensor->gradfn = [copy = std::move(x), size](TensorPtr& ptr) mutable {
+		tensor->gradfn = [copy = std::move(x), size](Tensor& ptr) mutable {
 			if (copy->grad == nullptr)
 				copy->grad = std::move(ptr * dl::ones_like(copy) / size);
 			else
@@ -52,27 +52,27 @@ TensorPtr dl::mean(TensorPtr&& x) noexcept {
 	return tensor;
 }
 
-// TensorPtr relu(TensorPtr x) noexcept { return max(x, 0); }
+// Tensor relu(Tensor x) noexcept { return max(x, 0); }
 
-TensorPtr dl::operator+(TensorPtr& left, TensorPtr& right) noexcept {
+Tensor dl::operator+(Tensor& left, Tensor& right) noexcept {
 	/** \todo add support for autograd **/
 	if (left->requiresGrad())
-		left->gradfn = [left](TensorPtr& ptr) { dl::constant(1.0, left->device()); };
+		left->gradfn = [left](Tensor& ptr) { dl::constant(1.0, left->device()); };
 	if (right->requiresGrad())
-		right->gradfn = [right](TensorPtr& ptr) { dl::constant(1.0, right->device()); };
+		right->gradfn = [right](Tensor& ptr) { dl::constant(1.0, right->device()); };
 	return left->add(right);
 }
-TensorPtr dl::operator-(TensorPtr& left, TensorPtr& right) noexcept {
+Tensor dl::operator-(Tensor& left, Tensor& right) noexcept {
 	/** \todo add support for autograd **/
-	left->gradfn = [left](TensorPtr& ptr) { dl::constant(1.0, left->device()); };
-	right->gradfn = [right](TensorPtr& ptr) { dl::constant(-1.0, right->device()); };
+	left->gradfn = [left](Tensor& ptr) { dl::constant(1.0, left->device()); };
+	right->gradfn = [right](Tensor& ptr) { dl::constant(-1.0, right->device()); };
 	return left->sub(right);
 }
-TensorPtr dl::operator*(TensorPtr& left, TensorPtr& right) noexcept {
+Tensor dl::operator*(Tensor& left, Tensor& right) noexcept {
 	/** \todo add support for autograd **/
 	auto tensor = left->mul(right);
 	if (tensor->requiresGrad()) {
-		tensor->gradfn = [&left, &right](TensorPtr& ptr) {
+		tensor->gradfn = [&left, &right](Tensor& ptr) {
 			auto lgrad = right;
 			lgrad->discardGradient();
 			auto rgrad = left;
@@ -84,27 +84,27 @@ TensorPtr dl::operator*(TensorPtr& left, TensorPtr& right) noexcept {
 	}
 	return tensor;
 }
-TensorPtr dl::operator/(TensorPtr& left, TensorPtr right) noexcept {
+Tensor dl::operator/(Tensor& left, Tensor right) noexcept {
 	/** \todo add support for autograd **/
 	return left->div(right);
 }
-TensorPtr dl::operator/(TensorPtr& left, TensorPtr& right) noexcept {
+Tensor dl::operator/(Tensor& left, Tensor& right) noexcept {
 	/** \todo add support for autograd **/
 	return left->div(right);
 }
 
-TensorPtr dl::matmul(TensorPtr& left, TensorPtr& right) noexcept {
+Tensor dl::matmul(Tensor& left, Tensor& right) noexcept {
 	/** \todo add support for autograd **/
 	return left->matmul(right);
 }
 
-std::ostream& dl::operator<<(std::ostream& stream, const TensorPtr& tensor) noexcept {
+std::ostream& dl::operator<<(std::ostream& stream, const Tensor& tensor) noexcept {
 	if (tensor == nullptr)
 		return stream << "null";
 	return tensor->writeToStream(stream);
 }
 
-bool dl::operator==(const dl::TensorPtr& left, const dl::TensorPtr& right) noexcept {
+bool dl::operator==(const dl::Tensor& left, const dl::Tensor& right) noexcept {
 	if (left->shape() != right->shape())
 		return false;
 	throw std::runtime_error("Not Implemented");

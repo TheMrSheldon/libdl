@@ -7,11 +7,11 @@
 #include <dl/model/linear.hpp>
 #include <dl/model/model.hpp>
 #include <dl/tensor/math.hpp>
-#include <dl/tensor/tensor.hpp>
+#include <dl/tensor/tensorimpl.hpp>
 
 #include <cmath>
 
-class MyModel : public dl::Model<dl::TensorPtr(dl::TensorPtr&)> {
+class MyModel : public dl::Model<dl::Tensor(dl::Tensor&)> {
 private:
 	dl::Linear linear;
 
@@ -19,11 +19,11 @@ public:
 	MyModel() : linear(1, 1, false) { registerSubmodel(linear); }
 
 	//Maybe this solves the duplication https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0847r7.html
-	dl::TensorPtr forward(dl::TensorPtr& input) { return linear(input); }
-	// dl::TensorPtr forward(dl::TensorPtr& input) const { return linear(input); }
+	dl::Tensor forward(dl::Tensor& input) { return linear(input); }
+	// dl::Tensor forward(dl::Tensor& input) const { return linear(input); }
 };
 
-class MemoryDataloader : public dl::Dataloader<dl::TensorPtr(dl::TensorPtr&)> {
+class MemoryDataloader : public dl::Dataloader<dl::Tensor(dl::Tensor&)> {
 private:
 	using Iterator = dl::utils::GenericIterator<Instance>;
 	std::vector<Instance> data;
@@ -36,9 +36,9 @@ public:
 	Iterator end() override { return Iterator(data.end()); }
 };
 
-class MyDataset : public dl::Dataset<dl::TensorPtr(dl::TensorPtr&)> {
+class MyDataset : public dl::Dataset<dl::Tensor(dl::Tensor&)> {
 private:
-	using _DataLoader = dl::Dataloader<dl::TensorPtr(dl::TensorPtr&)>;
+	using _DataLoader = dl::Dataloader<dl::Tensor(dl::Tensor&)>;
 
 public:
 	MyDataset() {}
@@ -67,8 +67,8 @@ public:
 	explicit GradientDescent(const std::vector<dl::TensorRef>& parameters, float learnrate = 0.001)
 			: dl::Optimizer(), parameters(parameters), learnrate(learnrate) {}
 
-	virtual void step(const dl::TensorPtr& loss) override {
-		for (dl::TensorPtr& tensor : parameters)
+	virtual void step(const dl::Tensor& loss) override {
+		for (dl::Tensor& tensor : parameters)
 			tensor->mul_inplace(tensor->grad);
 	}
 };
@@ -85,7 +85,7 @@ public:
 	Adam(float lr = 0.001, float beta1 = 0.9, float beta2 = 0.999, float eps = 1e-8)
 			: dl::Optimizer(), lr(lr), beta1(beta1), beta2(beta2), eps(eps) {}
 
-	virtual void step(const dl::TensorPtr& loss) override {
+	virtual void step(const dl::Tensor& loss) override {
 		auto m0 = 0;
 		auto v0 = 0;
 		int t = 0;

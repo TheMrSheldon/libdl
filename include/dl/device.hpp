@@ -1,7 +1,7 @@
 #pragma once
 
 #include "tensor/shape.hpp"
-#include "tensor/tensorptr.hpp"
+#include "tensor/tensorimpl.hpp"
 #include "utils/scopeguard.hpp"
 
 namespace dl {
@@ -38,7 +38,7 @@ namespace dl {
 		 * @param requiresGrad True if a gradient should be calculate for the newly constructed tensor.
 		 * @return The newly created tensor.
 		 */
-		virtual TensorPtr empty(Shape shape, bool requiresGrad = false) const noexcept = 0;
+		virtual Tensor empty(Shape shape, bool requiresGrad = false) const noexcept = 0;
 		/**
 		 * @brief Creates a new tensor of the specified shape. All entries are initialized to zero.
 		 * 
@@ -46,7 +46,7 @@ namespace dl {
 		 * @param requiresGrad True if a gradient should be calculate for the newly constructed tensor.
 		 * @return The newly created tensor.
 		 */
-		virtual TensorPtr zero(Shape shape, bool requiresGrad = false) const noexcept = 0;
+		virtual Tensor zero(Shape shape, bool requiresGrad = false) const noexcept = 0;
 		/**
 		 * @brief Creates a new tensor of the specified shape. All entries are initialized to one.
 		 * 
@@ -54,11 +54,11 @@ namespace dl {
 		 * @param requiresGrad True if a gradient should be calculate for the newly constructed tensor.
 		 * @return The newly created tensor.
 		 */
-		virtual TensorPtr ones(Shape shape, bool requiresGrad = false) const noexcept = 0;
-		virtual TensorPtr constant(int value, bool requiresGrad = false) const noexcept = 0;
-		virtual TensorPtr constant(float value, bool requiresGrad = false) const noexcept = 0;
-		virtual TensorPtr constant(double value, bool requiresGrad = false) const noexcept = 0;
-		virtual TensorPtr constant(std::initializer_list<float> value, bool requiresGrad = false) const noexcept = 0;
+		virtual Tensor ones(Shape shape, bool requiresGrad = false) const noexcept = 0;
+		virtual Tensor constant(int value, bool requiresGrad = false) const noexcept = 0;
+		virtual Tensor constant(float value, bool requiresGrad = false) const noexcept = 0;
+		virtual Tensor constant(double value, bool requiresGrad = false) const noexcept = 0;
+		virtual Tensor constant(std::initializer_list<float> value, bool requiresGrad = false) const noexcept = 0;
 
 		template <typename T>
 		void setDefaultFloatTensorType();
@@ -100,22 +100,16 @@ namespace dl {
 	template <>
 	void Device::setDefaultFloatTensorType<double>();
 
-	inline TensorPtr empty(const Shape& size, Device const& device = Device::getDefault()) {
-		return device.empty(size);
-	}
-	inline TensorPtr zero(const Shape& size, Device const& device = Device::getDefault()) { return device.zero(size); }
-	inline TensorPtr ones(const Shape& size, Device const& device = Device::getDefault()) { return device.ones(size); }
-	TensorPtr ones_like(const TensorPtr& tensor, Device const& device = Device::getDefault());
-	inline TensorPtr constant(int value, Device const& device = Device::getDefault()) { return device.constant(value); }
-	inline TensorPtr constant(float value, Device const& device = Device::getDefault()) {
-		return device.constant(value);
-	}
-	inline TensorPtr constant(double value, Device const& device = Device::getDefault()) {
-		return device.constant(value);
-	}
-	inline TensorPtr constant(std::initializer_list<float> value, Device const& device = Device::getDefault()) {
+	inline Tensor empty(const Shape& size, Device const& device = Device::getDefault()) { return device.empty(size); }
+	inline Tensor zero(const Shape& size, Device const& device = Device::getDefault()) { return device.zero(size); }
+	inline Tensor ones(const Shape& size, Device const& device = Device::getDefault()) { return device.ones(size); }
+	Tensor ones_like(const Tensor& tensor, Device const& device = Device::getDefault());
+	inline Tensor constant(int value, Device const& device = Device::getDefault()) { return device.constant(value); }
+	inline Tensor constant(float value, Device const& device = Device::getDefault()) { return device.constant(value); }
+	inline Tensor constant(double value, Device const& device = Device::getDefault()) { return device.constant(value); }
+	inline Tensor constant(std::initializer_list<float> value, Device const& device = Device::getDefault()) {
 		return device.constant(std::move(value));
 	}
 
-	TensorPtr clone(const TensorPtr& tensor);
+	Tensor clone(const Tensor& tensor);
 } // namespace dl

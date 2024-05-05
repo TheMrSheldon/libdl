@@ -8,7 +8,7 @@ add_library(dl STATIC
     model/linear.cpp
     tensor/math.cpp
     tensor/tensor.cpp
-    tensor/tensorptr.cpp
+    tensor/tensorimpl.cpp
 
     utils/urlstream.cpp
 )

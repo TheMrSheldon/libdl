@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../tensor/tensor.hpp"
-#include "../tensor/tensorptr.hpp"
+#include "../tensor/tensorimpl.hpp"
 
 #include <ranges>
 #include <vector>
@@ -25,13 +25,13 @@ namespace dl {
 		void registerSubmodel(Model<T>& model) {
 			registerParameters(model.parameters());
 		}
-		void registerParameter(TensorPtr& tensor) {
+		void registerParameter(Tensor& tensor) {
 			tensor->setRequiresGrad(true);
 			_parameters.push_back(tensor);
 		}
 
 		void registerParameters(std::ranges::range auto& tensors) {
-			for (TensorPtr& params : tensors)
+			for (Tensor& params : tensors)
 				params->setRequiresGrad(true);
 			_parameters.insert(std::end(_parameters), std::begin(tensors), std::begin(tensors));
 		}

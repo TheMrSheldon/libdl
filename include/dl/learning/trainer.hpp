@@ -28,7 +28,7 @@ namespace dl {
 		using TDataset = Dataset<T>;
 		using TDataloader = Dataloader<T>;
 		using DatasetSetupFn = std::function<std::unique_ptr<TDataset>(void)>;
-		using LossFn = std::function<TensorPtr(R&&, R&)>;
+		using LossFn = std::function<Tensor(R&&, R&)>;
 
 		struct Settings {
 			bool enableCheckpointing = false;

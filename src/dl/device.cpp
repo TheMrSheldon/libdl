@@ -1,9 +1,9 @@
 #include <dl/device.hpp>
 
-#include <dl/tensor/tensor.hpp>
+#include <dl/tensor/tensorimpl.hpp>
 
 namespace dl {
-	TensorPtr ones_like(const TensorPtr& tensor, Device const& device) { return device.ones(tensor->shape()); }
+	Tensor ones_like(const Tensor& tensor, Device const& device) { return device.ones(tensor->shape()); }
 
-	TensorPtr clone(const TensorPtr& tensor) { return tensor->clone(); }
+	Tensor clone(const Tensor& tensor) { return tensor->clone(); }
 } // namespace dl

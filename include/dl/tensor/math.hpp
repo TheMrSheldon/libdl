@@ -5,29 +5,29 @@
 
 #pragma once
 
-#include "tensorptr.hpp"
+#include "tensor.hpp"
 #include <iostream>
 
 namespace dl {
-	TensorPtr pow(TensorPtr& base, float exponent) noexcept;
-	TensorPtr pow(TensorPtr&& base, float exponent) noexcept;
-	TensorPtr mean(TensorPtr& x) noexcept;
-	TensorPtr mean(TensorPtr&& x) noexcept;
-	TensorPtr sum(TensorPtr& x) noexcept;
+	Tensor pow(Tensor& base, float exponent) noexcept;
+	Tensor pow(Tensor&& base, float exponent) noexcept;
+	Tensor mean(Tensor& x) noexcept;
+	Tensor mean(Tensor&& x) noexcept;
+	Tensor sum(Tensor& x) noexcept;
 
-	TensorPtr min(TensorPtr& x, float bound) noexcept;
-	TensorPtr max(TensorPtr& x, float bound) noexcept;
+	Tensor min(Tensor& x, float bound) noexcept;
+	Tensor max(Tensor& x, float bound) noexcept;
 
-	TensorPtr relu(TensorPtr& x) noexcept;
+	Tensor relu(Tensor& x) noexcept;
 
-	TensorPtr operator+(TensorPtr& left, TensorPtr& right) noexcept;
-	TensorPtr operator-(TensorPtr& left, TensorPtr& right) noexcept;
-	TensorPtr operator*(TensorPtr& left, TensorPtr& right) noexcept;
-	TensorPtr operator/(TensorPtr& left, TensorPtr& right) noexcept;
-	TensorPtr operator/(TensorPtr& left, TensorPtr right) noexcept;
+	Tensor operator+(Tensor& left, Tensor& right) noexcept;
+	Tensor operator-(Tensor& left, Tensor& right) noexcept;
+	Tensor operator*(Tensor& left, Tensor& right) noexcept;
+	Tensor operator/(Tensor& left, Tensor& right) noexcept;
+	Tensor operator/(Tensor& left, Tensor right) noexcept;
 
-	TensorPtr matmul(TensorPtr& left, TensorPtr& right) noexcept;
+	Tensor matmul(Tensor& left, Tensor& right) noexcept;
 
-	std::ostream& operator<<(std::ostream&, const TensorPtr& tensor) noexcept;
-	bool operator==(const TensorPtr& left, const TensorPtr& right) noexcept;
+	std::ostream& operator<<(std::ostream&, const Tensor& tensor) noexcept;
+	bool operator==(const Tensor& left, const Tensor& right) noexcept;
 } // namespace dl
