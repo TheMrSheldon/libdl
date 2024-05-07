@@ -27,6 +27,7 @@ namespace dl {
 	Tensor operator/(Tensor& left, Tensor right) noexcept;
 
 	Tensor matmul(Tensor& left, Tensor& right) noexcept;
+	Tensor matmul(Tensor&& left, Tensor& right) noexcept;
 
 	std::ostream& operator<<(std::ostream&, const Tensor& tensor) noexcept;
 	bool operator==(const Tensor& left, const Tensor& right) noexcept;

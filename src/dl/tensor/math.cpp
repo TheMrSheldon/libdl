@@ -97,6 +97,10 @@ Tensor dl::matmul(Tensor& left, Tensor& right) noexcept {
 	/** \todo add support for autograd **/
 	return left->matmul(right);
 }
+Tensor dl::matmul(Tensor&& left, Tensor& right) noexcept {
+	/** \todo add support for autograd **/
+	return left->matmul(right);
+}
 
 std::ostream& dl::operator<<(std::ostream& stream, const Tensor& tensor) noexcept {
 	if (tensor == nullptr)

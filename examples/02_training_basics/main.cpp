@@ -73,7 +73,7 @@ public:
 	}
 };
 
-// https://arxiv.org/abs/1412.6980
+// \cite adam
 class Adam : public dl::Optimizer {
 private:
 	const float lr;

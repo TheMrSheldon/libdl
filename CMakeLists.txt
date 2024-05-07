@@ -39,6 +39,13 @@ endif()
 # Documentation only available if this is the main app
 if((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME) AND LIBDL_BUILD_DOCS)
 	find_package(Doxygen REQUIRED)
+	include(FetchContent)
+
+	FetchContent_Declare(cppreftags
+		URL https://upload.cppreference.com/mwiki/images/f/f8/cppreference-doxygen-web.tag.xml
+		DOWNLOAD_NO_EXTRACT TRUE
+	)
+	FetchContent_MakeAvailable(cppreftags)
 
 	## Set Doxygen configuration options (THIS REPLACES THE DOXYFILE!)
 	set(DOXYGEN_PROJECT_BRIEF "Simple yet powerful deep learning")
@@ -47,16 +54,18 @@ if((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME) AND LIBDL_BUILD_DOCS)
 	set(DOXYGEN_STRIP_FROM_PATH "include")
 	set(DOXYGEN_EXTRACT_PRIVATE "YES")
 	set(DOXYGEN_EXTRACT_STATIC "YES")
+	set(DOXYGEN_USE_MATHJAX "YES")
 	set(DOXYGEN_USE_MDFILE_AS_MAINPAGE "${CMAKE_CURRENT_SOURCE_DIR}/README.md")
 	set(DOXYGEN_SOURCE_BROWSER "YES")
 	set(DOXYGEN_INLINE_SOURCES "YES")
 	set(DOXYGEN_IMAGE_PATH ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/docs/media)
 	set(DOXYGEN_EXAMPLE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/examples)
+	set(DOXYGEN_CITE_BIB_FILES ${CMAKE_CURRENT_SOURCE_DIR}/docs/references.bib)
+	set(DOXYGEN_TAGFILES "${cppreftags_SOURCE_DIR}/cppreference-doxygen-web.tag.xml=http://en.cppreference.com/w/")
 
 	set(DOXYGEN_GENERATE_HTML "YES")
 
     ## Install and configure the "Doxygen Awesome" theme
-	include(FetchContent)
 	FetchContent_Declare(doxawesome GIT_REPOSITORY https://github.com/jothepro/doxygen-awesome-css GIT_TAG v2.3.2)
 	FetchContent_MakeAvailable(doxawesome)
 	set(DOXYGEN_GENERATE_TREEVIEW "YES")

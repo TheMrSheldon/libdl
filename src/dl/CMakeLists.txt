@@ -6,6 +6,8 @@ add_library(dl STATIC
     device.cpp
     devices/cpu.cpp
     model/linear.cpp
+    model/transformer/transformer.cpp
+    model/transformer/wordpiece.cpp
     tensor/math.cpp
     tensor/tensor.cpp
     tensor/tensorimpl.cpp
@@ -76,7 +78,6 @@ FetchContent_MakeAvailable(ryml)
 target_link_libraries(dl PUBLIC ryml::ryml)
 
 # libcpr
-include(FetchContent)
 FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git
                          GIT_TAG 1.10.5)
 FetchContent_MakeAvailable(cpr)
