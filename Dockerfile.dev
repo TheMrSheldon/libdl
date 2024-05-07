@@ -5,19 +5,21 @@ FROM ubuntu:24.04
 # Install Dependencies                                                                                                 #
 ########################################################################################################################
 USER root
-# only needed for add-apt-repository
-RUN apt-get update && apt-get install -y software-properties-common
-RUN add-apt-repository ppa:ubuntu-toolchain-r/test && apt-get update
-RUN apt-get -y install g++-13 cmake git
 
-# Needed for the dev environment
-RUN apt-get -y install cppcheck doxygen graphviz gdb \
-    clang-format
-
-# Dependencies
-RUN apt-get -y install libopenblas-dev libssl-dev zlib1g-dev \
-    # Dependency of libir
-    libboost-iostreams-dev
+RUN <<EOF
+    apt-get update
+    # Basic Requirements for compiling the code
+    apt-get -y install g++-13 cmake git
+    # Needed for the development environment
+    apt-get -y install cppcheck gdb clang-format
+    # Needed for the documentation
+    apt-get -y install doxygen graphviz texlive-base
+    #
+    # Dependencies (libdl)
+    apt-get -y install libopenblas-dev libssl-dev zlib1g-dev
+    # Dependencies (libdl)
+    apt-get -y install libboost-iostreams-dev
+EOF
 
 
 
