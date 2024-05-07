@@ -43,6 +43,13 @@
     <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
     <link href="doxygen.css" rel="stylesheet" type="text/css" />
     <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
@@ -185,11 +192,11 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>TDataset</b> = <a cl
 using&#160;</td><td class="memItemRight" valign="bottom"><b>TDataloader</b> = <a class="el" href="classdl_1_1Dataloader.html">Dataloader</a>&lt; T &gt;</td></tr>
 <tr class="separator:ae33d7cdfe5a99640fb07c134d739cdf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa069610bba42f2f9a3af60aeccf425ba"><td class="memItemLeft" align="right" valign="top"><a id="aa069610bba42f2f9a3af60aeccf425ba"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>DatasetSetupFn</b> = std::function&lt; std::unique_ptr&lt; <a class="el" href="classdl_1_1Dataset.html">TDataset</a> &gt;(void)&gt;</td></tr>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>DatasetSetupFn</b> = <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function</a>&lt; <a class="elRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr</a>&lt; <a class="el" href="classdl_1_1Dataset.html">TDataset</a> &gt;(void)&gt;</td></tr>
 <tr class="separator:aa069610bba42f2f9a3af60aeccf425ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ba97019ae770a15ad5c5cf56d98eb47"><td class="memItemLeft" align="right" valign="top"><a id="a4ba97019ae770a15ad5c5cf56d98eb47"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>LossFn</b> = std::function&lt; <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>(R &amp;&amp;, R &amp;)&gt;</td></tr>
-<tr class="separator:a4ba97019ae770a15ad5c5cf56d98eb47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd974090191d7a147dc74caf723e8135"><td class="memItemLeft" align="right" valign="top"><a id="abd974090191d7a147dc74caf723e8135"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>LossFn</b> = <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function</a>&lt; <a class="el" href="classdl_1_1Tensor.html">Tensor</a>(R &amp;&amp;, R &amp;)&gt;</td></tr>
+<tr class="separator:abd974090191d7a147dc74caf723e8135"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>

@@ -2,7 +2,7 @@ var classdl_1_1Trainer_3_01R_07Args_8_8_8_08_4 =
 [
     [ "Settings", "structdl_1_1Trainer_3_01R_07Args_8_8_8_08_4_1_1Settings.html", "structdl_1_1Trainer_3_01R_07Args_8_8_8_08_4_1_1Settings" ],
     [ "DatasetSetupFn", "classdl_1_1Trainer_3_01R_07Args_8_8_8_08_4.html#aa069610bba42f2f9a3af60aeccf425ba", null ],
-    [ "LossFn", "classdl_1_1Trainer_3_01R_07Args_8_8_8_08_4.html#a4ba97019ae770a15ad5c5cf56d98eb47", null ],
+    [ "LossFn", "classdl_1_1Trainer_3_01R_07Args_8_8_8_08_4.html#abd974090191d7a147dc74caf723e8135", null ],
     [ "T", "classdl_1_1Trainer_3_01R_07Args_8_8_8_08_4.html#a7452edacf2b02a2e22682e47e40c56d7", null ],
     [ "TDataloader", "classdl_1_1Trainer_3_01R_07Args_8_8_8_08_4.html#ae33d7cdfe5a99640fb07c134d739cdf8", null ],
     [ "TDataset", "classdl_1_1Trainer_3_01R_07Args_8_8_8_08_4.html#a64252ce6103c5e810a766d6c218d9a60", null ],

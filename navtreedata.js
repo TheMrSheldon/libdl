@@ -30,6 +30,7 @@ var NAVTREE =
       [ "CMake", "index.html#autotoc_md2", null ]
     ] ],
     [ "Todo List", "todo.html", null ],
+    [ "Bibliography", "citelist.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ]
     ] ],
@@ -52,7 +53,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "",
-"math_8hpp.html#a1f437c311c72049fc420c8c8f0076a00"
+"cpp/algorithm/for_each.html",
+"cpp/memory/return_temporary_buffer.html",
+"cpp/utility/program/raise.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

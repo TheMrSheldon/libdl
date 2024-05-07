@@ -43,6 +43,13 @@
     <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
     <link href="doxygen.css" rel="stylesheet" type="text/css" />
     <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
@@ -168,19 +175,19 @@ $(document).ready(function(){initNavTree('classdl_1_1Dataloader_3_01R_07Args_8_8
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a8f828fc76b5e843412028ed8567509d7"><td class="memItemLeft" align="right" valign="top"><a id="a8f828fc76b5e843412028ed8567509d7"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>Instance</b> = std::tuple&lt; R, std::remove_reference_t&lt; Args &gt;... &gt;</td></tr>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Instance</b> = <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/tuple.html">std::tuple</a>&lt; R, std::remove_reference_t&lt; Args &gt;... &gt;</td></tr>
 <tr class="separator:a8f828fc76b5e843412028ed8567509d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b31a579a276e4fba7a0d90ab0b15fcc"><td class="memItemLeft" align="right" valign="top"><a id="a8b31a579a276e4fba7a0d90ab0b15fcc"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>Batch</b> = std::vector&lt; Instance &gt;</td></tr>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Batch</b> = <a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt; <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/tuple.html">Instance</a> &gt;</td></tr>
 <tr class="separator:a8b31a579a276e4fba7a0d90ab0b15fcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5f7a07f99a50cc05100aed542a4de328"><td class="memItemLeft" align="right" valign="top"><a id="a5f7a07f99a50cc05100aed542a4de328"></a>
-virtual <a class="el" href="classdl_1_1utils_1_1GenericIterator.html">dl::utils::GenericIterator</a>&lt; Instance &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()=0</td></tr>
+virtual <a class="el" href="classdl_1_1utils_1_1GenericIterator.html">dl::utils::GenericIterator</a>&lt; <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/tuple.html">Instance</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()=0</td></tr>
 <tr class="separator:a5f7a07f99a50cc05100aed542a4de328"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed4b6f5cf7e2c71e28c6766d4df6cf3a"><td class="memItemLeft" align="right" valign="top"><a id="aed4b6f5cf7e2c71e28c6766d4df6cf3a"></a>
-virtual <a class="el" href="classdl_1_1utils_1_1GenericIterator.html">dl::utils::GenericIterator</a>&lt; Instance &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()=0</td></tr>
+virtual <a class="el" href="classdl_1_1utils_1_1GenericIterator.html">dl::utils::GenericIterator</a>&lt; <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/tuple.html">Instance</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()=0</td></tr>
 <tr class="separator:aed4b6f5cf7e2c71e28c6766d4df6cf3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

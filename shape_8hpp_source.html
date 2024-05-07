@@ -43,6 +43,13 @@
     <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
     <link href="doxygen.css" rel="stylesheet" type="text/css" />
     <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
@@ -165,8 +172,9 @@ $(document).ready(function(){initNavTree('shape_8hpp_source.html',''); initResiz
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span>dl {</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="keyword">using</span> Shape = std::vector&lt;std::size_t&gt;;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="keyword">using</span> Shape = <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;std::size_t&gt;</a>;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;}</div>
+<div class="ttc" id="avector_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

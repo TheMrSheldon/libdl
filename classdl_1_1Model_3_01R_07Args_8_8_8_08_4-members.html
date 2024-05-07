@@ -43,6 +43,13 @@
     <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
     <link href="doxygen.css" rel="stylesheet" type="text/css" />
     <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
@@ -168,7 +175,7 @@ $(document).ready(function(){initNavTree('classdl_1_1Model_3_01R_07Args_8_8_8_08
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>operator()</b>(Args... args) (defined in <a class="el" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html">dl::Model&lt; R(Args...)&gt;</a>)</td><td class="entry"><a class="el" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html">dl::Model&lt; R(Args...)&gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>parameters</b>() noexcept (defined in <a class="el" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html">dl::Model&lt; R(Args...)&gt;</a>)</td><td class="entry"><a class="el" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html">dl::Model&lt; R(Args...)&gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>parameters</b>() const noexcept (defined in <a class="el" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html">dl::Model&lt; R(Args...)&gt;</a>)</td><td class="entry"><a class="el" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html">dl::Model&lt; R(Args...)&gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>registerParameter</b>(TensorPtr &amp;tensor) (defined in <a class="el" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html">dl::Model&lt; R(Args...)&gt;</a>)</td><td class="entry"><a class="el" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html">dl::Model&lt; R(Args...)&gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>registerParameter</b>(Tensor &amp;tensor) (defined in <a class="el" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html">dl::Model&lt; R(Args...)&gt;</a>)</td><td class="entry"><a class="el" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html">dl::Model&lt; R(Args...)&gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>registerParameters</b>(std::ranges::range auto &amp;tensors) (defined in <a class="el" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html">dl::Model&lt; R(Args...)&gt;</a>)</td><td class="entry"><a class="el" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html">dl::Model&lt; R(Args...)&gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>registerSubmodel</b>(Model&lt; T &gt; &amp;model) (defined in <a class="el" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html">dl::Model&lt; R(Args...)&gt;</a>)</td><td class="entry"><a class="el" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html">dl::Model&lt; R(Args...)&gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>signature</b> typedef (defined in <a class="el" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html">dl::Model&lt; R(Args...)&gt;</a>)</td><td class="entry"><a class="el" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html">dl::Model&lt; R(Args...)&gt;</a></td><td class="entry"></td></tr>

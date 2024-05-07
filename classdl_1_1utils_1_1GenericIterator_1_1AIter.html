@@ -43,6 +43,13 @@
     <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
     <link href="doxygen.css" rel="stylesheet" type="text/css" />
     <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
@@ -192,10 +199,10 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a2e934341d8b83edde118e2181f09271d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html#a2e934341d8b83edde118e2181f09271d">equals</a> (const <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html">AIter</a> &amp;other) const noexcept=0</td></tr>
 <tr class="memdesc:a2e934341d8b83edde118e2181f09271d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if this operator is equal to <code>other</code>. Generally this should check if they have the same type (see <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html#a0b369b9da63ba2cbacc23f0647334383" title="Returns the typeid of this. This can be used to check if to implementations of AIter are of the same ...">AIter::type()</a>) and then check if the underlying iterators are the same.  <a href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html#a2e934341d8b83edde118e2181f09271d">More...</a><br /></td></tr>
 <tr class="separator:a2e934341d8b83edde118e2181f09271d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b369b9da63ba2cbacc23f0647334383"><td class="memItemLeft" align="right" valign="top">virtual const std::type_info &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html#a0b369b9da63ba2cbacc23f0647334383">type</a> () const =0</td></tr>
+<tr class="memitem:a0b369b9da63ba2cbacc23f0647334383"><td class="memItemLeft" align="right" valign="top">virtual const <a class="elRef" href="http://en.cppreference.com/w/cpp/types/type_info.html">std::type_info</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html#a0b369b9da63ba2cbacc23f0647334383">type</a> () const =0</td></tr>
 <tr class="memdesc:a0b369b9da63ba2cbacc23f0647334383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the typeid of this. This can be used to check if to implementations of <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html" title="The &quot;abstract iterator&quot; (AIter) provides a class interface for forward iterators (i....">AIter</a> are of the same type.  <a href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html#a0b369b9da63ba2cbacc23f0647334383">More...</a><br /></td></tr>
 <tr class="separator:a0b369b9da63ba2cbacc23f0647334383"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27c77d62385a206e3b6db74d5bf3bd51"><td class="memItemLeft" align="right" valign="top">virtual std::unique_ptr&lt; <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html">AIter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html#a27c77d62385a206e3b6db74d5bf3bd51">clone</a> () const =0</td></tr>
+<tr class="memitem:a27c77d62385a206e3b6db74d5bf3bd51"><td class="memItemLeft" align="right" valign="top">virtual <a class="elRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr</a>&lt; <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html">AIter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html#a27c77d62385a206e3b6db74d5bf3bd51">clone</a> () const =0</td></tr>
 <tr class="memdesc:a27c77d62385a206e3b6db74d5bf3bd51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clones this iterator. A shallow clone suffices. This only acts as a virtual copy constructor (<a href="https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms/Virtual_Constructor">https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms/Virtual_Constructor</a>).  <a href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html#a27c77d62385a206e3b6db74d5bf3bd51">More...</a><br /></td></tr>
 <tr class="separator:a27c77d62385a206e3b6db74d5bf3bd51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -220,7 +227,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::unique_ptr&lt;<a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html">AIter</a>&gt; <a class="el" href="classdl_1_1utils_1_1GenericIterator.html">dl::utils::GenericIterator</a>&lt; T &gt;::AIter::clone </td>
+          <td class="memname">virtual <a class="elRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr</a>&lt;<a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html">AIter</a>&gt; <a class="el" href="classdl_1_1utils_1_1GenericIterator.html">dl::utils::GenericIterator</a>&lt; T &gt;::AIter::clone </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -323,7 +330,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const std::type_info&amp; <a class="el" href="classdl_1_1utils_1_1GenericIterator.html">dl::utils::GenericIterator</a>&lt; T &gt;::AIter::type </td>
+          <td class="memname">virtual const <a class="elRef" href="http://en.cppreference.com/w/cpp/types/type_info.html">std::type_info</a>&amp; <a class="el" href="classdl_1_1utils_1_1GenericIterator.html">dl::utils::GenericIterator</a>&lt; T &gt;::AIter::type </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>

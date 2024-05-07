@@ -43,6 +43,13 @@
     <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
     <link href="doxygen.css" rel="stylesheet" type="text/css" />
     <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
@@ -174,8 +181,8 @@ $(document).ready(function(){initNavTree('dataloader_8hpp_source.html',''); init
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> R, <span class="keyword">typename</span>... Args&gt;</div>
 <div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classdl_1_1Dataloader_3_01R_07Args_8_8_8_08_4.html">   13</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classdl_1_1Dataloader.html">Dataloader</a>&lt;R(Args...)&gt; {</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">using</span> Instance = std::tuple&lt;R, std::remove_reference_t&lt;Args&gt;...&gt;;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">using</span> Batch = std::vector&lt;Instance&gt;;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">using</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/tuple.html">Instance</a> = <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/tuple.html">std::tuple&lt;R, std::remove_reference_t&lt;Args&gt;</a>...&gt;;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">using</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">Batch</a> = <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;Instance&gt;</a>;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">public</span>:</div>
@@ -187,6 +194,8 @@ $(document).ready(function(){initNavTree('dataloader_8hpp_source.html',''); init
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;} <span class="comment">// namespace dl</span></div>
 <div class="ttc" id="aclassdl_1_1Dataloader_html"><div class="ttname"><a href="classdl_1_1Dataloader.html">dl::Dataloader</a></div><div class="ttdef"><b>Definition:</b> <a href="dataloader_8hpp_source.html#l00010">dataloader.hpp:10</a></div></div>
 <div class="ttc" id="aclassdl_1_1utils_1_1GenericIterator_html"><div class="ttname"><a href="classdl_1_1utils_1_1GenericIterator.html">dl::utils::GenericIterator</a></div><div class="ttdoc">Represents a generic iterator that can be initialized to hold any other class instance that satisfies...</div><div class="ttdef"><b>Definition:</b> <a href="generic__iterator_8hpp_source.html#l00024">generic_iterator.hpp:24</a></div></div>
+<div class="ttc" id="atuple_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/tuple.html">std::tuple</a></div></div>
+<div class="ttc" id="avector_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

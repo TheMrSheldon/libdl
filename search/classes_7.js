@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['model_78',['Model',['../classdl_1_1Model.html',1,'dl']]],
-  ['model_3c_20r_28args_2e_2e_2e_29_3e_79',['Model&lt; R(Args...)&gt;',['../classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html',1,'dl']]],
-  ['model_3c_20tensorptr_28tensorptr_20_26_29_3e_80',['Model&lt; TensorPtr(TensorPtr &amp;)&gt;',['../classdl_1_1Model.html',1,'dl']]]
+  ['gamma_5fdistribution_1712',['gamma_distribution',['http://en.cppreference.com/w/cpp/numeric/random/gamma_distribution.html',1,'std']]],
+  ['genericiterator_1713',['GenericIterator',['../classdl_1_1utils_1_1GenericIterator.html',1,'dl::utils']]],
+  ['geometric_5fdistribution_1714',['geometric_distribution',['http://en.cppreference.com/w/cpp/numeric/random/geometric_distribution.html',1,'std']]],
+  ['giga_1715',['giga',['http://en.cppreference.com/w/cpp/numeric/ratio/ratio.html',1,'std']]],
+  ['greater_1716',['greater',['http://en.cppreference.com/w/cpp/utility/functional/greater.html',1,'std']]],
+  ['greater_5fequal_1717',['greater_equal',['http://en.cppreference.com/w/cpp/utility/functional/greater_equal.html',1,'std']]]
 ];

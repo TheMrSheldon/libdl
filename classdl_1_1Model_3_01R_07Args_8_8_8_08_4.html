@@ -43,6 +43,13 @@
     <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
     <link href="doxygen.css" rel="stylesheet" type="text/css" />
     <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
@@ -166,6 +173,15 @@ $(document).ready(function(){initNavTree('classdl_1_1Model_3_01R_07Args_8_8_8_08
 <div class="title">dl::Model&lt; R(Args...)&gt; Class Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="dynheader">
+Collaboration diagram for dl::Model&lt; R(Args...)&gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdl_1_1Model_3_01R_07Args_8_8_8_08_4__coll__graph.png" border="0" usemap="#adl_1_1Model_3_01R_07Args_8_8_8_08_4_coll__map" alt="Collaboration graph"/></div>
+<map name="adl_1_1Model_3_01R_07Args_8_8_8_08_4_coll__map" id="adl_1_1Model_3_01R_07Args_8_8_8_08_4_coll__map">
+<area shape="rect" title=" " alt="" coords="19,109,187,136"/>
+<area shape="rect" target="_parent" href="http://en.cppreference.com/w/cpp/container/vector.html" title=" " alt="" coords="5,5,201,47"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -178,10 +194,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aab5bb4e3b4d9d93b8126b36e7d7c2ffc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html#aab5bb4e3b4d9d93b8126b36e7d7c2ffc">to</a> (const <a class="el" href="classdl_1_1Device.html">Device</a> &amp;device) noexcept</td></tr>
 <tr class="separator:aab5bb4e3b4d9d93b8126b36e7d7c2ffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac06351191584457ab715b1776fed4c72"><td class="memItemLeft" align="right" valign="top"><a id="ac06351191584457ab715b1776fed4c72"></a>
-std::vector&lt; dl::TensorRef &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>parameters</b> () noexcept</td></tr>
+<a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt; <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/functional/reference_wrapper.html">dl::TensorRef</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>parameters</b> () noexcept</td></tr>
 <tr class="separator:ac06351191584457ab715b1776fed4c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70e5040aadf5c371dd9626f1d37c1040"><td class="memItemLeft" align="right" valign="top"><a id="a70e5040aadf5c371dd9626f1d37c1040"></a>
-const std::vector&lt; dl::TensorRef &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>parameters</b> () const noexcept</td></tr>
+const <a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt; <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/functional/reference_wrapper.html">dl::TensorRef</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>parameters</b> () const noexcept</td></tr>
 <tr class="separator:a70e5040aadf5c371dd9626f1d37c1040"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3f01171d7b35cc586b68696a75780e1"><td class="memItemLeft" align="right" valign="top"><a id="ab3f01171d7b35cc586b68696a75780e1"></a>
 R&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (Args... args)</td></tr>
@@ -193,9 +209,9 @@ Protected Member Functions</h2></td></tr>
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a0ba33e21420eb75ea922d0f5db016ebe"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>registerSubmodel</b> (<a class="el" href="classdl_1_1Model.html">Model</a>&lt; T &gt; &amp;model)</td></tr>
 <tr class="separator:a0ba33e21420eb75ea922d0f5db016ebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc5c7aef754b80cfc8c43dfb09b62e2c"><td class="memItemLeft" align="right" valign="top"><a id="acc5c7aef754b80cfc8c43dfb09b62e2c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>registerParameter</b> (<a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp;tensor)</td></tr>
-<tr class="separator:acc5c7aef754b80cfc8c43dfb09b62e2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c0ae4a35a6eae5e94d11969ed54af29"><td class="memItemLeft" align="right" valign="top"><a id="a1c0ae4a35a6eae5e94d11969ed54af29"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>registerParameter</b> (<a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;tensor)</td></tr>
+<tr class="separator:a1c0ae4a35a6eae5e94d11969ed54af29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c2b853f42896f86a1fd09208839662c"><td class="memItemLeft" align="right" valign="top"><a id="a6c2b853f42896f86a1fd09208839662c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>registerParameters</b> (std::ranges::range auto &amp;tensors)</td></tr>
 <tr class="separator:a6c2b853f42896f86a1fd09208839662c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -206,7 +222,7 @@ virtual R&#160;</td><td class="memItemRight" valign="bottom"><b>forward</b> (Arg
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a4eb45736c4b5c1b8bf2ef3553997edf6"><td class="memItemLeft" align="right" valign="top"><a id="a4eb45736c4b5c1b8bf2ef3553997edf6"></a>
-std::vector&lt; dl::TensorRef &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_parameters</b></td></tr>
+<a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt; <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/functional/reference_wrapper.html">dl::TensorRef</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_parameters</b></td></tr>
 <tr class="separator:a4eb45736c4b5c1b8bf2ef3553997edf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

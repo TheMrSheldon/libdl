@@ -9,6 +9,7 @@ var annotated_dup =
       ] ],
       [ "utils", null, [
         [ "GenericIterator", "classdl_1_1utils_1_1GenericIterator.html", "classdl_1_1utils_1_1GenericIterator" ],
+        [ "LineIterator", "structdl_1_1utils_1_1LineIterator.html", "structdl_1_1utils_1_1LineIterator" ],
         [ "ScopeGuard", "classdl_1_1utils_1_1ScopeGuard.html", "classdl_1_1utils_1_1ScopeGuard" ],
         [ "URLStreamBase", "classdl_1_1utils_1_1URLStreamBase.html", "classdl_1_1utils_1_1URLStreamBase" ],
         [ "URLStream", "classdl_1_1utils_1_1URLStream.html", "classdl_1_1utils_1_1URLStream" ]
@@ -24,8 +25,10 @@ var annotated_dup =
       [ "Trainer< R(Args...)>", "classdl_1_1Trainer_3_01R_07Args_8_8_8_08_4.html", "classdl_1_1Trainer_3_01R_07Args_8_8_8_08_4" ],
       [ "Linear", "classdl_1_1Linear.html", "classdl_1_1Linear" ],
       [ "Model< R(Args...)>", "classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html", "classdl_1_1Model_3_01R_07Args_8_8_8_08_4" ],
+      [ "Transformer", "classdl_1_1Transformer.html", "classdl_1_1Transformer" ],
+      [ "WordPieceTokenizer", "classdl_1_1WordPieceTokenizer.html", "classdl_1_1WordPieceTokenizer" ],
       [ "Tensor", "classdl_1_1Tensor.html", "classdl_1_1Tensor" ],
-      [ "TensorPtr", "classdl_1_1TensorPtr.html", "classdl_1_1TensorPtr" ]
+      [ "TensorImpl", "classdl_1_1TensorImpl.html", "classdl_1_1TensorImpl" ]
     ] ],
     [ "fmt", null, [
       [ "formatter< std::optional< T > >", "structfmt_1_1formatter_3_01std_1_1optional_3_01T_01_4_01_4.html", "structfmt_1_1formatter_3_01std_1_1optional_3_01T_01_4_01_4" ]
@@ -36,5 +39,11 @@ var annotated_dup =
       [ "IRDataset", "classir_1_1IRDataset.html", null ],
       [ "IRDataset< float(Query, Document)>", "classir_1_1IRDataset_3_01float_07Query_00_01Document_08_4.html", "classir_1_1IRDataset_3_01float_07Query_00_01Document_08_4" ],
       [ "IRDataset< void(Query, Document, Document)>", "classir_1_1IRDataset_3_01void_07Query_00_01Document_00_01Document_08_4.html", "classir_1_1IRDataset_3_01void_07Query_00_01Document_00_01Document_08_4" ]
+    ] ],
+    [ "nlp", null, [
+      [ "transformer", null, [
+        [ "BERTTokenizer", "classnlp_1_1transformer_1_1BERTTokenizer.html", null ],
+        [ "BERT", "classnlp_1_1transformer_1_1BERT.html", null ]
+      ] ]
     ] ]
 ];

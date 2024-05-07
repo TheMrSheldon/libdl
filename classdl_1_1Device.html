@@ -43,6 +43,13 @@
     <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
     <link href="doxygen.css" rel="stylesheet" type="text/css" />
     <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
@@ -178,27 +185,27 @@ Collaboration diagram for dl::Device:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6707cc2271e15daecb6bb6c7625dc675"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Device.html#a6707cc2271e15daecb6bb6c7625dc675">empty</a> (Shape shape, bool requiresGrad=false) const noexcept=0</td></tr>
-<tr class="memdesc:a6707cc2271e15daecb6bb6c7625dc675"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new tensor of the specified shape without initializing the memory.  <a href="classdl_1_1Device.html#a6707cc2271e15daecb6bb6c7625dc675">More...</a><br /></td></tr>
-<tr class="separator:a6707cc2271e15daecb6bb6c7625dc675"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1751225c670c4a1d51fae3c62ba12bde"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Device.html#a1751225c670c4a1d51fae3c62ba12bde">zero</a> (Shape shape, bool requiresGrad=false) const noexcept=0</td></tr>
-<tr class="memdesc:a1751225c670c4a1d51fae3c62ba12bde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new tensor of the specified shape. All entries are initialized to zero.  <a href="classdl_1_1Device.html#a1751225c670c4a1d51fae3c62ba12bde">More...</a><br /></td></tr>
-<tr class="separator:a1751225c670c4a1d51fae3c62ba12bde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade866918a944886aefc4cb98465f0d51"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Device.html#ade866918a944886aefc4cb98465f0d51">ones</a> (Shape shape, bool requiresGrad=false) const noexcept=0</td></tr>
-<tr class="memdesc:ade866918a944886aefc4cb98465f0d51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new tensor of the specified shape. All entries are initialized to one.  <a href="classdl_1_1Device.html#ade866918a944886aefc4cb98465f0d51">More...</a><br /></td></tr>
-<tr class="separator:ade866918a944886aefc4cb98465f0d51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6c091cbec4493390a2d4bf4e593088a"><td class="memItemLeft" align="right" valign="top"><a id="ad6c091cbec4493390a2d4bf4e593088a"></a>
-virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><b>constant</b> (int value, bool requiresGrad=false) const noexcept=0</td></tr>
-<tr class="separator:ad6c091cbec4493390a2d4bf4e593088a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49068a99ca30c273dbc7c7daebc05e6a"><td class="memItemLeft" align="right" valign="top"><a id="a49068a99ca30c273dbc7c7daebc05e6a"></a>
-virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><b>constant</b> (float value, bool requiresGrad=false) const noexcept=0</td></tr>
-<tr class="separator:a49068a99ca30c273dbc7c7daebc05e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa747f84006a76a92467258ac13b073a5"><td class="memItemLeft" align="right" valign="top"><a id="aa747f84006a76a92467258ac13b073a5"></a>
-virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><b>constant</b> (double value, bool requiresGrad=false) const noexcept=0</td></tr>
-<tr class="separator:aa747f84006a76a92467258ac13b073a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1e95d25b37cdf4fe0bc817ad803ff3b"><td class="memItemLeft" align="right" valign="top"><a id="af1e95d25b37cdf4fe0bc817ad803ff3b"></a>
-virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><b>constant</b> (std::initializer_list&lt; float &gt; value, bool requiresGrad=false) const noexcept=0</td></tr>
-<tr class="separator:af1e95d25b37cdf4fe0bc817ad803ff3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb44a87c808cdabe0ed57b9566c01c0f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Device.html#adb44a87c808cdabe0ed57b9566c01c0f">empty</a> (<a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">Shape</a> shape, bool requiresGrad=false) const noexcept=0</td></tr>
+<tr class="memdesc:adb44a87c808cdabe0ed57b9566c01c0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new tensor of the specified shape without initializing the memory.  <a href="classdl_1_1Device.html#adb44a87c808cdabe0ed57b9566c01c0f">More...</a><br /></td></tr>
+<tr class="separator:adb44a87c808cdabe0ed57b9566c01c0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e65517f9e12f539713ba2033a3ca9f7"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Device.html#a8e65517f9e12f539713ba2033a3ca9f7">zero</a> (<a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">Shape</a> shape, bool requiresGrad=false) const noexcept=0</td></tr>
+<tr class="memdesc:a8e65517f9e12f539713ba2033a3ca9f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new tensor of the specified shape. All entries are initialized to zero.  <a href="classdl_1_1Device.html#a8e65517f9e12f539713ba2033a3ca9f7">More...</a><br /></td></tr>
+<tr class="separator:a8e65517f9e12f539713ba2033a3ca9f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d32f8c6f7e82b48e9cd0b24d944e83c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Device.html#a0d32f8c6f7e82b48e9cd0b24d944e83c">ones</a> (<a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">Shape</a> shape, bool requiresGrad=false) const noexcept=0</td></tr>
+<tr class="memdesc:a0d32f8c6f7e82b48e9cd0b24d944e83c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new tensor of the specified shape. All entries are initialized to one.  <a href="classdl_1_1Device.html#a0d32f8c6f7e82b48e9cd0b24d944e83c">More...</a><br /></td></tr>
+<tr class="separator:a0d32f8c6f7e82b48e9cd0b24d944e83c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accdd3cc9e079d95153fd8064b086eec1"><td class="memItemLeft" align="right" valign="top"><a id="accdd3cc9e079d95153fd8064b086eec1"></a>
+virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>constant</b> (int value, bool requiresGrad=false) const noexcept=0</td></tr>
+<tr class="separator:accdd3cc9e079d95153fd8064b086eec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55882646da5c6f6a367d60639da44195"><td class="memItemLeft" align="right" valign="top"><a id="a55882646da5c6f6a367d60639da44195"></a>
+virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>constant</b> (float value, bool requiresGrad=false) const noexcept=0</td></tr>
+<tr class="separator:a55882646da5c6f6a367d60639da44195"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a442bd12eb2cac721909966669a6b58fb"><td class="memItemLeft" align="right" valign="top"><a id="a442bd12eb2cac721909966669a6b58fb"></a>
+virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>constant</b> (double value, bool requiresGrad=false) const noexcept=0</td></tr>
+<tr class="separator:a442bd12eb2cac721909966669a6b58fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abac0a2cb768ebe4d0783f5e0503d0b32"><td class="memItemLeft" align="right" valign="top"><a id="abac0a2cb768ebe4d0783f5e0503d0b32"></a>
+virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>constant</b> (<a class="elRef" href="http://en.cppreference.com/w/cpp/utility/initializer_list.html">std::initializer_list</a>&lt; float &gt; value, bool requiresGrad=false) const noexcept=0</td></tr>
+<tr class="separator:abac0a2cb768ebe4d0783f5e0503d0b32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c444e75109a3486e13019c956fa1380"><td class="memTemplParams" colspan="2"><a id="a2c444e75109a3486e13019c956fa1380"></a>
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a2c444e75109a3486e13019c956fa1380"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>setDefaultFloatTensorType</b> ()</td></tr>
@@ -303,8 +310,8 @@ Static Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a6707cc2271e15daecb6bb6c7625dc675"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6707cc2271e15daecb6bb6c7625dc675">&#9670;&nbsp;</a></span>empty()</h2>
+<a id="adb44a87c808cdabe0ed57b9566c01c0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb44a87c808cdabe0ed57b9566c01c0f">&#9670;&nbsp;</a></span>empty()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,9 +320,9 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> dl::Device::empty </td>
+          <td class="memname">virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a> dl::Device::empty </td>
           <td>(</td>
-          <td class="paramtype">Shape&#160;</td>
+          <td class="paramtype"><a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">Shape</a>&#160;</td>
           <td class="paramname"><em>shape</em>, </td>
         </tr>
         <tr>
@@ -382,8 +389,8 @@ Static Private Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="ade866918a944886aefc4cb98465f0d51"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade866918a944886aefc4cb98465f0d51">&#9670;&nbsp;</a></span>ones()</h2>
+<a id="a0d32f8c6f7e82b48e9cd0b24d944e83c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d32f8c6f7e82b48e9cd0b24d944e83c">&#9670;&nbsp;</a></span>ones()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -392,9 +399,9 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> dl::Device::ones </td>
+          <td class="memname">virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a> dl::Device::ones </td>
           <td>(</td>
-          <td class="paramtype">Shape&#160;</td>
+          <td class="paramtype"><a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">Shape</a>&#160;</td>
           <td class="paramname"><em>shape</em>, </td>
         </tr>
         <tr>
@@ -428,8 +435,8 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a1751225c670c4a1d51fae3c62ba12bde"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1751225c670c4a1d51fae3c62ba12bde">&#9670;&nbsp;</a></span>zero()</h2>
+<a id="a8e65517f9e12f539713ba2033a3ca9f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e65517f9e12f539713ba2033a3ca9f7">&#9670;&nbsp;</a></span>zero()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -438,9 +445,9 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> dl::Device::zero </td>
+          <td class="memname">virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a> dl::Device::zero </td>
           <td>(</td>
-          <td class="paramtype">Shape&#160;</td>
+          <td class="paramtype"><a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">Shape</a>&#160;</td>
           <td class="paramname"><em>shape</em>, </td>
         </tr>
         <tr>

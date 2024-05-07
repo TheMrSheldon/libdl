@@ -1,6 +1,7 @@
 <map id="dl::utils::URLStream" name="dl::utils::URLStream">
-<area shape="rect" id="node1" title="Opens an input stream which serves the information pointed at by the provided URL." alt="" coords="104,155,255,181"/>
-<area shape="rect" id="node2" href="$classdl_1_1utils_1_1URLStreamBase.html" title="Opens an input stream which serves the information pointed at by the provided URL." alt="" coords="5,80,188,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="38,5,155,32"/>
-<area shape="rect" id="node4" title=" " alt="" coords="212,80,312,107"/>
+<area shape="rect" id="node1" title="Opens an input stream which serves the information pointed at by the provided URL." alt="" coords="150,171,301,197"/>
+<area shape="rect" id="node2" href="$classdl_1_1utils_1_1URLStreamBase.html" title="Opens an input stream which serves the information pointed at by the provided URL." alt="" coords="51,95,234,121"/>
+<area shape="rect" id="node3" href="/home/runner/work/libdl/libdl/build/_deps/cppreftags-src/cppreference-doxygen-web.tag.xml$cpp/io/basic_streambuf.html" title=" " alt="" coords="5,5,123,32"/>
+<area shape="rect" id="node4" href="/home/runner/work/libdl/libdl/build/_deps/cppreftags-src/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title=" " alt="" coords="147,5,296,32"/>
+<area shape="rect" id="node5" href="/home/runner/work/libdl/libdl/build/_deps/cppreftags-src/cppreference-doxygen-web.tag.xml$cpp/io/basic_istream.html" title=" " alt="" coords="258,95,358,121"/>
 </map>

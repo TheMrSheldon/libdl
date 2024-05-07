@@ -1,0 +1,6 @@
+<map id="dl::TensorImpl" name="dl::TensorImpl">
+<area shape="rect" id="node1" title=" " alt="" coords="100,109,213,136"/>
+<area shape="rect" id="node2" href="$classdl_1_1Tensor.html" title="The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T..." alt="" coords="5,13,89,39"/>
+<area shape="rect" id="node3" href="$classdl_1_1Device.html" title=" " alt="" coords="113,13,200,39"/>
+<area shape="rect" id="node4" href="/home/runner/work/libdl/libdl/build/_deps/cppreftags-src/cppreference-doxygen-web.tag.xml$cpp/utility/functional/function.html" title=" " alt="" coords="341,5,487,47"/>
+</map>

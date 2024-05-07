@@ -43,6 +43,13 @@
     <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
     <link href="doxygen.css" rel="stylesheet" type="text/css" />
     <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
@@ -186,14 +193,14 @@ $(document).ready(function(){initNavTree('trainer_8hpp_source.html',''); initRes
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">using</span> T = R(Args...);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">using</span> <a class="code" href="classdl_1_1Dataset.html">TDataset</a> = <a class="code" href="classdl_1_1Dataset.html">Dataset&lt;T&gt;</a>;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">using</span> <a class="code" href="classdl_1_1Dataloader.html">TDataloader</a> = <a class="code" href="classdl_1_1Dataloader.html">Dataloader&lt;T&gt;</a>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">using</span> DatasetSetupFn = std::function&lt;std::unique_ptr&lt;TDataset&gt;(<span class="keywordtype">void</span>)&gt;;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">using</span> LossFn = std::function&lt;<a class="code" href="classdl_1_1TensorPtr.html">TensorPtr</a>(R&amp;&amp;, R&amp;)&gt;;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">using</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">DatasetSetupFn</a> = <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function&lt;std::unique_ptr&lt;TDataset&gt;</a>(<span class="keywordtype">void</span>)&gt;;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">using</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">LossFn</a> = <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function</a>&lt;<a class="code" href="classdl_1_1Tensor.html">Tensor</a>(R&amp;&amp;, R&amp;)&gt;;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structdl_1_1Trainer_3_01R_07Args_8_8_8_08_4_1_1Settings.html">   33</a></span>&#160;        <span class="keyword">struct </span>Settings {</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordtype">bool</span> enableCheckpointing = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            DatasetSetupFn createDataset;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            LossFn loss;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            std::unique_ptr&lt;Optimizer&gt; optimizer;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">DatasetSetupFn</a> createDataset;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">LossFn</a> loss;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;Optimizer&gt;</a> optimizer;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordtype">unsigned</span> limitEpochs = 0;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        };</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
@@ -217,7 +224,7 @@ $(document).ready(function(){initNavTree('trainer_8hpp_source.html',''); initRes
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">        }*/</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classdl_1_1Trainer.html">Trainer</a>(Settings&amp;&amp; settings) : settings(std::move(settings)) {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classdl_1_1Trainer.html">Trainer</a>(Settings&amp;&amp; settings) : settings(<a class="codeRef" href="http://en.cppreference.com/w/namespacestd.html">std</a>::move(settings)) {</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            assert(this-&gt;settings.createDataset != <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            assert(this-&gt;settings.loss != <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
@@ -279,10 +286,13 @@ $(document).ready(function(){initNavTree('trainer_8hpp_source.html',''); initRes
 <div class="ttc" id="aclassdl_1_1Dataloader_html"><div class="ttname"><a href="classdl_1_1Dataloader.html">dl::Dataloader</a></div><div class="ttdef"><b>Definition:</b> <a href="dataloader_8hpp_source.html#l00010">dataloader.hpp:10</a></div></div>
 <div class="ttc" id="aclassdl_1_1Dataset_html"><div class="ttname"><a href="classdl_1_1Dataset.html">dl::Dataset</a></div><div class="ttdef"><b>Definition:</b> <a href="dl_2learning_2dataset_8hpp_source.html#l00007">dataset.hpp:7</a></div></div>
 <div class="ttc" id="aclassdl_1_1Model_html"><div class="ttname"><a href="classdl_1_1Model.html">dl::Model</a></div><div class="ttdef"><b>Definition:</b> <a href="model_8hpp_source.html#l00013">model.hpp:13</a></div></div>
-<div class="ttc" id="aclassdl_1_1TensorPtr_html"><div class="ttname"><a href="classdl_1_1TensorPtr.html">dl::TensorPtr</a></div><div class="ttdoc">The TensorPtr is a managed pointer to a tensor. It can generally be thought of like an std::unique_pt...</div><div class="ttdef"><b>Definition:</b> <a href="tensorptr_8hpp_source.html#l00017">tensorptr.hpp:17</a></div></div>
+<div class="ttc" id="aclassdl_1_1Tensor_html"><div class="ttname"><a href="classdl_1_1Tensor.html">dl::Tensor</a></div><div class="ttdoc">The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...</div><div class="ttdef"><b>Definition:</b> <a href="tensor_8hpp_source.html#l00017">tensor.hpp:17</a></div></div>
 <div class="ttc" id="aclassdl_1_1Trainer_3_01R_07Args_8_8_8_08_4_html_a086f918c723a7f84db3237750fb46005"><div class="ttname"><a href="classdl_1_1Trainer_3_01R_07Args_8_8_8_08_4.html#a086f918c723a7f84db3237750fb46005">dl::Trainer&lt; R(Args...)&gt;::fit</a></div><div class="ttdeci">void fit(Model&lt; T &gt; &amp;model) noexcept</div><div class="ttdoc">Trains the model.</div><div class="ttdef"><b>Definition:</b> <a href="trainer_8hpp_source.html#l00073">trainer.hpp:73</a></div></div>
 <div class="ttc" id="aclassdl_1_1Trainer_html"><div class="ttname"><a href="classdl_1_1Trainer.html">dl::Trainer</a></div><div class="ttdoc">A utilizty class for fitting and evaluating models.</div><div class="ttdef"><b>Definition:</b> <a href="trainer_8hpp_source.html#l00022">trainer.hpp:22</a></div></div>
+<div class="ttc" id="afunction_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function&lt; std::unique_ptr&lt; TDataset &gt;(void)&gt;</a></div></div>
+<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="http://en.cppreference.com/w/namespacestd.html">std</a></div></div>
 <div class="ttc" id="astructdl_1_1detail_1_1__ModelSignature_html"><div class="ttname"><a href="structdl_1_1detail_1_1__ModelSignature.html">dl::detail::_ModelSignature</a></div><div class="ttdoc">Infers the model signature from the provided model type.</div><div class="ttdef"><b>Definition:</b> <a href="trainer_8hpp_source.html#l00123">trainer.hpp:123</a></div></div>
+<div class="ttc" id="aunique_ptr_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

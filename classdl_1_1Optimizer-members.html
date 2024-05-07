@@ -43,6 +43,13 @@
     <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
     <link href="doxygen.css" rel="stylesheet" type="text/css" />
     <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
@@ -164,7 +171,7 @@ $(document).ready(function(){initNavTree('classdl_1_1Optimizer.html',''); initRe
 <p>This is the complete list of members for <a class="el" href="classdl_1_1Optimizer.html">dl::Optimizer</a>, including all inherited members.</p>
 <table class="directory">
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Optimizer</b>()=default (defined in <a class="el" href="classdl_1_1Optimizer.html">dl::Optimizer</a>)</td><td class="entry"><a class="el" href="classdl_1_1Optimizer.html">dl::Optimizer</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>step</b>(const TensorPtr &amp;tensor)=0 (defined in <a class="el" href="classdl_1_1Optimizer.html">dl::Optimizer</a>)</td><td class="entry"><a class="el" href="classdl_1_1Optimizer.html">dl::Optimizer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>step</b>(const Tensor &amp;tensor)=0 (defined in <a class="el" href="classdl_1_1Optimizer.html">dl::Optimizer</a>)</td><td class="entry"><a class="el" href="classdl_1_1Optimizer.html">dl::Optimizer</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~Optimizer</b>()=default (defined in <a class="el" href="classdl_1_1Optimizer.html">dl::Optimizer</a>)</td><td class="entry"><a class="el" href="classdl_1_1Optimizer.html">dl::Optimizer</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->

@@ -43,6 +43,13 @@
     <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
     <link href="doxygen.css" rel="stylesheet" type="text/css" />
     <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
@@ -183,14 +190,14 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 , <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#ab9e6e369ecdd8d3859e394a6859c7cfa">dl::utils::GenericIterator&lt; T &gt;::Iter&lt; TIt &gt;</a>
 </li>
 <li>device()
-: <a class="el" href="classdl_1_1Tensor.html#a9c55213db09c4af9987c21cafc56e6c3">dl::Tensor</a>
+: <a class="el" href="classdl_1_1TensorImpl.html#a16969bf3dedf616696bcf47505700143">dl::TensorImpl</a>
 </li>
 </ul>
 
 
 <h3><a id="index_e"></a>- e -</h3><ul>
 <li>empty()
-: <a class="el" href="classdl_1_1Device.html#a6707cc2271e15daecb6bb6c7625dc675">dl::Device</a>
+: <a class="el" href="classdl_1_1Device.html#adb44a87c808cdabe0ed57b9566c01c0f">dl::Device</a>
 </li>
 <li>equals()
 : <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html#a2e934341d8b83edde118e2181f09271d">dl::utils::GenericIterator&lt; T &gt;::AIter</a>
@@ -228,7 +235,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 : <a class="el" href="classdl_1_1utils_1_1URLStreamBase.html#a10d062eceeecbe1722ab692fee14bb0a">dl::utils::URLStreamBase</a>
 </li>
 <li>ones()
-: <a class="el" href="classdl_1_1Device.html#ade866918a944886aefc4cb98465f0d51">dl::Device</a>
+: <a class="el" href="classdl_1_1Device.html#a0d32f8c6f7e82b48e9cd0b24d944e83c">dl::Device</a>
 </li>
 <li>operator*()
 : <a class="el" href="classdl_1_1utils_1_1GenericIterator.html#ace0afed456ab6e3b278cf1fcbb48d758">dl::utils::GenericIterator&lt; T &gt;</a>
@@ -247,25 +254,28 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 
 <h3><a id="index_r"></a>- r -</h3><ul>
 <li>requiresGrad()
-: <a class="el" href="classdl_1_1Tensor.html#a49ec4a718a05dc6204f2639e84da51d0">dl::Tensor</a>
+: <a class="el" href="classdl_1_1TensorImpl.html#a876b395c6a3b2e09b6104a4f6133db94">dl::TensorImpl</a>
 </li>
 </ul>
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
+<li>scaledDotProductAttention()
+: <a class="el" href="classdl_1_1Transformer_1_1AttnHead.html#af18bf820a392ef27b0ed4c5d0e1c8714">dl::Transformer::AttnHead</a>
+</li>
 <li>setRequiresGrad()
-: <a class="el" href="classdl_1_1Tensor.html#a63c8df3fadf495ec1b5636476ea7f9fc">dl::Tensor</a>
+: <a class="el" href="classdl_1_1TensorImpl.html#ae13d3748fa0aaaddffdc86ac5af33f66">dl::TensorImpl</a>
 </li>
 </ul>
 
 
 <h3><a id="index_t"></a>- t -</h3><ul>
-<li>Tensor()
-: <a class="el" href="classdl_1_1Tensor.html#a0b3c044d614cb186215d026063a9eaf3">dl::Tensor</a>
+<li>TensorImpl()
+: <a class="el" href="classdl_1_1TensorImpl.html#a9d38011e4acc2543a06025aa2280e32d">dl::TensorImpl</a>
 </li>
 <li>to()
 : <a class="el" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html#aab5bb4e3b4d9d93b8126b36e7d7c2ffc">dl::Model&lt; R(Args...)&gt;</a>
-, <a class="el" href="classdl_1_1Tensor.html#a51fbc5e992da2fa63d6174bab14c58df">dl::Tensor</a>
+, <a class="el" href="classdl_1_1TensorImpl.html#ac37a63e8f32aef03a087f630df8c81d6">dl::TensorImpl</a>
 </li>
 <li>type()
 : <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html#a0b369b9da63ba2cbacc23f0647334383">dl::utils::GenericIterator&lt; T &gt;::AIter</a>
@@ -283,7 +293,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 
 <h3><a id="index_z"></a>- z -</h3><ul>
 <li>zero()
-: <a class="el" href="classdl_1_1Device.html#a1751225c670c4a1d51fae3c62ba12bde">dl::Device</a>
+: <a class="el" href="classdl_1_1Device.html#a8e65517f9e12f539713ba2033a3ca9f7">dl::Device</a>
 </li>
 </ul>
 

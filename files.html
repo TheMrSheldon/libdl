@@ -43,6 +43,13 @@
     <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
     <link href="doxygen.css" rel="stylesheet" type="text/css" />
     <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
@@ -161,7 +168,7 @@ $(document).ready(function(){initNavTree('files.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock">Here is a list of all documented files with brief descriptions:</div><div class="directory">
-<div class="levels">[detail level <span onclick="javascript:toggleLevel(1);">1</span><span onclick="javascript:toggleLevel(2);">2</span><span onclick="javascript:toggleLevel(3);">3</span>]</div><table class="directory">
+<div class="levels">[detail level <span onclick="javascript:toggleLevel(1);">1</span><span onclick="javascript:toggleLevel(2);">2</span><span onclick="javascript:toggleLevel(3);">3</span><span onclick="javascript:toggleLevel(4);">4</span>]</div><table class="directory">
 <tr id="row_0_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_0_" class="arrow" onclick="toggleFolder('0_')">&#9660;</span><span id="img_0_" class="iconfopen" onclick="toggleFolder('0_')">&#160;</span><a class="el" href="dir_17297ffb27ce571941f5fb5008f01a1f.html" target="_self">dl</a></td><td class="desc"></td></tr>
 <tr id="row_0_0_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_0_" class="arrow" onclick="toggleFolder('0_0_')">&#9660;</span><span id="img_0_0_" class="iconfopen" onclick="toggleFolder('0_0_')">&#160;</span><a class="el" href="dir_b8cfab5dd51dc5f9a1dd5dfdad8af417.html" target="_self">learning</a></td><td class="desc"></td></tr>
 <tr id="row_0_0_0_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="dataloader_8hpp_source.html"><span class="icondoc"></span></a><b>dataloader.hpp</b></td><td class="desc"></td></tr>
@@ -170,17 +177,21 @@ $(document).ready(function(){initNavTree('files.html',''); initResizable(); });
 <tr id="row_0_0_3_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="optimizer_8hpp_source.html"><span class="icondoc"></span></a><b>optimizer.hpp</b></td><td class="desc"></td></tr>
 <tr id="row_0_0_4_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="trainer_8hpp_source.html"><span class="icondoc"></span></a><b>trainer.hpp</b></td><td class="desc"></td></tr>
 <tr id="row_0_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_1_" class="arrow" onclick="toggleFolder('0_1_')">&#9660;</span><span id="img_0_1_" class="iconfopen" onclick="toggleFolder('0_1_')">&#160;</span><a class="el" href="dir_f753f69ec1f830ea9dcd4f9aa06b70c1.html" target="_self">model</a></td><td class="desc"></td></tr>
-<tr id="row_0_1_0_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="linear_8hpp_source.html"><span class="icondoc"></span></a><b>linear.hpp</b></td><td class="desc"></td></tr>
-<tr id="row_0_1_1_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="model_8hpp_source.html"><span class="icondoc"></span></a><b>model.hpp</b></td><td class="desc"></td></tr>
-<tr id="row_0_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_2_" class="arrow" onclick="toggleFolder('0_2_')">&#9660;</span><span id="img_0_2_" class="iconfopen" onclick="toggleFolder('0_2_')">&#160;</span><a class="el" href="dir_04adc1e89fc6fba9db5bc76db1a2abc6.html" target="_self">tensor</a></td><td class="desc"></td></tr>
-<tr id="row_0_2_0_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="math_8hpp_source.html"><span class="icondoc"></span></a><a class="el" href="math_8hpp.html" target="_self">math.hpp</a></td><td class="desc">Implements auto-diff enabled wrapers around their concrete tensor implementations </td></tr>
-<tr id="row_0_2_1_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="shape_8hpp_source.html"><span class="icondoc"></span></a><b>shape.hpp</b></td><td class="desc"></td></tr>
-<tr id="row_0_2_2_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="tensor_8hpp_source.html"><span class="icondoc"></span></a><b>tensor.hpp</b></td><td class="desc"></td></tr>
-<tr id="row_0_2_3_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="tensorptr_8hpp_source.html"><span class="icondoc"></span></a><b>tensorptr.hpp</b></td><td class="desc"></td></tr>
-<tr id="row_0_3_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_3_" class="arrow" onclick="toggleFolder('0_3_')">&#9660;</span><span id="img_0_3_" class="iconfopen" onclick="toggleFolder('0_3_')">&#160;</span><a class="el" href="dir_f221bf1c3670fbf8023ed2de520a67ee.html" target="_self">utils</a></td><td class="desc"></td></tr>
-<tr id="row_0_3_0_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="generic__iterator_8hpp_source.html"><span class="icondoc"></span></a><b>generic_iterator.hpp</b></td><td class="desc"></td></tr>
-<tr id="row_0_3_1_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="scopeguard_8hpp_source.html"><span class="icondoc"></span></a><b>scopeguard.hpp</b></td><td class="desc"></td></tr>
-<tr id="row_0_3_2_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="urlstream_8hpp_source.html"><span class="icondoc"></span></a><b>urlstream.hpp</b></td><td class="desc"></td></tr>
+<tr id="row_0_1_0_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span id="arr_0_1_0_" class="arrow" onclick="toggleFolder('0_1_0_')">&#9660;</span><span id="img_0_1_0_" class="iconfopen" onclick="toggleFolder('0_1_0_')">&#160;</span><a class="el" href="dir_52aedac878113935caa2244d929658b7.html" target="_self">transformer</a></td><td class="desc"></td></tr>
+<tr id="row_0_1_0_0_"><td class="entry"><span style="width:64px;display:inline-block;">&#160;</span><a href="transformer_8hpp_source.html"><span class="icondoc"></span></a><b>transformer.hpp</b></td><td class="desc"></td></tr>
+<tr id="row_0_1_0_1_" class="even"><td class="entry"><span style="width:64px;display:inline-block;">&#160;</span><a href="wordpiece_8hpp_source.html"><span class="icondoc"></span></a><b>wordpiece.hpp</b></td><td class="desc"></td></tr>
+<tr id="row_0_1_1_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="linear_8hpp_source.html"><span class="icondoc"></span></a><b>linear.hpp</b></td><td class="desc"></td></tr>
+<tr id="row_0_1_2_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="model_8hpp_source.html"><span class="icondoc"></span></a><b>model.hpp</b></td><td class="desc"></td></tr>
+<tr id="row_0_2_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_2_" class="arrow" onclick="toggleFolder('0_2_')">&#9660;</span><span id="img_0_2_" class="iconfopen" onclick="toggleFolder('0_2_')">&#160;</span><a class="el" href="dir_04adc1e89fc6fba9db5bc76db1a2abc6.html" target="_self">tensor</a></td><td class="desc"></td></tr>
+<tr id="row_0_2_0_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="math_8hpp_source.html"><span class="icondoc"></span></a><a class="el" href="math_8hpp.html" target="_self">math.hpp</a></td><td class="desc">Implements auto-diff enabled wrapers around their concrete tensor implementations </td></tr>
+<tr id="row_0_2_1_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="shape_8hpp_source.html"><span class="icondoc"></span></a><b>shape.hpp</b></td><td class="desc"></td></tr>
+<tr id="row_0_2_2_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="tensor_8hpp_source.html"><span class="icondoc"></span></a><b>tensor.hpp</b></td><td class="desc"></td></tr>
+<tr id="row_0_2_3_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="tensorimpl_8hpp_source.html"><span class="icondoc"></span></a><b>tensorimpl.hpp</b></td><td class="desc"></td></tr>
+<tr id="row_0_3_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_3_" class="arrow" onclick="toggleFolder('0_3_')">&#9660;</span><span id="img_0_3_" class="iconfopen" onclick="toggleFolder('0_3_')">&#160;</span><a class="el" href="dir_f221bf1c3670fbf8023ed2de520a67ee.html" target="_self">utils</a></td><td class="desc"></td></tr>
+<tr id="row_0_3_0_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="generic__iterator_8hpp_source.html"><span class="icondoc"></span></a><b>generic_iterator.hpp</b></td><td class="desc"></td></tr>
+<tr id="row_0_3_1_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="line__iter_8hpp_source.html"><span class="icondoc"></span></a><b>line_iter.hpp</b></td><td class="desc"></td></tr>
+<tr id="row_0_3_2_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="scopeguard_8hpp_source.html"><span class="icondoc"></span></a><b>scopeguard.hpp</b></td><td class="desc"></td></tr>
+<tr id="row_0_3_3_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="urlstream_8hpp_source.html"><span class="icondoc"></span></a><b>urlstream.hpp</b></td><td class="desc"></td></tr>
 <tr id="row_0_4_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="device_8hpp_source.html"><span class="icondoc"></span></a><b>device.hpp</b></td><td class="desc"></td></tr>
 <tr id="row_0_5_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="dl_8hpp_source.html"><span class="icondoc"></span></a><b>dl.hpp</b></td><td class="desc"></td></tr>
 <tr id="row_0_6_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="logging_8hpp_source.html"><span class="icondoc"></span></a><b>logging.hpp</b></td><td class="desc"></td></tr>
@@ -189,6 +200,9 @@ $(document).ready(function(){initNavTree('files.html',''); initResizable(); });
 <tr id="row_1_0_0_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="ir_2data_2dataset_8hpp_source.html"><span class="icondoc"></span></a><b>dataset.hpp</b></td><td class="desc"></td></tr>
 <tr id="row_1_0_1_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="datasets_8hpp_source.html"><span class="icondoc"></span></a><b>datasets.hpp</b></td><td class="desc"></td></tr>
 <tr id="row_1_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="ranker_8hpp_source.html"><span class="icondoc"></span></a><b>ranker.hpp</b></td><td class="desc"></td></tr>
+<tr id="row_2_"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_2_" class="arrow" onclick="toggleFolder('2_')">&#9660;</span><span id="img_2_" class="iconfopen" onclick="toggleFolder('2_')">&#160;</span><a class="el" href="dir_55bfb732d0b6292a03ad432f81bfd2e0.html" target="_self">nlp</a></td><td class="desc"></td></tr>
+<tr id="row_2_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_2_0_" class="arrow" onclick="toggleFolder('2_0_')">&#9660;</span><span id="img_2_0_" class="iconfopen" onclick="toggleFolder('2_0_')">&#160;</span><a class="el" href="dir_bb7c3e56d97b51f7b43b6a5084c8ead5.html" target="_self">transformer</a></td><td class="desc"></td></tr>
+<tr id="row_2_0_0_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="bert_8hpp_source.html"><span class="icondoc"></span></a><b>bert.hpp</b></td><td class="desc"></td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->

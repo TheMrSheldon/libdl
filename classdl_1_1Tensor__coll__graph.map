@@ -1,5 +1,0 @@
-<map id="dl::Tensor" name="dl::Tensor">
-<area shape="rect" id="node1" title=" " alt="" coords="60,97,144,124"/>
-<area shape="rect" id="node2" href="$classdl_1_1TensorPtr.html" title="The TensorPtr is a managed pointer to a tensor. It can generally be thought of like an std::unique_pt..." alt="" coords="5,7,108,33"/>
-<area shape="rect" id="node3" href="$classdl_1_1Device.html" title=" " alt="" coords="132,7,219,33"/>
-</map>

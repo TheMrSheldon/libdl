@@ -43,6 +43,13 @@
     <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
     <link href="doxygen.css" rel="stylesheet" type="text/css" />
     <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
@@ -167,7 +174,7 @@ $(document).ready(function(){initNavTree('logging_8hpp_source.html',''); initRes
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>dl::log {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">using</span> LoggerPtr = std::shared_ptr&lt;spdlog::logger&gt;;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">using</span> LoggerPtr = <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr&lt;spdlog::logger&gt;</a>;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">enum class</span> Verbosity : int { Off, Critical, Error, Warning, Info, Debug, Trace };</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
@@ -175,14 +182,14 @@ $(document).ready(function(){initNavTree('logging_8hpp_source.html',''); initRes
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> setVerbosity(Verbosity verbosity) noexcept;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    LoggerPtr getLogger(std::<span class="keywordtype">string</span> name);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    LoggerPtr getLogger(<a class="codeRef" href="http://en.cppreference.com/w/namespacestd.html">std</a>::<span class="keywordtype">string</span> name);</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;} <span class="comment">// namespace dl::log</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">// Custom loggable types //</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"></span><span class="preprocessor">#include &lt;spdlog/fmt/bundled/format.h&gt;</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="structfmt_1_1formatter_3_01std_1_1optional_3_01T_01_4_01_4.html">   37</a></span>&#160;<span class="keyword">struct </span>fmt::formatter&lt;std::optional&lt;T&gt;&gt; {</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="structfmt_1_1formatter_3_01std_1_1optional_3_01T_01_4_01_4.html">   37</a></span>&#160;<span class="keyword">struct </span>fmt::formatter&lt;<a class="codeRef" href="http://en.cppreference.com/w/namespacestd.html">std</a>::optional&lt;T&gt;&gt; {</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    constexpr <span class="keyword">auto</span> parse(format_parse_context&amp; ctx) -&gt; decltype(ctx.begin()) { <span class="keywordflow">return</span> ctx.end(); }</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> FormatContext&gt;</div>
@@ -192,6 +199,8 @@ $(document).ready(function(){initNavTree('logging_8hpp_source.html',''); initRes
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">return</span> fmt::format_to(ctx.out(), <span class="stringliteral">&quot;&lt;EMPTY&gt;&quot;</span>);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
+<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="http://en.cppreference.com/w/namespacestd.html">std</a></div></div>
+<div class="ttc" id="ashared_ptr_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -43,6 +43,13 @@
     <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
     <link href="doxygen.css" rel="stylesheet" type="text/css" />
     <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
@@ -162,72 +169,71 @@ $(document).ready(function(){initNavTree('tensor_8hpp_source.html',''); initResi
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;shape.hpp&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;tensorptr.hpp&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;experimental/propagate_const&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>dl {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keyword">class </span>TensorImpl;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>dl {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">class </span>Device;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classdl_1_1Tensor.html">   12</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classdl_1_1Tensor.html">Tensor</a> {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keyword">using</span> GradFn = std::function&lt;void(<a class="code" href="classdl_1_1TensorPtr.html">TensorPtr</a>&amp;)&gt;;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordtype">bool</span> _requiresGrad;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <a class="code" href="classdl_1_1Device.html">Device</a> <span class="keyword">const</span>&amp; _device;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        GradFn gradfn = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <a class="code" href="classdl_1_1TensorPtr.html">TensorPtr</a> grad = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classdl_1_1Tensor.html#a0b3c044d614cb186215d026063a9eaf3">   25</a></span>&#160;        <a class="code" href="classdl_1_1Tensor.html#a0b3c044d614cb186215d026063a9eaf3">Tensor</a>(<a class="code" href="classdl_1_1Device.html">Device</a> <span class="keyword">const</span>&amp; <a class="code" href="classdl_1_1Tensor.html#a9c55213db09c4af9987c21cafc56e6c3">device</a>, <span class="keywordtype">bool</span> <a class="code" href="classdl_1_1Tensor.html#a49ec4a718a05dc6204f2639e84da51d0">requiresGrad</a>) noexcept;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classdl_1_1Tensor.html#a51fbc5e992da2fa63d6174bab14c58df">   36</a></span>&#160;        <a class="code" href="classdl_1_1TensorPtr.html">TensorPtr</a> <a class="code" href="classdl_1_1Tensor.html#a51fbc5e992da2fa63d6174bab14c58df">to</a>(<a class="code" href="classdl_1_1Device.html">Device</a> <span class="keyword">const</span>&amp; other) <span class="keyword">const</span> noexcept;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classdl_1_1Tensor.html#a9c55213db09c4af9987c21cafc56e6c3">   43</a></span>&#160;        <a class="code" href="classdl_1_1Device.html">Device</a> <span class="keyword">const</span>&amp; <a class="code" href="classdl_1_1Tensor.html#a9c55213db09c4af9987c21cafc56e6c3">device</a>() const noexcept;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classdl_1_1Tensor.html#a63c8df3fadf495ec1b5636476ea7f9fc">   51</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classdl_1_1Tensor.html#a63c8df3fadf495ec1b5636476ea7f9fc">setRequiresGrad</a>(<span class="keywordtype">bool</span> <a class="code" href="classdl_1_1Tensor.html#a49ec4a718a05dc6204f2639e84da51d0">requiresGrad</a>) noexcept;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classdl_1_1Tensor.html#a49ec4a718a05dc6204f2639e84da51d0">   58</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classdl_1_1Tensor.html#a49ec4a718a05dc6204f2639e84da51d0">requiresGrad</a>() const noexcept;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">void</span> backward(<span class="keywordtype">bool</span> enableAutodiff = false) noexcept;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        const <a class="code" href="classdl_1_1TensorPtr.html">TensorPtr</a> gradient() const noexcept { <span class="keywordflow">return</span> grad; }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">void</span> discardGradient() noexcept {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            gradfn = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            grad = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">virtual</span> std::ostream&amp; writeToStream(std::ostream&amp; stream) <span class="keyword">const</span> noexcept = 0;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">virtual</span> TensorPtr add(<span class="keyword">const</span> TensorPtr&amp; other) <span class="keyword">const</span> noexcept = 0;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">virtual</span> TensorPtr sub(<span class="keyword">const</span> TensorPtr&amp; other) <span class="keyword">const</span> noexcept = 0;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">virtual</span> TensorPtr mul(<span class="keyword">const</span> TensorPtr&amp; other) <span class="keyword">const</span> noexcept = 0;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">virtual</span> TensorPtr div(<span class="keyword">const</span> TensorPtr&amp; other) <span class="keyword">const</span> noexcept = 0;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">virtual</span> TensorPtr matmul(<span class="keyword">const</span> TensorPtr&amp; other) <span class="keyword">const</span> noexcept = 0;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keyword">virtual</span> TensorPtr pow(<span class="keywordtype">float</span> exponent) <span class="keyword">const</span> noexcept = 0;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keyword">virtual</span> TensorPtr mean() const noexcept = 0;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        virtual <span class="keywordtype">void</span> mul_inplace(const TensorPtr&amp; other) noexcept = 0;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        virtual TensorPtr clone() const noexcept = 0;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        virtual Shape shape() const noexcept = 0;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        virtual <span class="keywordtype">size_t</span> shape(<span class="keywordtype">size_t</span> dim) const noexcept = 0;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        virtual TensorPtr flatten() const noexcept = 0;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    };</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;} <span class="comment">// namespace dl</span></div>
-<div class="ttc" id="aclassdl_1_1Device_html"><div class="ttname"><a href="classdl_1_1Device.html">dl::Device</a></div><div class="ttdef"><b>Definition:</b> <a href="device_8hpp_source.html#l00008">device.hpp:8</a></div></div>
-<div class="ttc" id="aclassdl_1_1TensorPtr_html"><div class="ttname"><a href="classdl_1_1TensorPtr.html">dl::TensorPtr</a></div><div class="ttdoc">The TensorPtr is a managed pointer to a tensor. It can generally be thought of like an std::unique_pt...</div><div class="ttdef"><b>Definition:</b> <a href="tensorptr_8hpp_source.html#l00017">tensorptr.hpp:17</a></div></div>
-<div class="ttc" id="aclassdl_1_1Tensor_html"><div class="ttname"><a href="classdl_1_1Tensor.html">dl::Tensor</a></div><div class="ttdef"><b>Definition:</b> <a href="tensor_8hpp_source.html#l00012">tensor.hpp:12</a></div></div>
-<div class="ttc" id="aclassdl_1_1Tensor_html_a0b3c044d614cb186215d026063a9eaf3"><div class="ttname"><a href="classdl_1_1Tensor.html#a0b3c044d614cb186215d026063a9eaf3">dl::Tensor::Tensor</a></div><div class="ttdeci">Tensor(Device const &amp;device, bool requiresGrad) noexcept</div></div>
-<div class="ttc" id="aclassdl_1_1Tensor_html_a49ec4a718a05dc6204f2639e84da51d0"><div class="ttname"><a href="classdl_1_1Tensor.html#a49ec4a718a05dc6204f2639e84da51d0">dl::Tensor::requiresGrad</a></div><div class="ttdeci">bool requiresGrad() const noexcept</div><div class="ttdoc">Returns true iff this tensor requires a gradient, i.e., needs to be updated during backpropagation.</div></div>
-<div class="ttc" id="aclassdl_1_1Tensor_html_a51fbc5e992da2fa63d6174bab14c58df"><div class="ttname"><a href="classdl_1_1Tensor.html#a51fbc5e992da2fa63d6174bab14c58df">dl::Tensor::to</a></div><div class="ttdeci">TensorPtr to(Device const &amp;other) const noexcept</div><div class="ttdoc">Creates a copy of this tensor on the requested device and returns a pointer to it....</div></div>
-<div class="ttc" id="aclassdl_1_1Tensor_html_a63c8df3fadf495ec1b5636476ea7f9fc"><div class="ttname"><a href="classdl_1_1Tensor.html#a63c8df3fadf495ec1b5636476ea7f9fc">dl::Tensor::setRequiresGrad</a></div><div class="ttdeci">void setRequiresGrad(bool requiresGrad) noexcept</div><div class="ttdoc">Set this tensors requirements for a gradient.</div></div>
-<div class="ttc" id="aclassdl_1_1Tensor_html_a9c55213db09c4af9987c21cafc56e6c3"><div class="ttname"><a href="classdl_1_1Tensor.html#a9c55213db09c4af9987c21cafc56e6c3">dl::Tensor::device</a></div><div class="ttdeci">Device const  &amp; device() const noexcept</div><div class="ttdoc">Returns the device this tensor is stored on.</div></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classdl_1_1Tensor.html">   17</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classdl_1_1Tensor.html">Tensor</a> final {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        std::experimental::propagate_const&lt;std::unique_ptr&lt;TensorImpl&gt;&gt; data;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classdl_1_1Tensor.html">Tensor</a>(std::experimental::propagate_const&lt;<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;TensorImpl&gt;</a>&gt;&amp;&amp; data)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                : data(<a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(data)) {}</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <a class="code" href="classdl_1_1Tensor.html">Tensor</a>(<a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp;&amp; other) : data(<a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(other.data)){};</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <a class="code" href="classdl_1_1Tensor.html">Tensor</a>(<span class="keyword">const</span> <a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; other);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="classdl_1_1Tensor.html">Tensor</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/types/nullptr_t.html">std::nullptr_t</a> p) : data(p) {}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="classdl_1_1Tensor.html">Tensor</a>(<span class="keywordtype">int</span> value);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="classdl_1_1Tensor.html">Tensor</a>(<span class="keywordtype">float</span> value);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="classdl_1_1Tensor.html">Tensor</a>(<span class="keywordtype">double</span> value);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="classdl_1_1Tensor.html">Tensor</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/initializer_list.html">std::initializer_list&lt;int&gt;</a> value);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <a class="code" href="classdl_1_1Tensor.html">Tensor</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/initializer_list.html">std::initializer_list&lt;float&gt;</a> value);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="classdl_1_1Tensor.html">Tensor</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/initializer_list.html">std::initializer_list&lt;double&gt;</a> value);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="classdl_1_1TensorImpl.html">TensorImpl</a>* operator-&gt;() noexcept { <span class="keywordflow">return</span> data.get(); }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">const</span> <a class="code" href="classdl_1_1TensorImpl.html">TensorImpl</a>* operator-&gt;() <span class="keyword">const</span> noexcept { <span class="keywordflow">return</span> data.get(); }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="classdl_1_1TensorImpl.html">TensorImpl</a>&amp; operator*() noexcept { <span class="keywordflow">return</span> *data; }</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">const</span> <a class="code" href="classdl_1_1TensorImpl.html">TensorImpl</a>&amp; operator*() <span class="keyword">const</span> noexcept { <span class="keywordflow">return</span> *data; }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; other);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; operator=(<a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp;&amp; other) {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            this-&gt;data = <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(other.data);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/nullptr_t.html">std::nullptr_t</a>&amp; other) <span class="keyword">const</span> noexcept { <span class="keywordflow">return</span> data == other; }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">operator</span> bool() <span class="keyword">const</span> noexcept { <span class="keywordflow">return</span> (<span class="keywordtype">bool</span>)data; }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">static</span> <a class="code" href="classdl_1_1Tensor.html">Tensor</a> create(Args&amp;&amp;... args) noexcept {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classdl_1_1Tensor.html">Tensor</a>(std::make_unique&lt;T&gt;(std::forward&lt;Args&gt;(args)...));</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    };</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">using</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/reference_wrapper.html">TensorRef</a> = <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/reference_wrapper.html">std::reference_wrapper&lt;Tensor&gt;</a>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;} <span class="comment">// namespace dl</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">// These are OK since we only add template specializations: https://en.cppreference.com/w/cpp/language/extending_std</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">template &lt;&gt;</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">auto std::begin(dl::Tensor&amp; ptr) {</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">    return ptr-&gt;begin();</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">}</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">template &lt;&gt;</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">auto std::end(dl::Tensor&amp; ptr) {</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">    return ptr-&gt;end();</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">}*/</span></div>
+<div class="ttc" id="aclassdl_1_1TensorImpl_html"><div class="ttname"><a href="classdl_1_1TensorImpl.html">dl::TensorImpl</a></div><div class="ttdef"><b>Definition:</b> <a href="tensorimpl_8hpp_source.html#l00012">tensorimpl.hpp:12</a></div></div>
+<div class="ttc" id="aclassdl_1_1Tensor_html"><div class="ttname"><a href="classdl_1_1Tensor.html">dl::Tensor</a></div><div class="ttdoc">The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...</div><div class="ttdef"><b>Definition:</b> <a href="tensor_8hpp_source.html#l00017">tensor.hpp:17</a></div></div>
+<div class="ttc" id="ainitializer_list_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/initializer_list.html">std::initializer_list</a></div></div>
+<div class="ttc" id="amove_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a></div><div class="ttdeci">T move(T... args)</div></div>
+<div class="ttc" id="anullptr_t_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/types/nullptr_t.html">std::nullptr_t</a></div></div>
+<div class="ttc" id="areference_wrapper_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/functional/reference_wrapper.html">std::reference_wrapper</a></div></div>
+<div class="ttc" id="aunique_ptr_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

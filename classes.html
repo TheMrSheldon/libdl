@@ -43,6 +43,13 @@
     <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
     <link href="doxygen.css" rel="stylesheet" type="text/css" />
     <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
@@ -160,44 +167,50 @@ $(document).ready(function(){initNavTree('classes.html',''); initResizable(); })
 <div class="title">Class Index</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="qindex"><a class="qindex" href="#letter_A">A</a>&#160;|&#160;<a class="qindex" href="#letter_D">D</a>&#160;|&#160;<a class="qindex" href="#letter_F">F</a>&#160;|&#160;<a class="qindex" href="#letter_G">G</a>&#160;|&#160;<a class="qindex" href="#letter_I">I</a>&#160;|&#160;<a class="qindex" href="#letter_L">L</a>&#160;|&#160;<a class="qindex" href="#letter_M">M</a>&#160;|&#160;<a class="qindex" href="#letter_O">O</a>&#160;|&#160;<a class="qindex" href="#letter_Q">Q</a>&#160;|&#160;<a class="qindex" href="#letter_S">S</a>&#160;|&#160;<a class="qindex" href="#letter_T">T</a>&#160;|&#160;<a class="qindex" href="#letter_U">U</a>&#160;|&#160;<a class="qindex" href="#letter__">_</a></div>
+<div class="qindex"><a class="qindex" href="#letter_A">A</a>&#160;|&#160;<a class="qindex" href="#letter_B">B</a>&#160;|&#160;<a class="qindex" href="#letter_D">D</a>&#160;|&#160;<a class="qindex" href="#letter_F">F</a>&#160;|&#160;<a class="qindex" href="#letter_G">G</a>&#160;|&#160;<a class="qindex" href="#letter_I">I</a>&#160;|&#160;<a class="qindex" href="#letter_L">L</a>&#160;|&#160;<a class="qindex" href="#letter_M">M</a>&#160;|&#160;<a class="qindex" href="#letter_O">O</a>&#160;|&#160;<a class="qindex" href="#letter_Q">Q</a>&#160;|&#160;<a class="qindex" href="#letter_S">S</a>&#160;|&#160;<a class="qindex" href="#letter_T">T</a>&#160;|&#160;<a class="qindex" href="#letter_U">U</a>&#160;|&#160;<a class="qindex" href="#letter_W">W</a>&#160;|&#160;<a class="qindex" href="#letter__">_</a></div>
 <div class="classindex">
 <dl class="classindex even">
 <dt class="alphachar"><a name="letter_A">A</a></dt>
-<dd><a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html">GenericIterator::AIter</a> (dl::utils)</dd><dd><a class="el" href="classcpr_1_1AsyncWrapper.html">AsyncWrapper</a> (cpr)</dd></dl>
+<dd><a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html">GenericIterator::AIter</a> (dl::utils)</dd><dd><a class="el" href="classcpr_1_1AsyncWrapper.html">AsyncWrapper</a> (cpr)</dd><dd><a class="el" href="classdl_1_1Transformer_1_1AttnHead.html">Transformer::AttnHead</a> (dl)</dd></dl>
 <dl class="classindex odd">
+<dt class="alphachar"><a name="letter_B">B</a></dt>
+<dd><a class="el" href="classnlp_1_1transformer_1_1BERT.html">BERT</a> (nlp::transformer)</dd><dd><a class="el" href="classnlp_1_1transformer_1_1BERTTokenizer.html">BERTTokenizer</a> (nlp::transformer)</dd></dl>
+<dl class="classindex even">
 <dt class="alphachar"><a name="letter_D">D</a></dt>
 <dd><a class="el" href="classdl_1_1Dataloader.html">Dataloader</a> (dl)</dd><dd><a class="el" href="classdl_1_1Dataloader_3_01R_07Args_8_8_8_08_4.html">Dataloader&lt; R(Args...)&gt;</a> (dl)</dd><dd><a class="el" href="classdl_1_1Dataset.html">Dataset</a> (dl)</dd><dd><a class="el" href="classdl_1_1Dataset_3_01R_07Args_8_8_8_08_4.html">Dataset&lt; R(Args...)&gt;</a> (dl)</dd><dd><a class="el" href="classdl_1_1Device.html">Device</a> (dl)</dd><dd><a class="el" href="structir_1_1Document.html">Document</a> (ir)</dd></dl>
-<dl class="classindex even">
+<dl class="classindex odd">
 <dt class="alphachar"><a name="letter_F">F</a></dt>
 <dd><a class="el" href="structfmt_1_1formatter_3_01std_1_1optional_3_01T_01_4_01_4.html">formatter&lt; std::optional&lt; T &gt; &gt;</a> (fmt)</dd></dl>
-<dl class="classindex odd">
+<dl class="classindex even">
 <dt class="alphachar"><a name="letter_G">G</a></dt>
 <dd><a class="el" href="classdl_1_1utils_1_1GenericIterator.html">GenericIterator</a> (dl::utils)</dd></dl>
-<dl class="classindex even">
+<dl class="classindex odd">
 <dt class="alphachar"><a name="letter_I">I</a></dt>
 <dd><a class="el" href="classir_1_1IRDataset.html">IRDataset</a> (ir)</dd><dd><a class="el" href="classir_1_1IRDataset_3_01float_07Query_00_01Document_08_4.html">IRDataset&lt; float(Query, Document)&gt;</a> (ir)</dd><dd><a class="el" href="classir_1_1IRDataset_3_01void_07Query_00_01Document_00_01Document_08_4.html">IRDataset&lt; void(Query, Document, Document)&gt;</a> (ir)</dd><dd><a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html">GenericIterator::Iter</a> (dl::utils)</dd></dl>
-<dl class="classindex odd">
-<dt class="alphachar"><a name="letter_L">L</a></dt>
-<dd><a class="el" href="classdl_1_1Linear.html">Linear</a> (dl)</dd></dl>
 <dl class="classindex even">
+<dt class="alphachar"><a name="letter_L">L</a></dt>
+<dd><a class="el" href="classdl_1_1Linear.html">Linear</a> (dl)</dd><dd><a class="el" href="structdl_1_1utils_1_1LineIterator.html">LineIterator</a> (dl::utils)</dd></dl>
+<dl class="classindex odd">
 <dt class="alphachar"><a name="letter_M">M</a></dt>
 <dd><a class="el" href="classdl_1_1Model.html">Model</a> (dl)</dd><dd><a class="el" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html">Model&lt; R(Args...)&gt;</a> (dl)</dd></dl>
-<dl class="classindex odd">
+<dl class="classindex even">
 <dt class="alphachar"><a name="letter_O">O</a></dt>
 <dd><a class="el" href="classdl_1_1Optimizer.html">Optimizer</a> (dl)</dd></dl>
-<dl class="classindex even">
+<dl class="classindex odd">
 <dt class="alphachar"><a name="letter_Q">Q</a></dt>
 <dd><a class="el" href="structir_1_1Query.html">Query</a> (ir)</dd></dl>
-<dl class="classindex odd">
+<dl class="classindex even">
 <dt class="alphachar"><a name="letter_S">S</a></dt>
 <dd><a class="el" href="classdl_1_1utils_1_1ScopeGuard.html">ScopeGuard</a> (dl::utils)</dd><dd><a class="el" href="structdl_1_1Trainer_3_01R_07Args_8_8_8_08_4_1_1Settings.html">Trainer&lt; R(Args...)&gt;::Settings</a> (dl)</dd></dl>
-<dl class="classindex even">
-<dt class="alphachar"><a name="letter_T">T</a></dt>
-<dd><a class="el" href="classdl_1_1Tensor.html">Tensor</a> (dl)</dd><dd><a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> (dl)</dd><dd><a class="el" href="classdl_1_1Trainer.html">Trainer</a> (dl)</dd><dd><a class="el" href="classdl_1_1Trainer_3_01R_07Args_8_8_8_08_4.html">Trainer&lt; R(Args...)&gt;</a> (dl)</dd></dl>
 <dl class="classindex odd">
+<dt class="alphachar"><a name="letter_T">T</a></dt>
+<dd><a class="el" href="classdl_1_1Tensor.html">Tensor</a> (dl)</dd><dd><a class="el" href="classdl_1_1TensorImpl.html">TensorImpl</a> (dl)</dd><dd><a class="el" href="classdl_1_1Trainer.html">Trainer</a> (dl)</dd><dd><a class="el" href="classdl_1_1Trainer_3_01R_07Args_8_8_8_08_4.html">Trainer&lt; R(Args...)&gt;</a> (dl)</dd><dd><a class="el" href="classdl_1_1Transformer.html">Transformer</a> (dl)</dd></dl>
+<dl class="classindex even">
 <dt class="alphachar"><a name="letter_U">U</a></dt>
 <dd><a class="el" href="classdl_1_1utils_1_1URLStream.html">URLStream</a> (dl::utils)</dd><dd><a class="el" href="classdl_1_1utils_1_1URLStreamBase.html">URLStreamBase</a> (dl::utils)</dd></dl>
+<dl class="classindex odd">
+<dt class="alphachar"><a name="letter_W">W</a></dt>
+<dd><a class="el" href="classdl_1_1WordPieceTokenizer.html">WordPieceTokenizer</a> (dl)</dd></dl>
 <dl class="classindex even">
 <dt class="alphachar"><a name="letter__">_</a></dt>
 <dd><a class="el" href="structdl_1_1detail_1_1__ModelSignature.html">_ModelSignature</a> (<a class="el" href="namespacedl_1_1detail.html">dl::detail</a>)</dd></dl>

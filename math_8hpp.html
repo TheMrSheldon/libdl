@@ -43,6 +43,13 @@
     <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
     <link href="doxygen.css" rel="stylesheet" type="text/css" />
     <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
@@ -165,16 +172,16 @@ $(document).ready(function(){initNavTree('math_8hpp.html',''); initResizable(); 
 
 <p>Implements auto-diff enabled wrapers around their concrete tensor implementations.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;tensorptr.hpp&quot;</code><br />
+<div class="textblock"><code>#include &quot;tensor.hpp&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for math.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="math_8hpp__incl.png" border="0" usemap="#adl_2tensor_2math_8hpp" alt=""/></div>
 <map name="adl_2tensor_2math_8hpp" id="adl_2tensor_2math_8hpp">
-<area shape="rect" title="Implements auto&#45;diff enabled wrapers around their concrete tensor implementations." alt="" coords="157,5,302,32"/>
-<area shape="rect" href="tensorptr_8hpp_source.html" title=" " alt="" coords="117,80,225,107"/>
-<area shape="rect" title=" " alt="" coords="249,80,329,107"/>
+<area shape="rect" title="Implements auto&#45;diff enabled wrapers around their concrete tensor implementations." alt="" coords="153,5,298,32"/>
+<area shape="rect" href="tensor_8hpp_source.html" title=" " alt="" coords="125,80,216,107"/>
+<area shape="rect" title=" " alt="" coords="240,80,320,107"/>
 <area shape="rect" title=" " alt="" coords="5,155,184,196"/>
 <area shape="rect" title=" " alt="" coords="208,162,285,189"/>
 </map>
@@ -193,54 +200,57 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1f437c311c72049fc420c8c8f0076a00"><td class="memItemLeft" align="right" valign="top"><a id="a1f437c311c72049fc420c8c8f0076a00"></a>
-TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::pow</b> (TensorPtr &amp;base, float exponent) noexcept</td></tr>
-<tr class="separator:a1f437c311c72049fc420c8c8f0076a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f72f71757c9c0ea62c53458bb6a97ba"><td class="memItemLeft" align="right" valign="top"><a id="a2f72f71757c9c0ea62c53458bb6a97ba"></a>
-TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::pow</b> (TensorPtr &amp;&amp;base, float exponent) noexcept</td></tr>
-<tr class="separator:a2f72f71757c9c0ea62c53458bb6a97ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac50f187bab3899c7ff330ae99d596c5e"><td class="memItemLeft" align="right" valign="top"><a id="ac50f187bab3899c7ff330ae99d596c5e"></a>
-TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::mean</b> (TensorPtr &amp;x) noexcept</td></tr>
-<tr class="separator:ac50f187bab3899c7ff330ae99d596c5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a718cfa9e487dd27e62495e62e0c79704"><td class="memItemLeft" align="right" valign="top"><a id="a718cfa9e487dd27e62495e62e0c79704"></a>
-TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::mean</b> (TensorPtr &amp;&amp;x) noexcept</td></tr>
-<tr class="separator:a718cfa9e487dd27e62495e62e0c79704"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b28600ef6f5f5c30b49044a7e831252"><td class="memItemLeft" align="right" valign="top"><a id="a7b28600ef6f5f5c30b49044a7e831252"></a>
-TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::sum</b> (TensorPtr &amp;x) noexcept</td></tr>
-<tr class="separator:a7b28600ef6f5f5c30b49044a7e831252"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff29b1c89c0669112113fb7cbfa1749d"><td class="memItemLeft" align="right" valign="top"><a id="aff29b1c89c0669112113fb7cbfa1749d"></a>
-TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::min</b> (TensorPtr &amp;x, float bound) noexcept</td></tr>
-<tr class="separator:aff29b1c89c0669112113fb7cbfa1749d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2737c57f8bb54ff235e554317c9f73ec"><td class="memItemLeft" align="right" valign="top"><a id="a2737c57f8bb54ff235e554317c9f73ec"></a>
-TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::max</b> (TensorPtr &amp;x, float bound) noexcept</td></tr>
-<tr class="separator:a2737c57f8bb54ff235e554317c9f73ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c7463af550c9b7aa09983744268108f"><td class="memItemLeft" align="right" valign="top"><a id="a4c7463af550c9b7aa09983744268108f"></a>
-TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::relu</b> (TensorPtr &amp;x) noexcept</td></tr>
-<tr class="separator:a4c7463af550c9b7aa09983744268108f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4355fece852b1d300568e04812eb7289"><td class="memItemLeft" align="right" valign="top"><a id="a4355fece852b1d300568e04812eb7289"></a>
-TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator+</b> (TensorPtr &amp;left, TensorPtr &amp;right) noexcept</td></tr>
-<tr class="separator:a4355fece852b1d300568e04812eb7289"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a347c1a31e6d5488831ca1d60c1f04d9b"><td class="memItemLeft" align="right" valign="top"><a id="a347c1a31e6d5488831ca1d60c1f04d9b"></a>
-TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator-</b> (TensorPtr &amp;left, TensorPtr &amp;right) noexcept</td></tr>
-<tr class="separator:a347c1a31e6d5488831ca1d60c1f04d9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b07a124ef568154ffe4ce15df82aaaa"><td class="memItemLeft" align="right" valign="top"><a id="a7b07a124ef568154ffe4ce15df82aaaa"></a>
-TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator*</b> (TensorPtr &amp;left, TensorPtr &amp;right) noexcept</td></tr>
-<tr class="separator:a7b07a124ef568154ffe4ce15df82aaaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bc7237d3218c86e58edefeef64b1a69"><td class="memItemLeft" align="right" valign="top"><a id="a9bc7237d3218c86e58edefeef64b1a69"></a>
-TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator/</b> (TensorPtr &amp;left, TensorPtr &amp;right) noexcept</td></tr>
-<tr class="separator:a9bc7237d3218c86e58edefeef64b1a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a978e7674e08a9ec5e155e6e46d34e718"><td class="memItemLeft" align="right" valign="top"><a id="a978e7674e08a9ec5e155e6e46d34e718"></a>
-TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator/</b> (TensorPtr &amp;left, TensorPtr right) noexcept</td></tr>
-<tr class="separator:a978e7674e08a9ec5e155e6e46d34e718"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade1b98f6823484acc8bdd4071ccfb7cf"><td class="memItemLeft" align="right" valign="top"><a id="ade1b98f6823484acc8bdd4071ccfb7cf"></a>
-TensorPtr&#160;</td><td class="memItemRight" valign="bottom"><b>dl::matmul</b> (TensorPtr &amp;left, TensorPtr &amp;right) noexcept</td></tr>
-<tr class="separator:ade1b98f6823484acc8bdd4071ccfb7cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a335307f92762c0327a76e84e20e9c85b"><td class="memItemLeft" align="right" valign="top"><a id="a335307f92762c0327a76e84e20e9c85b"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator&lt;&lt;</b> (std::ostream &amp;, const TensorPtr &amp;tensor) noexcept</td></tr>
-<tr class="separator:a335307f92762c0327a76e84e20e9c85b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92e7431fe89b8ae3f6864a733223c0d7"><td class="memItemLeft" align="right" valign="top"><a id="a92e7431fe89b8ae3f6864a733223c0d7"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator==</b> (const TensorPtr &amp;left, const TensorPtr &amp;right) noexcept</td></tr>
-<tr class="separator:a92e7431fe89b8ae3f6864a733223c0d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe737cde424fc346acf4d2f744c14ff8"><td class="memItemLeft" align="right" valign="top"><a id="abe737cde424fc346acf4d2f744c14ff8"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::pow</b> (Tensor &amp;base, float exponent) noexcept</td></tr>
+<tr class="separator:abe737cde424fc346acf4d2f744c14ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a106e0b90a6bbade58bdcfafc08da1a64"><td class="memItemLeft" align="right" valign="top"><a id="a106e0b90a6bbade58bdcfafc08da1a64"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::pow</b> (Tensor &amp;&amp;base, float exponent) noexcept</td></tr>
+<tr class="separator:a106e0b90a6bbade58bdcfafc08da1a64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5334a615d03b818435339ec6156a246d"><td class="memItemLeft" align="right" valign="top"><a id="a5334a615d03b818435339ec6156a246d"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::mean</b> (Tensor &amp;x) noexcept</td></tr>
+<tr class="separator:a5334a615d03b818435339ec6156a246d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f4faff8be2d276c5dbd01b69f29758e"><td class="memItemLeft" align="right" valign="top"><a id="a1f4faff8be2d276c5dbd01b69f29758e"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::mean</b> (Tensor &amp;&amp;x) noexcept</td></tr>
+<tr class="separator:a1f4faff8be2d276c5dbd01b69f29758e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16a6b1358b6c7941ac60de5b5b926702"><td class="memItemLeft" align="right" valign="top"><a id="a16a6b1358b6c7941ac60de5b5b926702"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::sum</b> (Tensor &amp;x) noexcept</td></tr>
+<tr class="separator:a16a6b1358b6c7941ac60de5b5b926702"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3cd5f3b7bc63d67c8f4df9a29dad963"><td class="memItemLeft" align="right" valign="top"><a id="aa3cd5f3b7bc63d67c8f4df9a29dad963"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::min</b> (Tensor &amp;x, float bound) noexcept</td></tr>
+<tr class="separator:aa3cd5f3b7bc63d67c8f4df9a29dad963"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab06ed920ebde17c9e70af0f95e945ab0"><td class="memItemLeft" align="right" valign="top"><a id="ab06ed920ebde17c9e70af0f95e945ab0"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::max</b> (Tensor &amp;x, float bound) noexcept</td></tr>
+<tr class="separator:ab06ed920ebde17c9e70af0f95e945ab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a347a19074c16b69694a8f6b7087ee56b"><td class="memItemLeft" align="right" valign="top"><a id="a347a19074c16b69694a8f6b7087ee56b"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::relu</b> (Tensor &amp;x) noexcept</td></tr>
+<tr class="separator:a347a19074c16b69694a8f6b7087ee56b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2946c65be137330aec7d3ef2101ab6c1"><td class="memItemLeft" align="right" valign="top"><a id="a2946c65be137330aec7d3ef2101ab6c1"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator+</b> (Tensor &amp;left, Tensor &amp;right) noexcept</td></tr>
+<tr class="separator:a2946c65be137330aec7d3ef2101ab6c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56cfa834f84a76c824fc48d401bf80b6"><td class="memItemLeft" align="right" valign="top"><a id="a56cfa834f84a76c824fc48d401bf80b6"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator-</b> (Tensor &amp;left, Tensor &amp;right) noexcept</td></tr>
+<tr class="separator:a56cfa834f84a76c824fc48d401bf80b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f56db6216d05169e9f4234b46e7d5b1"><td class="memItemLeft" align="right" valign="top"><a id="a6f56db6216d05169e9f4234b46e7d5b1"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator*</b> (Tensor &amp;left, Tensor &amp;right) noexcept</td></tr>
+<tr class="separator:a6f56db6216d05169e9f4234b46e7d5b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53d54f8f49d72716de32d49b1d125788"><td class="memItemLeft" align="right" valign="top"><a id="a53d54f8f49d72716de32d49b1d125788"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator/</b> (Tensor &amp;left, Tensor &amp;right) noexcept</td></tr>
+<tr class="separator:a53d54f8f49d72716de32d49b1d125788"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7517613ba1a1e6739aabfbd7b418656d"><td class="memItemLeft" align="right" valign="top"><a id="a7517613ba1a1e6739aabfbd7b418656d"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator/</b> (Tensor &amp;left, Tensor right) noexcept</td></tr>
+<tr class="separator:a7517613ba1a1e6739aabfbd7b418656d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15a4f16262e8ae3e8b8b1c34cb56a6d5"><td class="memItemLeft" align="right" valign="top"><a id="a15a4f16262e8ae3e8b8b1c34cb56a6d5"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::matmul</b> (Tensor &amp;left, Tensor &amp;right) noexcept</td></tr>
+<tr class="separator:a15a4f16262e8ae3e8b8b1c34cb56a6d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03d6625fc44528113192f86ff9f9d872"><td class="memItemLeft" align="right" valign="top"><a id="a03d6625fc44528113192f86ff9f9d872"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::matmul</b> (Tensor &amp;&amp;left, Tensor &amp;right) noexcept</td></tr>
+<tr class="separator:a03d6625fc44528113192f86ff9f9d872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0adee756775f4801c5eccdc6739bf94"><td class="memItemLeft" align="right" valign="top"><a id="ad0adee756775f4801c5eccdc6739bf94"></a>
+<a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator&lt;&lt;</b> (<a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a> &amp;, const Tensor &amp;tensor) noexcept</td></tr>
+<tr class="separator:ad0adee756775f4801c5eccdc6739bf94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd48451b061f3d5674b60e475d84c161"><td class="memItemLeft" align="right" valign="top"><a id="afd48451b061f3d5674b60e475d84c161"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator==</b> (const Tensor &amp;left, const Tensor &amp;right) noexcept</td></tr>
+<tr class="separator:afd48451b061f3d5674b60e475d84c161"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements auto-diff enabled wrapers around their concrete tensor implementations. </p>

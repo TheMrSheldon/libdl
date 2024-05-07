@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="/home/runner/work/libdl/libdl/build/_deps/cppreftags-src/cppreference-doxygen-web.tag.xml$cpp/io/basic_istream.html" title=" " alt="" coords="212,5,312,32"/>
+<area shape="rect" id="node2" href="$classdl_1_1utils_1_1URLStream.html" title="Opens an input stream which serves the information pointed at by the provided URL." alt="" coords="401,31,552,57"/>
+<area shape="rect" id="node3" href="/home/runner/work/libdl/libdl/build/_deps/cppreftags-src/cppreference-doxygen-web.tag.xml$cpp/io/basic_streambuf.html" title=" " alt="" coords="5,56,123,83"/>
+<area shape="rect" id="node4" href="$classdl_1_1utils_1_1URLStreamBase.html" title="Opens an input stream which serves the information pointed at by the provided URL." alt="" coords="171,56,353,83"/>
+</map>

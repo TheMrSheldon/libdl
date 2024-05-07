@@ -43,6 +43,13 @@
     <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
     <link href="doxygen.css" rel="stylesheet" type="text/css" />
     <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
@@ -177,7 +184,7 @@ Inheritance diagram for dl::utils::URLStreamBase:</div>
 <map name="adl_1_1utils_1_1URLStreamBase_inherit__map" id="adl_1_1utils_1_1URLStreamBase_inherit__map">
 <area shape="rect" title="Opens an input stream which serves the information pointed at by the provided URL." alt="" coords="5,80,188,107"/>
 <area shape="rect" href="classdl_1_1utils_1_1URLStream.html" title="Opens an input stream which serves the information pointed at by the provided URL." alt="" coords="21,155,172,181"/>
-<area shape="rect" title=" " alt="" coords="38,5,155,32"/>
+<area shape="rect" target="_parent" href="http://en.cppreference.com/w/cpp/io/basic_streambuf.html" title=" " alt="" coords="38,5,155,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -185,8 +192,9 @@ Collaboration diagram for dl::utils::URLStreamBase:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdl_1_1utils_1_1URLStreamBase__coll__graph.png" border="0" usemap="#adl_1_1utils_1_1URLStreamBase_coll__map" alt="Collaboration graph"/></div>
 <map name="adl_1_1utils_1_1URLStreamBase_coll__map" id="adl_1_1utils_1_1URLStreamBase_coll__map">
-<area shape="rect" title="Opens an input stream which serves the information pointed at by the provided URL." alt="" coords="5,80,188,107"/>
-<area shape="rect" title=" " alt="" coords="38,5,155,32"/>
+<area shape="rect" title="Opens an input stream which serves the information pointed at by the provided URL." alt="" coords="51,95,234,121"/>
+<area shape="rect" target="_parent" href="http://en.cppreference.com/w/cpp/io/basic_streambuf.html" title=" " alt="" coords="5,5,123,32"/>
+<area shape="rect" target="_parent" href="http://en.cppreference.com/w/cpp/container/vector.html" title=" " alt="" coords="147,5,296,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -198,6 +206,130 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a87e7587b70bf023b544494d3a3f0699e"><td class="memItemLeft" align="right" valign="top"><a id="a87e7587b70bf023b544494d3a3f0699e"></a>
 int_type&#160;</td><td class="memItemRight" valign="bottom"><b>underflow</b> ()</td></tr>
 <tr class="separator:a87e7587b70bf023b544494d3a3f0699e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_basic_streambuf"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_basic_streambuf')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el"  href="http://en.cppreference.com/w/cpp/io/basic_streambuf.html">std::streambuf</a></td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/pptr.html">pptr</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/pptr.html">epptr</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/gptr.html">eback</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/setp.html">setp</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/sputbackc.html">sputbackc</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/getloc.html">getloc</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/pubseekoff.html">seekoff</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/pubimbue.html">imbue</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/sungetc.html">sungetc</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/pubsync.html">sync</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/sputn.html">xsputn</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/pptr.html">pbase</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/sgetc.html">sgetc</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/pubimbue.html">pubimbue</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/showmanyc.html">showmanyc</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/snextc.html">snextc</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/gptr.html">egptr</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/pubseekpos.html">seekpos</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/underflow.html">underflow</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/pubsetbuf.html">setbuf</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/gbump.html">gbump</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/in_avail.html">in_avail</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/swap.html">swap</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/pbackfail.html">pbackfail</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/sputc.html">sputc</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/sgetn.html">xsgetn</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/uflow.html">uflow</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/overflow.html">overflow</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/sputn.html">sputn</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/sgetn.html">sgetn</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/sbumpc.html">sbumpc</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/~basic_streambuf.html">~streambuf</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/operator=.html">operator=</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/pbump.html">pbump</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/pubsetbuf.html">pubsetbuf</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/pubsync.html">pubsync</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/pubseekoff.html">pubseekoff</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/setg.html">setg</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/basic_streambuf.html">streambuf</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/gptr.html">gptr</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/pubseekpos.html">pubseekpos</a> (T... args)</td></tr>
+<tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -207,17 +339,17 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:aad7b4372ee27041ad39ba4aad72e8bd2"><td class="memItemLeft" align="right" valign="top"><a id="aad7b4372ee27041ad39ba4aad72e8bd2"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>URLStreamBase</b> (<a class="el" href="classdl_1_1utils_1_1URLStreamBase.html">URLStreamBase</a> &amp;&amp;other)=delete</td></tr>
 <tr class="separator:aad7b4372ee27041ad39ba4aad72e8bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10d062eceeecbe1722ab692fee14bb0a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1URLStreamBase.html#a10d062eceeecbe1722ab692fee14bb0a">onDataCallback</a> (std::string data, intptr_t userdata)</td></tr>
+<tr class="memitem:a10d062eceeecbe1722ab692fee14bb0a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1URLStreamBase.html#a10d062eceeecbe1722ab692fee14bb0a">onDataCallback</a> (<a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> data, intptr_t userdata)</td></tr>
 <tr class="memdesc:a10d062eceeecbe1722ab692fee14bb0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called internally by the implementation for every chunk of data.  <a href="classdl_1_1utils_1_1URLStreamBase.html#a10d062eceeecbe1722ab692fee14bb0a">More...</a><br /></td></tr>
 <tr class="separator:a10d062eceeecbe1722ab692fee14bb0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a8f733bfc8fd033dcb24990bb180467f0"><td class="memItemLeft" align="right" valign="top"><a id="a8f733bfc8fd033dcb24990bb180467f0"></a>
-std::experimental::propagate_const&lt; std::unique_ptr&lt; <a class="el" href="classcpr_1_1AsyncWrapper.html">cpr::AsyncWrapper</a>&lt; void, false &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>pImpl</b></td></tr>
+std::experimental::propagate_const&lt; <a class="elRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr</a>&lt; <a class="el" href="classcpr_1_1AsyncWrapper.html">cpr::AsyncWrapper</a>&lt; void, false &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>pImpl</b></td></tr>
 <tr class="separator:a8f733bfc8fd033dcb24990bb180467f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a591e6a962946ade5f3f86a6b6514ee72"><td class="memItemLeft" align="right" valign="top"><a id="a591e6a962946ade5f3f86a6b6514ee72"></a>
-std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>buffer</b></td></tr>
+<a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>buffer</b></td></tr>
 <tr class="separator:a591e6a962946ade5f3f86a6b6514ee72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3059e7435ed9e5544fce630e74855c94"><td class="memItemLeft" align="right" valign="top"><a id="a3059e7435ed9e5544fce630e74855c94"></a>
 std::binary_semaphore&#160;</td><td class="memItemRight" valign="bottom"><b>dataIncommingSem</b></td></tr>
@@ -247,7 +379,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>ended</b> = false</td
         <tr>
           <td class="memname">bool dl::utils::URLStreamBase::onDataCallback </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
+          <td class="paramtype"><a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>&#160;</td>
           <td class="paramname"><em>data</em>, </td>
         </tr>
         <tr>

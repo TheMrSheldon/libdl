@@ -43,6 +43,13 @@
     <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
     <link href="doxygen.css" rel="stylesheet" type="text/css" />
     <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
@@ -171,9 +178,9 @@ $(document).ready(function(){initNavTree('classdl_1_1Optimizer.html',''); initRe
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac07339b8ce5336e2be7e893e8ddab7f0"><td class="memItemLeft" align="right" valign="top"><a id="ac07339b8ce5336e2be7e893e8ddab7f0"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>step</b> (const <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp;tensor)=0</td></tr>
-<tr class="separator:ac07339b8ce5336e2be7e893e8ddab7f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad662b1198b910375474a1e41224315f"><td class="memItemLeft" align="right" valign="top"><a id="aad662b1198b910375474a1e41224315f"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>step</b> (const <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;tensor)=0</td></tr>
+<tr class="separator:aad662b1198b910375474a1e41224315f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Defines an optimization strategy for a given set of Parameters. </p>

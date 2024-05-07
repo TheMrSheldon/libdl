@@ -43,6 +43,13 @@
     <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
     <link href="doxygen.css" rel="stylesheet" type="text/css" />
     <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
@@ -181,9 +188,10 @@ Collaboration diagram for dl::utils::GenericIterator&lt; T &gt;::Iter&lt; TIt &g
 <div class="dyncontent">
 <div class="center"><img src="classdl_1_1utils_1_1GenericIterator_1_1Iter__coll__graph.png" border="0" usemap="#adl_1_1utils_1_1GenericIterator_3_01T_01_4_1_1Iter_3_01TIt_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="adl_1_1utils_1_1GenericIterator_3_01T_01_4_1_1Iter_3_01TIt_01_4_coll__map" id="adl_1_1utils_1_1GenericIterator_3_01T_01_4_1_1Iter_3_01TIt_01_4_coll__map">
-<area shape="rect" title="The Iter class wraps objects that suffice the std::input_or_output_iterator concept to implement the ..." alt="" coords="71,109,247,151"/>
+<area shape="rect" title="The Iter class wraps objects that suffice the std::input_or_output_iterator concept to implement the ..." alt="" coords="207,109,383,151"/>
 <area shape="rect" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html" title="The &quot;abstract iterator&quot; (AIter) provides a class interface for forward iterators (i...." alt="" coords="5,5,181,47"/>
-<area shape="rect" title=" " alt="" coords="206,13,245,39"/>
+<area shape="rect" target="_parent" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title=" " alt="" coords="206,13,383,39"/>
+<area shape="rect" title=" " alt="" coords="407,13,446,39"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -192,7 +200,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a09245282a523cf216e2fe51c74ec25f7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a09245282a523cf216e2fe51c74ec25f7">Iter</a> (TIt &amp;<a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a468fff57ae5fd051f0cf43e9416a9194">iterator</a>) noexcept</td></tr>
 <tr class="memdesc:a09245282a523cf216e2fe51c74ec25f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html" title="The Iter class wraps objects that suffice the std::input_or_output_iterator concept to implement the ...">Iter</a> instance wrapping the provided iterator.  <a href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a09245282a523cf216e2fe51c74ec25f7">More...</a><br /></td></tr>
 <tr class="separator:a09245282a523cf216e2fe51c74ec25f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a181d171fe0ecbbf804748a2740a9a6d7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a181d171fe0ecbbf804748a2740a9a6d7">Iter</a> (TIt &amp;<a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a468fff57ae5fd051f0cf43e9416a9194">iterator</a>, std::shared_ptr&lt; auto &gt; <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a06f9ea57691fc6c3c2a918e32f7b98b6">userdata</a>)</td></tr>
+<tr class="memitem:a181d171fe0ecbbf804748a2740a9a6d7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a181d171fe0ecbbf804748a2740a9a6d7">Iter</a> (TIt &amp;<a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a468fff57ae5fd051f0cf43e9416a9194">iterator</a>, <a class="elRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr</a>&lt; auto &gt; <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a06f9ea57691fc6c3c2a918e32f7b98b6">userdata</a>)</td></tr>
 <tr class="memdesc:a181d171fe0ecbbf804748a2740a9a6d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a new <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html" title="The Iter class wraps objects that suffice the std::input_or_output_iterator concept to implement the ...">Iter</a> instance wrapping the provided iterator.  <a href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a181d171fe0ecbbf804748a2740a9a6d7">More...</a><br /></td></tr>
 <tr class="separator:a181d171fe0ecbbf804748a2740a9a6d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9e6e369ecdd8d3859e394a6859c7cfa"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#ab9e6e369ecdd8d3859e394a6859c7cfa">deref</a> () const noexcept override</td></tr>
@@ -205,10 +213,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a79a1f923e12e1f036e8a19d573bd3295"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a79a1f923e12e1f036e8a19d573bd3295">equals</a> (const <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html">AIter</a> &amp;other) const noexcept override</td></tr>
 <tr class="memdesc:a79a1f923e12e1f036e8a19d573bd3295"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if this operator is equal to <code>other</code>. Generally this should check if they have the same type (see <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html#a0b369b9da63ba2cbacc23f0647334383" title="Returns the typeid of this. This can be used to check if to implementations of AIter are of the same ...">AIter::type()</a>) and then check if the underlying iterators are the same.  <a href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a79a1f923e12e1f036e8a19d573bd3295">More...</a><br /></td></tr>
 <tr class="separator:a79a1f923e12e1f036e8a19d573bd3295"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16d5bc0ea958fc08842d15ae9b653755"><td class="memItemLeft" align="right" valign="top">const std::type_info &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a16d5bc0ea958fc08842d15ae9b653755">type</a> () const override</td></tr>
+<tr class="memitem:a16d5bc0ea958fc08842d15ae9b653755"><td class="memItemLeft" align="right" valign="top">const <a class="elRef" href="http://en.cppreference.com/w/cpp/types/type_info.html">std::type_info</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a16d5bc0ea958fc08842d15ae9b653755">type</a> () const override</td></tr>
 <tr class="memdesc:a16d5bc0ea958fc08842d15ae9b653755"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the typeid of this. This can be used to check if to implementations of <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html" title="The &quot;abstract iterator&quot; (AIter) provides a class interface for forward iterators (i....">AIter</a> are of the same type.  <a href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a16d5bc0ea958fc08842d15ae9b653755">More...</a><br /></td></tr>
 <tr class="separator:a16d5bc0ea958fc08842d15ae9b653755"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a387c6159c8746f1d37393cd7978a1133"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html">AIter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a387c6159c8746f1d37393cd7978a1133">clone</a> () const override</td></tr>
+<tr class="memitem:a387c6159c8746f1d37393cd7978a1133"><td class="memItemLeft" align="right" valign="top"><a class="elRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr</a>&lt; <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html">AIter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a387c6159c8746f1d37393cd7978a1133">clone</a> () const override</td></tr>
 <tr class="memdesc:a387c6159c8746f1d37393cd7978a1133"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clones this iterator. A shallow clone suffices. This only acts as a virtual copy constructor (<a href="https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms/Virtual_Constructor">https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms/Virtual_Constructor</a>).  <a href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a387c6159c8746f1d37393cd7978a1133">More...</a><br /></td></tr>
 <tr class="separator:a387c6159c8746f1d37393cd7978a1133"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classdl_1_1utils_1_1GenericIterator_1_1AIter"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classdl_1_1utils_1_1GenericIterator_1_1AIter')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html">dl::utils::GenericIterator&lt; T &gt;::AIter</a></td></tr>
@@ -223,7 +231,7 @@ Private Attributes</h2></td></tr>
 TIt&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a468fff57ae5fd051f0cf43e9416a9194">iterator</a></td></tr>
 <tr class="memdesc:a468fff57ae5fd051f0cf43e9416a9194"><td class="mdescLeft">&#160;</td><td class="mdescRight">The underlying iterator that is used to implement the <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html" title="The &quot;abstract iterator&quot; (AIter) provides a class interface for forward iterators (i....">AIter</a> interface. <br /></td></tr>
 <tr class="separator:a468fff57ae5fd051f0cf43e9416a9194"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06f9ea57691fc6c3c2a918e32f7b98b6"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a06f9ea57691fc6c3c2a918e32f7b98b6">userdata</a></td></tr>
+<tr class="memitem:a06f9ea57691fc6c3c2a918e32f7b98b6"><td class="memItemLeft" align="right" valign="top"><a class="elRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a06f9ea57691fc6c3c2a918e32f7b98b6">userdata</a></td></tr>
 <tr class="memdesc:a06f9ea57691fc6c3c2a918e32f7b98b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">A shared_ptr to data that should be deleted when the iterator is deleted.  <a href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a06f9ea57691fc6c3c2a918e32f7b98b6">More...</a><br /></td></tr>
 <tr class="separator:a06f9ea57691fc6c3c2a918e32f7b98b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -308,7 +316,7 @@ template&lt;std::input_or_output_iterator TIt&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::shared_ptr&lt; auto &gt;&#160;</td>
+          <td class="paramtype"><a class="elRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr</a>&lt; auto &gt;&#160;</td>
           <td class="paramname"><em>userdata</em>&#160;</td>
         </tr>
         <tr>
@@ -354,7 +362,7 @@ template&lt;std::input_or_output_iterator TIt&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt;<a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html">AIter</a>&gt; <a class="el" href="classdl_1_1utils_1_1GenericIterator.html">dl::utils::GenericIterator</a>&lt; T &gt;::<a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html">Iter</a>&lt; TIt &gt;::clone </td>
+          <td class="memname"><a class="elRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr</a>&lt;<a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html">AIter</a>&gt; <a class="el" href="classdl_1_1utils_1_1GenericIterator.html">dl::utils::GenericIterator</a>&lt; T &gt;::<a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html">Iter</a>&lt; TIt &gt;::clone </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -475,7 +483,7 @@ template&lt;std::input_or_output_iterator TIt&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::type_info&amp; <a class="el" href="classdl_1_1utils_1_1GenericIterator.html">dl::utils::GenericIterator</a>&lt; T &gt;::<a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html">Iter</a>&lt; TIt &gt;::type </td>
+          <td class="memname">const <a class="elRef" href="http://en.cppreference.com/w/cpp/types/type_info.html">std::type_info</a>&amp; <a class="el" href="classdl_1_1utils_1_1GenericIterator.html">dl::utils::GenericIterator</a>&lt; T &gt;::<a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html">Iter</a>&lt; TIt &gt;::type </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -519,7 +527,7 @@ template&lt;std::input_or_output_iterator TIt&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;void&gt; <a class="el" href="classdl_1_1utils_1_1GenericIterator.html">dl::utils::GenericIterator</a>&lt; T &gt;::<a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html">Iter</a>&lt; TIt &gt;::userdata</td>
+          <td class="memname"><a class="elRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr</a>&lt;void&gt; <a class="el" href="classdl_1_1utils_1_1GenericIterator.html">dl::utils::GenericIterator</a>&lt; T &gt;::<a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html">Iter</a>&lt; TIt &gt;::userdata</td>
         </tr>
       </table>
   </td>
@@ -532,9 +540,10 @@ template&lt;std::input_or_output_iterator TIt&gt; </div>
 <p>A shared_ptr to data that should be deleted when the iterator is deleted. </p>
 <p>This is intended to store the underlying data into that the iterator iterates over. As such, this allows returning the begin-end-iterator-pair from a function and keeping them point to valid memory until the last of the iterators is destructed. </p><div class="fragment"><div class="line"><span class="keyword">auto</span> getData() {</div>
 <div class="line">    <span class="keyword">auto</span> data = std::make_shared&lt;std::vector&gt;({ 1, 2, 3, 4 });</div>
-<div class="line">    <span class="keywordflow">return</span> std::make_tuple(<a class="code" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a09245282a523cf216e2fe51c74ec25f7">Iter</a>(data-&gt;begin(), data), <a class="code" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a09245282a523cf216e2fe51c74ec25f7">Iter</a>(data-&gt;end(), data));</div>
+<div class="line">    <span class="keywordflow">return</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/tuple/make_tuple.html">std::make_tuple</a>(<a class="code" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a09245282a523cf216e2fe51c74ec25f7">Iter</a>(data-&gt;begin(), data), <a class="code" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a09245282a523cf216e2fe51c74ec25f7">Iter</a>(data-&gt;end(), data));</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassdl_1_1utils_1_1GenericIterator_1_1Iter_html_a09245282a523cf216e2fe51c74ec25f7"><div class="ttname"><a href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#a09245282a523cf216e2fe51c74ec25f7">dl::utils::GenericIterator::Iter::Iter</a></div><div class="ttdeci">Iter(TIt &amp;iterator) noexcept</div><div class="ttdoc">Constructs a new Iter instance wrapping the provided iterator.</div><div class="ttdef"><b>Definition:</b> <a href="generic__iterator_8hpp_source.html#l00116">generic_iterator.hpp:116</a></div></div>
+<div class="ttc" id="amake_tuple_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/tuple/make_tuple.html">std::make_tuple</a></div><div class="ttdeci">T make_tuple(T... args)</div></div>
 </div><!-- fragment --> 
 <p class="definition">Definition at line <a class="el" href="generic__iterator_8hpp_source.html#l00107">107</a> of file <a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>.</p>
 

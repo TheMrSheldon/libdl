@@ -43,6 +43,13 @@
     <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
     <link href="doxygen.css" rel="stylesheet" type="text/css" />
     <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
@@ -168,14 +175,16 @@ $(document).ready(function(){initNavTree('datasets_8hpp_source.html',''); initRe
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>ir::datasets {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    std::unique_ptr&lt;T&gt; load(std::string identifier) noexcept;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;T&gt;</a> load(<a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> identifier) noexcept;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    std::unique_ptr&lt;ir::PointwiseDataset&gt; load&lt;&gt;(std::string identifier) noexcept;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;ir::PointwiseDataset&gt;</a> load&lt;&gt;(<a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> identifier) noexcept;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    std::unique_ptr&lt;ir::PairwiseDataset&gt; load&lt;&gt;(std::string identifier) noexcept;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;ir::PairwiseDataset&gt;</a> load&lt;&gt;(<a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> identifier) noexcept;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;} <span class="comment">// namespace ir::datasets</span></div>
+<div class="ttc" id="abasic_string_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a></div></div>
+<div class="ttc" id="aunique_ptr_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

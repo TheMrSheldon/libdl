@@ -43,6 +43,13 @@
     <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
     <link href="doxygen.css" rel="stylesheet" type="text/css" />
     <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
@@ -180,10 +187,10 @@ $(document).ready(function(){initNavTree('urlstream_8hpp_source.html',''); initR
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;} <span class="comment">// namespace cpr</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span>dl::utils {</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classdl_1_1utils_1_1URLStreamBase.html">   25</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classdl_1_1utils_1_1URLStreamBase.html">URLStreamBase</a> : <span class="keyword">public</span> std::streambuf {</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classdl_1_1utils_1_1URLStreamBase.html">   25</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classdl_1_1utils_1_1URLStreamBase.html">URLStreamBase</a> : <span class="keyword">public</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf.html">std::streambuf</a> {</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        std::experimental::propagate_const&lt;std::unique_ptr&lt;cpr::AsyncWrapper&lt;void, false&gt;&gt;&gt; pImpl;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        std::vector&lt;char&gt; buffer;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;char&gt;</a> buffer;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        std::binary_semaphore dataIncommingSem;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        std::binary_semaphore dataHandledSem;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">bool</span> ended = <span class="keyword">false</span>;</div>
@@ -194,7 +201,7 @@ $(document).ready(function(){initNavTree('urlstream_8hpp_source.html',''); initR
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="comment">// expression within the constructor.</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="classdl_1_1utils_1_1URLStreamBase.html">URLStreamBase</a>(<a class="code" href="classdl_1_1utils_1_1URLStreamBase.html">URLStreamBase</a>&amp;&amp; other) = <span class="keyword">delete</span>;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classdl_1_1utils_1_1URLStreamBase.html#a10d062eceeecbe1722ab692fee14bb0a">   49</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classdl_1_1utils_1_1URLStreamBase.html#a10d062eceeecbe1722ab692fee14bb0a">onDataCallback</a>(std::string data, intptr_t userdata);</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classdl_1_1utils_1_1URLStreamBase.html#a10d062eceeecbe1722ab692fee14bb0a">   49</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classdl_1_1utils_1_1URLStreamBase.html#a10d062eceeecbe1722ab692fee14bb0a">onDataCallback</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> data, intptr_t userdata);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">explicit</span> <a class="code" href="classdl_1_1utils_1_1URLStreamBase.html">URLStreamBase</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* url) noexcept;</div>
@@ -202,18 +209,23 @@ $(document).ready(function(){initNavTree('urlstream_8hpp_source.html',''); initR
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        int_type underflow();</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    };</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classdl_1_1utils_1_1URLStream.html">   60</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classdl_1_1utils_1_1URLStream.html">URLStream</a> : <span class="keyword">virtual</span> <a class="code" href="classdl_1_1utils_1_1URLStreamBase.html">URLStreamBase</a>, <span class="keyword">public</span> std::istream {</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classdl_1_1utils_1_1URLStream.html">   60</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classdl_1_1utils_1_1URLStream.html">URLStream</a> : <span class="keyword">virtual</span> <a class="code" href="classdl_1_1utils_1_1URLStreamBase.html">URLStreamBase</a>, <span class="keyword">public</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_istream.html">std::istream</a> {</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classdl_1_1utils_1_1URLStream.html#acc7561a0856e6e083f6f4910846fa091">   67</a></span>&#160;        <a class="code" href="classdl_1_1utils_1_1URLStream.html#acc7561a0856e6e083f6f4910846fa091">URLStream</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* url) : <a class="code" href="classdl_1_1utils_1_1URLStreamBase.html">URLStreamBase</a>(url), std::istream(this) {}</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classdl_1_1utils_1_1URLStream.html#acc7561a0856e6e083f6f4910846fa091">   67</a></span>&#160;        <a class="code" href="classdl_1_1utils_1_1URLStream.html#acc7561a0856e6e083f6f4910846fa091">URLStream</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* url) : <a class="code" href="classdl_1_1utils_1_1URLStreamBase.html">URLStreamBase</a>(url), <a class="codeRef" href="http://en.cppreference.com/w/namespacestd.html">std</a>::<a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_istream/basic_istream.html">istream</a>(this) {}</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    };</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;} <span class="comment">// namespace dl::utils</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="abasic_istream_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/basic_istream.html">std::istream</a></div></div>
+<div class="ttc" id="abasic_streambuf_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/basic_streambuf.html">std::streambuf</a></div></div>
+<div class="ttc" id="abasic_string_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a></div></div>
 <div class="ttc" id="aclasscpr_1_1AsyncWrapper_html"><div class="ttname"><a href="classcpr_1_1AsyncWrapper.html">cpr::AsyncWrapper</a></div><div class="ttdef"><b>Definition:</b> <a href="urlstream_8hpp_source.html#l00016">urlstream.hpp:16</a></div></div>
 <div class="ttc" id="aclassdl_1_1utils_1_1URLStreamBase_html"><div class="ttname"><a href="classdl_1_1utils_1_1URLStreamBase.html">dl::utils::URLStreamBase</a></div><div class="ttdoc">Opens an input stream which serves the information pointed at by the provided URL.</div><div class="ttdef"><b>Definition:</b> <a href="urlstream_8hpp_source.html#l00025">urlstream.hpp:25</a></div></div>
 <div class="ttc" id="aclassdl_1_1utils_1_1URLStreamBase_html_a10d062eceeecbe1722ab692fee14bb0a"><div class="ttname"><a href="classdl_1_1utils_1_1URLStreamBase.html#a10d062eceeecbe1722ab692fee14bb0a">dl::utils::URLStreamBase::onDataCallback</a></div><div class="ttdeci">bool onDataCallback(std::string data, intptr_t userdata)</div><div class="ttdoc">Called internally by the implementation for every chunk of data.</div></div>
 <div class="ttc" id="aclassdl_1_1utils_1_1URLStream_html"><div class="ttname"><a href="classdl_1_1utils_1_1URLStream.html">dl::utils::URLStream</a></div><div class="ttdoc">Opens an input stream which serves the information pointed at by the provided URL.</div><div class="ttdef"><b>Definition:</b> <a href="urlstream_8hpp_source.html#l00060">urlstream.hpp:60</a></div></div>
 <div class="ttc" id="aclassdl_1_1utils_1_1URLStream_html_acc7561a0856e6e083f6f4910846fa091"><div class="ttname"><a href="classdl_1_1utils_1_1URLStream.html#acc7561a0856e6e083f6f4910846fa091">dl::utils::URLStream::URLStream</a></div><div class="ttdeci">URLStream(const char *url)</div><div class="ttdoc">Instantiates a new URLStream that serves the data at the given URL.</div><div class="ttdef"><b>Definition:</b> <a href="urlstream_8hpp_source.html#l00067">urlstream.hpp:67</a></div></div>
+<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="http://en.cppreference.com/w/namespacestd.html">std</a></div></div>
+<div class="ttc" id="avector_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt; char &gt;</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
