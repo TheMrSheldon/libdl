@@ -52,10 +52,10 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"",
-"cpp/algorithm/for_each.html",
-"cpp/memory/return_temporary_buffer.html",
-"cpp/utility/program/raise.html"
+"annotated.html",
+"cpp/algorithm/lower_bound.html",
+"cpp/numeric/fenv/feholdexcept.html",
+"device_8hpp.html#a2b781d65002bfc62a6afd20dc0bcd1d9"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
