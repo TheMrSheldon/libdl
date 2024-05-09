@@ -5,6 +5,8 @@ add_library(dl STATIC
     logging.cpp
     device.cpp
     devices/cpu.cpp
+    learning/observers/earlystopping.cpp
+    learning/observers/ncurses.cpp
     model/linear.cpp
     model/transformer/transformer.cpp
     model/transformer/wordpiece.cpp
@@ -82,3 +84,10 @@ FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git
                          GIT_TAG 1.10.5)
 FetchContent_MakeAvailable(cpr)
 target_link_libraries(dl PRIVATE cpr::cpr)
+
+# TODO: make optional since this is only necessary for a pretty UI during training
+# ncurses
+set(CURSES_NEED_NCURSES TRUE)
+find_package(Curses REQUIRED)
+target_link_libraries(dl PRIVATE ${CURSES_LIBRARIES})
+target_include_directories(dl PRIVATE ${CURSES_INCLUDE_DIRS})

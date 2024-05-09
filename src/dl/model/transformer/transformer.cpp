@@ -8,6 +8,7 @@ using dl::Linear;
 using dl::Tensor;
 using dl::Transformer;
 
+#if 0
 Transformer::Transformer(size_t dimModel, size_t numHeads, size_t dimKeys, size_t dimValues) noexcept
 		: dimModel(dimModel), dimKeys(dimKeys), dimValues(dimValues), weightOut(numHeads * dimValues, dimModel),
 		  heads() {
@@ -35,3 +36,4 @@ Tensor Transformer::AttnHead::forward(Tensor query, Tensor key, Tensor value) {
 Tensor Transformer::AttnHead::scaledDotProductAttention(Tensor&& query, Tensor&& key, Tensor&& value) noexcept {
 	return dl::matmul(dl::softmax(dl::matmul(query, dl::transpose(key)) * dimKeysInvSqrt), value);
 }
+#endif

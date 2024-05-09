@@ -6,14 +6,40 @@
 using namespace dl;
 
 Tensor dl::pow(Tensor& base, float exponent) noexcept {
-	/** \todo add support for autograd **/
-	return base->pow(exponent);
+	auto result = dl::pow((const Tensor&)base, exponent);
+	if (base->requiresGrad()) {
+		result->gradfn = [base, exponent](Tensor& ptr) mutable {
+			if (base->grad == nullptr)
+				base->grad = std::move(ptr * exponent);
+			else
+				base->grad = std::move(base->grad + (ptr * exponent));
+			if (base->gradfn)
+				base->gradfn(base->grad);
+			else
+				assert(base->requiresGrad());
+		};
+	}
+	return result;
 }
 
 Tensor dl::pow(Tensor&& base, float exponent) noexcept {
-	/** \todo add support for autograd **/
-	return base->pow(exponent);
+	auto result = dl::pow((const Tensor&)base, exponent);
+	if (base->requiresGrad()) {
+		result->gradfn = [base = std::move(base), exponent](Tensor& ptr) mutable {
+			if (base->grad == nullptr)
+				base->grad = std::move(ptr * exponent);
+			else
+				base->grad = std::move(base->grad + (ptr * exponent));
+			if (base->gradfn)
+				base->gradfn(base->grad);
+			else
+				assert(base->requiresGrad());
+		};
+	}
+	return result;
 }
+
+Tensor dl::pow(const Tensor& base, float exponent) noexcept { return base->pow(exponent); }
 
 Tensor dl::mean(Tensor& x) noexcept {
 	/** \todo add support for autograd **/

@@ -7,6 +7,7 @@
 
 #include <functional>
 #include <memory>
+#include <vector>
 
 namespace dl {
 	template <typename>
@@ -20,6 +21,17 @@ namespace dl {
 	 */
 	template <typename>
 	class Trainer;
+
+	enum class TrainStage { Fitting, Evaluation, Validation };
+
+	class TrainerObserver {
+	private:
+	public:
+		virtual ~TrainerObserver() = default;
+		virtual void enterTrainingStage(TrainStage stage) = 0;
+		virtual void exitTrainingStage() = 0;
+		virtual void progressChanged(size_t epoch, size_t total, size_t step) = 0;
+	};
 
 	template <typename R, typename... Args>
 	class Trainer<R(Args...)> final {
@@ -36,6 +48,7 @@ namespace dl {
 			LossFn loss;
 			std::unique_ptr<Optimizer> optimizer;
 			unsigned limitEpochs = 0;
+			std::vector<std::unique_ptr<TrainerObserver>> observers;
 		};
 
 	private:
@@ -78,10 +91,19 @@ namespace dl {
 			auto validationData = dataset->validationData();
 			assert(validationData != nullptr);
 			// model.fit();
+			const auto trainsetSize = std::distance(std::begin(*dataloader), std::end(*dataloader));
 			for (unsigned epoch = 0; settings.limitEpochs == 0 || epoch < settings.limitEpochs; ++epoch) {
+				size_t progress = 0;
 				for (auto&& [out, in] : *dataloader) {
-					auto loss = settings.loss(model(in), out);
+					auto loss = settings.loss(model(std::move(in)), out);
 					settings.optimizer->step(loss);
+					std::for_each(
+							settings.observers.begin(), settings.observers.end(),
+							[epoch, trainsetSize, progress](auto& o) {
+								o->progressChanged(epoch, trainsetSize, progress);
+							}
+					);
+					progress += 1; /** \todo with batching increment by batch size**/
 				}
 				/** \todo validation loss if configured **/
 				// auto valLoss = validation_step(validationData);
@@ -95,7 +117,7 @@ namespace dl {
 			assert(dataloader != nullptr);
 			// model.inference();
 			for (auto&& [out, in] : *dataloader) {
-				auto loss = settings.loss(model(in), out);
+				auto loss = settings.loss(model(std::move(in)), out);
 			}
 		}
 
@@ -106,7 +128,7 @@ namespace dl {
 			assert(dataloader != nullptr);
 			// model.inference();
 			for (auto&& [out, in] : *dataloader) {
-				auto loss = settings.loss(model(in), out);
+				auto loss = settings.loss(model(std::move(in)), out);
 			}
 		}
 	};
@@ -140,4 +162,9 @@ namespace dl {
 	 */
 	template <typename T>
 	using InferTrainer = Trainer<ModelSignature<T>>;
+
+	namespace observers {
+		std::unique_ptr<TrainerObserver> earlyStopping(size_t patience) noexcept;
+		std::unique_ptr<TrainerObserver> ncursesUI() noexcept;
+	} // namespace observers
 } // namespace dl

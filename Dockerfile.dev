@@ -17,7 +17,9 @@ RUN <<EOF
     #
     # Dependencies (libdl)
     apt-get -y install libopenblas-dev libssl-dev zlib1g-dev
-    # Dependencies (libdl)
+    # Optional dependency of libdl
+    apt-get -y install libncurses-dev
+    # Dependencies (libir)
     apt-get -y install libboost-iostreams-dev
 EOF
 
