@@ -22,6 +22,7 @@ var annotated_dup =
       [ "Optimizer", "classdl_1_1Optimizer.html", "classdl_1_1Optimizer" ],
       [ "Model", "classdl_1_1Model.html", null ],
       [ "Trainer", "classdl_1_1Trainer.html", null ],
+      [ "TrainerObserver", "classdl_1_1TrainerObserver.html", "classdl_1_1TrainerObserver" ],
       [ "Trainer< R(Args...)>", "classdl_1_1Trainer_3_01R_07Args_8_8_8_08_4.html", "classdl_1_1Trainer_3_01R_07Args_8_8_8_08_4" ],
       [ "Linear", "classdl_1_1Linear.html", "classdl_1_1Linear" ],
       [ "Model< R(Args...)>", "classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html", "classdl_1_1Model_3_01R_07Args_8_8_8_08_4" ],

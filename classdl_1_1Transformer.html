@@ -166,8 +166,6 @@ $(document).ready(function(){initNavTree('classdl_1_1Transformer.html',''); init
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classdl_1_1Transformer-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">dl::Transformer Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
@@ -192,49 +190,16 @@ Collaboration diagram for dl::Transformer:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdl_1_1Transformer__coll__graph.png" border="0" usemap="#adl_1_1Transformer_coll__map" alt="Collaboration graph"/></div>
 <map name="adl_1_1Transformer_coll__map" id="adl_1_1Transformer_coll__map">
-<area shape="rect" title=" " alt="" coords="288,213,408,240"/>
-<area shape="rect" href="classdl_1_1Model.html" title=" " alt="" coords="5,117,221,143"/>
-<area shape="rect" target="_parent" href="http://en.cppreference.com/w/cpp/container/vector.html" title=" " alt="" coords="246,109,450,151"/>
-<area shape="rect" href="classdl_1_1Linear.html" title=" " alt="" coords="475,117,557,143"/>
-<area shape="rect" href="classdl_1_1Model.html" title=" " alt="" coords="313,5,540,32"/>
-<area shape="rect" href="classdl_1_1Tensor.html" title="The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T..." alt="" coords="565,5,649,32"/>
+<area shape="rect" title=" " alt="" coords="53,80,173,107"/>
+<area shape="rect" href="classdl_1_1Model.html" title=" " alt="" coords="5,5,221,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Transformer_1_1AttnHead.html">AttnHead</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1b9d74fa751a69c0c5ea3d822309359a"><td class="memItemLeft" align="right" valign="top"><a id="a1b9d74fa751a69c0c5ea3d822309359a"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Transformer</b> (size_t dimModel=512, size_t numHeads=8, size_t dimKeys=64, size_t dimValues=64) noexcept</td></tr>
 <tr class="separator:a1b9d74fa751a69c0c5ea3d822309359a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:af6ff5ff80310ba90166bde236db57d4f"><td class="memItemLeft" align="right" valign="top"><a id="af6ff5ff80310ba90166bde236db57d4f"></a>
-<a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>multiHeadAttention</b> (<a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;&amp;query, <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;&amp;key, <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;&amp;value) noexcept</td></tr>
-<tr class="separator:af6ff5ff80310ba90166bde236db57d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:ae5ff5ba60b9014d1835ac4654a682cfd"><td class="memItemLeft" align="right" valign="top"><a id="ae5ff5ba60b9014d1835ac4654a682cfd"></a>
-const size_t&#160;</td><td class="memItemRight" valign="bottom"><b>dimModel</b></td></tr>
-<tr class="separator:ae5ff5ba60b9014d1835ac4654a682cfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c881b621a5819f7f75fffbda18e0f79"><td class="memItemLeft" align="right" valign="top"><a id="a8c881b621a5819f7f75fffbda18e0f79"></a>
-const size_t&#160;</td><td class="memItemRight" valign="bottom"><b>dimKeys</b></td></tr>
-<tr class="separator:a8c881b621a5819f7f75fffbda18e0f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec45e3d0138929c9e6243553488b8c22"><td class="memItemLeft" align="right" valign="top"><a id="aec45e3d0138929c9e6243553488b8c22"></a>
-const size_t&#160;</td><td class="memItemRight" valign="bottom"><b>dimValues</b></td></tr>
-<tr class="separator:aec45e3d0138929c9e6243553488b8c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e45473f057e40629de78c5340fa6c24"><td class="memItemLeft" align="right" valign="top"><a id="a8e45473f057e40629de78c5340fa6c24"></a>
-<a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt; <a class="el" href="classdl_1_1Transformer_1_1AttnHead.html">AttnHead</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>heads</b></td></tr>
-<tr class="separator:a8e45473f057e40629de78c5340fa6c24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b0fce4a3bd3176286f1a65a6d264404"><td class="memItemLeft" align="right" valign="top"><a id="a4b0fce4a3bd3176286f1a65a6d264404"></a>
-<a class="el" href="classdl_1_1Linear.html">dl::Linear</a>&#160;</td><td class="memItemRight" valign="bottom"><b>weightOut</b></td></tr>
-<tr class="separator:a4b0fce4a3bd3176286f1a65a6d264404"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="citelist.html#CITEREF_transformer">[3]</a> </p>

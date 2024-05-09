@@ -167,8 +167,6 @@ $(document).ready(function(){initNavTree('classdl_1_1TensorImpl.html',''); initR
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pri-types">Private Types</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classdl_1_1TensorImpl-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">dl::TensorImpl Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -179,10 +177,9 @@ Collaboration diagram for dl::TensorImpl:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdl_1_1TensorImpl__coll__graph.png" border="0" usemap="#adl_1_1TensorImpl_coll__map" alt="Collaboration graph"/></div>
 <map name="adl_1_1TensorImpl_coll__map" id="adl_1_1TensorImpl_coll__map">
-<area shape="rect" title=" " alt="" coords="100,109,213,136"/>
+<area shape="rect" title=" " alt="" coords="60,109,173,136"/>
 <area shape="rect" href="classdl_1_1Tensor.html" title="The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T..." alt="" coords="5,13,89,39"/>
-<area shape="rect" href="classdl_1_1Device.html" title=" " alt="" coords="113,13,200,39"/>
-<area shape="rect" target="_parent" href="http://en.cppreference.com/w/cpp/utility/functional/function.html" title=" " alt="" coords="341,5,487,47"/>
+<area shape="rect" target="_parent" href="http://en.cppreference.com/w/cpp/utility/functional/function.html" title=" " alt="" coords="114,5,261,47"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -262,21 +259,6 @@ Public Attributes</h2></td></tr>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a9d38011e4acc2543a06025aa2280e32d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1TensorImpl.html#a9d38011e4acc2543a06025aa2280e32d">TensorImpl</a> (<a class="el" href="classdl_1_1Device.html">Device</a> const &amp;<a class="el" href="classdl_1_1TensorImpl.html#a16969bf3dedf616696bcf47505700143">device</a>, bool <a class="el" href="classdl_1_1TensorImpl.html#a876b395c6a3b2e09b6104a4f6133db94">requiresGrad</a>) noexcept</td></tr>
 <tr class="separator:a9d38011e4acc2543a06025aa2280e32d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
-Private Types</h2></td></tr>
-<tr class="memitem:a53e42f7961b69eda2f916b5b94ad6f65"><td class="memItemLeft" align="right" valign="top"><a id="a53e42f7961b69eda2f916b5b94ad6f65"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>GradFn</b> = <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function</a>&lt; void(<a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;)&gt;</td></tr>
-<tr class="separator:a53e42f7961b69eda2f916b5b94ad6f65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a03ad6bde7335d0338917ee976b423d29"><td class="memItemLeft" align="right" valign="top"><a id="a03ad6bde7335d0338917ee976b423d29"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>_requiresGrad</b></td></tr>
-<tr class="separator:a03ad6bde7335d0338917ee976b423d29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab895336d71f6e81f8235931731c087c4"><td class="memItemLeft" align="right" valign="top"><a id="ab895336d71f6e81f8235931731c087c4"></a>
-<a class="el" href="classdl_1_1Device.html">Device</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>_device</b></td></tr>
-<tr class="separator:ab895336d71f6e81f8235931731c087c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -315,7 +297,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_requiresGrad</b></td
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>add retain graph option </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>add retain graph option </dd></dl>
 
 </div>
 </div>

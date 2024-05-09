@@ -167,8 +167,6 @@ $(document).ready(function(){initNavTree('classdl_1_1Device.html',''); initResiz
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classdl_1_1Device-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">dl::Device Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -179,7 +177,7 @@ Collaboration diagram for dl::Device:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdl_1_1Device__coll__graph.png" border="0" usemap="#adl_1_1Device_coll__map" alt="Collaboration graph"/></div>
 <map name="adl_1_1Device_coll__map" id="adl_1_1Device_coll__map">
-<area shape="rect" title=" " alt="" coords="5,7,92,33"/>
+<area shape="rect" title=" " alt="" coords="5,5,92,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -234,27 +232,6 @@ Static Public Attributes</h2></td></tr>
 static <a class="el" href="classdl_1_1Device.html">Device</a> const  &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Device.html#ab5da9f21b4127c17527df1a415c20271">cpu</a></td></tr>
 <tr class="memdesc:ab5da9f21b4127c17527df1a415c20271"><td class="mdescLeft">&#160;</td><td class="mdescRight">The CPU-device implementation. <br /></td></tr>
 <tr class="separator:ab5da9f21b4127c17527df1a415c20271"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:aa3c0f76953c6231257f1cd4118ad482e"><td class="memItemLeft" align="right" valign="top"><a id="aa3c0f76953c6231257f1cd4118ad482e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Device</b> (const <a class="el" href="classdl_1_1Device.html">Device</a> &amp;other)=delete</td></tr>
-<tr class="separator:aa3c0f76953c6231257f1cd4118ad482e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fec99a6e3d31365e89086f12546f82a"><td class="memItemLeft" align="right" valign="top"><a id="a1fec99a6e3d31365e89086f12546f82a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Device</b> (<a class="el" href="classdl_1_1Device.html">Device</a> &amp;&amp;other)=delete</td></tr>
-<tr class="separator:a1fec99a6e3d31365e89086f12546f82a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a785e6d3e700537635f70bb5e7ff446cc"><td class="memItemLeft" align="right" valign="top"><a id="a785e6d3e700537635f70bb5e7ff446cc"></a>
-<a class="el" href="classdl_1_1Device.html">Device</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classdl_1_1Device.html">Device</a> &amp;other)=delete</td></tr>
-<tr class="separator:a785e6d3e700537635f70bb5e7ff446cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac311a0cf90df386f65ae67947c6d7491"><td class="memItemLeft" align="right" valign="top"><a id="ac311a0cf90df386f65ae67947c6d7491"></a>
-<a class="el" href="classdl_1_1Device.html">Device</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classdl_1_1Device.html">Device</a> &amp;&amp;other)=delete</td></tr>
-<tr class="separator:ac311a0cf90df386f65ae67947c6d7491"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
-Static Private Attributes</h2></td></tr>
-<tr class="memitem:ac1b9a8959bfd3e957a1700b8db34d06d"><td class="memItemLeft" align="right" valign="top">static thread_local <a class="el" href="classdl_1_1Device.html">Device</a> const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Device.html#ac1b9a8959bfd3e957a1700b8db34d06d">defaultDevice</a></td></tr>
-<tr class="memdesc:ac1b9a8959bfd3e957a1700b8db34d06d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default device for this thread.  <a href="classdl_1_1Device.html#ac1b9a8959bfd3e957a1700b8db34d06d">More...</a><br /></td></tr>
-<tr class="separator:ac1b9a8959bfd3e957a1700b8db34d06d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -301,11 +278,10 @@ Static Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="device_8hpp_source.html#l00091">91</a> of file <a class="el" href="device_8hpp_source.html">device.hpp</a>.</p>
 <div class="fragment"><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                                                        {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keyword">auto</span> oldDefault = <a class="code" href="classdl_1_1Device.html#ac1b9a8959bfd3e957a1700b8db34d06d">defaultDevice</a>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <a class="code" href="classdl_1_1Device.html#ac1b9a8959bfd3e957a1700b8db34d06d">defaultDevice</a> = &amp;device;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classdl_1_1utils_1_1ScopeGuard.html">dl::utils::ScopeGuard</a>([oldDefault] { <a class="code" href="classdl_1_1Device.html#ac1b9a8959bfd3e957a1700b8db34d06d">Device::defaultDevice</a> = oldDefault; });</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keyword">auto</span> oldDefault = defaultDevice;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            defaultDevice = &amp;device;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classdl_1_1utils_1_1ScopeGuard.html">dl::utils::ScopeGuard</a>([oldDefault] { Device::defaultDevice = oldDefault; });</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        }</div>
-<div class="ttc" id="aclassdl_1_1Device_html_ac1b9a8959bfd3e957a1700b8db34d06d"><div class="ttname"><a href="classdl_1_1Device.html#ac1b9a8959bfd3e957a1700b8db34d06d">dl::Device::defaultDevice</a></div><div class="ttdeci">static thread_local Device const  * defaultDevice</div><div class="ttdoc">The default device for this thread.</div><div class="ttdef"><b>Definition:</b> <a href="device_8hpp_source.html#l00016">device.hpp:16</a></div></div>
 <div class="ttc" id="aclassdl_1_1utils_1_1ScopeGuard_html"><div class="ttname"><a href="classdl_1_1utils_1_1ScopeGuard.html">dl::utils::ScopeGuard</a></div><div class="ttdef"><b>Definition:</b> <a href="scopeguard_8hpp_source.html#l00016">scopeguard.hpp:16</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -385,7 +361,7 @@ Static Private Attributes</h2></td></tr>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classdl_1_1Device.html#afbcd1ab1f1e55005ad93d06dd06d9cfb" title="Temporarily modifies the default device.">Device::changeDefaultDevice(Device&amp;)</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="device_8hpp_source.html#l00074">74</a> of file <a class="el" href="device_8hpp_source.html">device.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{ <span class="keywordflow">return</span> *<a class="code" href="classdl_1_1Device.html#ac1b9a8959bfd3e957a1700b8db34d06d">defaultDevice</a>; }</div>
+<div class="fragment"><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{ <span class="keywordflow">return</span> *defaultDevice; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -478,36 +454,6 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The newly created tensor. </dd></dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="ac1b9a8959bfd3e957a1700b8db34d06d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1b9a8959bfd3e957a1700b8db34d06d">&#9670;&nbsp;</a></span>defaultDevice</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">thread_local <a class="el" href="classdl_1_1Device.html">Device</a> const* dl::Device::defaultDevice</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The default device for this thread. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classdl_1_1Device.html#aafd5fab7afae2a184b99615caa9d89eb" title="Returns the default device for this thread.">Device::getDefault()</a> </dd>
-<dd>
-<a class="el" href="classdl_1_1Device.html#afbcd1ab1f1e55005ad93d06dd06d9cfb" title="Temporarily modifies the default device.">Device::changeDefaultDevice(Device&amp;)</a> </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="device_8hpp_source.html#l00016">16</a> of file <a class="el" href="device_8hpp_source.html">device.hpp</a>.</p>
 
 </div>
 </div>

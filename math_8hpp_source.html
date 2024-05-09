@@ -174,39 +174,45 @@ $(document).ready(function(){initNavTree('math_8hpp_source.html',''); initResiza
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span>dl {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    Tensor <a class="codeRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">pow</a>(Tensor&amp; base, <span class="keywordtype">float</span> exponent) noexcept;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    Tensor <a class="codeRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">pow</a>(Tensor&amp;&amp; base, <span class="keywordtype">float</span> exponent) noexcept;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    Tensor mean(Tensor&amp; x) noexcept;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    Tensor mean(Tensor&amp;&amp; x) noexcept;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    Tensor sum(Tensor&amp; x) noexcept;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    Tensor <a class="codeRef" href="http://en.cppreference.com/w/cpp/algorithm/min.html">min</a>(Tensor&amp; x, <span class="keywordtype">float</span> bound) noexcept;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    Tensor <a class="codeRef" href="http://en.cppreference.com/w/cpp/algorithm/max.html">max</a>(Tensor&amp; x, <span class="keywordtype">float</span> bound) noexcept;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    Tensor relu(Tensor&amp; x) noexcept;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    Tensor operator+(Tensor&amp; left, Tensor&amp; right) noexcept;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    Tensor operator-(Tensor&amp; left, Tensor&amp; right) noexcept;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    Tensor operator*(Tensor&amp; left, Tensor&amp; right) noexcept;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    Tensor operator/(Tensor&amp; left, Tensor&amp; right) noexcept;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    Tensor operator/(Tensor&amp; left, Tensor right) noexcept;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    Tensor matmul(Tensor&amp; left, Tensor&amp; right) noexcept;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    Tensor matmul(Tensor&amp;&amp; left, Tensor&amp; right) noexcept;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a>&amp; operator&lt;&lt;(<a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a>&amp;, <span class="keyword">const</span> Tensor&amp; tensor) noexcept;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> Tensor&amp; left, <span class="keyword">const</span> Tensor&amp; right) noexcept;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;} <span class="comment">// namespace dl</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="math_8hpp.html#abe737cde424fc346acf4d2f744c14ff8">   37</a></span>&#160;    [[nodiscard]] <a class="code" href="classdl_1_1Tensor.html">Tensor</a> pow(<a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; base, <span class="keywordtype">float</span> exponent) noexcept;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="math_8hpp.html#a106e0b90a6bbade58bdcfafc08da1a64">   46</a></span>&#160;    [[nodiscard]] <a class="code" href="classdl_1_1Tensor.html">Tensor</a> pow(<a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp;&amp; base, <span class="keywordtype">float</span> exponent) noexcept;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="math_8hpp.html#a019724a6621d9ab7048e2f7c51b2bc5a">   57</a></span>&#160;    [[nodiscard]] <a class="code" href="classdl_1_1Tensor.html">Tensor</a> pow(<span class="keyword">const</span> <a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; base, <span class="keywordtype">float</span> exponent) noexcept;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    [[nodiscard]] <a class="code" href="classdl_1_1Tensor.html">Tensor</a> mean(<a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; x) noexcept;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    [[nodiscard]] <a class="code" href="classdl_1_1Tensor.html">Tensor</a> mean(<a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp;&amp; x) noexcept;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    [[nodiscard]] <a class="code" href="classdl_1_1Tensor.html">Tensor</a> sum(<a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; x) noexcept;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    [[nodiscard]] <a class="code" href="classdl_1_1Tensor.html">Tensor</a> min(<a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; x, <span class="keywordtype">float</span> bound) noexcept;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    [[nodiscard]] <a class="code" href="classdl_1_1Tensor.html">Tensor</a> max(<a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; x, <span class="keywordtype">float</span> bound) noexcept;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    [[nodiscard]] <a class="code" href="classdl_1_1Tensor.html">Tensor</a> relu(<a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; x) noexcept;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    [[nodiscard]] <a class="code" href="classdl_1_1Tensor.html">Tensor</a> operator+(<a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; left, <a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; right) noexcept;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    [[nodiscard]] <a class="code" href="classdl_1_1Tensor.html">Tensor</a> operator-(<a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; left, <a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; right) noexcept;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    [[nodiscard]] <a class="code" href="classdl_1_1Tensor.html">Tensor</a> operator*(<a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; left, <a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; right) noexcept;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    [[nodiscard]] <a class="code" href="classdl_1_1Tensor.html">Tensor</a> operator/(<a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; left, <a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; right) noexcept;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    [[nodiscard]] <a class="code" href="classdl_1_1Tensor.html">Tensor</a> operator/(<a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; left, <a class="code" href="classdl_1_1Tensor.html">Tensor</a> right) noexcept;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    [[nodiscard]] <a class="code" href="classdl_1_1Tensor.html">Tensor</a> matmul(<a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; left, <a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; right) noexcept;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    [[nodiscard]] <a class="code" href="classdl_1_1Tensor.html">Tensor</a> matmul(<a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp;&amp; left, <a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; right) noexcept;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    [[nodiscard]] <a class="code" href="classdl_1_1Tensor.html">Tensor</a> matmul(<a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; left, <a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp;&amp; right) noexcept;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    [[nodiscard]] <a class="code" href="classdl_1_1Tensor.html">Tensor</a> matmul(<a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp;&amp; left, <a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp;&amp; right) noexcept;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="math_8hpp.html#a6a57cdcf8827126ebc702a8428a07e83">   91</a></span>&#160;    [[nodiscard]] <a class="code" href="classdl_1_1Tensor.html">Tensor</a> <a class="code" href="math_8hpp.html#a6a57cdcf8827126ebc702a8428a07e83">softmax</a>(<a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp;&amp; x) noexcept;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a>&amp; operator&lt;&lt;(<a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a>&amp;, <span class="keyword">const</span> <a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; tensor) noexcept;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; left, <span class="keyword">const</span> <a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; right) noexcept;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;} <span class="comment">// namespace dl</span></div>
 <div class="ttc" id="abasic_ostream_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a></div></div>
-<div class="ttc" id="amax_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/algorithm/max.html">std::max</a></div><div class="ttdeci">T max(T... args)</div></div>
-<div class="ttc" id="amin_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/algorithm/min.html">std::min</a></div><div class="ttdeci">T min(T... args)</div></div>
-<div class="ttc" id="apow_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a></div><div class="ttdeci">T pow(T... args)</div></div>
+<div class="ttc" id="aclassdl_1_1Tensor_html"><div class="ttname"><a href="classdl_1_1Tensor.html">dl::Tensor</a></div><div class="ttdoc">The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...</div><div class="ttdef"><b>Definition:</b> <a href="tensor_8hpp_source.html#l00017">tensor.hpp:17</a></div></div>
+<div class="ttc" id="amath_8hpp_html_a6a57cdcf8827126ebc702a8428a07e83"><div class="ttname"><a href="math_8hpp.html#a6a57cdcf8827126ebc702a8428a07e83">dl::softmax</a></div><div class="ttdeci">Tensor softmax(Tensor &amp;&amp;x) noexcept</div><div class="ttdoc">Computes the softmax function of the input vector.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_17297ffb27ce571941f5fb5008f01a1f.html">dl</a></li><li class="navelem"><a class="el" href="dir_04adc1e89fc6fba9db5bc76db1a2abc6.html">tensor</a></li><li class="navelem"><a class="el" href="math_8hpp.html">math.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_72e87d33af2b4b38946ff5c853655f37.html">dl</a></li><li class="navelem"><a class="el" href="dir_9693762ae4318979fa0e1dfb1c86bf00.html">tensor</a></li><li class="navelem"><a class="el" href="math_8hpp.html">math.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

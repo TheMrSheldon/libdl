@@ -167,8 +167,6 @@ $(document).ready(function(){initNavTree('classdl_1_1WordPieceTokenizer.html',''
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classdl_1_1WordPieceTokenizer-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">dl::WordPieceTokenizer Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
@@ -179,15 +177,6 @@ $(document).ready(function(){initNavTree('classdl_1_1WordPieceTokenizer.html',''
  <a href="classdl_1_1WordPieceTokenizer.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="wordpiece_8hpp_source.html">wordpiece.hpp</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for dl::WordPieceTokenizer:</div>
-<div class="dyncontent">
-<div class="center"><img src="classdl_1_1WordPieceTokenizer__coll__graph.png" border="0" usemap="#adl_1_1WordPieceTokenizer_coll__map" alt="Collaboration graph"/></div>
-<map name="adl_1_1WordPieceTokenizer_coll__map" id="adl_1_1WordPieceTokenizer_coll__map">
-<area shape="rect" title="Implements WordPiece tokenizaton as proposed in &#160;using the optimized algorithm by &#160;." alt="" coords="13,95,184,121"/>
-<area shape="rect" target="_parent" href="http://en.cppreference.com/w/cpp/container/vector.html" title=" " alt="" coords="5,5,192,32"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -209,18 +198,6 @@ static <a class="el" href="classdl_1_1WordPieceTokenizer.html">WordPieceTokenize
 <tr class="memitem:a6326ce12e1e7b76117ce23fbca815935"><td class="memItemLeft" align="right" valign="top"><a id="a6326ce12e1e7b76117ce23fbca815935"></a>
 static <a class="el" href="classdl_1_1WordPieceTokenizer.html">WordPieceTokenizer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>fromStream</b> (<a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_istream.html">std::istream</a> &amp;stream) noexcept</td></tr>
 <tr class="separator:a6326ce12e1e7b76117ce23fbca815935"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:ada78909d036067e7be5724fd6aa410ab"><td class="memItemLeft" align="right" valign="top"><a id="ada78909d036067e7be5724fd6aa410ab"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>WordPieceTokenizer</b> (<a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt; <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &gt; &amp;&amp;wordPieces) noexcept</td></tr>
-<tr class="separator:ada78909d036067e7be5724fd6aa410ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:accc048a977f77e3981734cff89f309ca"><td class="memItemLeft" align="right" valign="top"><a id="accc048a977f77e3981734cff89f309ca"></a>
-<a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt; <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>wordPieces</b></td></tr>
-<tr class="separator:accc048a977f77e3981734cff89f309ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements WordPiece tokenizaton as proposed in <a class="el" href="citelist.html#CITEREF_wordpiece">[4]</a> using the optimized algorithm by <a class="el" href="citelist.html#CITEREF_fast_wordpiece">[2]</a> . </p>

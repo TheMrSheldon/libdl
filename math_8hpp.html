@@ -170,7 +170,7 @@ $(document).ready(function(){initNavTree('math_8hpp.html',''); initResizable(); 
 </div><!--header-->
 <div class="contents">
 
-<p>Implements auto-diff enabled wrapers around their concrete tensor implementations.  
+<p>Implements auto-diff enabled wrappers around their concrete tensor implementations.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;tensor.hpp&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
@@ -179,7 +179,7 @@ Include dependency graph for math.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="math_8hpp__incl.png" border="0" usemap="#adl_2tensor_2math_8hpp" alt=""/></div>
 <map name="adl_2tensor_2math_8hpp" id="adl_2tensor_2math_8hpp">
-<area shape="rect" title="Implements auto&#45;diff enabled wrapers around their concrete tensor implementations." alt="" coords="153,5,298,32"/>
+<area shape="rect" title="Implements auto&#45;diff enabled wrappers around their concrete tensor implementations." alt="" coords="153,5,298,32"/>
 <area shape="rect" href="tensor_8hpp_source.html" title=" " alt="" coords="125,80,216,107"/>
 <area shape="rect" title=" " alt="" coords="240,80,320,107"/>
 <area shape="rect" title=" " alt="" coords="5,155,184,196"/>
@@ -191,7 +191,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="math_8hpp__dep__incl.png" border="0" usemap="#adl_2tensor_2math_8hppdep" alt=""/></div>
 <map name="adl_2tensor_2math_8hppdep" id="adl_2tensor_2math_8hppdep">
-<area shape="rect" title="Implements auto&#45;diff enabled wrapers around their concrete tensor implementations." alt="" coords="7,5,153,32"/>
+<area shape="rect" title="Implements auto&#45;diff enabled wrappers around their concrete tensor implementations." alt="" coords="7,5,153,32"/>
 <area shape="rect" href="loss_8hpp_source.html" title=" " alt="" coords="5,80,155,107"/>
 </map>
 </div>
@@ -200,12 +200,13 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:abe737cde424fc346acf4d2f744c14ff8"><td class="memItemLeft" align="right" valign="top"><a id="abe737cde424fc346acf4d2f744c14ff8"></a>
-Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::pow</b> (Tensor &amp;base, float exponent) noexcept</td></tr>
+<tr class="memitem:abe737cde424fc346acf4d2f744c14ff8"><td class="memItemLeft" align="right" valign="top">Tensor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="math_8hpp.html#abe737cde424fc346acf4d2f744c14ff8">dl::pow</a> (Tensor &amp;base, float exponent) noexcept</td></tr>
 <tr class="separator:abe737cde424fc346acf4d2f744c14ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a106e0b90a6bbade58bdcfafc08da1a64"><td class="memItemLeft" align="right" valign="top"><a id="a106e0b90a6bbade58bdcfafc08da1a64"></a>
-Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::pow</b> (Tensor &amp;&amp;base, float exponent) noexcept</td></tr>
+<tr class="memitem:a106e0b90a6bbade58bdcfafc08da1a64"><td class="memItemLeft" align="right" valign="top">Tensor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="math_8hpp.html#a106e0b90a6bbade58bdcfafc08da1a64">dl::pow</a> (Tensor &amp;&amp;base, float exponent) noexcept</td></tr>
 <tr class="separator:a106e0b90a6bbade58bdcfafc08da1a64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a019724a6621d9ab7048e2f7c51b2bc5a"><td class="memItemLeft" align="right" valign="top">Tensor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="math_8hpp.html#a019724a6621d9ab7048e2f7c51b2bc5a">dl::pow</a> (const Tensor &amp;base, float exponent) noexcept</td></tr>
+<tr class="memdesc:a019724a6621d9ab7048e2f7c51b2bc5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the <code>exponent</code> -th power of each element in <code>base</code> and returns the resulting tensor.  <a href="math_8hpp.html#a019724a6621d9ab7048e2f7c51b2bc5a">More...</a><br /></td></tr>
+<tr class="separator:a019724a6621d9ab7048e2f7c51b2bc5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5334a615d03b818435339ec6156a246d"><td class="memItemLeft" align="right" valign="top"><a id="a5334a615d03b818435339ec6156a246d"></a>
 Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::mean</b> (Tensor &amp;x) noexcept</td></tr>
 <tr class="separator:a5334a615d03b818435339ec6156a246d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -245,6 +246,15 @@ Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::matmul</b> (Ten
 <tr class="memitem:a03d6625fc44528113192f86ff9f9d872"><td class="memItemLeft" align="right" valign="top"><a id="a03d6625fc44528113192f86ff9f9d872"></a>
 Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::matmul</b> (Tensor &amp;&amp;left, Tensor &amp;right) noexcept</td></tr>
 <tr class="separator:a03d6625fc44528113192f86ff9f9d872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a63576c3ce55ec440069bb54ad1c499"><td class="memItemLeft" align="right" valign="top"><a id="a8a63576c3ce55ec440069bb54ad1c499"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::matmul</b> (Tensor &amp;left, Tensor &amp;&amp;right) noexcept</td></tr>
+<tr class="separator:a8a63576c3ce55ec440069bb54ad1c499"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a400918ed19d4f9d8e4eef36a7cdc3a88"><td class="memItemLeft" align="right" valign="top"><a id="a400918ed19d4f9d8e4eef36a7cdc3a88"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::matmul</b> (Tensor &amp;&amp;left, Tensor &amp;&amp;right) noexcept</td></tr>
+<tr class="separator:a400918ed19d4f9d8e4eef36a7cdc3a88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a57cdcf8827126ebc702a8428a07e83"><td class="memItemLeft" align="right" valign="top">Tensor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="math_8hpp.html#a6a57cdcf8827126ebc702a8428a07e83">dl::softmax</a> (Tensor &amp;&amp;x) noexcept</td></tr>
+<tr class="memdesc:a6a57cdcf8827126ebc702a8428a07e83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the softmax function of the input vector.  <a href="math_8hpp.html#a6a57cdcf8827126ebc702a8428a07e83">More...</a><br /></td></tr>
+<tr class="separator:a6a57cdcf8827126ebc702a8428a07e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0adee756775f4801c5eccdc6739bf94"><td class="memItemLeft" align="right" valign="top"><a id="ad0adee756775f4801c5eccdc6739bf94"></a>
 <a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator&lt;&lt;</b> (<a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a> &amp;, const Tensor &amp;tensor) noexcept</td></tr>
 <tr class="separator:ad0adee756775f4801c5eccdc6739bf94"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -253,15 +263,211 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator==</b> (c
 <tr class="separator:afd48451b061f3d5674b60e475d84c161"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implements auto-diff enabled wrapers around their concrete tensor implementations. </p>
+<div class="textblock"><p>Implements auto-diff enabled wrappers around their concrete tensor implementations. </p>
 
 <p class="definition">Definition in file <a class="el" href="math_8hpp_source.html">math.hpp</a>.</p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a019724a6621d9ab7048e2f7c51b2bc5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a019724a6621d9ab7048e2f7c51b2bc5a">&#9670;&nbsp;</a></span>pow() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Tensor dl::pow </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>exponent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Computes the <code>exponent</code> -th power of each element in <code>base</code> and returns the resulting tensor. </p>
+<p>This overload does <b>not</b> compute a gradient (note that <code>base</code> is constant). Use dl::pow(dl::Tensor&amp;,float) or dl::pow(dl::Tensor&amp;&amp;,float) to enable gradient calculation.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>the basis for which to compute the <code>exponent</code> -th power. </td></tr>
+    <tr><td class="paramname">exponent</td><td>the exponent. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Tensor the <code>exponent</code> -th power of each component of <code>base</code> . </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>dl::pow(dl::Tensor&amp;,float) </dd></dl>
+
+</div>
+</div>
+<a id="a106e0b90a6bbade58bdcfafc08da1a64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a106e0b90a6bbade58bdcfafc08da1a64">&#9670;&nbsp;</a></span>pow() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Tensor dl::pow </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>exponent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>the basis for which to compute the <code>exponent</code> -th power. </td></tr>
+    <tr><td class="paramname">exponent</td><td>the exponent. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Tensor the <code>exponent</code> -th power of each component of <code>base</code> . </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>dl::pow(dl::Tensor&amp;,float) </dd></dl>
+
+</div>
+</div>
+<a id="abe737cde424fc346acf4d2f744c14ff8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe737cde424fc346acf4d2f744c14ff8">&#9670;&nbsp;</a></span>pow() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Tensor dl::pow </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>exponent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p></p>
+<p>This function is part of automatic differentiation. If <code>base</code> requires a gradient (<a class="el" href="classdl_1_1TensorImpl.html#a876b395c6a3b2e09b6104a4f6133db94" title="Returns true iff this tensor requires a gradient, i.e., needs to be updated during backpropagation.">dl::TensorImpl::requiresGrad()</a> is <code>true</code> ), a reference to it is stored in the compute graph for the backwards pass. As such, <b>do not</b> delete the base tensor before the backwards pass finished. If you can't don't want to keep the tensor, move it into the compute graph via dl::pow(dl::Tensor&amp;&amp;,float).</p>
+<div class="fragment"><div class="line"><a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a> out;</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a> base = {1, 2, 3};</div>
+<div class="line">    base-&gt;<a class="code" href="classdl_1_1TensorImpl.html#ae13d3748fa0aaaddffdc86ac5af33f66">setRequiresGrad</a>(<span class="keyword">true</span>);</div>
+<div class="line">    <span class="comment">// The following will result in a segmentation fault since backward() is called when base was deleted</span></div>
+<div class="line">    <span class="comment">// out = dl::pow(base, 2);</span></div>
+<div class="line">    <span class="comment">// Solution: Move the tensor into the computation graph</span></div>
+<div class="line">    out = <a class="code" href="math_8hpp.html#abe737cde424fc346acf4d2f744c14ff8">dl::pow</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(base), 2);</div>
+<div class="line">}</div>
+<div class="line">out.backward();</div>
+<div class="ttc" id="aclassdl_1_1TensorImpl_html_ae13d3748fa0aaaddffdc86ac5af33f66"><div class="ttname"><a href="classdl_1_1TensorImpl.html#ae13d3748fa0aaaddffdc86ac5af33f66">dl::TensorImpl::setRequiresGrad</a></div><div class="ttdeci">void setRequiresGrad(bool requiresGrad) noexcept</div><div class="ttdoc">Set this tensors requirements for a gradient.</div></div>
+<div class="ttc" id="aclassdl_1_1Tensor_html"><div class="ttname"><a href="classdl_1_1Tensor.html">dl::Tensor</a></div><div class="ttdoc">The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...</div><div class="ttdef"><b>Definition:</b> <a href="tensor_8hpp_source.html#l00017">tensor.hpp:17</a></div></div>
+<div class="ttc" id="amath_8hpp_html_abe737cde424fc346acf4d2f744c14ff8"><div class="ttname"><a href="math_8hpp.html#abe737cde424fc346acf4d2f744c14ff8">dl::pow</a></div><div class="ttdeci">Tensor pow(Tensor &amp;base, float exponent) noexcept</div></div>
+<div class="ttc" id="amove_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a></div><div class="ttdeci">T move(T... args)</div></div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>the basis for which to compute the <code>exponent</code> -th power. </td></tr>
+    <tr><td class="paramname">exponent</td><td>the exponent. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Tensor the <code>exponent</code> -th power of each component of <code>base</code> . </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>dl::pow(dl::Tensor&amp;&amp;,float) </dd></dl>
+
+</div>
+</div>
+<a id="a6a57cdcf8827126ebc702a8428a07e83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a57cdcf8827126ebc702a8428a07e83">&#9670;&nbsp;</a></span>softmax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Tensor dl::softmax </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Computes the softmax function of the input vector. </p>
+<p>Let \f(x \in \mathbb R^n\f) be a vector, the softmax is defined as </p><p class="formulaDsp">
+\[ \text{softmax}\colon \mathbb R^n \to \mathbb R^n ~\text{via}~ x\mapsto \left(\frac{e^{x_i}}{\sum_{j=1}^n e^{x_j}}\right)_{1\leq i\leq n}. \]
+</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>the input tensor. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Tensor the softmax of <code>x</code> . </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_17297ffb27ce571941f5fb5008f01a1f.html">dl</a></li><li class="navelem"><a class="el" href="dir_04adc1e89fc6fba9db5bc76db1a2abc6.html">tensor</a></li><li class="navelem"><a class="el" href="math_8hpp.html">math.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_72e87d33af2b4b38946ff5c853655f37.html">dl</a></li><li class="navelem"><a class="el" href="dir_9693762ae4318979fa0e1dfb1c86bf00.html">tensor</a></li><li class="navelem"><a class="el" href="math_8hpp.html">math.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bibliography_3358',['Bibliography',['../citelist.html',1,'']]]
+  ['arithmetics_3336',['Arithmetics',['../basicArithmetics.html',1,'basicsIdx']]]
 ];

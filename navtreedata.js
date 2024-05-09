@@ -29,6 +29,7 @@ var NAVTREE =
     [ "Installation", "index.html#autotoc_md1", [
       [ "CMake", "index.html#autotoc_md2", null ]
     ] ],
+    [ "Basics", "basicsIdx.html", "basicsIdx" ],
     [ "Todo List", "todo.html", null ],
     [ "Bibliography", "citelist.html", null ],
     [ "Namespaces", "namespaces.html", [
@@ -52,10 +53,10 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"cpp/algorithm/lower_bound.html",
-"cpp/numeric/fenv/feholdexcept.html",
-"device_8hpp.html#a2b781d65002bfc62a6afd20dc0bcd1d9"
+"",
+"cpp/algorithm/set_difference.html",
+"cpp/numeric/math/ilogb.html",
+"linear_8hpp_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

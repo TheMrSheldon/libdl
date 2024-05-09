@@ -166,8 +166,6 @@ $(document).ready(function(){initNavTree('classdl_1_1Tensor.html',''); initResiz
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classdl_1_1Tensor-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">dl::Tensor Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
@@ -239,18 +237,6 @@ Static Public Member Functions</h2></td></tr>
 template&lt;typename T , typename... Args&gt; </td></tr>
 <tr class="memitem:ab9838c09a48561aa094e7440077e918b"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><b>create</b> (Args &amp;&amp;... args) noexcept</td></tr>
 <tr class="separator:ab9838c09a48561aa094e7440077e918b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a7771a169e98abd5d7939240f6e32fba5"><td class="memItemLeft" align="right" valign="top"><a id="a7771a169e98abd5d7939240f6e32fba5"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Tensor</b> (std::experimental::propagate_const&lt; <a class="elRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr</a>&lt; <a class="el" href="classdl_1_1TensorImpl.html">TensorImpl</a> &gt;&gt; &amp;&amp;data)</td></tr>
-<tr class="separator:a7771a169e98abd5d7939240f6e32fba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:ab9a0ca8b201d8e72a395fe7b96d8617f"><td class="memItemLeft" align="right" valign="top"><a id="ab9a0ca8b201d8e72a395fe7b96d8617f"></a>
-std::experimental::propagate_const&lt; <a class="elRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr</a>&lt; <a class="el" href="classdl_1_1TensorImpl.html">TensorImpl</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>data</b></td></tr>
-<tr class="separator:ab9a0ca8b201d8e72a395fe7b96d8617f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classdl_1_1Tensor.html" title="The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...">Tensor</a> is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;TensorImpl&gt;. </p>

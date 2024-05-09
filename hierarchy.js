@@ -1,9 +1,6 @@
 var hierarchy =
 [
     [ "dl::detail::_ModelSignature< T >", "structdl_1_1detail_1_1__ModelSignature.html", null ],
-    [ "dl::utils::GenericIterator< T >::AIter", "classdl_1_1utils_1_1GenericIterator_1_1AIter.html", [
-      [ "dl::utils::GenericIterator< T >::Iter< TIt >", "classdl_1_1utils_1_1GenericIterator_1_1Iter.html", null ]
-    ] ],
     [ "cpr::AsyncWrapper< T, isCancellable >", "classcpr_1_1AsyncWrapper.html", null ],
     [ "nlp::transformer::BERT", "classnlp_1_1transformer_1_1BERT.html", null ],
     [ "nlp::transformer::BERTTokenizer", "classnlp_1_1transformer_1_1BERTTokenizer.html", null ],
@@ -34,9 +31,7 @@ var hierarchy =
     [ "dl::Model< Tensor(Tensor &)>", "classdl_1_1Model.html", [
       [ "dl::Transformer", "classdl_1_1Transformer.html", null ]
     ] ],
-    [ "dl::Model< Tensor(Tensor, Tensor, Tensor)>", "classdl_1_1Model.html", [
-      [ "dl::Transformer::AttnHead", "classdl_1_1Transformer_1_1AttnHead.html", null ]
-    ] ],
+    [ "dl::Model< Tensor(Tensor, Tensor, Tensor)>", "classdl_1_1Model.html", null ],
     [ "dl::Optimizer", "classdl_1_1Optimizer.html", null ],
     [ "ir::Query", "structir_1_1Query.html", null ],
     [ "dl::utils::ScopeGuard", "classdl_1_1utils_1_1ScopeGuard.html", null ],
@@ -50,5 +45,6 @@ var hierarchy =
     [ "dl::TensorImpl", "classdl_1_1TensorImpl.html", null ],
     [ "dl::Trainer< typename >", "classdl_1_1Trainer.html", null ],
     [ "dl::Trainer< R(Args...)>", "classdl_1_1Trainer_3_01R_07Args_8_8_8_08_4.html", null ],
+    [ "dl::TrainerObserver", "classdl_1_1TrainerObserver.html", null ],
     [ "dl::WordPieceTokenizer", "classdl_1_1WordPieceTokenizer.html", null ]
 ];

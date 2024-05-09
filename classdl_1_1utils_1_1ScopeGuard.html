@@ -165,8 +165,6 @@ $(document).ready(function(){initNavTree('classdl_1_1utils_1_1ScopeGuard.html','
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classdl_1_1utils_1_1ScopeGuard-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">dl::utils::ScopeGuard Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
@@ -174,15 +172,6 @@ $(document).ready(function(){initNavTree('classdl_1_1utils_1_1ScopeGuard.html','
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="scopeguard_8hpp_source.html">scopeguard.hpp</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for dl::utils::ScopeGuard:</div>
-<div class="dyncontent">
-<div class="center"><img src="classdl_1_1utils_1_1ScopeGuard__coll__graph.png" border="0" usemap="#adl_1_1utils_1_1ScopeGuard_coll__map" alt="Collaboration graph"/></div>
-<map name="adl_1_1utils_1_1ScopeGuard_coll__map" id="adl_1_1utils_1_1ScopeGuard_coll__map">
-<area shape="rect" title=" " alt="" coords="11,95,167,121"/>
-<area shape="rect" target="_parent" href="http://en.cppreference.com/w/cpp/utility/functional/function.html" title=" " alt="" coords="5,5,172,32"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -192,21 +181,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae797687e9ce29b525869dbbbd9ede40b"><td class="memItemLeft" align="right" valign="top"><a id="ae797687e9ce29b525869dbbbd9ede40b"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>ScopeGuard</b> (<a class="el" href="classdl_1_1utils_1_1ScopeGuard.html">ScopeGuard</a> &amp;&amp;other)</td></tr>
 <tr class="separator:ae797687e9ce29b525869dbbbd9ede40b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:af9e9df5943e55b4752e78a11a58947a2"><td class="memItemLeft" align="right" valign="top"><a id="af9e9df5943e55b4752e78a11a58947a2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ScopeGuard</b> (const <a class="el" href="classdl_1_1utils_1_1ScopeGuard.html">ScopeGuard</a> &amp;)=delete</td></tr>
-<tr class="separator:af9e9df5943e55b4752e78a11a58947a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaae568db891545330027052a4aa5611e"><td class="memItemLeft" align="right" valign="top"><a id="aaae568db891545330027052a4aa5611e"></a>
-<a class="el" href="classdl_1_1utils_1_1ScopeGuard.html">ScopeGuard</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classdl_1_1utils_1_1ScopeGuard.html">ScopeGuard</a> &amp;)=delete</td></tr>
-<tr class="separator:aaae568db891545330027052a4aa5611e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a91125eae0ce6a83e6078b92f6198a6c5"><td class="memItemLeft" align="right" valign="top"><a id="a91125eae0ce6a83e6078b92f6198a6c5"></a>
-<a class="elRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function</a>&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>onScopeExit</b></td></tr>
-<tr class="separator:a91125eae0ce6a83e6078b92f6198a6c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="fragment"><div class="line">{ScopeGuard _([] { <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;Scope Exited&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>; });</div>

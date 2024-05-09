@@ -1,6 +1,5 @@
 var classdl_1_1Tensor =
 [
-    [ "Tensor", "classdl_1_1Tensor.html#a7771a169e98abd5d7939240f6e32fba5", null ],
     [ "Tensor", "classdl_1_1Tensor.html#a4aa7ca28c7622b85ac2194049066e5ad", null ],
     [ "Tensor", "classdl_1_1Tensor.html#a52007eaa524a9c0047baf0f2c1ff7dd0", null ],
     [ "Tensor", "classdl_1_1Tensor.html#ae24f37f35282ece9125df8b00b9e27de", null ],
@@ -18,6 +17,5 @@ var classdl_1_1Tensor =
     [ "operator->", "classdl_1_1Tensor.html#a47eb7edfb4528c8ae6d92c610aee8972", null ],
     [ "operator=", "classdl_1_1Tensor.html#aba0f9c78779de61788eec6365560fb9a", null ],
     [ "operator=", "classdl_1_1Tensor.html#aaa97ff4c697a61d4067dbeacdc6e32af", null ],
-    [ "operator==", "classdl_1_1Tensor.html#a43e96c088d48a1b4134f8876e109ad50", null ],
-    [ "data", "classdl_1_1Tensor.html#ab9a0ca8b201d8e72a395fe7b96d8617f", null ]
+    [ "operator==", "classdl_1_1Tensor.html#a43e96c088d48a1b4134f8876e109ad50", null ]
 ];

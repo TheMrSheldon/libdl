@@ -1,0 +1,250 @@
+<!-- Heavily based on https://github.com/jothepro/doxygen-awesome-css/blob/main/doxygen-custom/header.html -->
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta name="generator" content="Doxygen 1.9.1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- BEGIN opengraph metadata -->
+    <meta property="og:title" content=libdl />
+    <meta property="og:image" content="twemoji-brain.png" />
+    <meta property="og:description" content="Simple yet powerful deep learning" />
+    <meta property="og:url" content="https://github.com/TheMrSheldon/libdl" />
+    <!-- END opengraph metadata -->
+    <!-- BEGIN twitter metadata -->
+    <meta name="twitter:image:src" content="twemoji-brain.png" />
+    <meta name="twitter:title" content="libdl" />
+    <meta name="twitter:description" content="Simple yet powerful deep learning" />
+    <!-- END twitter metadata -->
+    <title>libdl: Arithmetics</title>
+    <link href="tabs.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/svg+xml" href="twemoji-brain.png" />
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="dynsections.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+    <script type="text/javascript" src="toggle-alternative-theme.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeFragmentCopyButton.init()
+        DoxygenAwesomeDarkModeToggle.init()
+        DoxygenAwesomeParagraphLink.init()
+        DoxygenAwesomeInteractiveToc.init()
+        DoxygenAwesomeTabs.init()
+    </script>
+    <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+    <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+    <link href="doxygen.css" rel="stylesheet" type="text/css" />
+    <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-tabs.js" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <!-- https://tholman.com/github-corners/ -->
+    <a href="https://github.com/TheMrSheldon/libdl" class="github-corner" title="View source on GitHub" target="_blank"
+        rel="noopener noreferrer">
+        <svg viewBox="0 0 250 250" width="40" height="40"
+            style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+            <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+            <path
+                d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+                fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+            <path
+                d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+                fill="currentColor" class="octo-body"></path>
+        </svg></a>
+    <style>
+        .github-corner:hover .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+        }
+        @keyframes octocat-wave {
+            0%,
+            100% {
+                transform: rotate(0)
+            }
+            20%,
+            60% {
+                transform: rotate(-25deg)
+            }
+            40%,
+            80% {
+                transform: rotate(10deg)
+            }
+        }
+        @media (max-width:500px) {
+            .github-corner:hover .octo-arm {
+                animation: none
+            }
+            .github-corner .octo-arm {
+                animation: octocat-wave 560ms ease-in-out
+            }
+        }
+    </style>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+        <div id="titlearea">
+            <table cellspacing="0" cellpadding="0">
+                <tbody>
+                    <tr style="height: 56px;">
+                        <td id="projectlogo"><img alt="Logo" src="twemoji-brain.png" /></td>
+                        <td id="projectalign" style="padding-left: 0.5em;">
+                            <div id="projectname">libdl
+                                &#160;<span
+                                    id="projectnumber">0.0.1</span>
+                            </div>
+                            <div id="projectbrief">Simple yet powerful deep learning</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- end header part --><!-- Generated by Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('basicArithmetics.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Arithmetics </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="toc"><h3>Table of Contents</h3>
+<ul><li class="level1"><a href="#autotoc_md3">What is the difference between const Tensor&amp;, Tensor&amp;, Tensor&amp;&amp;?</a><ul><li class="level2"><a href="#autotoc_md4">Small Exercise</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md3"></a>
+What is the difference between const Tensor&amp;, Tensor&amp;, Tensor&amp;&amp;?</h1>
+<p>A tensor can always only belong to exactly one object. That means that if we look at the following code snipped, where a tensor is simply assigned to another tensor, we will observe that it gets <b>copied</b>. </p><div class="fragment"><div class="line"><a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a> tensora = {1, 2, 3, 4};</div>
+<div class="line"><a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a> tensorb = tensora;</div>
+<div class="line">tensorb[2] = 42;</div>
+<div class="line"><a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; tensora &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><span class="comment">// {1, 2, 3, 4}</span></div>
+<div class="line"><a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; tensorb &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><span class="comment">// {1, 42, 3, 4}</span></div>
+<div class="ttc" id="abasic_ostream_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a></div></div>
+<div class="ttc" id="aclassdl_1_1Tensor_html"><div class="ttname"><a href="classdl_1_1Tensor.html">dl::Tensor</a></div><div class="ttdoc">The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...</div><div class="ttdef"><b>Definition:</b> <a href="tensor_8hpp_source.html#l00017">tensor.hpp:17</a></div></div>
+<div class="ttc" id="aendl_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a></div><div class="ttdeci">T endl(T... args)</div></div>
+</div><!-- fragment --><p> But quite often we do not want to copy the tensor but merely <b>reference</b> it. This is, where the C++ references come into play. A reference to a pointer is described by the type <code>Tensor&amp;</code>, such that above code would look like this: </p><div class="fragment"><div class="line"><a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a> tensora = {1, 2, 3, 4};</div>
+<div class="line"><a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a>&amp; tensorb = tensora;</div>
+<div class="line">tensorb[2] = 42;</div>
+<div class="line"><a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; tensora &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><span class="comment">// {1, 42, 3, 4}</span></div>
+<div class="line"><a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; tensorb &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><span class="comment">// {1, 42, 3, 4}</span></div>
+</div><!-- fragment --> <dl class="section attention"><dt>Attention</dt><dd><code>tensorb</code> only <em>references</em> the memory used by <code>tensora</code>. The reference should not live longer than the memory it is referencing. To illustrate, can you spot the problem with the following code snippet? <div class="fragment"><div class="line"><span class="keyword">class </span>MyClass {</div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line">    <a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a>&amp; tensor;</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    MyClass(<a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a> tensor) : tensor(tensor) {}</div>
+<div class="line">};</div>
+</div><!-- fragment --> <code>MyClass</code> stores a reference to its constructor argument. Since the constructor argument is destroyed after the constructor exits, we reference deleted memory.</dd></dl>
+<p>One can express it like this: each tensor <em>uniquely</em> owns their memory. If a tensor (not a reference to a tensor!) gets destroyed, it destroys its memory. The alternative would be <em>shared</em> ownership, where multiple tensors can own the same memory and the memory is only destroyed after all tensors are destroyed that reference this memory. This is usually implemented using an atomic (i.e., thread safe) reference counter (see, e.g., <a class="elRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr</a>). However, in the design of this library we went for unique ownership to remove may time-costly atomic increments and decrements. If you need shared ownership, you could however always use <code><a class="elRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr</a>&lt;<a class="el" href="classdl_1_1Tensor.html" title="The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...">dl::Tensor</a>&gt;</code>.</p>
+<p>Finally, you may have noticed that arithmetic functions usually come with multiple overloads. For example for <code>dl::pow</code> you can choose between </p><div class="fragment"><div class="line"><a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a> <a class="codeRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">pow</a>(<span class="keyword">const</span> <a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a>&amp; base, <span class="keywordtype">float</span> exponent); <span class="comment">// 1)</span></div>
+<div class="line"><a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a> <a class="codeRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">pow</a>(<a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a>&amp; base, <span class="keywordtype">float</span> exponent);       <span class="comment">// 2)</span></div>
+<div class="line"><a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a> <a class="codeRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">pow</a>(<a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a>&amp;&amp; base, <span class="keywordtype">float</span> exponent);      <span class="comment">// 3)</span></div>
+<div class="ttc" id="apow_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a></div><div class="ttdeci">T pow(T... args)</div></div>
+</div><!-- fragment --><p> but what is the difference between them and which one to use? Option 2) is straight forward: to avoid copying the tensor, we only pass a reference to it to the function. Option 1) generally does the same thing, but is not allowed to modify the tensor. You may wonder why dl::pow needs to modify its input tensors at all but consider this: If <code>base</code> required a gradient, a reference of it would be <em>stored for the backwards pass</em> in the computation graph and in the backwards pass we need to modify <code>base</code> to update its gradient. The first option is not allowed to modify <code>base</code> and thus won't be allowed to update the gradient for <code>base</code>. As such, be sure that <code>base</code> does not need a gradient if you use option 1). Option 3) on the other hand is a bit more interesting since it uses "move semantics". Concretely, this means that ownership of memory is moved from one object to another: </p><div class="fragment"><div class="line"><a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a> tensora = {1, 2, 3, 4};</div>
+<div class="line"><a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a> tensorb = <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(tensora);</div>
+<div class="line"><a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; tensora &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><span class="comment">// null</span></div>
+<div class="line"><a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; tensorb &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><span class="comment">// {1, 2, 3, 4}</span></div>
+<div class="ttc" id="amove_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a></div><div class="ttdeci">T move(T... args)</div></div>
+</div><!-- fragment --><p> It follows that option 2) and 3) only differentiate in <b>who owns the memory</b>. In option 2), the computation graph holds a reference to the tensor that should be updated, wheras in option 3) the computation graph <em>owns</em> the tensor. So which of these two options is correct? </p><div class="fragment"><div class="line"><span class="comment">// Compute (2x)²</span></div>
+<div class="line"><a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a> funcA(<a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a>&amp; x) {</div>
+<div class="line">    <a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a> b = 2*x;</div>
+<div class="line">    <span class="keywordflow">return</span> <a class="code" href="math_8hpp.html#abe737cde424fc346acf4d2f744c14ff8">dl::pow</a>(b, 2);</div>
+<div class="line">}</div>
+<div class="line"><a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a> funcB(<a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a>&amp; x) {</div>
+<div class="line">    <a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a> b = 2*x;</div>
+<div class="line">    <span class="keywordflow">return</span> <a class="code" href="math_8hpp.html#abe737cde424fc346acf4d2f744c14ff8">dl::pow</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(b), 2);</div>
+<div class="line">}</div>
+<div class="ttc" id="amath_8hpp_html_abe737cde424fc346acf4d2f744c14ff8"><div class="ttname"><a href="math_8hpp.html#abe737cde424fc346acf4d2f744c14ff8">dl::pow</a></div><div class="ttdeci">Tensor pow(Tensor &amp;base, float exponent) noexcept</div></div>
+</div><!-- fragment --><p> Answer: <code>funcB</code> is correct since the memory used by <code>b</code> is moved into the computation graph. In <code>funcA</code> the memory used by <code>b</code> will be destroyed after the function returns and the computation graph has a dangling reference.</p>
+<p>To conclude (this of course holds for all other gradient enabled functions as well):</p><ul>
+<li>Use dl::pow(const dl::Tensor&amp; base, float exponent) if no gradient should be calculated (even if <code>base.requireGrad()</code> was true). This is useful to allow compiler optimizations for faster <b>inference</b>.</li>
+<li>Use dl::pow(dl::Tensor&amp; base, float exponent) if a gradient may be calculated and you can ensure that the tensor you give a reference to in the function call is alive long enough. This is useful for <b>model-parameters</b>.</li>
+<li>Use dl::pow(dl::Tensor&amp;&amp; base, float exponent) if a gradient may be calculated but you can not (or do not want to) ensure that the data lives long enough. This is useful for <b>temporary variables</b>.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Small Exercise</h2>
+<p>Can you spot the problem with the following code? </p><div class="fragment"><div class="line"><a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a> a = {1, 2, 3, 4};</div>
+<div class="line">a-&gt;<a class="code" href="classdl_1_1TensorImpl.html#ae13d3748fa0aaaddffdc86ac5af33f66">setRequiresGrad</a>(<span class="keyword">true</span>);</div>
+<div class="line"><a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a> b = <a class="code" href="math_8hpp.html#abe737cde424fc346acf4d2f744c14ff8">dl::pow</a>(a, 2);</div>
+<div class="line"><a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a> c = <a class="code" href="math_8hpp.html#abe737cde424fc346acf4d2f744c14ff8">dl::pow</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(a), 4);</div>
+<div class="line"><a class="code" href="classdl_1_1Tensor.html">dl::Tensor</a> result = b + c; <span class="comment">// a²+a⁴</span></div>
+<div class="line">result.backward();</div>
+<div class="ttc" id="aclassdl_1_1TensorImpl_html_ae13d3748fa0aaaddffdc86ac5af33f66"><div class="ttname"><a href="classdl_1_1TensorImpl.html#ae13d3748fa0aaaddffdc86ac5af33f66">dl::TensorImpl::setRequiresGrad</a></div><div class="ttdeci">void setRequiresGrad(bool requiresGrad) noexcept</div><div class="ttdoc">Set this tensors requirements for a gradient.</div></div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="basicsIdx.html">Basics</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

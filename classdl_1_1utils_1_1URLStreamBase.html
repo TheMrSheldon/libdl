@@ -165,8 +165,6 @@ $(document).ready(function(){initNavTree('classdl_1_1utils_1_1URLStreamBase.html
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classdl_1_1utils_1_1URLStreamBase-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">dl::utils::URLStreamBase Class Reference</div>  </div>
@@ -192,9 +190,8 @@ Collaboration diagram for dl::utils::URLStreamBase:</div>
 <div class="dyncontent">
 <div class="center"><img src="classdl_1_1utils_1_1URLStreamBase__coll__graph.png" border="0" usemap="#adl_1_1utils_1_1URLStreamBase_coll__map" alt="Collaboration graph"/></div>
 <map name="adl_1_1utils_1_1URLStreamBase_coll__map" id="adl_1_1utils_1_1URLStreamBase_coll__map">
-<area shape="rect" title="Opens an input stream which serves the information pointed at by the provided URL." alt="" coords="51,95,234,121"/>
-<area shape="rect" target="_parent" href="http://en.cppreference.com/w/cpp/io/basic_streambuf.html" title=" " alt="" coords="5,5,123,32"/>
-<area shape="rect" target="_parent" href="http://en.cppreference.com/w/cpp/container/vector.html" title=" " alt="" coords="147,5,296,32"/>
+<area shape="rect" title="Opens an input stream which serves the information pointed at by the provided URL." alt="" coords="5,80,188,107"/>
+<area shape="rect" target="_parent" href="http://en.cppreference.com/w/cpp/io/basic_streambuf.html" title=" " alt="" coords="38,5,155,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -330,91 +327,13 @@ T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http
 <tr class="memitem: inherit pub_methods_basic_streambuf"><td class="memItemLeft" align="right" valign="top"><a id=""></a>
 T&#160;</td><td class="memItemRight" valign="bottom"><a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_streambuf/pubseekpos.html">pubseekpos</a> (T... args)</td></tr>
 <tr class="separator: inherit pub_methods_basic_streambuf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a63212a6af4d80163bc885ffec6096f19"><td class="memItemLeft" align="right" valign="top"><a id="a63212a6af4d80163bc885ffec6096f19"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>URLStreamBase</b> (const <a class="el" href="classdl_1_1utils_1_1URLStreamBase.html">URLStreamBase</a> &amp;other)=delete</td></tr>
-<tr class="separator:a63212a6af4d80163bc885ffec6096f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad7b4372ee27041ad39ba4aad72e8bd2"><td class="memItemLeft" align="right" valign="top"><a id="aad7b4372ee27041ad39ba4aad72e8bd2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>URLStreamBase</b> (<a class="el" href="classdl_1_1utils_1_1URLStreamBase.html">URLStreamBase</a> &amp;&amp;other)=delete</td></tr>
-<tr class="separator:aad7b4372ee27041ad39ba4aad72e8bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10d062eceeecbe1722ab692fee14bb0a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1URLStreamBase.html#a10d062eceeecbe1722ab692fee14bb0a">onDataCallback</a> (<a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> data, intptr_t userdata)</td></tr>
-<tr class="memdesc:a10d062eceeecbe1722ab692fee14bb0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called internally by the implementation for every chunk of data.  <a href="classdl_1_1utils_1_1URLStreamBase.html#a10d062eceeecbe1722ab692fee14bb0a">More...</a><br /></td></tr>
-<tr class="separator:a10d062eceeecbe1722ab692fee14bb0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a8f733bfc8fd033dcb24990bb180467f0"><td class="memItemLeft" align="right" valign="top"><a id="a8f733bfc8fd033dcb24990bb180467f0"></a>
-std::experimental::propagate_const&lt; <a class="elRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr</a>&lt; <a class="el" href="classcpr_1_1AsyncWrapper.html">cpr::AsyncWrapper</a>&lt; void, false &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>pImpl</b></td></tr>
-<tr class="separator:a8f733bfc8fd033dcb24990bb180467f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a591e6a962946ade5f3f86a6b6514ee72"><td class="memItemLeft" align="right" valign="top"><a id="a591e6a962946ade5f3f86a6b6514ee72"></a>
-<a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>buffer</b></td></tr>
-<tr class="separator:a591e6a962946ade5f3f86a6b6514ee72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3059e7435ed9e5544fce630e74855c94"><td class="memItemLeft" align="right" valign="top"><a id="a3059e7435ed9e5544fce630e74855c94"></a>
-std::binary_semaphore&#160;</td><td class="memItemRight" valign="bottom"><b>dataIncommingSem</b></td></tr>
-<tr class="separator:a3059e7435ed9e5544fce630e74855c94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cda2076520ab1bde34be155b6f57e44"><td class="memItemLeft" align="right" valign="top"><a id="a9cda2076520ab1bde34be155b6f57e44"></a>
-std::binary_semaphore&#160;</td><td class="memItemRight" valign="bottom"><b>dataHandledSem</b></td></tr>
-<tr class="separator:a9cda2076520ab1bde34be155b6f57e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c227a475848dd4fa06fc7e8c12cea67"><td class="memItemLeft" align="right" valign="top"><a id="a8c227a475848dd4fa06fc7e8c12cea67"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>ended</b> = false</td></tr>
-<tr class="separator:a8c227a475848dd4fa06fc7e8c12cea67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Opens an input stream which serves the information pointed at by the provided URL. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classdl_1_1utils_1_1URLStream.html" title="Opens an input stream which serves the information pointed at by the provided URL.">URLStream</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="urlstream_8hpp_source.html#l00025">25</a> of file <a class="el" href="urlstream_8hpp_source.html">urlstream.hpp</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a10d062eceeecbe1722ab692fee14bb0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10d062eceeecbe1722ab692fee14bb0a">&#9670;&nbsp;</a></span>onDataCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool dl::utils::URLStreamBase::onDataCallback </td>
-          <td>(</td>
-          <td class="paramtype"><a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">intptr_t&#160;</td>
-          <td class="paramname"><em>userdata</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Called internally by the implementation for every chunk of data. </p>
-<p>Writes the received data chunk to URLStreamBase::buffer, signals that new data is available such that a waiting (or a future call) to URLStreamBase::underflow() returns the fetched data. Afterwards it waits until this data was processed and returns.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>The datachunk that was read. </td></tr>
-    <tr><td class="paramname">userdata</td><td>A pointer to some userdata (ignored). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true iff we want to continue reading data. </dd></dl>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>dl/utils/<a class="el" href="urlstream_8hpp_source.html">urlstream.hpp</a></li>
 </ul>
 </div><!-- contents -->

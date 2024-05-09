@@ -1,6 +1,5 @@
 var classdl_1_1TensorImpl =
 [
-    [ "GradFn", "classdl_1_1TensorImpl.html#a53e42f7961b69eda2f916b5b94ad6f65", null ],
     [ "TensorImpl", "classdl_1_1TensorImpl.html#a9d38011e4acc2543a06025aa2280e32d", null ],
     [ "add", "classdl_1_1TensorImpl.html#a0f9135a252c9f6ca06afb69a0cb8f786", null ],
     [ "backward", "classdl_1_1TensorImpl.html#a449fd59bebb826b527cf848532d4982f", null ],
@@ -22,8 +21,6 @@ var classdl_1_1TensorImpl =
     [ "sub", "classdl_1_1TensorImpl.html#af7eb00365b4c0521a06634afeb31549a", null ],
     [ "to", "classdl_1_1TensorImpl.html#ac37a63e8f32aef03a087f630df8c81d6", null ],
     [ "writeToStream", "classdl_1_1TensorImpl.html#ae1ac3646fc1457ec5440f0d1e66c9585", null ],
-    [ "_device", "classdl_1_1TensorImpl.html#ab895336d71f6e81f8235931731c087c4", null ],
-    [ "_requiresGrad", "classdl_1_1TensorImpl.html#a03ad6bde7335d0338917ee976b423d29", null ],
     [ "grad", "classdl_1_1TensorImpl.html#aa2eb09e814c94200e73c3d9a8baa2ca6", null ],
     [ "gradfn", "classdl_1_1TensorImpl.html#ac31d3c156ec37264b04256790d295408", null ]
 ];

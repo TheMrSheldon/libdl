@@ -167,7 +167,6 @@ $(document).ready(function(){initNavTree('classdl_1_1utils_1_1GenericIterator.ht
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classdl_1_1utils_1_1GenericIterator-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">dl::utils::GenericIterator&lt; T &gt; Class Template Reference</div>  </div>
@@ -178,25 +177,7 @@ $(document).ready(function(){initNavTree('classdl_1_1utils_1_1GenericIterator.ht
  <a href="classdl_1_1utils_1_1GenericIterator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for dl::utils::GenericIterator&lt; T &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="classdl_1_1utils_1_1GenericIterator__coll__graph.png" border="0" usemap="#adl_1_1utils_1_1GenericIterator_3_01T_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="adl_1_1utils_1_1GenericIterator_3_01T_01_4_coll__map" id="adl_1_1utils_1_1GenericIterator_3_01T_01_4_coll__map">
-<area shape="rect" title="Represents a generic iterator that can be initialized to hold any other class instance that satisfies..." alt="" coords="5,124,220,151"/>
-<area shape="rect" target="_parent" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html" title=" " alt="" coords="31,5,195,61"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html">AIter</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The "abstract iterator" (<a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html" title="The &quot;abstract iterator&quot; (AIter) provides a class interface for forward iterators (i....">AIter</a>) provides a class interface for forward iterators (i.e. increment, dereference and equality operations) together with the option to make a copy and get a unique typeid to check if two iterators are of the same type.  <a href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html">Iter</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html" title="The Iter class wraps objects that suffice the std::input_or_output_iterator concept to implement the ...">Iter</a> class wraps objects that suffice the std::input_or_output_iterator concept to implement the <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html" title="The &quot;abstract iterator&quot; (AIter) provides a class interface for forward iterators (i....">AIter</a> interface.  <a href="classdl_1_1utils_1_1GenericIterator_1_1Iter.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a961a72dd6d9f77b3185788f14c76f5a8"><td class="memItemLeft" align="right" valign="top"><a id="a961a72dd6d9f77b3185788f14c76f5a8"></a>
@@ -253,13 +234,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a22e93ece9df054ec9e4c6a45693848ee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1GenericIterator.html#a22e93ece9df054ec9e4c6a45693848ee">operator==</a> (const <a class="el" href="classdl_1_1utils_1_1GenericIterator.html">GenericIterator</a>&lt; T &gt; &amp;other) const</td></tr>
 <tr class="memdesc:a22e93ece9df054ec9e4c6a45693848ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if this iterator is equal to the provided one.  <a href="classdl_1_1utils_1_1GenericIterator.html#a22e93ece9df054ec9e4c6a45693848ee">More...</a><br /></td></tr>
 <tr class="separator:a22e93ece9df054ec9e4c6a45693848ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a61de33f7cc1ca6acd54724e40324d3ad"><td class="memItemLeft" align="right" valign="top"><a id="a61de33f7cc1ca6acd54724e40324d3ad"></a>
-<a class="elRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr</a>&lt; <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html">AIter</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1utils_1_1GenericIterator.html#a61de33f7cc1ca6acd54724e40324d3ad">impl</a></td></tr>
-<tr class="memdesc:a61de33f7cc1ca6acd54724e40324d3ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classdl_1_1utils_1_1GenericIterator_1_1AIter.html" title="The &quot;abstract iterator&quot; (AIter) provides a class interface for forward iterators (i....">AIter</a> implementation used to implement the generic iterator. <br /></td></tr>
-<tr class="separator:a61de33f7cc1ca6acd54724e40324d3ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
@@ -317,8 +291,7 @@ template&lt;typename T &gt; </div>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="generic__iterator_8hpp_source.html#l00158">158</a> of file <a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;: <a class="code" href="classdl_1_1utils_1_1GenericIterator.html#a61de33f7cc1ca6acd54724e40324d3ad">impl</a>(other.impl-&gt;clone()) {}</div>
-<div class="ttc" id="aclassdl_1_1utils_1_1GenericIterator_html_a61de33f7cc1ca6acd54724e40324d3ad"><div class="ttname"><a href="classdl_1_1utils_1_1GenericIterator.html#a61de33f7cc1ca6acd54724e40324d3ad">dl::utils::GenericIterator::impl</a></div><div class="ttdeci">std::unique_ptr&lt; AIter &gt; impl</div><div class="ttdoc">The AIter implementation used to implement the generic iterator.</div><div class="ttdef"><b>Definition:</b> <a href="generic__iterator_8hpp_source.html#l00139">generic_iterator.hpp:139</a></div></div>
+<div class="fragment"><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;: impl(other.impl-&gt;clone()) {}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -357,7 +330,7 @@ template&lt;typename T &gt; </div>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="generic__iterator_8hpp_source.html#l00165">165</a> of file <a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;: <a class="code" href="classdl_1_1utils_1_1GenericIterator.html#a61de33f7cc1ca6acd54724e40324d3ad">impl</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(other.impl)) {}</div>
+<div class="fragment"><div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;: impl(<a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(other.impl)) {}</div>
 <div class="ttc" id="amove_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a></div><div class="ttdeci">T move(T... args)</div></div>
 </div><!-- fragment -->
 </div>
@@ -406,7 +379,7 @@ template&lt;std::input_or_output_iterator TIt&gt; </div>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classdl_1_1utils_1_1GenericIterator.html#af33b7262fe791c0de07cb7fe6c73e585" title="Constructs a new GenericIterator from the provided arbitrary object that satisfies the std::input_or_...">GenericIterator(TIt, std::shared_ptr&lt;auto&gt;)</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="generic__iterator_8hpp_source.html#l00176">176</a> of file <a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;: <a class="code" href="classdl_1_1utils_1_1GenericIterator.html#a61de33f7cc1ca6acd54724e40324d3ad">impl</a>(std::make_unique&lt;Iter&lt;TIt&gt;&gt;(iterator)) {}</div>
+<div class="fragment"><div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;: impl(std::make_unique&lt;Iter&lt;TIt&gt;&gt;(iterator)) {}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -465,7 +438,7 @@ template&lt;std::input_or_output_iterator TIt&gt; </div>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classdl_1_1utils_1_1GenericIterator.html#ae28368e562669cd9125357918ef9dc98" title="Constructs a new GenericIterator from the provided arbitrary object that satisfies the std::input_or_...">GenericIterator(TIt)</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="generic__iterator_8hpp_source.html#l00189">189</a> of file <a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                : <a class="code" href="classdl_1_1utils_1_1GenericIterator.html#a61de33f7cc1ca6acd54724e40324d3ad">impl</a>(std::make_unique&lt;Iter&lt;TIt&gt;&gt;(iterator, userdata)) {}</div>
+<div class="fragment"><div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                : impl(std::make_unique&lt;Iter&lt;TIt&gt;&gt;(iterator, userdata)) {}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -499,7 +472,7 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The data the iterator currently points at. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="generic__iterator_8hpp_source.html#l00219">219</a> of file <a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classdl_1_1utils_1_1GenericIterator.html#a61de33f7cc1ca6acd54724e40324d3ad">impl</a>-&gt;deref(); }</div>
+<div class="fragment"><div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;{ <span class="keywordflow">return</span> impl-&gt;deref(); }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -533,7 +506,7 @@ template&lt;typename T &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="generic__iterator_8hpp_source.html#l00225">225</a> of file <a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>.</p>
 <div class="fragment"><div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                                                  {</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            <a class="code" href="classdl_1_1utils_1_1GenericIterator.html#a61de33f7cc1ca6acd54724e40324d3ad">impl</a>-&gt;advance();</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            impl-&gt;advance();</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        }</div>
 </div><!-- fragment -->
@@ -615,7 +588,7 @@ template&lt;typename T &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="generic__iterator_8hpp_source.html#l00198">198</a> of file <a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>.</p>
 <div class="fragment"><div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                                                                                {</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            <a class="code" href="classdl_1_1utils_1_1GenericIterator.html#a61de33f7cc1ca6acd54724e40324d3ad">impl</a> = other.impl;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            impl = other.impl;</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        }</div>
 </div><!-- fragment -->
@@ -658,7 +631,7 @@ template&lt;typename T &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="generic__iterator_8hpp_source.html#l00209">209</a> of file <a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>.</p>
 <div class="fragment"><div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                                                                           {</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            <a class="code" href="classdl_1_1utils_1_1GenericIterator.html#a61de33f7cc1ca6acd54724e40324d3ad">impl</a> = <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(other.impl);</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            impl = <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(other.impl);</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        }</div>
 </div><!-- fragment -->
@@ -700,7 +673,7 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>true if and only if this iterator is equal to <code>other</code>. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="generic__iterator_8hpp_source.html#l00246">246</a> of file <a class="el" href="generic__iterator_8hpp_source.html">generic_iterator.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;{ <span class="keywordflow">return</span> <a class="code" href="classdl_1_1utils_1_1GenericIterator.html#a61de33f7cc1ca6acd54724e40324d3ad">impl</a>-&gt;equals(*other.impl); }</div>
+<div class="fragment"><div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;{ <span class="keywordflow">return</span> impl-&gt;equals(*other.impl); }</div>
 </div><!-- fragment -->
 </div>
 </div>

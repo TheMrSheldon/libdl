@@ -23,6 +23,10 @@ var namespaces_dup =
       [ "loss", null, [
         [ "mse", "loss_8hpp.html#a035fa30c64f21b5c44ee0e0207daae6c", null ]
       ] ],
+      [ "observers", null, [
+        [ "earlyStopping", "trainer_8hpp.html#adc3bed0cd3daf49c5111ea7bc770e76c", null ],
+        [ "ncursesUI", "trainer_8hpp.html#a3420777a571a64d4d6ae46d3c1fae7ed", null ]
+      ] ],
       [ "utils", null, [
         [ "GenericIterator", "classdl_1_1utils_1_1GenericIterator.html", "classdl_1_1utils_1_1GenericIterator" ],
         [ "LineIterator", "structdl_1_1utils_1_1LineIterator.html", "structdl_1_1utils_1_1LineIterator" ],
@@ -38,6 +42,7 @@ var namespaces_dup =
       [ "Optimizer", "classdl_1_1Optimizer.html", "classdl_1_1Optimizer" ],
       [ "Model", "classdl_1_1Model.html", null ],
       [ "Trainer", "classdl_1_1Trainer.html", null ],
+      [ "TrainerObserver", "classdl_1_1TrainerObserver.html", "classdl_1_1TrainerObserver" ],
       [ "Trainer< R(Args...)>", "classdl_1_1Trainer_3_01R_07Args_8_8_8_08_4.html", "classdl_1_1Trainer_3_01R_07Args_8_8_8_08_4" ],
       [ "Linear", "classdl_1_1Linear.html", "classdl_1_1Linear" ],
       [ "Model< R(Args...)>", "classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html", "classdl_1_1Model_3_01R_07Args_8_8_8_08_4" ],
@@ -49,6 +54,11 @@ var namespaces_dup =
       [ "ModelSignature", "trainer_8hpp.html#a2ae9fb4bc75f0b796023d1bea466b428", null ],
       [ "Shape", "shape_8hpp.html#ab668a53177187de5a59757a6169c45aa", null ],
       [ "TensorRef", "tensor_8hpp.html#ac773d54d7ab83d601c30958b1c96216c", null ],
+      [ "TrainStage", "trainer_8hpp.html#a41b6fb1754e51e86f341405742db282f", [
+        [ "Fitting", "trainer_8hpp.html#a41b6fb1754e51e86f341405742db282faf87cd752a63b97e7f6f97081aca93ff9", null ],
+        [ "Evaluation", "trainer_8hpp.html#a41b6fb1754e51e86f341405742db282fab74a43dbb36287ea86eb5b0c7b86e8e8", null ],
+        [ "Validation", "trainer_8hpp.html#a41b6fb1754e51e86f341405742db282fa13148717f8faa9037f37d28971dfc219", null ]
+      ] ],
       [ "calcPosEncoding", "transformer_8hpp.html#abdaca2488deb94afc3ebf879090dfb35", null ],
       [ "clone", "device_8hpp.html#a578b3dd11e1c18499742c2a174d731fb", null ],
       [ "constant", "device_8hpp.html#a2b781d65002bfc62a6afd20dc0bcd1d9", null ],
@@ -56,7 +66,9 @@ var namespaces_dup =
       [ "constant", "device_8hpp.html#a4e6da9d02810f4c31acc00f27199c710", null ],
       [ "constant", "device_8hpp.html#adce1ec5a053e4897c019b7d445b70b39", null ],
       [ "empty", "device_8hpp.html#a96f252c7a9f7647dfc6ce52aa921f428", null ],
+      [ "matmul", "math_8hpp.html#a400918ed19d4f9d8e4eef36a7cdc3a88", null ],
       [ "matmul", "math_8hpp.html#a03d6625fc44528113192f86ff9f9d872", null ],
+      [ "matmul", "math_8hpp.html#a8a63576c3ce55ec440069bb54ad1c499", null ],
       [ "matmul", "math_8hpp.html#a15a4f16262e8ae3e8b8b1c34cb56a6d5", null ],
       [ "max", "math_8hpp.html#ab06ed920ebde17c9e70af0f95e945ab0", null ],
       [ "mean", "math_8hpp.html#a1f4faff8be2d276c5dbd01b69f29758e", null ],
@@ -71,9 +83,11 @@ var namespaces_dup =
       [ "operator/", "math_8hpp.html#a7517613ba1a1e6739aabfbd7b418656d", null ],
       [ "operator<<", "math_8hpp.html#ad0adee756775f4801c5eccdc6739bf94", null ],
       [ "operator==", "math_8hpp.html#afd48451b061f3d5674b60e475d84c161", null ],
+      [ "pow", "math_8hpp.html#a019724a6621d9ab7048e2f7c51b2bc5a", null ],
       [ "pow", "math_8hpp.html#a106e0b90a6bbade58bdcfafc08da1a64", null ],
       [ "pow", "math_8hpp.html#abe737cde424fc346acf4d2f744c14ff8", null ],
       [ "relu", "math_8hpp.html#a347a19074c16b69694a8f6b7087ee56b", null ],
+      [ "softmax", "math_8hpp.html#a6a57cdcf8827126ebc702a8428a07e83", null ],
       [ "sum", "math_8hpp.html#a16a6b1358b6c7941ac60de5b5b926702", null ],
       [ "zero", "device_8hpp.html#ad53e4e743eb518d7771b343f2b79d7c2", null ],
       [ "commit_hash", "dl_8hpp.html#a23aad1646b8684005c6fc1bdb3b64400", null ],

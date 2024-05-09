@@ -167,8 +167,6 @@ $(document).ready(function(){initNavTree('classdl_1_1Trainer_3_01R_07Args_8_8_8_
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classdl_1_1Trainer_3_01R_07Args_8_8_8_08_4-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">dl::Trainer&lt; R(Args...)&gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
@@ -212,34 +210,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>validate</b> (const <
 <tr class="memitem:ac37695d658537313d97b005508fe21c4"><td class="memItemLeft" align="right" valign="top"><a id="ac37695d658537313d97b005508fe21c4"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>test</b> (<a class="el" href="classdl_1_1Model.html">Model</a>&lt; T &gt; &amp;model) const noexcept</td></tr>
 <tr class="separator:ac37695d658537313d97b005508fe21c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a4dd08faa6aae2f0c5099f149f2539095"><td class="memItemLeft" align="right" valign="top"><a id="a4dd08faa6aae2f0c5099f149f2539095"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Trainer</b> (const <a class="el" href="classdl_1_1Trainer.html">Trainer</a> &amp;other)=delete</td></tr>
-<tr class="separator:a4dd08faa6aae2f0c5099f149f2539095"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15174fe90a7374bbd68e2d8cfd92aed6"><td class="memItemLeft" align="right" valign="top"><a id="a15174fe90a7374bbd68e2d8cfd92aed6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Trainer</b> (<a class="el" href="classdl_1_1Trainer.html">Trainer</a> &amp;&amp;other)=delete</td></tr>
-<tr class="separator:a15174fe90a7374bbd68e2d8cfd92aed6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:addb34946a2f94faa1f7758240562e28c"><td class="memItemLeft" align="right" valign="top"><a id="addb34946a2f94faa1f7758240562e28c"></a>
-<a class="el" href="classdl_1_1Trainer.html">Trainer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classdl_1_1Trainer.html">Trainer</a> &amp;other)=delete</td></tr>
-<tr class="separator:addb34946a2f94faa1f7758240562e28c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0913e7dc30cef56d7d41556b53ce6b46"><td class="memItemLeft" align="right" valign="top"><a id="a0913e7dc30cef56d7d41556b53ce6b46"></a>
-<a class="el" href="classdl_1_1Trainer.html">Trainer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classdl_1_1Trainer.html">Trainer</a> &amp;&amp;other)=delete</td></tr>
-<tr class="separator:a0913e7dc30cef56d7d41556b53ce6b46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a0bc2af00631f49b13cded601cfcb6d76"><td class="memItemLeft" align="right" valign="top"><a id="a0bc2af00631f49b13cded601cfcb6d76"></a>
-Settings&#160;</td><td class="memItemRight" valign="bottom"><b>settings</b></td></tr>
-<tr class="separator:a0bc2af00631f49b13cded601cfcb6d76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename R, typename... Args&gt;<br />
 class dl::Trainer&lt; R(Args...)&gt;</h3>
 
 
-<p class="definition">Definition at line <a class="el" href="trainer_8hpp_source.html#l00025">25</a> of file <a class="el" href="trainer_8hpp_source.html">trainer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="trainer_8hpp_source.html#l00037">37</a> of file <a class="el" href="trainer_8hpp_source.html">trainer.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a086f918c723a7f84db3237750fb46005"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a086f918c723a7f84db3237750fb46005">&#9670;&nbsp;</a></span>fit()</h2>
@@ -275,25 +252,40 @@ template&lt;typename R , typename... Args&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>validation loss if configured </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>with batching increment by batch size </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>validation loss if configured </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="trainer_8hpp_source.html#l00073">73</a> of file <a class="el" href="trainer_8hpp_source.html">trainer.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                                           {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keyword">auto</span> dataset = settings.createDataset();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            assert(dataset != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keyword">auto</span> dataloader = dataset-&gt;trainingData();</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            assert(dataloader != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keyword">auto</span> validationData = dataset-&gt;validationData();</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            assert(validationData != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="comment">// model.fit();</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> epoch = 0; settings.limitEpochs == 0 || epoch &lt; settings.limitEpochs; ++epoch) {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; [out, in] : *dataloader) {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    <span class="keyword">auto</span> loss = settings.loss(model(in), out);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                    settings.optimizer-&gt;step(loss);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="comment">// auto valLoss = validation_step(validationData);</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="trainer_8hpp_source.html#l00086">86</a> of file <a class="el" href="trainer_8hpp_source.html">trainer.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                                           {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keyword">auto</span> dataset = settings.createDataset();</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            assert(dataset != <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keyword">auto</span> dataloader = dataset-&gt;trainingData();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            assert(dataloader != <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keyword">auto</span> validationData = dataset-&gt;validationData();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            assert(validationData != <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="comment">// model.fit();</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> trainsetSize = <a class="codeRef" href="http://en.cppreference.com/w/cpp/iterator/distance.html">std::distance</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/iterator/begin.html">std::begin</a>(*dataloader), <a class="codeRef" href="http://en.cppreference.com/w/cpp/iterator/end.html">std::end</a>(*dataloader));</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> epoch = 0; settings.limitEpochs == 0 || epoch &lt; settings.limitEpochs; ++epoch) {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keywordtype">size_t</span> progress = 0;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; [out, in] : *dataloader) {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                    <span class="keyword">auto</span> loss = settings.loss(model(<a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(in)), out);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    settings.optimizer-&gt;step(loss);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                    <a class="codeRef" href="http://en.cppreference.com/w/cpp/algorithm/for_each.html">std::for_each</a>(</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                            settings.observers.begin(), settings.observers.end(),</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                            [epoch, trainsetSize, progress](<span class="keyword">auto</span>&amp; o) {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                o-&gt;progressChanged(epoch, trainsetSize, progress);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                            }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                    );</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                    progress += 1; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                <span class="comment">// auto valLoss = validation_step(validationData);</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        }</div>
+<div class="ttc" id="abegin_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/iterator/begin.html">std::begin</a></div><div class="ttdeci">T begin(T... args)</div></div>
+<div class="ttc" id="adistance_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/iterator/distance.html">std::distance</a></div><div class="ttdeci">T distance(T... args)</div></div>
+<div class="ttc" id="aend_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/iterator/end.html">std::end</a></div><div class="ttdeci">T end(T... args)</div></div>
+<div class="ttc" id="afor_each_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/algorithm/for_each.html">std::for_each</a></div><div class="ttdeci">T for_each(T... args)</div></div>
+<div class="ttc" id="amove_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a></div><div class="ttdeci">T move(T... args)</div></div>
 </div><!-- fragment -->
 </div>
 </div>
