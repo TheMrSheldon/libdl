@@ -10,6 +10,7 @@
 #include <vector>
 
 namespace dl {
+	class ModelBase;
 	template <typename>
 	class Model;
 	class Device;
@@ -28,6 +29,7 @@ namespace dl {
 	private:
 	public:
 		virtual ~TrainerObserver() = default;
+		virtual void onBeginTraining(const ModelBase& model) = 0;
 		virtual void enterTrainingStage(TrainStage stage) = 0;
 		virtual void exitTrainingStage() = 0;
 		virtual void progressChanged(size_t epoch, size_t total, size_t step) = 0;
@@ -90,6 +92,11 @@ namespace dl {
 			assert(dataloader != nullptr);
 			auto validationData = dataset->validationData();
 			assert(validationData != nullptr);
+
+			std::for_each(settings.observers.begin(), settings.observers.end(), [&model](auto& o) {
+				o->onBeginTraining(model);
+			});
+
 			// model.fit();
 			const auto trainsetSize = std::distance(std::begin(*dataloader), std::end(*dataloader));
 			for (unsigned epoch = 0; settings.limitEpochs == 0 || epoch < settings.limitEpochs; ++epoch) {

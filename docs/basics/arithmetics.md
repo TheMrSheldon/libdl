@@ -7,7 +7,7 @@ tensor is simply assigned to another tensor, we will observe that it gets **copi
 ```cpp
 dl::Tensor tensora = {1, 2, 3, 4};
 dl::Tensor tensorb = tensora;
-tensorb[2] = 42;
+tensorb[1] = 42;
 std::cout << tensora << std::endl;
 // {1, 2, 3, 4}
 std::cout << tensorb << std::endl;
@@ -18,7 +18,7 @@ into play. A reference to a pointer is described by the type `Tensor&`, such tha
 ```cpp
 dl::Tensor tensora = {1, 2, 3, 4};
 dl::Tensor& tensorb = tensora;
-tensorb[2] = 42;
+tensorb[1] = 42;
 std::cout << tensora << std::endl;
 // {1, 42, 3, 4}
 std::cout << tensorb << std::endl;
@@ -40,7 +40,7 @@ One can express it like this: each tensor *uniquely* owns their memory. If a ten
 destroyed, it destroys its memory. The alternative would be *shared* ownership, where multiple tensors can own the same
 memory and the memory is only destroyed after all tensors are destroyed that reference this memory. This is usually
 implemented using an atomic (i.e., thread safe) reference counter (see, e.g., std::shared_ptr). However, in the design
-of this library we went for unique ownership to remove may time-costly atomic increments and decrements. If you need
+of this library we went for unique ownership to remove time-costly atomic increments and decrements. If you need
 shared ownership, you could however always use `std::shared_ptr<dl::Tensor>`.
 
 Finally, you may have noticed that arithmetic functions usually come with multiple overloads. For example for `dl::pow`

@@ -36,19 +36,62 @@ namespace dl {
 			return createResult(data / downcast(other).data, requiresGrad() || other->requiresGrad());
 		}
 
+		/**
+		 * @brief Performs "fused multiply and add".
+		 * @details Multiplies this tensor by \p factor and adds \p summand to the result. This specialized function
+		 * exists since some devices (e.g., CUDA and some SIMD instruction sets) provide such a function.
+		 * 
+		 * @param factor the factor to multiply with this tensor.
+		 * @param summand the summand to add to the product of this with \p factor.
+		 * @return the result.
+		 */
+		virtual Tensor fma(const Tensor& factor, const Tensor& summand) const noexcept override {
+			return createResult(
+					xt::fma(data, downcast(factor).data, downcast(summand).data),
+					requiresGrad() || factor->requiresGrad() || summand->requiresGrad()
+			);
+		}
 		virtual Tensor matmul(const Tensor& other) const noexcept override {
-			return createResult(std::move(xt::linalg::dot(data, downcast(other).data)), requiresGrad());
+			return createResult(xt::linalg::dot(data, downcast(other).data), requiresGrad());
+		}
+
+		virtual Tensor transpose(std::vector<size_t>&& perm) const noexcept {
+			// libdl expects the permutation as a cycle (e.g., {0, 1, 3}) but xtensor can get multiple cycles for the
+			// permutation. We convert this here such that the example cycle would be the permutation:
+			// {1, 3, 2, 0}
+			std::vector<size_t> p(numDim(), 0);
+			for (size_t i = 0; i < p.size(); ++i)
+				p[i] = i;
+			auto prev = perm.back();
+			for (auto& i : perm) {
+				p[prev] = i;
+				prev = i;
+			}
+			return createResult(xt::transpose(data, p), requiresGrad());
 		}
 
 		virtual Tensor pow(float exponent) const noexcept override {
-			return createResult(std::move(xt::pow(data, exponent)), requiresGrad());
+			return createResult(xt::pow(data, exponent), requiresGrad());
 		}
 
-		virtual Tensor mean() const noexcept override {
-			return createResult(std::move(xt::mean(data)), requiresGrad());
+		virtual Tensor exp() const noexcept override { return createResult(xt::exp(data), requiresGrad()); }
+		virtual Tensor sqrt() const noexcept override { return createResult(xt::sqrt(data), requiresGrad()); }
+		virtual Tensor rsqrt() const noexcept override { return createResult(1 / xt::sqrt(data), requiresGrad()); }
+
+		virtual Tensor mean() const noexcept override { return createResult(xt::mean(data), requiresGrad()); }
+		virtual Tensor sum() const noexcept override { return createResult(xt::sum(data), requiresGrad()); }
+		virtual Tensor max() const noexcept override { return createResult(xt::amax(data), requiresGrad()); }
+		virtual Tensor min() const noexcept override { return createResult(xt::amin(data), requiresGrad()); }
+		virtual Tensor max(const Tensor& other) const noexcept {
+			return createResult(xt::maximum(data, downcast(other).data), requiresGrad());
 		}
+		virtual Tensor min(const Tensor& other) const noexcept {
+			return createResult(xt::minimum(data, downcast(other).data), requiresGrad());
+		}
+		virtual Tensor var() const noexcept override { return createResult(xt::variance(data), requiresGrad()); }
 
 		virtual void mul_inplace(const Tensor& other) noexcept override { data *= downcast(other).data; }
+		virtual void reshape(std::vector<int> shape) noexcept override { data.reshape(std::move(shape)); }
 
 		virtual Tensor clone() const noexcept override { return Tensor::create<CPUDenseFloatTensor>(*this); }
 

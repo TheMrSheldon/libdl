@@ -7,6 +7,8 @@ add_library(dl STATIC
     devices/cpu.cpp
     learning/observers/earlystopping.cpp
     learning/observers/ncurses.cpp
+    model/model.cpp
+    model/layernorm.cpp
     model/linear.cpp
     model/transformer/transformer.cpp
     model/transformer/wordpiece.cpp
@@ -62,7 +64,7 @@ FetchContent_MakeAvailable(openblas)
 # Dependency of xtensor
 FetchContent_Declare(xblas GIT_REPOSITORY https://github.com/xtensor-stack/xtensor-blas.git GIT_TAG 0.20.0)
 FetchContent_MakeAvailable(xblas)
-target_link_libraries(dl PUBLIC xtensor xsimd xtensor-blas openblas)
+target_link_libraries(dl PRIVATE xtensor xsimd xtensor-blas openblas)
 
 
 # spdlog for logging
@@ -77,7 +79,7 @@ FetchContent_Declare(ryml
     GIT_SHALLOW FALSE  # ensure submodules are checked out
 )
 FetchContent_MakeAvailable(ryml)
-target_link_libraries(dl PUBLIC ryml::ryml)
+target_link_libraries(dl PRIVATE ryml::ryml)
 
 # libcpr
 FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git
@@ -85,9 +87,19 @@ FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git
 FetchContent_MakeAvailable(cpr)
 target_link_libraries(dl PRIVATE cpr::cpr)
 
+# hat-trie (for WordPiece tokenization)
+FetchContent_Declare(hattrie GIT_REPOSITORY https://github.com/Tessil/hat-trie.git GIT_TAG 906e6ab)
+FetchContent_MakeAvailable(hattrie)
+target_link_libraries(dl PRIVATE tsl::hat_trie)
+
 # TODO: make optional since this is only necessary for a pretty UI during training
 # ncurses
 set(CURSES_NEED_NCURSES TRUE)
 find_package(Curses REQUIRED)
 target_link_libraries(dl PRIVATE ${CURSES_LIBRARIES})
 target_include_directories(dl PRIVATE ${CURSES_INCLUDE_DIRS})
+
+# ftxui
+FetchContent_Declare(ftxui GIT_REPOSITORY https://github.com/ArthurSonzogni/FTXUI.git GIT_TAG v5.0.0)
+FetchContent_MakeAvailable(ftxui)
+target_link_libraries(dl PRIVATE ftxui::screen ftxui::component ftxui::dom)

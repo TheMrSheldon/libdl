@@ -1,12 +1,21 @@
 #include <dl/model/transformer/wordpiece.hpp>
 
+#include <tsl/htrie_map.h>
+
 #include <dl/utils/line_iter.hpp>
 
 using dl::WordPieceTokenizer;
 
-WordPieceTokenizer::WordPieceTokenizer(std::vector<std::string>&& pieces) noexcept : wordPieces(pieces) {}
+WordPieceTokenizer::WordPieceTokenizer(std::vector<std::string>&& pieces) noexcept : wordPieces(pieces) {
+	tsl::htrie_map<char, size_t> map;
+	for (size_t i = 0; i < pieces.size(); ++i)
+		map.insert(pieces[i], i);
+}
 
-std::vector<size_t> WordPieceTokenizer::tokenize(const std::string& text) const noexcept {}
+std::vector<size_t> WordPieceTokenizer::tokenize(const std::string& text) const noexcept {
+	/** \todo implement **/
+	return {};
+}
 
 WordPieceTokenizer WordPieceTokenizer::fromWordPieces(StrIter begin, StrIter end) noexcept {
 	std::vector<std::string> pieces;

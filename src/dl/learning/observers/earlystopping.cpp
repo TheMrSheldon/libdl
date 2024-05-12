@@ -1,5 +1,7 @@
 #include <dl/learning/trainer.hpp>
 
+#include <dl/model/model.hpp>
+
 /** \todo implement me **/
 
 using dl::TrainerObserver;
@@ -12,6 +14,7 @@ public:
 public:
 	EarlyStopping(size_t patience, Mode mode = Mode::Min) {}
 
+	virtual void onBeginTraining(const dl::ModelBase& model) override {}
 	virtual void enterTrainingStage(TrainStage stage) override {}
 	virtual void exitTrainingStage() override {}
 	virtual void progressChanged(size_t epoch, size_t total, size_t step) override {}

@@ -3,37 +3,43 @@
 #include "../tensor/tensor.hpp"
 #include "../tensor/tensorimpl.hpp"
 
+#include <format>
+#include <map>
 #include <ranges>
-#include <vector>
 
 namespace dl {
 	class Device;
+
+	class ModelBase {
+	private:
+		std::map<std::string, dl::TensorRef> _parameters;
+
+	protected:
+		void registerParameter(std::string name, Tensor& tensor);
+		void registerParameters(std::string prefix, std::ranges::range auto& tensors) {
+			for (auto&& [key, value] : tensors)
+				_parameters.insert({std::format("{}.{}", prefix, key), value});
+		}
+
+	public:
+		virtual ~ModelBase() = default;
+		size_t numParameters() const noexcept;
+		size_t numTrainableParams() const noexcept;
+		std::map<std::string, dl::TensorRef>& parameters() noexcept { return _parameters; }
+		const std::map<std::string, dl::TensorRef>& parameters() const noexcept { return _parameters; }
+	};
 
 	template <typename>
 	class Model {};
 
 	template <typename R, typename... Args>
-	class Model<R(Args...)> {
+	class Model<R(Args...)> : public virtual ModelBase {
 	public:
 		using signature = R(Args...);
 
-	private:
-		std::vector<dl::TensorRef> _parameters;
-
 	protected:
-		template <typename T>
-		void registerSubmodel(Model<T>& model) {
-			registerParameters(model.parameters());
-		}
-		void registerParameter(Tensor& tensor) {
-			tensor->setRequiresGrad(true);
-			_parameters.push_back(tensor);
-		}
-
-		void registerParameters(std::ranges::range auto& tensors) {
-			for (Tensor& params : tensors)
-				params->setRequiresGrad(true);
-			_parameters.insert(std::end(_parameters), std::begin(tensors), std::begin(tensors));
+		void registerSubmodel(std::string prefix, const ModelBase& model) {
+			registerParameters(prefix, model.parameters());
 		}
 
 		virtual R forward(Args... args) = 0;
@@ -42,9 +48,8 @@ namespace dl {
 		// virtual R forward(Args... args) const = 0;
 
 	public:
+		virtual ~Model() = default;
 		void to(const Device& device) noexcept;
-		std::vector<dl::TensorRef>& parameters() noexcept { return _parameters; }
-		const std::vector<dl::TensorRef>& parameters() const noexcept { return _parameters; }
 
 		R operator()(Args... args) { return this->forward(std::forward<Args>(args)...); }
 		/** \todo For later: these const member functions make sense to indicate that we know at compile time that the

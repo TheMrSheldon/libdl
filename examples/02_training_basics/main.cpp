@@ -17,12 +17,12 @@ private:
 	dl::Linear linear;
 
 public:
-	MyModel() : linear(1, 1, false) { registerSubmodel(linear); }
+	MyModel() : linear(1, 1, false) { registerSubmodel("linear", linear); }
 
 	//Maybe this solves the duplication https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0847r7.html
 	dl::Tensor forward(dl::Tensor&& input) {
 		std::this_thread::sleep_for(std::chrono::milliseconds(1000)); // Simulate doing work
-		return linear(std::move(input));
+		return linear.forward(std::move(input));
 	}
 	// dl::Tensor forward(dl::Tensor& input) const { return linear(input); }
 };
@@ -64,16 +64,17 @@ public:
 
 class GradientDescent : public dl::Optimizer {
 private:
-	const std::vector<dl::TensorRef> parameters;
+	const std::map<std::string, dl::TensorRef> parameters;
 	const float learnrate;
 
 public:
-	explicit GradientDescent(const std::vector<dl::TensorRef>& parameters, float learnrate = 0.001)
+	explicit GradientDescent(const std::map<std::string, dl::TensorRef>& parameters, float learnrate = 0.001)
 			: dl::Optimizer(), parameters(parameters), learnrate(learnrate) {}
 
 	virtual void step(const dl::Tensor& loss) override {
-		for (dl::Tensor& tensor : parameters)
-			tensor->mul_inplace(tensor->grad);
+		/** \todo reintroduce, currently this gives a segmentation fault **/
+		//for (dl::Tensor& tensor : parameters)
+		//	tensor->mul_inplace(tensor->grad);
 	}
 };
 
