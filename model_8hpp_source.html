@@ -172,61 +172,64 @@ $(document).ready(function(){initNavTree('model_8hpp_source.html',''); initResiz
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../tensor/tensor.hpp&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;../tensor/tensorimpl.hpp&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;ranges&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>dl {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">class </span>Device;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt;</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classdl_1_1Model.html">   13</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classdl_1_1Model.html">Model</a> {};</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> R, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html">   16</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classdl_1_1Model.html">Model</a>&lt;R(Args...)&gt; {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">using</span> signature = R(Args...);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;dl::TensorRef&gt;</a> _parameters;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">void</span> registerSubmodel(<a class="code" href="classdl_1_1Model.html">Model&lt;T&gt;</a>&amp; model) {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            registerParameters(model.parameters());</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">void</span> registerParameter(<a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; tensor) {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            tensor-&gt;<a class="code" href="classdl_1_1TensorImpl.html#ae13d3748fa0aaaddffdc86ac5af33f66">setRequiresGrad</a>(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            _parameters.<a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector/push_back.html">push_back</a>(tensor);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">void</span> registerParameters(std::ranges::range <span class="keyword">auto</span>&amp; tensors) {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">for</span> (<a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; params : tensors)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                params-&gt;setRequiresGrad(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            _parameters.<a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector/insert.html">insert</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/iterator/end.html">std::end</a>(_parameters), <a class="codeRef" href="http://en.cppreference.com/w/cpp/iterator/begin.html">std::begin</a>(tensors), <a class="codeRef" href="http://en.cppreference.com/w/cpp/iterator/begin.html">std::begin</a>(tensors));</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">virtual</span> R forward(Args... args) = 0;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">// virtual R forward(Args... args) const = 0;</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html#aab5bb4e3b4d9d93b8126b36e7d7c2ffc">   45</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html#aab5bb4e3b4d9d93b8126b36e7d7c2ffc">to</a>(<span class="keyword">const</span> <a class="code" href="classdl_1_1Device.html">Device</a>&amp; device) noexcept;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;dl::TensorRef&gt;</a>&amp; parameters() noexcept { <span class="keywordflow">return</span> _parameters; }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;dl::TensorRef&gt;</a>&amp; parameters() const noexcept { <span class="keywordflow">return</span> _parameters; }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        R operator()(Args... args) { <span class="keywordflow">return</span> this-&gt;forward(std::forward&lt;Args&gt;(args)...); }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="comment">// R operator()(Args... args) const { return this-&gt;forward(std::forward&lt;Args&gt;(args)...); }</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    };</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;} <span class="comment">// namespace dl</span></div>
-<div class="ttc" id="abegin_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/iterator/begin.html">std::begin</a></div><div class="ttdeci">T begin(T... args)</div></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;format&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;ranges&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span>dl {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">class </span>Device;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classdl_1_1ModelBase.html">   13</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classdl_1_1ModelBase.html">ModelBase</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/map.html">std::map&lt;std::string, dl::TensorRef&gt;</a> _parameters;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordtype">void</span> registerParameter(<a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> name, <a class="code" href="classdl_1_1Tensor.html">Tensor</a>&amp; tensor);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">void</span> registerParameters(<a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> prefix, std::ranges::range <span class="keyword">auto</span>&amp; tensors) {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; [key, value] : tensors)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                _parameters.<a class="codeRef" href="http://en.cppreference.com/w/cpp/container/map/insert.html">insert</a>({std::format(<span class="stringliteral">&quot;{}.{}&quot;</span>, prefix, key), value});</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        }</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classdl_1_1ModelBase.html">ModelBase</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">size_t</span> numParameters() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">size_t</span> numTrainableParams() <span class="keyword">const</span> noexcept;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/map.html">std::map&lt;std::string, dl::TensorRef&gt;</a>&amp; parameters() noexcept { <span class="keywordflow">return</span> _parameters; }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/map.html">std::map&lt;std::string, dl::TensorRef&gt;</a>&amp; parameters() <span class="keyword">const</span> noexcept { <span class="keywordflow">return</span> _parameters; }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    };</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classdl_1_1Model.html">   33</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classdl_1_1Model.html">Model</a> {};</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> R, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html">   36</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classdl_1_1Model.html">Model</a>&lt;R(Args...)&gt; : <span class="keyword">public</span> <span class="keyword">virtual</span> <a class="code" href="classdl_1_1ModelBase.html">ModelBase</a> {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">using</span> signature = R(Args...);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordtype">void</span> registerSubmodel(<a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> prefix, <span class="keyword">const</span> <a class="code" href="classdl_1_1ModelBase.html">ModelBase</a>&amp; model) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            registerParameters(prefix, model.parameters());</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">virtual</span> R forward(Args... args) = 0;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">// virtual R forward(Args... args) const = 0;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html#a9eb6518989b89f9f9873745a5ad42a78">   51</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html#a9eb6518989b89f9f9873745a5ad42a78">~Model</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">void</span> to(<span class="keyword">const</span> <a class="code" href="classdl_1_1Device.html">Device</a>&amp; device) noexcept;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        R operator()(Args... args) { <span class="keywordflow">return</span> this-&gt;forward(std::forward&lt;Args&gt;(args)...); }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="comment">// R operator()(Args... args) const { return this-&gt;forward(std::forward&lt;Args&gt;(args)...); }</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    };</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;} <span class="comment">// namespace dl</span></div>
+<div class="ttc" id="abasic_string_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a></div></div>
 <div class="ttc" id="aclassdl_1_1Device_html"><div class="ttname"><a href="classdl_1_1Device.html">dl::Device</a></div><div class="ttdef"><b>Definition:</b> <a href="device_8hpp_source.html#l00008">device.hpp:8</a></div></div>
-<div class="ttc" id="aclassdl_1_1Model_3_01R_07Args_8_8_8_08_4_html_aab5bb4e3b4d9d93b8126b36e7d7c2ffc"><div class="ttname"><a href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html#aab5bb4e3b4d9d93b8126b36e7d7c2ffc">dl::Model&lt; R(Args...)&gt;::to</a></div><div class="ttdeci">void to(const Device &amp;device) noexcept</div></div>
-<div class="ttc" id="aclassdl_1_1Model_html"><div class="ttname"><a href="classdl_1_1Model.html">dl::Model</a></div><div class="ttdef"><b>Definition:</b> <a href="model_8hpp_source.html#l00013">model.hpp:13</a></div></div>
-<div class="ttc" id="aclassdl_1_1TensorImpl_html_ae13d3748fa0aaaddffdc86ac5af33f66"><div class="ttname"><a href="classdl_1_1TensorImpl.html#ae13d3748fa0aaaddffdc86ac5af33f66">dl::TensorImpl::setRequiresGrad</a></div><div class="ttdeci">void setRequiresGrad(bool requiresGrad) noexcept</div><div class="ttdoc">Set this tensors requirements for a gradient.</div></div>
+<div class="ttc" id="aclassdl_1_1ModelBase_html"><div class="ttname"><a href="classdl_1_1ModelBase.html">dl::ModelBase</a></div><div class="ttdef"><b>Definition:</b> <a href="model_8hpp_source.html#l00013">model.hpp:13</a></div></div>
+<div class="ttc" id="aclassdl_1_1Model_3_01R_07Args_8_8_8_08_4_html_a9eb6518989b89f9f9873745a5ad42a78"><div class="ttname"><a href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html#a9eb6518989b89f9f9873745a5ad42a78">dl::Model&lt; R(Args...)&gt;::~Model</a></div><div class="ttdeci">virtual ~Model()=default</div></div>
+<div class="ttc" id="aclassdl_1_1Model_html"><div class="ttname"><a href="classdl_1_1Model.html">dl::Model</a></div><div class="ttdef"><b>Definition:</b> <a href="model_8hpp_source.html#l00033">model.hpp:33</a></div></div>
 <div class="ttc" id="aclassdl_1_1Tensor_html"><div class="ttname"><a href="classdl_1_1Tensor.html">dl::Tensor</a></div><div class="ttdoc">The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...</div><div class="ttdef"><b>Definition:</b> <a href="tensor_8hpp_source.html#l00017">tensor.hpp:17</a></div></div>
-<div class="ttc" id="aend_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/iterator/end.html">std::end</a></div><div class="ttdeci">T end(T... args)</div></div>
-<div class="ttc" id="ainsert_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/vector/insert.html">std::vector::insert</a></div><div class="ttdeci">T insert(T... args)</div></div>
-<div class="ttc" id="apush_back_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/vector/push_back.html">std::vector::push_back</a></div><div class="ttdeci">T push_back(T... args)</div></div>
-<div class="ttc" id="avector_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a></div></div>
+<div class="ttc" id="ainsert_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/map/insert.html">std::map::insert</a></div><div class="ttdeci">T insert(T... args)</div></div>
+<div class="ttc" id="amap_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/map.html">std::map</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

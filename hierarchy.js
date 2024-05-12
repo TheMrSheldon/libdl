@@ -24,14 +24,19 @@ var hierarchy =
     ] ],
     [ "dl::utils::LineIterator", "structdl_1_1utils_1_1LineIterator.html", null ],
     [ "dl::Model< typename >", "classdl_1_1Model.html", null ],
-    [ "dl::Model< R(Args...)>", "classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html", null ],
     [ "dl::Model< Tensor(Tensor &&)>", "classdl_1_1Model.html", [
+      [ "dl::LayerNorm", "classdl_1_1LayerNorm.html", null ],
       [ "dl::Linear", "classdl_1_1Linear.html", null ]
     ] ],
     [ "dl::Model< Tensor(Tensor &)>", "classdl_1_1Model.html", [
-      [ "dl::Transformer", "classdl_1_1Transformer.html", null ]
+      [ "dl::LayerNorm", "classdl_1_1LayerNorm.html", null ],
+      [ "dl::Linear", "classdl_1_1Linear.html", null ],
+      [ "dl::Transformer", "classdl_1_1Transformer.html", null ],
+      [ "dl::TransformerEncoder", "classdl_1_1TransformerEncoder.html", null ]
     ] ],
-    [ "dl::Model< Tensor(Tensor, Tensor, Tensor)>", "classdl_1_1Model.html", null ],
+    [ "dl::ModelBase", "classdl_1_1ModelBase.html", [
+      [ "dl::Model< R(Args...)>", "classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html", null ]
+    ] ],
     [ "dl::Optimizer", "classdl_1_1Optimizer.html", null ],
     [ "ir::Query", "structir_1_1Query.html", null ],
     [ "dl::utils::ScopeGuard", "classdl_1_1utils_1_1ScopeGuard.html", null ],
@@ -46,5 +51,6 @@ var hierarchy =
     [ "dl::Trainer< typename >", "classdl_1_1Trainer.html", null ],
     [ "dl::Trainer< R(Args...)>", "classdl_1_1Trainer_3_01R_07Args_8_8_8_08_4.html", null ],
     [ "dl::TrainerObserver", "classdl_1_1TrainerObserver.html", null ],
+    [ "dl::TransformerConf", "structdl_1_1TransformerConf.html", null ],
     [ "dl::WordPieceTokenizer", "classdl_1_1WordPieceTokenizer.html", null ]
 ];

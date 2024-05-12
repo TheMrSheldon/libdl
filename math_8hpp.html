@@ -174,14 +174,16 @@ $(document).ready(function(){initNavTree('math_8hpp.html',''); initResizable(); 
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;tensor.hpp&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for math.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="math_8hpp__incl.png" border="0" usemap="#adl_2tensor_2math_8hpp" alt=""/></div>
 <map name="adl_2tensor_2math_8hpp" id="adl_2tensor_2math_8hpp">
-<area shape="rect" title="Implements auto&#45;diff enabled wrappers around their concrete tensor implementations." alt="" coords="153,5,298,32"/>
+<area shape="rect" title="Implements auto&#45;diff enabled wrappers around their concrete tensor implementations." alt="" coords="207,5,353,32"/>
 <area shape="rect" href="tensor_8hpp_source.html" title=" " alt="" coords="125,80,216,107"/>
 <area shape="rect" title=" " alt="" coords="240,80,320,107"/>
+<area shape="rect" title=" " alt="" coords="345,80,407,107"/>
 <area shape="rect" title=" " alt="" coords="5,155,184,196"/>
 <area shape="rect" title=" " alt="" coords="208,162,285,189"/>
 </map>
@@ -207,6 +209,21 @@ Functions</h2></td></tr>
 <tr class="memitem:a019724a6621d9ab7048e2f7c51b2bc5a"><td class="memItemLeft" align="right" valign="top">Tensor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="math_8hpp.html#a019724a6621d9ab7048e2f7c51b2bc5a">dl::pow</a> (const Tensor &amp;base, float exponent) noexcept</td></tr>
 <tr class="memdesc:a019724a6621d9ab7048e2f7c51b2bc5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the <code>exponent</code> -th power of each element in <code>base</code> and returns the resulting tensor.  <a href="math_8hpp.html#a019724a6621d9ab7048e2f7c51b2bc5a">More...</a><br /></td></tr>
 <tr class="separator:a019724a6621d9ab7048e2f7c51b2bc5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1c5ade4d846a8baaad91ef3f1b4341b"><td class="memItemLeft" align="right" valign="top"><a id="aa1c5ade4d846a8baaad91ef3f1b4341b"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::exp</b> (Tensor &amp;base) noexcept</td></tr>
+<tr class="separator:aa1c5ade4d846a8baaad91ef3f1b4341b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade950ceefc5dc4f42872e5c0b0219c19"><td class="memItemLeft" align="right" valign="top"><a id="ade950ceefc5dc4f42872e5c0b0219c19"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::exp</b> (Tensor &amp;&amp;base) noexcept</td></tr>
+<tr class="separator:ade950ceefc5dc4f42872e5c0b0219c19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27448c1b95333bc582ada4e5932feceb"><td class="memItemLeft" align="right" valign="top"><a id="a27448c1b95333bc582ada4e5932feceb"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::exp</b> (const Tensor &amp;base) noexcept</td></tr>
+<tr class="separator:a27448c1b95333bc582ada4e5932feceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8f8f539026b62f4a1cd8dce1d895425"><td class="memItemLeft" align="right" valign="top"><a id="ac8f8f539026b62f4a1cd8dce1d895425"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::sqrt</b> (const Tensor &amp;x) noexcept</td></tr>
+<tr class="separator:ac8f8f539026b62f4a1cd8dce1d895425"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27ee4046ea187b346f1d56edcb1fd1e9"><td class="memItemLeft" align="right" valign="top">Tensor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="math_8hpp.html#a27ee4046ea187b346f1d56edcb1fd1e9">dl::rsqrt</a> (const Tensor &amp;x) noexcept</td></tr>
+<tr class="memdesc:a27ee4046ea187b346f1d56edcb1fd1e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the reciprocal square root for each element in <code>x</code>.  <a href="math_8hpp.html#a27ee4046ea187b346f1d56edcb1fd1e9">More...</a><br /></td></tr>
+<tr class="separator:a27ee4046ea187b346f1d56edcb1fd1e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5334a615d03b818435339ec6156a246d"><td class="memItemLeft" align="right" valign="top"><a id="a5334a615d03b818435339ec6156a246d"></a>
 Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::mean</b> (Tensor &amp;x) noexcept</td></tr>
 <tr class="separator:a5334a615d03b818435339ec6156a246d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -216,30 +233,75 @@ Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::mean</b> (Tenso
 <tr class="memitem:a16a6b1358b6c7941ac60de5b5b926702"><td class="memItemLeft" align="right" valign="top"><a id="a16a6b1358b6c7941ac60de5b5b926702"></a>
 Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::sum</b> (Tensor &amp;x) noexcept</td></tr>
 <tr class="separator:a16a6b1358b6c7941ac60de5b5b926702"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3cd5f3b7bc63d67c8f4df9a29dad963"><td class="memItemLeft" align="right" valign="top"><a id="aa3cd5f3b7bc63d67c8f4df9a29dad963"></a>
-Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::min</b> (Tensor &amp;x, float bound) noexcept</td></tr>
-<tr class="separator:aa3cd5f3b7bc63d67c8f4df9a29dad963"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab06ed920ebde17c9e70af0f95e945ab0"><td class="memItemLeft" align="right" valign="top"><a id="ab06ed920ebde17c9e70af0f95e945ab0"></a>
-Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::max</b> (Tensor &amp;x, float bound) noexcept</td></tr>
-<tr class="separator:ab06ed920ebde17c9e70af0f95e945ab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a347a19074c16b69694a8f6b7087ee56b"><td class="memItemLeft" align="right" valign="top"><a id="a347a19074c16b69694a8f6b7087ee56b"></a>
-Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::relu</b> (Tensor &amp;x) noexcept</td></tr>
-<tr class="separator:a347a19074c16b69694a8f6b7087ee56b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02ad8a5fcb72f1dd12d02af85d247eda"><td class="memItemLeft" align="right" valign="top"><a id="a02ad8a5fcb72f1dd12d02af85d247eda"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::sum</b> (Tensor &amp;&amp;x) noexcept</td></tr>
+<tr class="separator:a02ad8a5fcb72f1dd12d02af85d247eda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9916d59a9d8e49b3df8b7b3952a03b2f"><td class="memItemLeft" align="right" valign="top"><a id="a9916d59a9d8e49b3df8b7b3952a03b2f"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::sum</b> (const Tensor &amp;x) noexcept</td></tr>
+<tr class="separator:a9916d59a9d8e49b3df8b7b3952a03b2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcad1cfd605cf32c8aac8b847dedbc43"><td class="memItemLeft" align="right" valign="top"><a id="afcad1cfd605cf32c8aac8b847dedbc43"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::min</b> (Tensor &amp;x) noexcept</td></tr>
+<tr class="separator:afcad1cfd605cf32c8aac8b847dedbc43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a428c2a2f29bd46c9960787a8f836256c"><td class="memItemLeft" align="right" valign="top"><a id="a428c2a2f29bd46c9960787a8f836256c"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::min</b> (Tensor &amp;&amp;x) noexcept</td></tr>
+<tr class="separator:a428c2a2f29bd46c9960787a8f836256c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7e70c6ecc21e1b436eac54fb02379b0"><td class="memItemLeft" align="right" valign="top"><a id="ac7e70c6ecc21e1b436eac54fb02379b0"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::min</b> (const Tensor &amp;x) noexcept</td></tr>
+<tr class="separator:ac7e70c6ecc21e1b436eac54fb02379b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9feead0a78f30309fb94249968dc3611"><td class="memItemLeft" align="right" valign="top"><a id="a9feead0a78f30309fb94249968dc3611"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::max</b> (Tensor &amp;x) noexcept</td></tr>
+<tr class="separator:a9feead0a78f30309fb94249968dc3611"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af49b6f7292b5fc0057ae644388db1bd3"><td class="memItemLeft" align="right" valign="top"><a id="af49b6f7292b5fc0057ae644388db1bd3"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::max</b> (Tensor &amp;&amp;x) noexcept</td></tr>
+<tr class="separator:af49b6f7292b5fc0057ae644388db1bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abef72c04c15d513f72dab4e29929f0a8"><td class="memItemLeft" align="right" valign="top"><a id="abef72c04c15d513f72dab4e29929f0a8"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::max</b> (const Tensor &amp;x) noexcept</td></tr>
+<tr class="separator:abef72c04c15d513f72dab4e29929f0a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4002ff8e4d6613b698533d3415cb118a"><td class="memItemLeft" align="right" valign="top"><a id="a4002ff8e4d6613b698533d3415cb118a"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::max</b> (const Tensor &amp;x, const Tensor &amp;y) noexcept</td></tr>
+<tr class="separator:a4002ff8e4d6613b698533d3415cb118a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24d4be9aa5651dcd024db751d5e08af7"><td class="memItemLeft" align="right" valign="top"><a id="a24d4be9aa5651dcd024db751d5e08af7"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::var</b> (const Tensor &amp;x) noexcept</td></tr>
+<tr class="separator:a24d4be9aa5651dcd024db751d5e08af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90a43dc68db10931effbd2b5b523e19b"><td class="memItemLeft" align="right" valign="top"><a id="a90a43dc68db10931effbd2b5b523e19b"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::relu</b> (Tensor &amp;&amp;x) noexcept</td></tr>
+<tr class="separator:a90a43dc68db10931effbd2b5b523e19b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2946c65be137330aec7d3ef2101ab6c1"><td class="memItemLeft" align="right" valign="top"><a id="a2946c65be137330aec7d3ef2101ab6c1"></a>
 Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator+</b> (Tensor &amp;left, Tensor &amp;right) noexcept</td></tr>
 <tr class="separator:a2946c65be137330aec7d3ef2101ab6c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc9965066a0ce794d580c39f19ccc204"><td class="memItemLeft" align="right" valign="top"><a id="afc9965066a0ce794d580c39f19ccc204"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator+</b> (Tensor &amp;&amp;left, Tensor &amp;right) noexcept</td></tr>
+<tr class="separator:afc9965066a0ce794d580c39f19ccc204"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ee032dc9359a24f1a283cdcfa34c2cc"><td class="memItemLeft" align="right" valign="top"><a id="a2ee032dc9359a24f1a283cdcfa34c2cc"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator+</b> (Tensor &amp;&amp;left, Tensor &amp;&amp;right) noexcept</td></tr>
+<tr class="separator:a2ee032dc9359a24f1a283cdcfa34c2cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56cfa834f84a76c824fc48d401bf80b6"><td class="memItemLeft" align="right" valign="top"><a id="a56cfa834f84a76c824fc48d401bf80b6"></a>
 Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator-</b> (Tensor &amp;left, Tensor &amp;right) noexcept</td></tr>
 <tr class="separator:a56cfa834f84a76c824fc48d401bf80b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c303fca1df61e3b0afcc28a1a0fc9c8"><td class="memItemLeft" align="right" valign="top"><a id="a7c303fca1df61e3b0afcc28a1a0fc9c8"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator-</b> (Tensor &amp;left, Tensor &amp;&amp;right) noexcept</td></tr>
+<tr class="separator:a7c303fca1df61e3b0afcc28a1a0fc9c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99f5f150f9b903888ddb503c9b740433"><td class="memItemLeft" align="right" valign="top"><a id="a99f5f150f9b903888ddb503c9b740433"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator-</b> (Tensor &amp;&amp;left, Tensor &amp;&amp;right) noexcept</td></tr>
+<tr class="separator:a99f5f150f9b903888ddb503c9b740433"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f56db6216d05169e9f4234b46e7d5b1"><td class="memItemLeft" align="right" valign="top"><a id="a6f56db6216d05169e9f4234b46e7d5b1"></a>
 Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator*</b> (Tensor &amp;left, Tensor &amp;right) noexcept</td></tr>
 <tr class="separator:a6f56db6216d05169e9f4234b46e7d5b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fecfc9acc504d9980d0d5822515da37"><td class="memItemLeft" align="right" valign="top"><a id="a9fecfc9acc504d9980d0d5822515da37"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator*</b> (Tensor &amp;&amp;left, Tensor &amp;right) noexcept</td></tr>
+<tr class="separator:a9fecfc9acc504d9980d0d5822515da37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a355df4e9f529e7ca17b7155a19379a99"><td class="memItemLeft" align="right" valign="top"><a id="a355df4e9f529e7ca17b7155a19379a99"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator*</b> (Tensor &amp;&amp;left, Tensor &amp;&amp;right) noexcept</td></tr>
+<tr class="separator:a355df4e9f529e7ca17b7155a19379a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53d54f8f49d72716de32d49b1d125788"><td class="memItemLeft" align="right" valign="top"><a id="a53d54f8f49d72716de32d49b1d125788"></a>
 Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator/</b> (Tensor &amp;left, Tensor &amp;right) noexcept</td></tr>
 <tr class="separator:a53d54f8f49d72716de32d49b1d125788"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7517613ba1a1e6739aabfbd7b418656d"><td class="memItemLeft" align="right" valign="top"><a id="a7517613ba1a1e6739aabfbd7b418656d"></a>
 Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator/</b> (Tensor &amp;left, Tensor right) noexcept</td></tr>
 <tr class="separator:a7517613ba1a1e6739aabfbd7b418656d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5db76542bd6d0234b9bdb4f8bd34805f"><td class="memItemLeft" align="right" valign="top"><a id="a5db76542bd6d0234b9bdb4f8bd34805f"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::fma</b> (const Tensor &amp;factor1, const Tensor &amp;factor2, const Tensor &amp;summand) noexcept</td></tr>
+<tr class="separator:a5db76542bd6d0234b9bdb4f8bd34805f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15a4f16262e8ae3e8b8b1c34cb56a6d5"><td class="memItemLeft" align="right" valign="top"><a id="a15a4f16262e8ae3e8b8b1c34cb56a6d5"></a>
 Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::matmul</b> (Tensor &amp;left, Tensor &amp;right) noexcept</td></tr>
 <tr class="separator:a15a4f16262e8ae3e8b8b1c34cb56a6d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -252,21 +314,69 @@ Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::matmul</b> (Ten
 <tr class="memitem:a400918ed19d4f9d8e4eef36a7cdc3a88"><td class="memItemLeft" align="right" valign="top"><a id="a400918ed19d4f9d8e4eef36a7cdc3a88"></a>
 Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::matmul</b> (Tensor &amp;&amp;left, Tensor &amp;&amp;right) noexcept</td></tr>
 <tr class="separator:a400918ed19d4f9d8e4eef36a7cdc3a88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1bd26d87ea6c8832924e8b70d915207"><td class="memItemLeft" align="right" valign="top"><a id="ad1bd26d87ea6c8832924e8b70d915207"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::matmul</b> (const Tensor &amp;left, const Tensor &amp;right) noexcept</td></tr>
+<tr class="separator:ad1bd26d87ea6c8832924e8b70d915207"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b86f7ce89e661d48cab72188a79c634"><td class="memItemLeft" align="right" valign="top">Tensor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="math_8hpp.html#a8b86f7ce89e661d48cab72188a79c634">dl::transpose</a> (Tensor &amp;&amp;x, <a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt; int &gt; &amp;&amp;permutation) noexcept</td></tr>
+<tr class="memdesc:a8b86f7ce89e661d48cab72188a79c634"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposes the given tensor at the specified coordinates.  <a href="math_8hpp.html#a8b86f7ce89e661d48cab72188a79c634">More...</a><br /></td></tr>
+<tr class="separator:a8b86f7ce89e661d48cab72188a79c634"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a57cdcf8827126ebc702a8428a07e83"><td class="memItemLeft" align="right" valign="top">Tensor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="math_8hpp.html#a6a57cdcf8827126ebc702a8428a07e83">dl::softmax</a> (Tensor &amp;&amp;x) noexcept</td></tr>
 <tr class="memdesc:a6a57cdcf8827126ebc702a8428a07e83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the softmax function of the input vector.  <a href="math_8hpp.html#a6a57cdcf8827126ebc702a8428a07e83">More...</a><br /></td></tr>
 <tr class="separator:a6a57cdcf8827126ebc702a8428a07e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9ba2c92b9614395aa13a9bc2cbdad69"><td class="memItemLeft" align="right" valign="top"><a id="ad9ba2c92b9614395aa13a9bc2cbdad69"></a>
+Tensor&#160;</td><td class="memItemRight" valign="bottom"><b>dl::softmax</b> (const Tensor &amp;x) noexcept</td></tr>
+<tr class="separator:ad9ba2c92b9614395aa13a9bc2cbdad69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0adee756775f4801c5eccdc6739bf94"><td class="memItemLeft" align="right" valign="top"><a id="ad0adee756775f4801c5eccdc6739bf94"></a>
 <a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator&lt;&lt;</b> (<a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a> &amp;, const Tensor &amp;tensor) noexcept</td></tr>
 <tr class="separator:ad0adee756775f4801c5eccdc6739bf94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd48451b061f3d5674b60e475d84c161"><td class="memItemLeft" align="right" valign="top"><a id="afd48451b061f3d5674b60e475d84c161"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator==</b> (const Tensor &amp;left, const Tensor &amp;right) noexcept</td></tr>
 <tr class="separator:afd48451b061f3d5674b60e475d84c161"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9d6f68f0c5bbf3152f37f6f0cd3233d"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="math_8hpp.html#aa9d6f68f0c5bbf3152f37f6f0cd3233d">dl::numEntries</a> (const Tensor &amp;tensor) noexcept</td></tr>
+<tr class="memdesc:aa9d6f68f0c5bbf3152f37f6f0cd3233d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of entries in the tensor.  <a href="math_8hpp.html#aa9d6f68f0c5bbf3152f37f6f0cd3233d">More...</a><br /></td></tr>
+<tr class="separator:aa9d6f68f0c5bbf3152f37f6f0cd3233d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements auto-diff enabled wrappers around their concrete tensor implementations. </p>
 
 <p class="definition">Definition in file <a class="el" href="math_8hpp_source.html">math.hpp</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="aa9d6f68f0c5bbf3152f37f6f0cd3233d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9d6f68f0c5bbf3152f37f6f0cd3233d">&#9670;&nbsp;</a></span>numEntries()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t dl::numEntries </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;&#160;</td>
+          <td class="paramname"><em>tensor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the number of entries in the tensor. </p>
+<p>This is equivalent to the product of the shape.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tensor</td><td>The tensor to count the number of entries for. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>size_t The number of entries in <code>tensor</code>. </dd></dl>
+
+</div>
+</div>
 <a id="a019724a6621d9ab7048e2f7c51b2bc5a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a019724a6621d9ab7048e2f7c51b2bc5a">&#9670;&nbsp;</a></span>pow() <span class="overload">[1/3]</span></h2>
 
@@ -424,6 +534,41 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator==</b> (c
 
 </div>
 </div>
+<a id="a27ee4046ea187b346f1d56edcb1fd1e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27ee4046ea187b346f1d56edcb1fd1e9">&#9670;&nbsp;</a></span>rsqrt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Tensor dl::rsqrt </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Computes the reciprocal square root for each element in <code>x</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
 <a id="a6a57cdcf8827126ebc702a8428a07e83"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6a57cdcf8827126ebc702a8428a07e83">&#9670;&nbsp;</a></span>softmax()</h2>
 
@@ -459,6 +604,53 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>dl::operator==</b> (c
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Tensor the softmax of <code>x</code> . </dd></dl>
+
+</div>
+</div>
+<a id="a8b86f7ce89e661d48cab72188a79c634"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b86f7ce89e661d48cab72188a79c634">&#9670;&nbsp;</a></span>transpose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Tensor dl::transpose </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt; int &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>permutation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transposes the given tensor at the specified coordinates. </p>
+<p>Transposes the given tensor by permuting the dimensions. For example, if the input was a matrix, then \f(x \in \mathbb{R}^n\times m\f) the matrix transposition could be computed via <code>dl::transpose(x, {0, 1});</code>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>the tensor to be tranposed. </td></tr>
+    <tr><td class="paramname">permutation</td><td>the permutation to apply to the dimensions. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a new tensor with the permutation <code>permutation</code> applied to the dimensions. </dd></dl>
 
 </div>
 </div>

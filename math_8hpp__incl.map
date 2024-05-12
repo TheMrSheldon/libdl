@@ -1,7 +1,8 @@
 <map id="dl/tensor/math.hpp" name="dl/tensor/math.hpp">
-<area shape="rect" id="node1" title="Implements auto&#45;diff enabled wrappers around their concrete tensor implementations." alt="" coords="153,5,298,32"/>
+<area shape="rect" id="node1" title="Implements auto&#45;diff enabled wrappers around their concrete tensor implementations." alt="" coords="207,5,353,32"/>
 <area shape="rect" id="node2" href="$tensor_8hpp_source.html" title=" " alt="" coords="125,80,216,107"/>
 <area shape="rect" id="node5" title=" " alt="" coords="240,80,320,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="345,80,407,107"/>
 <area shape="rect" id="node3" title=" " alt="" coords="5,155,184,196"/>
 <area shape="rect" id="node4" title=" " alt="" coords="208,162,285,189"/>
 </map>

@@ -1,0 +1,5 @@
+<map id="dl::LayerNorm" name="dl::LayerNorm">
+<area shape="rect" id="node1" title="Implements layer normalization as proposed by ." alt="" coords="184,80,299,107"/>
+<area shape="rect" id="node2" href="$classdl_1_1Model.html" title=" " alt="" coords="5,5,232,32"/>
+<area shape="rect" id="node3" href="$classdl_1_1Model.html" title=" " alt="" coords="256,5,472,32"/>
+</map>
