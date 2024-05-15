@@ -1,8 +1,9 @@
 #pragma once
 
+#include "math.hpp"
 #include "shape.hpp"
-#include "tensor.hpp"
 
+#include <any>
 #include <functional>
 #include <iostream>
 
@@ -19,7 +20,6 @@ namespace dl {
 	public:
 		GradFn gradfn = nullptr;
 		Tensor grad = nullptr;
-		/** \todo add retain graph option **/
 
 	protected:
 		TensorImpl(Device const& device, bool requiresGrad) noexcept;
@@ -66,6 +66,9 @@ namespace dl {
 		}
 
 		virtual std::ostream& writeToStream(std::ostream& stream) const noexcept = 0;
+		virtual bool operator==(const Tensor& other) const noexcept = 0;
+		virtual bool allclose(const Tensor& other, float rtol = 1e-5, float atol = 1e-8) const noexcept = 0;
+
 		virtual Tensor add(const Tensor& other) const noexcept = 0;
 		virtual Tensor sub(const Tensor& other) const noexcept = 0;
 		virtual Tensor mul(const Tensor& other) const noexcept = 0;
@@ -92,10 +95,11 @@ namespace dl {
 
 		// Statistical functions:
 		virtual Tensor mean() const noexcept = 0;
+		virtual Tensor mean(size_t dim) const noexcept = 0;
 		virtual Tensor sum() const noexcept = 0;
-		virtual Tensor max() const noexcept = 0;
+		virtual Tensor sum(size_t dim) const noexcept = 0;
 		virtual Tensor min() const noexcept = 0;
-		virtual Tensor max(const Tensor& other) const noexcept = 0;
+		virtual Tensor min(size_t dim) const noexcept = 0;
 		/**
 		 * @brief Computes the element-wise minimum between this tensor and the other.
 		 * 
@@ -103,7 +107,11 @@ namespace dl {
 		 * @return Tensor 
 		 */
 		virtual Tensor min(const Tensor& other) const noexcept = 0;
-		virtual Tensor var() const noexcept = 0;
+		virtual Tensor max() const noexcept = 0;
+		virtual Tensor max(size_t dim) const noexcept = 0;
+		virtual Tensor max(const Tensor& other) const noexcept = 0;
+		virtual Tensor var(DOF dof) const noexcept = 0;
+		virtual Tensor var(size_t dim, DOF dof) const noexcept = 0;
 
 		virtual void mul_inplace(const Tensor& other) noexcept = 0;
 		/**

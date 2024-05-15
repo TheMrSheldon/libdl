@@ -104,7 +104,7 @@ int main(int argc, char* argv[]) {
 	// Unfortunately, initializer lists copy and std::unique_ptr can (of course) not be copied :(
 	std::vector<std::unique_ptr<dl::TrainerObserver>> observers;
 	observers.emplace_back(dl::observers::earlyStopping(3));
-	observers.emplace_back(dl::observers::ncursesUI());
+	observers.emplace_back(dl::observers::consoleUI());
 	Trainer trainer(Trainer::Settings{
 			.createDataset = [] { return std::make_unique<MyDataset>(); },
 			.loss = dl::loss::mse,

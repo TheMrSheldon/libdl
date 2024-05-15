@@ -8,7 +8,7 @@ using dl::Tensor;
 
 Linear::Linear(size_t inFeatures, size_t outFeatures, const Device& device, bool bias) noexcept
 		: weights(dl::empty({inFeatures, outFeatures}, device)),
-		  bias(bias ? dl::empty({outFeatures}, device) : dl::zero({outFeatures}, device)) {
+		  bias(bias ? dl::empty({outFeatures}, device) : dl::zeros({outFeatures}, device)) {
 	registerParameter("weight", weights);
 	if (bias)
 		registerParameter("bias", this->bias);

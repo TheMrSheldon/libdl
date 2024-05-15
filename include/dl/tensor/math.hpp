@@ -74,24 +74,50 @@ namespace dl {
 
 	[[nodiscard]] Tensor mean(Tensor& x) noexcept;
 	[[nodiscard]] Tensor mean(Tensor&& x) noexcept;
+	[[nodiscard]] Tensor mean(const Tensor& x) noexcept;
+
+	[[nodiscard]] Tensor mean(Tensor& x, size_t dim) noexcept;
+	[[nodiscard]] Tensor mean(Tensor&& x, size_t dim) noexcept;
+	[[nodiscard]] Tensor mean(const Tensor& x, size_t dim) noexcept;
 
 	[[nodiscard]] Tensor sum(Tensor& x) noexcept;
 	[[nodiscard]] Tensor sum(Tensor&& x) noexcept;
 	[[nodiscard]] Tensor sum(const Tensor& x) noexcept;
 
+	[[nodiscard]] Tensor sum(Tensor& x, size_t dim) noexcept;
+	[[nodiscard]] Tensor sum(Tensor&& x, size_t dim) noexcept;
+	[[nodiscard]] Tensor sum(const Tensor& x, size_t dim) noexcept;
+
 	[[nodiscard]] Tensor min(Tensor& x) noexcept;
 	[[nodiscard]] Tensor min(Tensor&& x) noexcept;
 	[[nodiscard]] Tensor min(const Tensor& x) noexcept;
+
+	[[nodiscard]] Tensor min(Tensor& x, size_t dim) noexcept;
+	[[nodiscard]] Tensor min(Tensor&& x, size_t dim) noexcept;
+	[[nodiscard]] Tensor min(const Tensor& x, size_t dim) noexcept;
 
 	[[nodiscard]] Tensor max(Tensor& x) noexcept;
 	[[nodiscard]] Tensor max(Tensor&& x) noexcept;
 	[[nodiscard]] Tensor max(const Tensor& x) noexcept;
 
+	[[nodiscard]] Tensor max(const Tensor& x, size_t dim) noexcept;
+
 	[[nodiscard]] Tensor max(const Tensor& x, const Tensor& y) noexcept;
 
-	[[nodiscard]] Tensor var(const Tensor& x) noexcept;
+	/**
+	 * @brief Wrapper around std::size_t to discern between var(const Tensor&, DOF) and var(const Tensor&, size_t).
+	 */
+	struct DOF {
+		size_t dof;
+	};
 
+	[[nodiscard]] Tensor var(const Tensor& x, DOF dof = DOF{1}) noexcept;
+
+	[[nodiscard]] Tensor var(const Tensor& x, size_t dim, DOF dof = DOF{1}) noexcept;
+
+	[[nodiscard]] Tensor relu(Tensor& x) noexcept;
 	[[nodiscard]] Tensor relu(Tensor&& x) noexcept;
+	[[nodiscard]] Tensor relu(const Tensor& x) noexcept;
 
 	[[nodiscard]] Tensor operator+(Tensor& left, Tensor& right) noexcept;
 	[[nodiscard]] Tensor operator+(Tensor&& left, Tensor& right) noexcept;
@@ -99,11 +125,13 @@ namespace dl {
 	[[nodiscard]] Tensor operator-(Tensor& left, Tensor& right) noexcept;
 	[[nodiscard]] Tensor operator-(Tensor& left, Tensor&& right) noexcept;
 	[[nodiscard]] Tensor operator-(Tensor&& left, Tensor&& right) noexcept;
+	[[nodiscard]] Tensor operator-(const Tensor& left, const Tensor& right) noexcept;
 	[[nodiscard]] Tensor operator*(Tensor& left, Tensor& right) noexcept;
 	[[nodiscard]] Tensor operator*(Tensor&& left, Tensor& right) noexcept;
 	[[nodiscard]] Tensor operator*(Tensor&& left, Tensor&& right) noexcept;
 	[[nodiscard]] Tensor operator/(Tensor& left, Tensor& right) noexcept;
-	[[nodiscard]] Tensor operator/(Tensor& left, Tensor right) noexcept;
+	[[nodiscard]] Tensor operator/(Tensor& left, Tensor&& right) noexcept;
+	[[nodiscard]] Tensor operator/(const Tensor& left, const Tensor& right) noexcept;
 
 	[[nodiscard]] Tensor fma(const Tensor& factor1, const Tensor& factor2, const Tensor& summand) noexcept;
 
@@ -137,9 +165,11 @@ namespace dl {
 	 */
 	[[nodiscard]] Tensor softmax(Tensor&& x) noexcept;
 	[[nodiscard]] Tensor softmax(const Tensor& x) noexcept;
+	[[nodiscard]] Tensor softmax(const Tensor& x, size_t dim) noexcept;
 
 	std::ostream& operator<<(std::ostream&, const Tensor& tensor) noexcept;
 	[[nodiscard]] bool operator==(const Tensor& left, const Tensor& right) noexcept;
+	[[nodiscard]] bool allclose(const Tensor& left, const Tensor& right, float rtol = 1e-5, float atol = 1e-8) noexcept;
 
 	/**
 	 * @brief Returns the number of entries in the tensor.

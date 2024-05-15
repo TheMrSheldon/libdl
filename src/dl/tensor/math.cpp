@@ -92,25 +92,44 @@ Tensor dl::mean(Tensor&& x) noexcept {
 	return tensor;
 }
 
+Tensor dl::mean(const Tensor& x) noexcept { return x->mean(); }
+
+Tensor dl::mean(const Tensor& x, size_t dim) noexcept { return x->mean(dim); }
+
 Tensor dl::sum(const Tensor& x) noexcept { return x->sum(); }
+
+Tensor dl::sum(const Tensor& x, size_t dim) noexcept { return x->sum(dim); }
 
 Tensor dl::min(const Tensor& x) noexcept { return x->min(); }
 
+Tensor dl::min(const Tensor& x, size_t dim) noexcept { return x->min(dim); }
+
 Tensor dl::max(const Tensor& x) noexcept { return x->max(); }
+
+Tensor dl::max(const Tensor& x, size_t dim) noexcept { return x->max(dim); }
 
 Tensor dl::max(const Tensor& x, const Tensor& y) noexcept { return x->max(y); }
 
-Tensor dl::var(const Tensor& x) noexcept { return x->var(); }
+Tensor dl::var(const Tensor& x, DOF dof) noexcept { return x->var(dof); }
 
-Tensor dl::relu(Tensor&& x) noexcept { return dl::max(x, 0); }
+Tensor dl::var(const Tensor& x, size_t dim, DOF dof) noexcept { return x->var(dim, dof); }
+
+Tensor dl::relu(Tensor& x) noexcept { return dl::max(x, {0}); }
+Tensor dl::relu(Tensor&& x) noexcept { return dl::max(std::move(x), dl::zeros_like(x)); }
+Tensor dl::relu(const Tensor& x) noexcept { return dl::max(x, dl::zeros_like(x)); }
 
 Tensor dl::softmax(Tensor&& x) noexcept {
 	/** \todo implement gradient **/
 	return dl::softmax(x);
 }
 Tensor dl::softmax(const Tensor& x) noexcept {
-	const auto power = dl::exp(dl::max(x));
+	const auto power = dl::exp(x - dl::max(x));
 	return power / dl::sum(power);
+}
+Tensor dl::softmax(const Tensor& x, size_t dim) noexcept {
+	/** \todo This does not yet work since it assumes that - and / can be broadcasted **/
+	const auto power = dl::exp(x - dl::max(x, dim));
+	return power / dl::sum(power, dim);
 }
 
 Tensor dl::operator+(Tensor&& left, Tensor& right) noexcept {
@@ -139,6 +158,7 @@ Tensor dl::operator-(Tensor&& left, Tensor&& right) noexcept {
 	/** \todo add support for autodiff **/
 	return left->sub(right);
 }
+Tensor dl::operator-(const Tensor& left, const Tensor& right) noexcept { return left->sub(right); }
 Tensor dl::operator*(Tensor& left, Tensor& right) noexcept {
 	/** \todo add support for autograd **/
 	auto tensor = left->mul(right);
@@ -163,14 +183,15 @@ Tensor dl::operator*(Tensor&& left, Tensor&& right) noexcept {
 	/** \todo add support for autograd **/
 	return left->mul(right);
 }
-Tensor dl::operator/(Tensor& left, Tensor right) noexcept {
-	/** \todo add support for autograd **/
-	return left->div(right);
-}
 Tensor dl::operator/(Tensor& left, Tensor& right) noexcept {
 	/** \todo add support for autograd **/
 	return left->div(right);
 }
+Tensor dl::operator/(Tensor& left, Tensor&& right) noexcept {
+	/** \todo add support for autograd **/
+	return left->div(right);
+}
+Tensor dl::operator/(const Tensor& left, const Tensor& right) noexcept { return left->div(right); }
 
 Tensor dl::fma(const Tensor& factor1, const Tensor& factor2, const Tensor& summand) noexcept {
 	return factor1->fma(factor2, summand);
@@ -211,16 +232,12 @@ std::ostream& dl::operator<<(std::ostream& stream, const Tensor& tensor) noexcep
 }
 
 bool dl::operator==(const dl::Tensor& left, const dl::Tensor& right) noexcept {
-	if (left->shape() != right->shape())
-		return false;
-	throw std::runtime_error("Not Implemented");
-	/*auto flatleft = left->flatten();
-	auto flatright = right->flatten();
-	for (auto it1 = std::begin(flatleft), it2 = std::begin(flatright);
-		 it1 != std::end(flatleft) && it2 != std::end(flatright); ++it1, ++it2)
-		if ((double)*it1 != (double)*it2)
-			return false;
-	return true;*/
+	if (left == nullptr || right == nullptr)
+		return left == nullptr && right == nullptr;
+	return *left == right;
+}
+bool dl::allclose(const Tensor& left, const Tensor& right, float rtol, float atol) noexcept {
+	return left->allclose(right, rtol, atol);
 }
 
 size_t dl::numEntries(const dl::Tensor& tensor) noexcept {

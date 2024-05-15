@@ -5,8 +5,8 @@ add_library(dl STATIC
     logging.cpp
     device.cpp
     devices/cpu.cpp
+    learning/observers/consoleui.cpp
     learning/observers/earlystopping.cpp
-    learning/observers/ncurses.cpp
     model/model.cpp
     model/layernorm.cpp
     model/linear.cpp
@@ -51,10 +51,10 @@ set(XTENSOR_USE_OPENMP ON)
 FetchContent_Declare(xtl GIT_REPOSITORY https://github.com/xtensor-stack/xtl.git GIT_TAG 0.7.5)
 FetchContent_MakeAvailable(xtl)
 # Dependency of xtensor
-FetchContent_Declare(xsimd GIT_REPOSITORY https://github.com/xtensor-stack/xsimd.git GIT_TAG 10.0.0)
+FetchContent_Declare(xsimd GIT_REPOSITORY https://github.com/xtensor-stack/xsimd.git GIT_TAG 11.0.0)
 FetchContent_MakeAvailable(xsimd)
 
-FetchContent_Declare(xtensor GIT_REPOSITORY https://github.com/xtensor-stack/xtensor.git GIT_TAG 0.24.7)
+FetchContent_Declare(xtensor GIT_REPOSITORY https://github.com/xtensor-stack/xtensor.git GIT_TAG 0.25.0)
 FetchContent_MakeAvailable(xtensor)
 
 # Dependency of xtensor-blas
@@ -93,12 +93,6 @@ FetchContent_MakeAvailable(hattrie)
 target_link_libraries(dl PRIVATE tsl::hat_trie)
 
 # TODO: make optional since this is only necessary for a pretty UI during training
-# ncurses
-set(CURSES_NEED_NCURSES TRUE)
-find_package(Curses REQUIRED)
-target_link_libraries(dl PRIVATE ${CURSES_LIBRARIES})
-target_include_directories(dl PRIVATE ${CURSES_INCLUDE_DIRS})
-
 # ftxui
 FetchContent_Declare(ftxui GIT_REPOSITORY https://github.com/ArthurSonzogni/FTXUI.git GIT_TAG v5.0.0)
 FetchContent_MakeAvailable(ftxui)

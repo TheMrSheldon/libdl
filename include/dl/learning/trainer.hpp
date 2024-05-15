@@ -172,6 +172,6 @@ namespace dl {
 
 	namespace observers {
 		std::unique_ptr<TrainerObserver> earlyStopping(size_t patience) noexcept;
-		std::unique_ptr<TrainerObserver> ncursesUI() noexcept;
+		std::unique_ptr<TrainerObserver> consoleUI() noexcept;
 	} // namespace observers
 } // namespace dl

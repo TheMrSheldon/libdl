@@ -2,6 +2,7 @@
 #include <dl/tensor/tensorimpl.hpp>
 
 #include <xtensor-blas/xlinalg.hpp>
+#include <xtensor/xadapt.hpp>
 #include <xtensor/xarray.hpp>
 #include <xtensor/xexpression.hpp>
 #include <xtensor/xio.hpp>
@@ -22,6 +23,10 @@ namespace dl {
 				: TensorImpl(device, requiresGrad), data(data) {}
 
 		virtual std::ostream& writeToStream(std::ostream& stream) const noexcept override { return stream << data; }
+		virtual bool operator==(const Tensor& other) const noexcept override { return data == downcast(other).data; }
+		virtual bool allclose(const Tensor& other, float rtol = 1e-5, float atol = 1e-8) const noexcept override {
+			return xt::allclose(data, downcast(other).data, rtol, atol);
+		}
 
 		virtual Tensor add(const Tensor& other) const noexcept override {
 			return createResult(data + downcast(other).data, requiresGrad() || other->requiresGrad());
@@ -79,16 +84,33 @@ namespace dl {
 		virtual Tensor rsqrt() const noexcept override { return createResult(1 / xt::sqrt(data), requiresGrad()); }
 
 		virtual Tensor mean() const noexcept override { return createResult(xt::mean(data), requiresGrad()); }
+		virtual Tensor mean(size_t dim) const noexcept override {
+			return createResult(xt::mean(data, {dim}), requiresGrad());
+		}
 		virtual Tensor sum() const noexcept override { return createResult(xt::sum(data), requiresGrad()); }
-		virtual Tensor max() const noexcept override { return createResult(xt::amax(data), requiresGrad()); }
+		virtual Tensor sum(size_t dim) const noexcept override {
+			return createResult(xt::sum(data, {dim}), requiresGrad());
+		}
 		virtual Tensor min() const noexcept override { return createResult(xt::amin(data), requiresGrad()); }
+		virtual Tensor min(size_t dim) const noexcept override {
+			return createResult(xt::amin(data, {dim}), requiresGrad());
+		}
+		virtual Tensor max() const noexcept override { return createResult(xt::amax(data), requiresGrad()); }
+		virtual Tensor max(size_t dim) const noexcept override {
+			return createResult(xt::amax(data, {dim}), requiresGrad());
+		}
 		virtual Tensor max(const Tensor& other) const noexcept {
 			return createResult(xt::maximum(data, downcast(other).data), requiresGrad());
 		}
 		virtual Tensor min(const Tensor& other) const noexcept {
 			return createResult(xt::minimum(data, downcast(other).data), requiresGrad());
 		}
-		virtual Tensor var() const noexcept override { return createResult(xt::variance(data), requiresGrad()); }
+		virtual Tensor var(DOF dof) const noexcept override {
+			return createResult(xt::variance(data, dof.dof), requiresGrad());
+		}
+		virtual Tensor var(size_t dim, DOF dof) const noexcept override {
+			return createResult(xt::variance(data, {dim}, dof.dof), requiresGrad());
+		}
 
 		virtual void mul_inplace(const Tensor& other) noexcept override { data *= downcast(other).data; }
 		virtual void reshape(std::vector<int> shape) noexcept override { data.reshape(std::move(shape)); }
@@ -119,7 +141,7 @@ namespace dl {
 			return Tensor::create<CPUDenseFloatTensor>(expr, *this, requiresGrad);
 		}
 
-		virtual Tensor zero(Shape shape, bool requiresGrad) const noexcept override {
+		virtual Tensor zeros(Shape shape, bool requiresGrad) const noexcept override {
 			xt::xarray<float> expr = xt::zeros<float>(shape);
 			return Tensor::create<CPUDenseFloatTensor>(expr, *this, requiresGrad);
 		}
@@ -141,8 +163,10 @@ namespace dl {
 			xt::xarray<float> expr = value; /** \todo: allow tensors of different datatypes **/
 			return Tensor::create<CPUDenseFloatTensor>(expr, *this, requiresGrad);
 		}
-		virtual Tensor constant(std::initializer_list<float> value, bool requiresGrad) const noexcept override {
-			xt::xarray<float> expr = value;
+		virtual Tensor constant(InitializerTensor<float>&& value, bool requiresGrad) const noexcept override {
+			void* data = std::malloc(value.data.size() * sizeof(float));
+			data = std::memcpy(data, value.data.data(), value.data.size() * sizeof(float));
+			xt::xarray<float> expr = xt::adapt((float*)data, value.data.size(), xt::acquire_ownership(), value.shape);
 			return Tensor::create<CPUDenseFloatTensor>(expr, *this, requiresGrad);
 		}
 	};

@@ -2,9 +2,35 @@
 
 #include <experimental/propagate_const>
 #include <memory>
+#include <numeric>
+#include <vector>
 
 namespace dl {
 	class TensorImpl;
+
+	template <typename T>
+	struct InitializerTensor {
+	private:
+		InitializerTensor() = delete;
+
+	public:
+		std::vector<T> data;
+		std::vector<size_t> shape;
+
+		InitializerTensor(InitializerTensor<T>&& other) noexcept : data(std::move(data)), shape(std::move(shape)){};
+		InitializerTensor(std::initializer_list<T>&& value) noexcept : data(value), shape({value.size()}) {}
+		InitializerTensor(std::initializer_list<InitializerTensor>&& value) noexcept : data(), shape() {
+			/** \todo Check if all values have the same size**/
+			shape = {value.size()};
+			data.reserve(std::accumulate(value.begin(), value.end(), 0, [](size_t acc, auto& v) {
+				return acc + v.data.size();
+			}));
+			for (auto&& v : value) {
+				data.insert(data.end(), v.data.begin(), v.data.end());
+			}
+			shape.push_back(value.begin()->data.size());
+		}
+	};
 
 	/**
 	 * @brief The Tensor is a managed pointer to a tensor. It can generally be thought of like an
@@ -28,9 +54,9 @@ namespace dl {
 		Tensor(int value);
 		Tensor(float value);
 		Tensor(double value);
-		Tensor(std::initializer_list<int> value);
-		Tensor(std::initializer_list<float> value);
-		Tensor(std::initializer_list<double> value);
+		Tensor(InitializerTensor<int> value);
+		Tensor(InitializerTensor<float> value);
+		Tensor(InitializerTensor<double> value);
 
 		TensorImpl* operator->() noexcept { return data.get(); }
 		const TensorImpl* operator->() const noexcept { return data.get(); }
@@ -55,14 +81,3 @@ namespace dl {
 
 	using TensorRef = std::reference_wrapper<Tensor>;
 } // namespace dl
-
-// These are OK since we only add template specializations: https://en.cppreference.com/w/cpp/language/extending_std
-/*
-template <>
-auto std::begin(dl::Tensor& ptr) {
-	return ptr->begin();
-}
-template <>
-auto std::end(dl::Tensor& ptr) {
-	return ptr->end();
-}*/

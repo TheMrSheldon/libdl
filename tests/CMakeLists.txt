@@ -11,8 +11,10 @@ FetchContent_MakeAvailable(catch)
 add_executable(tests
 	# Add test files here
 	model/transformer/wordpiece.cpp
+	model/layernorm.cpp
 	tensor/autodiff.cpp
 	tensor/basics.cpp
+	tensor/math.cpp
 )
 
 # file(COPY testfiles ${CMAKE_CURRENT_BINARY_DIR})
