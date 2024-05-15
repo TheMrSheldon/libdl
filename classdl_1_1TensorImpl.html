@@ -209,6 +209,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>discardGradient</b> (
 <tr class="memitem:ae1ac3646fc1457ec5440f0d1e66c9585"><td class="memItemLeft" align="right" valign="top"><a id="ae1ac3646fc1457ec5440f0d1e66c9585"></a>
 virtual <a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>writeToStream</b> (<a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a> &amp;stream) const noexcept=0</td></tr>
 <tr class="separator:ae1ac3646fc1457ec5440f0d1e66c9585"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a504ba6de299242796185a7096536f30f"><td class="memItemLeft" align="right" valign="top"><a id="a504ba6de299242796185a7096536f30f"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;other) const noexcept=0</td></tr>
+<tr class="separator:a504ba6de299242796185a7096536f30f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a437a53f8db9696ccf3a3675bf276c50d"><td class="memItemLeft" align="right" valign="top"><a id="a437a53f8db9696ccf3a3675bf276c50d"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>allclose</b> (const <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;other, float rtol=1e-5, float atol=1e-8) const noexcept=0</td></tr>
+<tr class="separator:a437a53f8db9696ccf3a3675bf276c50d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f9135a252c9f6ca06afb69a0cb8f786"><td class="memItemLeft" align="right" valign="top"><a id="a0f9135a252c9f6ca06afb69a0cb8f786"></a>
 virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>add</b> (const <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;other) const noexcept=0</td></tr>
 <tr class="separator:a0f9135a252c9f6ca06afb69a0cb8f786"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -245,24 +251,39 @@ virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td cla
 <tr class="memitem:ac695496ede7784c927238a63e4cd83b0"><td class="memItemLeft" align="right" valign="top"><a id="ac695496ede7784c927238a63e4cd83b0"></a>
 virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mean</b> () const noexcept=0</td></tr>
 <tr class="separator:ac695496ede7784c927238a63e4cd83b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affaaa785ccd01d78f45ffc5abe79aa4c"><td class="memItemLeft" align="right" valign="top"><a id="affaaa785ccd01d78f45ffc5abe79aa4c"></a>
+virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>mean</b> (size_t dim) const noexcept=0</td></tr>
+<tr class="separator:affaaa785ccd01d78f45ffc5abe79aa4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58e2de595d62a7fab2aae54e777980d8"><td class="memItemLeft" align="right" valign="top"><a id="a58e2de595d62a7fab2aae54e777980d8"></a>
 virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sum</b> () const noexcept=0</td></tr>
 <tr class="separator:a58e2de595d62a7fab2aae54e777980d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8afc2a9d826d893faa1f7e70ce0c9672"><td class="memItemLeft" align="right" valign="top"><a id="a8afc2a9d826d893faa1f7e70ce0c9672"></a>
-virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>max</b> () const noexcept=0</td></tr>
-<tr class="separator:a8afc2a9d826d893faa1f7e70ce0c9672"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ad08a7ad58ef5ab6c8ce0c86e08c684"><td class="memItemLeft" align="right" valign="top"><a id="a5ad08a7ad58ef5ab6c8ce0c86e08c684"></a>
+virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sum</b> (size_t dim) const noexcept=0</td></tr>
+<tr class="separator:a5ad08a7ad58ef5ab6c8ce0c86e08c684"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfd5906dce4d2aabc73f9b9f33aa8f42"><td class="memItemLeft" align="right" valign="top"><a id="adfd5906dce4d2aabc73f9b9f33aa8f42"></a>
 virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>min</b> () const noexcept=0</td></tr>
 <tr class="separator:adfd5906dce4d2aabc73f9b9f33aa8f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97a9470777884617f6664e45f84f18be"><td class="memItemLeft" align="right" valign="top"><a id="a97a9470777884617f6664e45f84f18be"></a>
-virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>max</b> (const <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;other) const noexcept=0</td></tr>
-<tr class="separator:a97a9470777884617f6664e45f84f18be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afedbf15c722b30f86062f7800b48ce64"><td class="memItemLeft" align="right" valign="top"><a id="afedbf15c722b30f86062f7800b48ce64"></a>
+virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>min</b> (size_t dim) const noexcept=0</td></tr>
+<tr class="separator:afedbf15c722b30f86062f7800b48ce64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab58162d8ef63cdbac7d91272f011c996"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1TensorImpl.html#ab58162d8ef63cdbac7d91272f011c996">min</a> (const <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;other) const noexcept=0</td></tr>
 <tr class="memdesc:ab58162d8ef63cdbac7d91272f011c996"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the element-wise minimum between this tensor and the other.  <a href="classdl_1_1TensorImpl.html#ab58162d8ef63cdbac7d91272f011c996">More...</a><br /></td></tr>
 <tr class="separator:ab58162d8ef63cdbac7d91272f011c996"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa4d91e07d9676b84349cd6a24b92198"><td class="memItemLeft" align="right" valign="top"><a id="afa4d91e07d9676b84349cd6a24b92198"></a>
-virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>var</b> () const noexcept=0</td></tr>
-<tr class="separator:afa4d91e07d9676b84349cd6a24b92198"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8afc2a9d826d893faa1f7e70ce0c9672"><td class="memItemLeft" align="right" valign="top"><a id="a8afc2a9d826d893faa1f7e70ce0c9672"></a>
+virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>max</b> () const noexcept=0</td></tr>
+<tr class="separator:a8afc2a9d826d893faa1f7e70ce0c9672"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab64ecef9d2065affeee2ad2a80d59c8f"><td class="memItemLeft" align="right" valign="top"><a id="ab64ecef9d2065affeee2ad2a80d59c8f"></a>
+virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>max</b> (size_t dim) const noexcept=0</td></tr>
+<tr class="separator:ab64ecef9d2065affeee2ad2a80d59c8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97a9470777884617f6664e45f84f18be"><td class="memItemLeft" align="right" valign="top"><a id="a97a9470777884617f6664e45f84f18be"></a>
+virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>max</b> (const <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;other) const noexcept=0</td></tr>
+<tr class="separator:a97a9470777884617f6664e45f84f18be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5dc6a401aeb1a0901eaad61feaf33b7"><td class="memItemLeft" align="right" valign="top"><a id="ad5dc6a401aeb1a0901eaad61feaf33b7"></a>
+virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>var</b> (<a class="el" href="structdl_1_1DOF.html">DOF</a> dof) const noexcept=0</td></tr>
+<tr class="separator:ad5dc6a401aeb1a0901eaad61feaf33b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f5e4428b5e33649f84b03937c254389"><td class="memItemLeft" align="right" valign="top"><a id="a8f5e4428b5e33649f84b03937c254389"></a>
+virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>var</b> (size_t dim, <a class="el" href="structdl_1_1DOF.html">DOF</a> dof) const noexcept=0</td></tr>
+<tr class="separator:a8f5e4428b5e33649f84b03937c254389"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87b558c9e14c75a6de7a4fc037292fdc"><td class="memItemLeft" align="right" valign="top"><a id="a87b558c9e14c75a6de7a4fc037292fdc"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>mul_inplace</b> (const <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;other) noexcept=0</td></tr>
 <tr class="separator:a87b558c9e14c75a6de7a4fc037292fdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -296,51 +317,14 @@ Public Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a9d38011e4acc2543a06025aa2280e32d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1TensorImpl.html#a9d38011e4acc2543a06025aa2280e32d">TensorImpl</a> (<a class="el" href="classdl_1_1Device.html">Device</a> const &amp;<a class="el" href="classdl_1_1TensorImpl.html#a16969bf3dedf616696bcf47505700143">device</a>, bool <a class="el" href="classdl_1_1TensorImpl.html#a876b395c6a3b2e09b6104a4f6133db94">requiresGrad</a>) noexcept</td></tr>
+<tr class="memitem:a9d38011e4acc2543a06025aa2280e32d"><td class="memItemLeft" align="right" valign="top"><a id="a9d38011e4acc2543a06025aa2280e32d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TensorImpl</b> (<a class="el" href="classdl_1_1Device.html">Device</a> const &amp;<a class="el" href="classdl_1_1TensorImpl.html#a16969bf3dedf616696bcf47505700143">device</a>, bool <a class="el" href="classdl_1_1TensorImpl.html#a876b395c6a3b2e09b6104a4f6133db94">requiresGrad</a>) noexcept</td></tr>
 <tr class="separator:a9d38011e4acc2543a06025aa2280e32d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="tensorimpl_8hpp_source.html#l00012">12</a> of file <a class="el" href="tensorimpl_8hpp_source.html">tensorimpl.hpp</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9d38011e4acc2543a06025aa2280e32d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d38011e4acc2543a06025aa2280e32d">&#9670;&nbsp;</a></span>TensorImpl()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">dl::TensorImpl::TensorImpl </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classdl_1_1Device.html">Device</a> const &amp;&#160;</td>
-          <td class="paramname"><em>device</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>requiresGrad</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>add retain graph option </dd></dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+<p class="definition">Definition at line <a class="el" href="tensorimpl_8hpp_source.html#l00013">13</a> of file <a class="el" href="tensorimpl_8hpp_source.html">tensorimpl.hpp</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a16969bf3dedf616696bcf47505700143"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a16969bf3dedf616696bcf47505700143">&#9670;&nbsp;</a></span>device()</h2>
 

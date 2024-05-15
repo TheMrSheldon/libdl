@@ -197,15 +197,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0b1f52c2c7e03f4ea3b14790a57b97ef"><td class="memItemLeft" align="right" valign="top"><a id="a0b1f52c2c7e03f4ea3b14790a57b97ef"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Tensor</b> (double value)</td></tr>
 <tr class="separator:a0b1f52c2c7e03f4ea3b14790a57b97ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26c3a89f5568e3a132b865d0d7a8d2ee"><td class="memItemLeft" align="right" valign="top"><a id="a26c3a89f5568e3a132b865d0d7a8d2ee"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Tensor</b> (<a class="elRef" href="http://en.cppreference.com/w/cpp/utility/initializer_list.html">std::initializer_list</a>&lt; int &gt; value)</td></tr>
-<tr class="separator:a26c3a89f5568e3a132b865d0d7a8d2ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07a0eb69769cfc213c897eb79a318d8b"><td class="memItemLeft" align="right" valign="top"><a id="a07a0eb69769cfc213c897eb79a318d8b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Tensor</b> (<a class="elRef" href="http://en.cppreference.com/w/cpp/utility/initializer_list.html">std::initializer_list</a>&lt; float &gt; value)</td></tr>
-<tr class="separator:a07a0eb69769cfc213c897eb79a318d8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0dc7a3c66c94da4417d562d0bf5ebfb7"><td class="memItemLeft" align="right" valign="top"><a id="a0dc7a3c66c94da4417d562d0bf5ebfb7"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Tensor</b> (<a class="elRef" href="http://en.cppreference.com/w/cpp/utility/initializer_list.html">std::initializer_list</a>&lt; double &gt; value)</td></tr>
-<tr class="separator:a0dc7a3c66c94da4417d562d0bf5ebfb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9c35dc2655ca2b8be2721e5a9de5322"><td class="memItemLeft" align="right" valign="top"><a id="af9c35dc2655ca2b8be2721e5a9de5322"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Tensor</b> (<a class="el" href="structdl_1_1InitializerTensor.html">InitializerTensor</a>&lt; int &gt; value)</td></tr>
+<tr class="separator:af9c35dc2655ca2b8be2721e5a9de5322"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab201c92d9c172ef4605cbd3062c74f5a"><td class="memItemLeft" align="right" valign="top"><a id="ab201c92d9c172ef4605cbd3062c74f5a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Tensor</b> (<a class="el" href="structdl_1_1InitializerTensor.html">InitializerTensor</a>&lt; float &gt; value)</td></tr>
+<tr class="separator:ab201c92d9c172ef4605cbd3062c74f5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7a2a70de3e8458be16c6328f413a156"><td class="memItemLeft" align="right" valign="top"><a id="ab7a2a70de3e8458be16c6328f413a156"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Tensor</b> (<a class="el" href="structdl_1_1InitializerTensor.html">InitializerTensor</a>&lt; double &gt; value)</td></tr>
+<tr class="separator:ab7a2a70de3e8458be16c6328f413a156"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47eb7edfb4528c8ae6d92c610aee8972"><td class="memItemLeft" align="right" valign="top"><a id="a47eb7edfb4528c8ae6d92c610aee8972"></a>
 <a class="el" href="classdl_1_1TensorImpl.html">TensorImpl</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>operator-&gt;</b> () noexcept</td></tr>
 <tr class="separator:a47eb7edfb4528c8ae6d92c610aee8972"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -242,7 +242,7 @@ template&lt;typename T , typename... Args&gt; </td></tr>
 <div class="textblock"><p>The <a class="el" href="classdl_1_1Tensor.html" title="The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...">Tensor</a> is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;TensorImpl&gt;. </p>
 <p>The <a class="el" href="classdl_1_1Tensor.html" title="The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...">Tensor</a>'s main purpose is implementation hiding, which is especially importan since the concrete tensor implementation could be, e.g., a sparse tensor, a dense tensor or even tensors on different devices (i.e., using different drivers like cuda or xtensor). The implementation, generally, is agnostic to these differences and <a class="el" href="classdl_1_1Tensor.html" title="The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...">Tensor</a> hides them. </p>
 
-<p class="definition">Definition at line <a class="el" href="tensor_8hpp_source.html#l00017">17</a> of file <a class="el" href="tensor_8hpp_source.html">tensor.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tensor_8hpp_source.html#l00043">43</a> of file <a class="el" href="tensor_8hpp_source.html">tensor.hpp</a>.</p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>dl/tensor/<a class="el" href="tensor_8hpp_source.html">tensor.hpp</a></li>
 </ul>

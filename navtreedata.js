@@ -54,9 +54,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"cpp/algorithm/random_shuffle.html",
-"cpp/numeric/math/erfc.html",
-"files.html"
+"cpp/algorithm/partition_copy.html",
+"cpp/numeric/math/ceil.html",
+"dir_b451349d78cccf7d05392b6c01b5d409.html",
+""
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

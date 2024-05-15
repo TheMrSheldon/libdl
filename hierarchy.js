@@ -16,8 +16,10 @@ var hierarchy =
     ] ],
     [ "dl::Device", "classdl_1_1Device.html", null ],
     [ "ir::Document", "structir_1_1Document.html", null ],
+    [ "dl::DOF", "structdl_1_1DOF.html", null ],
     [ "fmt::formatter< std::optional< T > >", "structfmt_1_1formatter_3_01std_1_1optional_3_01T_01_4_01_4.html", null ],
     [ "dl::utils::GenericIterator< T >", "classdl_1_1utils_1_1GenericIterator.html", null ],
+    [ "dl::InitializerTensor< T >", "structdl_1_1InitializerTensor.html", null ],
     [ "ir::IRDataset< typename >", "classir_1_1IRDataset.html", null ],
     [ "std::istream", "http://en.cppreference.com/w/cpp/io/basic_istream.html", [
       [ "dl::utils::URLStream", "classdl_1_1utils_1_1URLStream.html", null ]

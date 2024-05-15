@@ -32,6 +32,8 @@ var annotated_dup =
       [ "TransformerEncoder", "classdl_1_1TransformerEncoder.html", "classdl_1_1TransformerEncoder" ],
       [ "Transformer", "classdl_1_1Transformer.html", "classdl_1_1Transformer" ],
       [ "WordPieceTokenizer", "classdl_1_1WordPieceTokenizer.html", "classdl_1_1WordPieceTokenizer" ],
+      [ "DOF", "structdl_1_1DOF.html", "structdl_1_1DOF" ],
+      [ "InitializerTensor", "structdl_1_1InitializerTensor.html", "structdl_1_1InitializerTensor" ],
       [ "Tensor", "classdl_1_1Tensor.html", "classdl_1_1Tensor" ],
       [ "TensorImpl", "classdl_1_1TensorImpl.html", "classdl_1_1TensorImpl" ]
     ] ],
