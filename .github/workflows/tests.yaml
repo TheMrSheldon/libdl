@@ -16,7 +16,7 @@ on:
 
 jobs:
   tests:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
       BUILD_TYPE: Debug
@@ -28,6 +28,11 @@ jobs:
           sudo add-apt-repository ppa:ubuntu-toolchain-r/test
           sudo apt-get update
           sudo apt-get -y install g++-13 libopenblas-dev libssl-dev libboost-iostreams-dev zlib1g-dev
+          apt install -y -V ca-certificates lsb-release wget
+          wget https://apache.jfrog.io/artifactory/arrow/$(lsb_release --id --short | tr 'A-Z' 'a-z')/apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
+          apt install -y -V ./apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
+          apt update
+          apt install -y -V libarrow-dev
       - name: Configure CMake
         # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a
         # single-configuration generator such as make.
@@ -43,7 +48,7 @@ jobs:
         # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more details
         run: ctest -j6 -C ${{env.BUILD_TYPE}} -T test --output-on-failure
   linter:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Check out code
         uses: actions/checkout@v4
