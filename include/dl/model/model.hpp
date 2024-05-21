@@ -51,9 +51,9 @@ namespace dl {
 		virtual ~Model() = default;
 		void to(const Device& device) noexcept;
 
-		R operator()(Args... args) { return this->forward(std::forward<Args>(args)...); }
+		R operator()(Args&&... args) { return this->forward(std::forward<Args>(args)...); }
 		/** \todo For later: these const member functions make sense to indicate that we know at compile time that the
 		 * instance is not modified (e.g. since it is not part of the computation graph for auto differentiation. **/
-		// R operator()(Args... args) const { return this->forward(std::forward<Args>(args)...); }
+		// R operator()(Args&&... args) const { return this->forward(std::forward<Args>(args)...); }
 	};
 } // namespace dl

@@ -106,14 +106,25 @@ namespace dl {
 			return createResult(xt::minimum(data, downcast(other).data), requiresGrad());
 		}
 		virtual Tensor var(DOF dof) const noexcept override {
+			//auto result = xt::detail::mean_noaxis<void>(
+			//		xt::square(data - xt::mean(data)), dof.dof, xt::evaluation_strategy::immediate
+			//);
+			//return createResult(std::move(result), requiresGrad());
 			return createResult(xt::variance(data, dof.dof), requiresGrad());
 		}
 		virtual Tensor var(size_t dim, DOF dof) const noexcept override {
-			return createResult(xt::variance(data, {dim}, dof.dof), requiresGrad());
+			return createResult(
+					xt::detail::mean<void>(
+							xt::square(data - xt::reshape_view(xt::mean(data, {dim}), {-1, 1})), {dim}, dof.dof,
+							xt::evaluation_strategy::lazy
+					),
+					requiresGrad()
+			);
+			//return createResult(xt::variance(data, {dim}, dof.dof), requiresGrad());
 		}
 
 		virtual void mul_inplace(const Tensor& other) noexcept override { data *= downcast(other).data; }
-		virtual void reshape(std::vector<int> shape) noexcept override { data.reshape(std::move(shape)); }
+		virtual void reshape(SShape shape) noexcept override { data.reshape(std::move(shape)); }
 
 		virtual Tensor clone() const noexcept override { return Tensor::create<CPUDenseFloatTensor>(*this); }
 

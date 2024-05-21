@@ -58,11 +58,11 @@ FetchContent_Declare(xtensor GIT_REPOSITORY https://github.com/xtensor-stack/xte
 FetchContent_MakeAvailable(xtensor)
 
 # Dependency of xtensor-blas
-FetchContent_Declare(openblas GIT_REPOSITORY https://github.com/OpenMathLib/OpenBLAS.git GIT_TAG v0.3.25)
+FetchContent_Declare(openblas GIT_REPOSITORY https://github.com/OpenMathLib/OpenBLAS.git GIT_TAG v0.3.27)
 FetchContent_MakeAvailable(openblas)
 
 # Dependency of xtensor
-FetchContent_Declare(xblas GIT_REPOSITORY https://github.com/xtensor-stack/xtensor-blas.git GIT_TAG 0.20.0)
+FetchContent_Declare(xblas GIT_REPOSITORY https://github.com/xtensor-stack/xtensor-blas.git GIT_TAG 0.21.0)
 FetchContent_MakeAvailable(xblas)
 target_link_libraries(dl PRIVATE xtensor xsimd xtensor-blas openblas)
 
@@ -86,6 +86,10 @@ FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git
                          GIT_TAG 1.10.5)
 FetchContent_MakeAvailable(cpr)
 target_link_libraries(dl PRIVATE cpr::cpr)
+
+# apache arrow
+find_package(Arrow REQUIRED)
+target_link_libraries(dl PRIVATE arrow)
 
 # hat-trie (for WordPiece tokenization)
 FetchContent_Declare(hattrie GIT_REPOSITORY https://github.com/Tessil/hat-trie.git GIT_TAG 906e6ab)

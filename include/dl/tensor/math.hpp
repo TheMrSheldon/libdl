@@ -5,6 +5,7 @@
 
 #pragma once
 
+#include "shape.hpp"
 #include "tensor.hpp"
 
 #include <iostream>
@@ -179,4 +180,7 @@ namespace dl {
 	 * @return size_t The number of entries in \p tensor.
 	 */
 	[[nodiscard]] size_t numEntries(const Tensor& tensor) noexcept;
+
+	Tensor& reshape(Tensor& tensor, SShape shape) noexcept;
+	[[nodiscard]] Tensor reshape(Tensor&& tensor, SShape shape) noexcept;
 } // namespace dl

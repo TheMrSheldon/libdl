@@ -121,7 +121,7 @@ namespace dl {
 		 * 
 		 * @param shape The new shape for the tensor.
 		 */
-		virtual void reshape(std::vector<int> shape) noexcept = 0;
+		virtual void reshape(SShape shape) noexcept = 0;
 
 		virtual Tensor clone() const noexcept = 0;
 

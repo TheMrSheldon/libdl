@@ -5,8 +5,14 @@
 #include <variant>
 
 namespace ir {
-	struct Document {};
-	struct Query {};
+	struct Document {
+		size_t id;
+		std::string content;
+	};
+	struct Query {
+		size_t id;
+		std::string content;
+	};
 
 	template <typename>
 	class IRDataset;

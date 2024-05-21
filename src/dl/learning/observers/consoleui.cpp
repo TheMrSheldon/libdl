@@ -142,10 +142,11 @@ public:
 		screen->Exit();
 		renderThread.join();
 	}
-	virtual void onBeginTraining(const ModelBase& model) override {
+	virtual void onTrainingBegun(const ModelBase& model) override {
 		this->model = &model;
 		screen->PostEvent(ftxui::Event::Custom);
 	}
+	virtual void onTrainingEnded(const ModelBase& model) override {}
 	virtual void enterTrainingStage(TrainStage stage) override {}
 	virtual void exitTrainingStage() override {}
 	virtual void progressChanged(size_t epoch, size_t total, size_t step) override {

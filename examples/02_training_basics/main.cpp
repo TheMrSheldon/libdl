@@ -106,7 +106,7 @@ int main(int argc, char* argv[]) {
 	observers.emplace_back(dl::observers::earlyStopping(3));
 	observers.emplace_back(dl::observers::consoleUI());
 	Trainer trainer(Trainer::Settings{
-			.createDataset = [] { return std::make_unique<MyDataset>(); },
+			.dataset = [] { return std::make_unique<MyDataset>(); },
 			.loss = dl::loss::mse,
 			.optimizer = std::make_unique<GradientDescent>(model.parameters()),
 			.limitEpochs = 10,

@@ -94,6 +94,14 @@ Tensor dl::mean(Tensor&& x) noexcept {
 
 Tensor dl::mean(const Tensor& x) noexcept { return x->mean(); }
 
+Tensor dl::mean(Tensor& x, size_t dim) noexcept {
+	/** \todo implement autodiff **/
+	return dl::mean((const Tensor&)x, dim);
+}
+Tensor dl::mean(Tensor&& x, size_t dim) noexcept {
+	/** \todo implement autodiff **/
+	return dl::mean((const Tensor&)x, dim);
+}
 Tensor dl::mean(const Tensor& x, size_t dim) noexcept { return x->mean(dim); }
 
 Tensor dl::sum(const Tensor& x) noexcept { return x->sum(); }
@@ -243,4 +251,15 @@ bool dl::allclose(const Tensor& left, const Tensor& right, float rtol, float ato
 size_t dl::numEntries(const dl::Tensor& tensor) noexcept {
 	const auto shape = tensor->shape();
 	return std::accumulate(shape.cbegin(), shape.cend(), 1, std::multiplies<size_t>{});
+}
+
+dl::Tensor& reshape(dl::Tensor& tensor, dl::SShape shape) noexcept {
+	/** \todo add autodiff support **/
+	tensor->reshape(shape);
+	return tensor;
+}
+[[nodiscard]] dl::Tensor dl::reshape(dl::Tensor&& tensor, dl::SShape shape) noexcept {
+	/** \todo add autodiff support **/
+	tensor->reshape(shape);
+	return tensor;
 }
