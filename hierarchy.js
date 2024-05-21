@@ -42,7 +42,6 @@ var hierarchy =
     [ "dl::Optimizer", "classdl_1_1Optimizer.html", null ],
     [ "ir::Query", "structir_1_1Query.html", null ],
     [ "dl::utils::ScopeGuard", "classdl_1_1utils_1_1ScopeGuard.html", null ],
-    [ "dl::Trainer< R(Args...)>::Settings", "structdl_1_1Trainer_3_01R_07Args_8_8_8_08_4_1_1Settings.html", null ],
     [ "std::streambuf", "http://en.cppreference.com/w/cpp/io/basic_streambuf.html", [
       [ "dl::utils::URLStreamBase", "classdl_1_1utils_1_1URLStreamBase.html", [
         [ "dl::utils::URLStream", "classdl_1_1utils_1_1URLStream.html", null ]
@@ -50,8 +49,9 @@ var hierarchy =
     ] ],
     [ "dl::Tensor", "classdl_1_1Tensor.html", null ],
     [ "dl::TensorImpl", "classdl_1_1TensorImpl.html", null ],
-    [ "dl::Trainer< typename >", "classdl_1_1Trainer.html", null ],
-    [ "dl::Trainer< R(Args...)>", "classdl_1_1Trainer_3_01R_07Args_8_8_8_08_4.html", null ],
+    [ "dl::Trainer< Model, Dataset, Optimizer >", "classdl_1_1Trainer.html", null ],
+    [ "dl::TrainerConf< Model, Dataset, Optimizer >", "structdl_1_1TrainerConf.html", null ],
+    [ "dl::TrainerConf< dl::Model, dl::Dataset, dl::Optimizer >", "structdl_1_1TrainerConf.html", null ],
     [ "dl::TrainerObserver", "classdl_1_1TrainerObserver.html", null ],
     [ "dl::TransformerConf", "structdl_1_1TransformerConf.html", null ],
     [ "dl::WordPieceTokenizer", "classdl_1_1WordPieceTokenizer.html", null ]

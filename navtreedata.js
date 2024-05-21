@@ -29,11 +29,17 @@ var NAVTREE =
     [ "Installation", "index.html#autotoc_md1", [
       [ "CMake", "index.html#autotoc_md2", null ]
     ] ],
-    [ "Basics", "basicsIdx.html", "basicsIdx" ],
+    [ "Basics", "basicsIdx.html", [
+      [ "Arithmetics", "basicArithmetics.html", [
+        [ "What is the difference between const Tensor&, Tensor&, Tensor&&?", "basicArithmetics.html#autotoc_md3", [
+          [ "Small Exercise", "basicArithmetics.html#autotoc_md4", null ]
+        ] ]
+      ] ]
+    ] ],
     [ "Todo List", "todo.html", null ],
     [ "Bibliography", "citelist.html", null ],
     [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ]
+      [ "Namespace List", "namespaces.html", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -53,11 +59,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"cpp/algorithm/partition_copy.html",
-"cpp/numeric/math/ceil.html",
-"dir_b451349d78cccf7d05392b6c01b5d409.html",
-""
+"annotated.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

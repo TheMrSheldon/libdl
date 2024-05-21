@@ -1,0 +1,9 @@
+<map id="dl::TrainerConf&lt; Model, Dataset, Optimizer &gt;" name="dl::TrainerConf&lt; Model, Dataset, Optimizer &gt;">
+<area shape="rect" id="Node000001" title=" " alt="" coords="337,69,512,109"/>
+<area shape="rect" id="Node000002" href="/home/runner/work/libdl/libdl/build/_deps/cppreftags-src/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title=" " alt="" coords="5,5,220,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="225,46,338,69,337,74,224,51"/>
+<area shape="rect" id="Node000003" href="/home/runner/work/libdl/libdl/build/_deps/cppreftags-src/cppreference-doxygen-web.tag.xml$cpp/memory/unique_ptr.html" title=" " alt="" coords="39,69,186,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="200,87,337,87,337,92,200,92"/>
+<area shape="rect" id="Node000004" href="/home/runner/work/libdl/libdl/build/_deps/cppreftags-src/cppreference-doxygen-web.tag.xml$cpp/memory/unique_ptr.html" title=" " alt="" coords="39,133,186,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="199,133,337,105,338,110,200,138"/>
+</map>

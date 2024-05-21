@@ -1,11 +1,22 @@
 <map id="dl/tensor/math.hpp" name="dl/tensor/math.hpp">
-<area shape="rect" id="node1" title="Implements auto&#45;diff enabled wrappers around their concrete tensor implementations." alt="" coords="102,5,247,32"/>
-<area shape="rect" id="node2" href="$loss_8hpp_source.html" title=" " alt="" coords="5,80,155,107"/>
-<area shape="rect" id="node3" href="$tensorimpl_8hpp_source.html" title=" " alt="" coords="179,80,360,107"/>
-<area shape="rect" id="node4" href="$device_8hpp_source.html" title=" " alt="" coords="137,155,247,181"/>
-<area shape="rect" id="node7" href="$model_8hpp_source.html" title=" " alt="" coords="271,155,423,181"/>
-<area shape="rect" id="node5" href="$layernorm_8hpp_source.html" title=" " alt="" coords="103,229,281,256"/>
-<area shape="rect" id="node6" href="$transformer_8hpp_source.html" title=" " alt="" coords="239,304,399,345"/>
-<area shape="rect" id="node8" href="$trainer_8hpp_source.html" title=" " alt="" coords="356,229,521,256"/>
-<area shape="rect" id="node9" href="$linear_8hpp_source.html" title=" " alt="" coords="545,229,692,256"/>
+<area shape="rect" id="Node000001" title="Implements auto&#45;diff enabled wrappers around their concrete tensor implementations." alt="" coords="102,5,247,31"/>
+<area shape="rect" id="Node000002" href="$loss_8hpp_source.html" title=" " alt="" coords="5,79,155,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,41,97,81,94,76,147,37"/>
+<area shape="rect" id="Node000003" href="$tensorimpl_8hpp_source.html" title=" " alt="" coords="179,79,360,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="202,37,255,76,252,81,199,41"/>
+<area shape="rect" id="Node000004" href="$device_8hpp_source.html" title=" " alt="" coords="137,152,247,177"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="249,115,206,154,203,150,245,111"/>
+<area shape="rect" id="Node000007" href="$model_8hpp_source.html" title=" " alt="" coords="271,152,423,177"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="294,111,336,150,332,154,290,115"/>
+<area shape="rect" id="Node000005" href="$layernorm_8hpp_source.html" title=" " alt="" coords="103,225,281,251"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="195,191,195,225,189,225,189,191"/>
+<area shape="rect" id="Node000006" href="$transformer_8hpp_source.html" title=" " alt="" coords="239,299,399,339"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="224,256,290,296,287,301,221,260"/>
+<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="311,185,218,228,216,223,308,181"/>
+<area shape="poly" id="edge11_Node000007_Node000006" title=" " alt="" coords="345,191,325,299,320,298,339,190"/>
+<area shape="rect" id="Node000008" href="$trainer_8hpp_source.html" title=" " alt="" coords="356,225,521,251"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="374,183,425,223,422,227,370,188"/>
+<area shape="rect" id="Node000009" href="$linear_8hpp_source.html" title=" " alt="" coords="545,225,692,251"/>
+<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="404,178,575,223,574,228,403,183"/>
+<area shape="poly" id="edge10_Node000009_Node000006" title=" " alt="" coords="563,257,391,301,390,296,561,251"/>
 </map>
