@@ -5,6 +5,8 @@
 #include <numeric>
 #include <vector>
 
+#include <iostream>
+
 namespace dl {
 	class TensorImpl;
 
@@ -17,7 +19,7 @@ namespace dl {
 		std::vector<T> data;
 		std::vector<size_t> shape;
 
-		InitializerTensor(InitializerTensor<T>&& other) noexcept : data(std::move(data)), shape(std::move(shape)){};
+		InitializerTensor(InitializerTensor<T>&& other) noexcept : data(std::move(data)), shape(std::move(shape)) {}
 		InitializerTensor(std::initializer_list<T>&& value) noexcept : data(value), shape({value.size()}) {}
 		InitializerTensor(std::initializer_list<InitializerTensor>&& value) noexcept : data(), shape() {
 			/** \todo Check if all values have the same size**/
@@ -28,7 +30,7 @@ namespace dl {
 			for (auto&& v : value) {
 				data.insert(data.end(), v.data.begin(), v.data.end());
 			}
-			shape.push_back(value.begin()->data.size());
+			shape.insert(shape.end(), std::begin(value.begin()->shape), std::end(value.begin()->shape));
 		}
 	};
 

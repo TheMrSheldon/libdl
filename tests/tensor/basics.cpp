@@ -13,6 +13,9 @@ TEST_CASE("Basics", "[Tensor]") {
 
 		dl::InitializerTensor<float> init2D = {{1, 2, 3}, {4, 5, 6}};
 		CHECK_THAT(init2D.shape, RangeEquals(std::vector{2, 3}));
+
+		dl::InitializerTensor<float> init3D = {{{1, 2, 3}, {4, 5, 6}}, {{7, 8, 9}, {0, 1, 2}}};
+		CHECK_THAT(init3D.shape, RangeEquals(std::vector{2, 2, 3}));
 	}
 	{
 		auto tensor = dl::empty({1, 2, 3});

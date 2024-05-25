@@ -4,6 +4,11 @@
 #include "./model.hpp"
 
 namespace dl {
+	/**
+	 * @brief Applies a learnable linear transformation with optional bias.
+	 * @details Given a vector \f(x\f) computes \f(xW^\top + b\f).
+	 * 
+	 */
 	class Linear final : public Model<Tensor(Tensor&&)>, Model<Tensor(Tensor&)> {
 	private:
 		Tensor weights;

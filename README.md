@@ -2,6 +2,8 @@
 <p align="center">
     <img src="thirdparty/twemoji-brain.svg" height=100pt/>
     <h3 align="center">Simple yet powerful deep learning</h3>
+</p>
+<p align="center">
     <a><img alt="GPL 2.0 License" src="https://img.shields.io/github/license/TheMrSheldon/libdl.svg"/></a>
     <a><img alt="Current Release" src="https://img.shields.io/github/release/TheMrSheldon/libdl.svg"/></a>
     <br>

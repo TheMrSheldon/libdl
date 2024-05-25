@@ -44,3 +44,14 @@ struct fmt::formatter<std::optional<T>> {
 		return fmt::format_to(ctx.out(), "<EMPTY>");
 	}
 };
+
+/** \todo remove when formatting ranges is supported **/
+template <typename T>
+struct fmt::formatter<std::vector<T>> {
+	constexpr auto parse(format_parse_context& ctx) -> decltype(ctx.begin()) { return ctx.end(); }
+
+	template <typename FormatContext>
+	auto format(const std::vector<T>& input, FormatContext& ctx) -> decltype(ctx.out()) {
+		return fmt::format_to(ctx.out(), "{{{}}}", fmt::join(input, ", "));
+	}
+};

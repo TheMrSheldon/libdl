@@ -102,3 +102,25 @@ dl::Tensor c = dl::pow(std::move(a), 4);
 dl::Tensor result = b + c; // a²+a⁴
 result.backward();
 ```
+
+\attention The following problem does not yet have a solution:
+If a model owns the input and needs it multiple times in the calculation, there is no good solution to passing the
+ownership onto the computation graph yet. For example consider the following forward function:
+```cpp
+dl::Tensor forward(dl::Tensor&& input) {
+return f(input, input);                         // Option 1
+return f(input, std::move(input));              // Option 2
+return f(std::move(input), input);              // Option 3
+return f(std::move(input), std::move(input));   // Option 4 
+}
+```
+None of these functions keep input in memory properly.
+
+\todo Possible solution: a function `dl::Tensor& remember(dl::Tensor&& tensor)` which remembers the input tensor in the
+computation tree and returns a reference to this tensor:
+```cpp
+dl::Tensor forward(dl::Tensor&& input) {
+    dl::Tensor& inref = dl::remember(input);
+    return f(inref, inref);
+}
+```

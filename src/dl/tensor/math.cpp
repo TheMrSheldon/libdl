@@ -136,7 +136,10 @@ Tensor dl::softmax(const Tensor& x) noexcept {
 }
 Tensor dl::softmax(const Tensor& x, size_t dim) noexcept {
 	/** \todo This does not yet work since it assumes that - and / can be broadcasted **/
-	const auto power = dl::exp(x - dl::max(x, dim));
+	std::cout << x->numDim() << ':' << x->shape(0) << ',' << x->shape(1) << ',' << x->shape(2) << ',' << x->shape(3)
+			  << std::endl;
+	std::cout << dl::reshape(dl::max(x, dim), {-1, 1}) << std::endl;
+	const auto power = dl::exp(x - dl::reshape(dl::max(x, dim), {-1, 1}));
 	return power / dl::sum(power, dim);
 }
 
@@ -206,17 +209,18 @@ Tensor dl::fma(const Tensor& factor1, const Tensor& factor2, const Tensor& summa
 }
 
 Tensor dl::matmul(Tensor& left, Tensor& right) noexcept {
-	std::cout << "matmul" << std::endl;
-	std::cout << '(' << left->shape(0) << ',' << left->shape(1) << ')' << std::endl;
-	std::cout << '(' << right->shape(0) << ',' << right->shape(1) << ')' << std::endl;
 	/** \todo add support for autograd **/
 	auto tmp = left->matmul(right);
-	std::cout << '(' << tmp->shape(0) << ',' << tmp->shape(1) << ')' << std::endl;
 	return tmp;
 }
 Tensor dl::matmul(Tensor&& left, Tensor& right) noexcept {
 	/** \todo add support for autograd **/
 	return left->matmul(right);
+}
+Tensor dl::matmul(Tensor& left, Tensor&& right) noexcept {
+	/** \todo add support for autograd **/
+	auto tmp = left->matmul(right);
+	return tmp;
 }
 Tensor dl::matmul(Tensor&& left, Tensor&& right) noexcept {
 	/** \todo add support for autograd **/
