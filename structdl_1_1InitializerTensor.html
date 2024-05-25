@@ -210,7 +210,7 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T&gt;<br />
 struct dl::InitializerTensor&lt; T &gt;</div>
-<p class="definition">Definition at line <a class="el" href="tensor_8hpp_source.html#l00012">12</a> of file <a class="el" href="tensor_8hpp_source.html">tensor.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tensor_8hpp_source.html#l00014">14</a> of file <a class="el" href="tensor_8hpp_source.html">tensor.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="abc0978d266c317e55829e4d4c985d76f" name="abc0978d266c317e55829e4d4c985d76f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abc0978d266c317e55829e4d4c985d76f">&#9670;&#160;</a></span>InitializerTensor() <span class="overload">[1/3]</span></h2>
@@ -238,8 +238,8 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tensor_8hpp_source.html#l00020">20</a> of file <a class="el" href="tensor_8hpp_source.html">tensor.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   20</span>: data(<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(data)), shape(<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(shape)){};</div>
+<p class="definition">Definition at line <a class="el" href="tensor_8hpp_source.html#l00022">22</a> of file <a class="el" href="tensor_8hpp_source.html">tensor.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   22</span>: data(<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(data)), shape(<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(shape)) {}</div>
 <div class="ttc" id="amove_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a></div><div class="ttdeci">T move(T... args)</div></div>
 </div><!-- fragment -->
 </div>
@@ -270,8 +270,8 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tensor_8hpp_source.html#l00021">21</a> of file <a class="el" href="tensor_8hpp_source.html">tensor.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   21</span>: data(value), shape({value.<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/initializer_list/size.html">size</a>()}) {}</div>
+<p class="definition">Definition at line <a class="el" href="tensor_8hpp_source.html#l00023">23</a> of file <a class="el" href="tensor_8hpp_source.html">tensor.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   23</span>: data(value), shape({value.<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/initializer_list/size.html">size</a>()}) {}</div>
 <div class="ttc" id="asize_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/initializer_list/size.html">std::initializer_list::size</a></div><div class="ttdeci">T size(T... args)</div></div>
 </div><!-- fragment -->
 </div>
@@ -301,24 +301,23 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>Check if all values have the same size </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>Check if all values have the same size </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="tensor_8hpp_source.html#l00022">22</a> of file <a class="el" href="tensor_8hpp_source.html">tensor.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   22</span>                                                                                   : data(), shape() {</div>
-<div class="line"><span class="lineno">   24</span>            shape = {value.<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/initializer_list/size.html">size</a>()};</div>
-<div class="line"><span class="lineno">   25</span>            data.<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/container/vector/reserve.html">reserve</a>(<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/algorithm/accumulate.html">std::accumulate</a>(value.<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/initializer_list/begin.html">begin</a>(), value.<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/initializer_list/end.html">end</a>(), 0, [](<span class="keywordtype">size_t</span> acc, <span class="keyword">auto</span>&amp; v) {</div>
-<div class="line"><span class="lineno">   26</span>                return acc + v.data.size();</div>
-<div class="line"><span class="lineno">   27</span>            }));</div>
-<div class="line"><span class="lineno">   28</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; v : value) {</div>
-<div class="line"><span class="lineno">   29</span>                data.<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/container/vector/insert.html">insert</a>(data.<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/container/vector/end.html">end</a>(), v.data.begin(), v.data.end());</div>
-<div class="line"><span class="lineno">   30</span>            }</div>
-<div class="line"><span class="lineno">   31</span>            shape.<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/container/vector/push_back.html">push_back</a>(value.<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/initializer_list/begin.html">begin</a>()-&gt;data.size());</div>
-<div class="line"><span class="lineno">   32</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="tensor_8hpp_source.html#l00024">24</a> of file <a class="el" href="tensor_8hpp_source.html">tensor.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   24</span>                                                                                   : data(), shape() {</div>
+<div class="line"><span class="lineno">   26</span>            shape = {value.<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/initializer_list/size.html">size</a>()};</div>
+<div class="line"><span class="lineno">   27</span>            data.<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/container/vector/reserve.html">reserve</a>(<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/algorithm/accumulate.html">std::accumulate</a>(value.<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/initializer_list/begin.html">begin</a>(), value.<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/initializer_list/end.html">end</a>(), 0, [](<span class="keywordtype">size_t</span> acc, <span class="keyword">auto</span>&amp; v) {</div>
+<div class="line"><span class="lineno">   28</span>                return acc + v.data.size();</div>
+<div class="line"><span class="lineno">   29</span>            }));</div>
+<div class="line"><span class="lineno">   30</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; v : value) {</div>
+<div class="line"><span class="lineno">   31</span>                data.<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/container/vector/insert.html">insert</a>(data.<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/container/vector/end.html">end</a>(), v.data.begin(), v.data.end());</div>
+<div class="line"><span class="lineno">   32</span>            }</div>
+<div class="line"><span class="lineno">   33</span>            shape.<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/container/vector/insert.html">insert</a>(shape.<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/container/vector/end.html">end</a>(), <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/iterator/begin.html">std::begin</a>(value.<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/initializer_list/begin.html">begin</a>()-&gt;shape), <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/iterator/end.html">std::end</a>(value.<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/initializer_list/begin.html">begin</a>()-&gt;shape));</div>
+<div class="line"><span class="lineno">   34</span>        }</div>
 <div class="ttc" id="aaccumulate_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/algorithm/accumulate.html">std::accumulate</a></div><div class="ttdeci">T accumulate(T... args)</div></div>
 <div class="ttc" id="abegin_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/initializer_list/begin.html">std::initializer_list::begin</a></div><div class="ttdeci">T begin(T... args)</div></div>
 <div class="ttc" id="aend_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/initializer_list/end.html">std::initializer_list::end</a></div><div class="ttdeci">T end(T... args)</div></div>
 <div class="ttc" id="ainsert_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/vector/insert.html">std::vector::insert</a></div><div class="ttdeci">T insert(T... args)</div></div>
-<div class="ttc" id="apush_back_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/vector/push_back.html">std::vector::push_back</a></div><div class="ttdeci">T push_back(T... args)</div></div>
 <div class="ttc" id="areserve_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/vector/reserve.html">std::vector::reserve</a></div><div class="ttdeci">T reserve(T... args)</div></div>
 </div><!-- fragment -->
 </div>
@@ -338,7 +337,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tensor_8hpp_source.html#l00017">17</a> of file <a class="el" href="tensor_8hpp_source.html">tensor.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tensor_8hpp_source.html#l00019">19</a> of file <a class="el" href="tensor_8hpp_source.html">tensor.hpp</a>.</p>
 
 </div>
 </div>
@@ -356,7 +355,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tensor_8hpp_source.html#l00018">18</a> of file <a class="el" href="tensor_8hpp_source.html">tensor.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tensor_8hpp_source.html#l00020">20</a> of file <a class="el" href="tensor_8hpp_source.html">tensor.hpp</a>.</p>
 
 </div>
 </div>

@@ -18,6 +18,7 @@ var hierarchy =
     [ "ir::Document", "structir_1_1Document.html", null ],
     [ "dl::DOF", "structdl_1_1DOF.html", null ],
     [ "fmt::formatter< std::optional< T > >", "structfmt_1_1formatter_3_01std_1_1optional_3_01T_01_4_01_4.html", null ],
+    [ "fmt::formatter< std::vector< T > >", "structfmt_1_1formatter_3_01std_1_1vector_3_01T_01_4_01_4.html", null ],
     [ "dl::utils::GenericIterator< T >", "classdl_1_1utils_1_1GenericIterator.html", null ],
     [ "dl::InitializerTensor< T >", "structdl_1_1InitializerTensor.html", null ],
     [ "ir::IRDataset< typename >", "classir_1_1IRDataset.html", null ],
@@ -54,5 +55,8 @@ var hierarchy =
     [ "dl::TrainerConf< dl::Model, dl::Dataset, dl::Optimizer >", "structdl_1_1TrainerConf.html", null ],
     [ "dl::TrainerObserver", "classdl_1_1TrainerObserver.html", null ],
     [ "dl::TransformerConf", "structdl_1_1TransformerConf.html", null ],
+    [ "dl::io::WeightsFileFormat", "classdl_1_1io_1_1WeightsFileFormat.html", [
+      [ "dl::io::GGUFFormat", "classdl_1_1io_1_1GGUFFormat.html", null ]
+    ] ],
     [ "dl::WordPieceTokenizer", "classdl_1_1WordPieceTokenizer.html", null ]
 ];

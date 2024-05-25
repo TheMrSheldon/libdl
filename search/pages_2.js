@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['libdl_0',['libdl',['../index.html',1,'']]],
-  ['list_1',['Todo List',['../todo.html',1,'']]]
+  ['differentiation_20autodiff_0',['differentiation autodiff',['../technicalAutodiff.html',1,'Automatic Differentiation (Autodiff)'],['../basicAutodiff.html',1,'Introduction to Automatic Differentiation (Autodiff)']]]
 ];

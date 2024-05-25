@@ -213,8 +213,21 @@ $(document).ready(function(){initNavTree('logging_8hpp_source.html',''); initRes
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>};</div>
 </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00050" data-start="{" data-end="};">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="structfmt_1_1formatter_3_01std_1_1vector_3_01T_01_4_01_4.html">   50</a></span><span class="keyword">struct </span>fmt::formatter&lt;<a class="code hl_namespaceRef" href="http://en.cppreference.com/w/namespacestd.html">std</a>::vector&lt;T&gt;&gt; {</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keyword">constexpr</span> <span class="keyword">auto</span> parse(format_parse_context&amp; ctx) -&gt; <span class="keyword">decltype</span>(ctx.begin()) { <span class="keywordflow">return</span> ctx.end(); }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> FormatContext&gt;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">auto</span> format(<span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;T&gt;</a>&amp; input, FormatContext&amp; ctx) -&gt; <span class="keyword">decltype</span>(ctx.out()) {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">return</span> fmt::format_to(ctx.out(), <span class="stringliteral">&quot;{{{}}}&quot;</span>, fmt::join(input, <span class="stringliteral">&quot;, &quot;</span>));</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>};</div>
+</div>
 <div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="http://en.cppreference.com/w/namespacestd.html">std</a></div></div>
 <div class="ttc" id="ashared_ptr_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr</a></div></div>
+<div class="ttc" id="avector_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

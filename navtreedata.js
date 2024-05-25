@@ -30,9 +30,24 @@ var NAVTREE =
       [ "CMake", "index.html#autotoc_md2", null ]
     ] ],
     [ "Basics", "basicsIdx.html", [
+      [ "Information Retrieval (libir)", "basicsIdx.html#autotoc_md3", null ],
       [ "Arithmetics", "basicArithmetics.html", [
-        [ "What is the difference between const Tensor&, Tensor&, Tensor&&?", "basicArithmetics.html#autotoc_md3", [
-          [ "Small Exercise", "basicArithmetics.html#autotoc_md4", null ]
+        [ "What is the difference between const Tensor&, Tensor&, Tensor&&?", "basicArithmetics.html#autotoc_md4", [
+          [ "Small Exercise", "basicArithmetics.html#autotoc_md5", null ]
+        ] ]
+      ] ],
+      [ "Introduction to Automatic Differentiation (Autodiff)", "basicAutodiff.html", null ],
+      [ "Training and Evaluating a Retrieval Model", "libIRTraining.html", [
+        [ "Datasets", "libIRTraining.html#autotoc_md6", null ],
+        [ "Training", "libIRTraining.html#autotoc_md7", null ],
+        [ "Evaluation", "libIRTraining.html#autotoc_md8", null ]
+      ] ]
+    ] ],
+    [ "Technical", "technicalIdx.html", [
+      [ "Automatic Differentiation (Autodiff)", "technicalAutodiff.html", null ],
+      [ "Transformer", "technicalTransformer.html", [
+        [ "Background and Implementation", "technicalTransformer.html#autotoc_md9", [
+          [ "Optimization", "technicalTransformer.html#autotoc_md10", null ]
         ] ]
       ] ]
     ] ],

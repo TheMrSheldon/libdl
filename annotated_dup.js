@@ -7,6 +7,10 @@ var annotated_dup =
       [ "detail", "namespacedl_1_1detail.html", [
         [ "_ModelSignature", "structdl_1_1detail_1_1__ModelSignature.html", null ]
       ] ],
+      [ "io", null, [
+        [ "GGUFFormat", "classdl_1_1io_1_1GGUFFormat.html", "classdl_1_1io_1_1GGUFFormat" ],
+        [ "WeightsFileFormat", "classdl_1_1io_1_1WeightsFileFormat.html", "classdl_1_1io_1_1WeightsFileFormat" ]
+      ] ],
       [ "utils", null, [
         [ "GenericIterator", "classdl_1_1utils_1_1GenericIterator.html", "classdl_1_1utils_1_1GenericIterator" ],
         [ "LineIterator", "structdl_1_1utils_1_1LineIterator.html", null ],
@@ -38,7 +42,8 @@ var annotated_dup =
       [ "WordPieceTokenizer", "classdl_1_1WordPieceTokenizer.html", null ]
     ] ],
     [ "fmt", null, [
-      [ "formatter< std::optional< T > >", "structfmt_1_1formatter_3_01std_1_1optional_3_01T_01_4_01_4.html", null ]
+      [ "formatter< std::optional< T > >", "structfmt_1_1formatter_3_01std_1_1optional_3_01T_01_4_01_4.html", null ],
+      [ "formatter< std::vector< T > >", "structfmt_1_1formatter_3_01std_1_1vector_3_01T_01_4_01_4.html", null ]
     ] ],
     [ "ir", null, [
       [ "Document", "structir_1_1Document.html", null ],

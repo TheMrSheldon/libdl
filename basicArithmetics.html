@@ -175,12 +175,12 @@ $(document).ready(function(){initNavTree('basicArithmetics.html',''); initResiza
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md3">What is the difference between const Tensor&amp;, Tensor&amp;, Tensor&amp;&amp;?</a><ul><li class="level2"><a href="#autotoc_md4">Small Exercise</a></li>
+<ul><li class="level1"><a href="#autotoc_md4">What is the difference between const Tensor&amp;, Tensor&amp;, Tensor&amp;&amp;?</a><ul><li class="level2"><a href="#autotoc_md5">Small Exercise</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="textblock"><h1><a class="anchor" id="autotoc_md3"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md4"></a>
 What is the difference between const Tensor&amp;, Tensor&amp;, Tensor&amp;&amp;?</h1>
 <p>A tensor can always only belong to exactly one object. That means that if we look at the following code snipped, where a tensor is simply assigned to another tensor, we will observe that it gets <b>copied</b>. </p><div class="fragment"><div class="line"><a class="code hl_class" href="classdl_1_1Tensor.html">dl::Tensor</a> tensora = {1, 2, 3, 4};</div>
 <div class="line"><a class="code hl_class" href="classdl_1_1Tensor.html">dl::Tensor</a> tensorb = tensora;</div>
@@ -190,7 +190,7 @@ What is the difference between const Tensor&amp;, Tensor&amp;, Tensor&amp;&amp;?
 <div class="line"><a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; tensorb &lt;&lt; <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
 <div class="line"><span class="comment">// {1, 42, 3, 4}</span></div>
 <div class="ttc" id="abasic_ostream_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a></div></div>
-<div class="ttc" id="aclassdl_1_1Tensor_html"><div class="ttname"><a href="classdl_1_1Tensor.html">dl::Tensor</a></div><div class="ttdoc">The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...</div><div class="ttdef"><b>Definition</b> <a href="tensor_8hpp_source.html#l00043">tensor.hpp:43</a></div></div>
+<div class="ttc" id="aclassdl_1_1Tensor_html"><div class="ttname"><a href="classdl_1_1Tensor.html">dl::Tensor</a></div><div class="ttdoc">The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...</div><div class="ttdef"><b>Definition</b> <a href="tensor_8hpp_source.html#l00045">tensor.hpp:45</a></div></div>
 <div class="ttc" id="aendl_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a></div><div class="ttdeci">T endl(T... args)</div></div>
 </div><!-- fragment --><p> But quite often we do not want to copy the tensor but merely <b>reference</b> it. This is, where the C++ references come into play. A reference to a pointer is described by the type <code>Tensor&amp;</code>, such that above code would look like this: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classdl_1_1Tensor.html">dl::Tensor</a> tensora = {1, 2, 3, 4};</div>
 <div class="line"><a class="code hl_class" href="classdl_1_1Tensor.html">dl::Tensor</a>&amp; tensorb = tensora;</div>
@@ -232,7 +232,7 @@ What is the difference between const Tensor&amp;, Tensor&amp;, Tensor&amp;&amp;?
 <li>Use <a class="el" href="math_8hpp.html#abe737cde424fc346acf4d2f744c14ff8" title="Computes the exponent -th power of each element in base and returns the resulting tensor.">dl::pow(dl::Tensor&amp; base, float exponent)</a> if a gradient may be calculated and you can ensure that the tensor you give a reference to in the function call is alive long enough. This is useful for <b>model-parameters</b>.</li>
 <li>Use <a class="el" href="math_8hpp.html#a106e0b90a6bbade58bdcfafc08da1a64" title="Computes the exponent -th power of each element in base and returns the resulting tensor.">dl::pow(dl::Tensor&amp;&amp; base, float exponent)</a> if a gradient may be calculated but you can not (or do not want to) ensure that the data lives long enough. This is useful for <b>temporary variables</b>.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md5"></a>
 Small Exercise</h2>
 <p>Can you spot the problem with the following code? </p><div class="fragment"><div class="line"><a class="code hl_class" href="classdl_1_1Tensor.html">dl::Tensor</a> a = {1, 2, 3, 4};</div>
 <div class="line">a-&gt;<a class="code hl_function" href="classdl_1_1TensorImpl.html#ae13d3748fa0aaaddffdc86ac5af33f66">setRequiresGrad</a>(<span class="keyword">true</span>);</div>
@@ -241,6 +241,18 @@ Small Exercise</h2>
 <div class="line"><a class="code hl_class" href="classdl_1_1Tensor.html">dl::Tensor</a> result = b + c; <span class="comment">// a²+a⁴</span></div>
 <div class="line">result.backward();</div>
 <div class="ttc" id="aclassdl_1_1TensorImpl_html_ae13d3748fa0aaaddffdc86ac5af33f66"><div class="ttname"><a href="classdl_1_1TensorImpl.html#ae13d3748fa0aaaddffdc86ac5af33f66">dl::TensorImpl::setRequiresGrad</a></div><div class="ttdeci">void setRequiresGrad(bool requiresGrad) noexcept</div><div class="ttdoc">Set this tensors requirements for a gradient.</div></div>
+</div><!-- fragment --><dl class="section attention"><dt>Attention</dt><dd>The following problem does not yet have a solution: If a model owns the input and needs it multiple times in the calculation, there is no good solution to passing the ownership onto the computation graph yet. For example consider the following forward function: <div class="fragment"><div class="line"><a class="code hl_class" href="classdl_1_1Tensor.html">dl::Tensor</a> forward(<a class="code hl_class" href="classdl_1_1Tensor.html">dl::Tensor</a>&amp;&amp; input) {</div>
+<div class="line"><span class="keywordflow">return</span> f(input, input);                         <span class="comment">// Option 1</span></div>
+<div class="line"><span class="keywordflow">return</span> f(input, <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(input));              <span class="comment">// Option 2</span></div>
+<div class="line"><span class="keywordflow">return</span> f(<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(input), input);              <span class="comment">// Option 3</span></div>
+<div class="line"><span class="keywordflow">return</span> f(<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(input), <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(input));   <span class="comment">// Option 4 </span></div>
+<div class="line">}</div>
+</div><!-- fragment --> None of these functions keep input in memory properly.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>Possible solution: a function <code><a class="el" href="classdl_1_1Tensor.html" title="The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...">dl::Tensor</a>&amp; remember(<a class="el" href="classdl_1_1Tensor.html" title="The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...">dl::Tensor</a>&amp;&amp; tensor)</code> which remembers the input tensor in the computation tree and returns a reference to this tensor: </dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_class" href="classdl_1_1Tensor.html">dl::Tensor</a> forward(<a class="code hl_class" href="classdl_1_1Tensor.html">dl::Tensor</a>&amp;&amp; input) {</div>
+<div class="line">    <a class="code hl_class" href="classdl_1_1Tensor.html">dl::Tensor</a>&amp; inref = dl::remember(input);</div>
+<div class="line">    <span class="keywordflow">return</span> f(inref, inref);</div>
+<div class="line">}</div>
 </div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
