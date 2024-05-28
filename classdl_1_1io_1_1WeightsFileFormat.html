@@ -177,28 +177,18 @@ $(document).ready(function(){initNavTree('classdl_1_1io_1_1WeightsFileFormat.htm
   <div class="headertitle"><div class="title">dl::io::WeightsFileFormat Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-<div class="dynheader">
-Inheritance diagram for dl::io::WeightsFileFormat:</div>
-<div class="dyncontent">
-<div class="center"><img src="classdl_1_1io_1_1WeightsFileFormat__inherit__graph.png" border="0" usemap="#adl_1_1io_1_1WeightsFileFormat_inherit__map" alt="Inheritance graph"/></div>
-<map name="adl_1_1io_1_1WeightsFileFormat_inherit__map" id="adl_1_1io_1_1WeightsFileFormat_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,5,188,31"/>
-<area shape="rect" href="classdl_1_1io_1_1GGUFFormat.html" title=" " alt="" coords="23,79,170,104"/>
-<area shape="poly" title=" " alt="" coords="99,44,99,79,94,79,94,44"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a21e0714f745dc203976c719416ee1c99" id="r_a21e0714f745dc203976c719416ee1c99"><td class="memItemLeft" align="right" valign="top"><a id="a21e0714f745dc203976c719416ee1c99" name="a21e0714f745dc203976c719416ee1c99"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>canOpen</b> (<a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_istream.html">std::istream</a> &amp;stream)=0</td></tr>
-<tr class="separator:a21e0714f745dc203976c719416ee1c99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe012815fad6e4436c16306c718a5a08" id="r_afe012815fad6e4436c16306c718a5a08"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1io_1_1WeightsFileFormat.html#afe012815fad6e4436c16306c718a5a08">loadModelFromStream</a> (<a class="el" href="classdl_1_1ModelBase.html">dl::ModelBase</a> &amp;model, <a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_istream.html">std::istream</a> &amp;stream)=0</td></tr>
 <tr class="memdesc:afe012815fad6e4436c16306c718a5a08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populates the model's weights and metainformation from the provided stream.  <br /></td></tr>
 <tr class="separator:afe012815fad6e4436c16306c718a5a08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53d661ef38f80b0bb086fb7fd9c1a1cc" id="r_a53d661ef38f80b0bb086fb7fd9c1a1cc"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1io_1_1WeightsFileFormat.html#a53d661ef38f80b0bb086fb7fd9c1a1cc">loadModelFromFile</a> (<a class="el" href="classdl_1_1ModelBase.html">dl::ModelBase</a> &amp;model, std::filesystem::path &amp;path, bool mmap=true)=0</td></tr>
 <tr class="memdesc:a53d661ef38f80b0bb086fb7fd9c1a1cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populates the model's weights and metainformation from the given file.  <br /></td></tr>
 <tr class="separator:a53d661ef38f80b0bb086fb7fd9c1a1cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addb80878c7d1b9d8d0e05907ab2a23b7" id="r_addb80878c7d1b9d8d0e05907ab2a23b7"><td class="memItemLeft" align="right" valign="top"><a id="addb80878c7d1b9d8d0e05907ab2a23b7" name="addb80878c7d1b9d8d0e05907ab2a23b7"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>writeModelToStream</b> (<a class="el" href="classdl_1_1ModelBase.html">dl::ModelBase</a> &amp;model, <a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a> &amp;stream)=0</td></tr>
+<tr class="separator:addb80878c7d1b9d8d0e05907ab2a23b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -255,8 +245,6 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>canOpen</b> (
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true iff the model was successfully loaded from the file. </dd></dl>
 
-<p>Implemented in <a class="el" href="classdl_1_1io_1_1GGUFFormat.html#af43fee6cd1464ab07d0b01b50b5f9d4c">dl::io::GGUFFormat</a>.</p>
-
 </div>
 </div>
 <a id="afe012815fad6e4436c16306c718a5a08" name="afe012815fad6e4436c16306c718a5a08"></a>
@@ -303,8 +291,6 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>canOpen</b> (
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true iff the model was successfully loaded from the stream. </dd></dl>
-
-<p>Implemented in <a class="el" href="classdl_1_1io_1_1GGUFFormat.html#a52c0c2a82093a4a3dc1e34549de86e0d">dl::io::GGUFFormat</a>.</p>
 
 </div>
 </div>

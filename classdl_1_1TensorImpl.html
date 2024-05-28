@@ -311,6 +311,9 @@ virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><b>shape</b> (
 <tr class="memitem:ad3694e372dcf9a0b1a686f7063aec058" id="r_ad3694e372dcf9a0b1a686f7063aec058"><td class="memItemLeft" align="right" valign="top"><a id="ad3694e372dcf9a0b1a686f7063aec058" name="ad3694e372dcf9a0b1a686f7063aec058"></a>
 virtual <a class="el" href="classdl_1_1Tensor.html">Tensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>flatten</b> () const noexcept=0</td></tr>
 <tr class="separator:ad3694e372dcf9a0b1a686f7063aec058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ff081f8f11596ea555255091709aaf0" id="r_a2ff081f8f11596ea555255091709aaf0"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1TensorImpl.html#a2ff081f8f11596ea555255091709aaf0">toBytes</a> (char *buffer, size_t buflen) const noexcept=0</td></tr>
+<tr class="memdesc:a2ff081f8f11596ea555255091709aaf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes this tensor's data into the byte array.  <br /></td></tr>
+<tr class="separator:a2ff081f8f11596ea555255091709aaf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -660,6 +663,52 @@ Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The newly created tensor on the specified device. </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classdl_1_1TensorImpl.html#ab38fe3b2bd152ec0bc41ccda54ca0f81" title="Returns the device this tensor is stored on.">TensorImpl::device()</a> </dd></dl>
+
+</div>
+</div>
+<a id="a2ff081f8f11596ea555255091709aaf0" name="a2ff081f8f11596ea555255091709aaf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ff081f8f11596ea555255091709aaf0">&#9670;&#160;</a></span>toBytes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual size_t dl::TensorImpl::toBytes </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>buflen</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Writes this tensor's data into the byte array. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>The byte to write to. If it is a nullpointer, no data will be written but the number of bytes that the tensor uses will still be returned. </td></tr>
+    <tr><td class="paramname">buflen</td><td>The maximum number of bytes to write. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of bytes that were written. If the buffer was too small, 0 is returned. </dd></dl>
 
 </div>
 </div>

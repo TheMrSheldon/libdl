@@ -6,5 +6,6 @@ var classdl_1_1TensorImpl =
     [ "requiresGrad", "classdl_1_1TensorImpl.html#a876b395c6a3b2e09b6104a4f6133db94", null ],
     [ "reshape", "classdl_1_1TensorImpl.html#abfc583100e03c522b71296381ec40a18", null ],
     [ "setRequiresGrad", "classdl_1_1TensorImpl.html#ae13d3748fa0aaaddffdc86ac5af33f66", null ],
-    [ "to", "classdl_1_1TensorImpl.html#ac37a63e8f32aef03a087f630df8c81d6", null ]
+    [ "to", "classdl_1_1TensorImpl.html#ac37a63e8f32aef03a087f630df8c81d6", null ],
+    [ "toBytes", "classdl_1_1TensorImpl.html#a2ff081f8f11596ea555255091709aaf0", null ]
 ];

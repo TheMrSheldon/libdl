@@ -4,5 +4,6 @@ var searchData=
   ['hash_1',['hash',['http://en.cppreference.com/w/cpp/utility/hash.html',1,'std']]],
   ['hecto_2',['hecto',['http://en.cppreference.com/w/cpp/numeric/ratio/ratio.html',1,'std']]],
   ['high_5fresolution_5fclock_3',['high_resolution_clock',['http://en.cppreference.com/w/cpp/chrono/high_resolution_clock.html',1,'std::chrono']]],
-  ['hours_4',['hours',['http://en.cppreference.com/w/cpp/chrono/duration.html',1,'std::chrono']]]
+  ['hours_4',['hours',['http://en.cppreference.com/w/cpp/chrono/duration.html',1,'std::chrono']]],
+  ['htrie_5fmap_5',['htrie_map',['../classtsl_1_1htrie__map.html',1,'tsl']]]
 ];
