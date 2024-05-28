@@ -28,12 +28,15 @@ URLStreamBase::~URLStreamBase() {
 }
 bool URLStreamBase::onDataCallback(std::string data, intptr_t userdata) {
 	// Update the buffer with the received data
-	buffer.clear();
-	std::copy(data.begin(), data.end(), std::back_inserter(buffer));
+	buffer.assign(data.begin(), data.end());
 	// Signal that new data was read
 	dataIncommingSem.release();
 	// Wait for the data to be handled
 	dataHandledSem.acquire();
+	/**
+	 * \todo there is a race condition here, since dataHandledSem signals that the buffers were set and not that they
+	 * were read. Thus buffer.assign(...) can be called before the buffer was read entirely such that data gets skipped.
+	 **/
 	return true;
 }
 URLStreamBase::int_type URLStreamBase::underflow() {

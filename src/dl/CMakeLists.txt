@@ -67,7 +67,7 @@ FetchContent_MakeAvailable(openblas)
 # Dependency of xtensor
 FetchContent_Declare(xblas GIT_REPOSITORY https://github.com/xtensor-stack/xtensor-blas.git GIT_TAG 0.21.0)
 FetchContent_MakeAvailable(xblas)
-target_link_libraries(dl PUBLIC xtensor xsimd xtensor-blas openblas)
+target_link_libraries(dl PRIVATE xtensor xsimd xtensor-blas openblas)
 
 
 # spdlog for logging

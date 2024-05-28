@@ -130,5 +130,16 @@ namespace dl {
 		size_t numDim() const noexcept { return shape().size(); }
 
 		virtual Tensor flatten() const noexcept = 0;
+
+		/**
+		 * @brief Writes this tensor's data into the byte array.
+		 * @details 
+		 * 
+		 * @param buffer The byte to write to. If it is a nullpointer, no data will be written but the number of bytes
+		 * that the tensor uses will still be returned.
+		 * @param buflen The maximum number of bytes to write.
+		 * @return The number of bytes that were written. If the buffer was too small, 0 is returned.
+		 */
+		virtual size_t toBytes(char* buffer, size_t buflen) const noexcept = 0;
 	};
 } // namespace dl

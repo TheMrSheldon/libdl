@@ -11,7 +11,7 @@ namespace dl::io {
 	class WeightsFileFormat {
 	public:
 		virtual ~WeightsFileFormat() = default;
-		virtual bool canOpen(std::istream& stream) = 0;
+
 		/**
 		 * @brief Populates the model's weights and metainformation from the provided stream.
 		 * @details This implementation does not assume the stream to be seekable. That is, it does not "jump around".
@@ -35,15 +35,11 @@ namespace dl::io {
 		 * @return true iff the model was successfully loaded from the file.
 		 */
 		virtual bool loadModelFromFile(dl::ModelBase& model, std::filesystem::path& path, bool mmap = true) = 0;
+
+		virtual void writeModelToStream(dl::ModelBase& model, std::ostream& stream) = 0;
 	};
 
 	extern dl::io::WeightsFileFormat& safetensorsFormat;
-
-	class GGUFFormat final : public WeightsFileFormat {
-	public:
-		virtual bool canOpen(std::istream& stream) override;
-		virtual bool loadModelFromStream(dl::ModelBase& model, std::istream& stream) override;
-		virtual bool loadModelFromFile(dl::ModelBase& model, std::filesystem::path& path, bool mmap) override;
-	};
+	extern dl::io::WeightsFileFormat& ggufFormat;
 
 } // namespace dl::io

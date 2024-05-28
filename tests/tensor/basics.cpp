@@ -44,4 +44,23 @@ TEST_CASE("Basics", "[Tensor]") {
 		CHECK(dl::allclose(tensorA * tensorC, dl::constant({{7, 16, 27}, {28, 40, 54}})));
 		CHECK(dl::allclose(tensorA * tensorD, dl::constant({{7, 14, 21}, {32, 40, 48}})));
 	}
+	{
+		float data[]{1, 2, 3, 4, 5, 6};
+		char* ptr = reinterpret_cast<char*>(data);
+		auto tensor1D = dl::fromBytes<float>(ptr, sizeof(data), {6});
+		auto tensor2D = dl::fromBytes<float>(ptr, sizeof(data), {2, 3});
+		CHECK(dl::allclose(tensor1D, dl::constant({1, 2, 3, 4, 5, 6})));
+		CHECK(dl::allclose(tensor2D, dl::constant({{1, 2, 3}, {4, 5, 6}})));
+	}
+	{
+		auto tensor = dl::constant({{1, 2, 3}, {4, 5, 6}});
+		union {
+			char buffer[6 * sizeof(float)];
+			float fptr[6];
+		};
+		CHECK(tensor->toBytes(nullptr, 0) == sizeof(buffer));
+		CHECK(tensor->toBytes(buffer, 1) == 0);
+		REQUIRE(tensor->toBytes(buffer, sizeof(buffer)) == sizeof(buffer));
+		CHECK_THAT(fptr, RangeEquals(std::vector<float>{1, 2, 3, 4, 5, 6}));
+	}
 }

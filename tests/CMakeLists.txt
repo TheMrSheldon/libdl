@@ -10,6 +10,7 @@ FetchContent_MakeAvailable(catch)
 
 add_executable(tests
 	# Add test files here
+	dl/io/weightsfiles.cpp
 	model/transformer/wordpiece.cpp
 	model/layernorm.cpp
 	tensor/autodiff.cpp

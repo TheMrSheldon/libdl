@@ -6,6 +6,9 @@
 #include <xtensor/xarray.hpp>
 #include <xtensor/xexpression.hpp>
 #include <xtensor/xio.hpp>
+#include <xtensor/xrandom.hpp>
+
+#include <numeric>
 
 namespace dl {
 	class CPUDenseFloatTensor final : public TensorImpl {
@@ -134,6 +137,18 @@ namespace dl {
 
 		virtual Tensor flatten() const noexcept { return createResult(std::move(xt::flatten(data)), requiresGrad()); }
 
+		virtual size_t toBytes(char* buffer, size_t buflen) const noexcept override {
+			size_t numentries =
+					std::accumulate(data.shape().cbegin(), data.shape().cend(), 1, std::multiplies<size_t>{});
+			size_t totalBytes = numentries * sizeof(float);
+			if (buffer == nullptr) // No buffer provided
+				return totalBytes;
+			if (buflen < totalBytes) // Buffer is not big enough
+				return 0;
+			std::memcpy(buffer, data.data(), totalBytes);
+			return totalBytes;
+		}
+
 		inline Tensor createResult(xt::xarray<float> data, bool requireGrad) const noexcept {
 			return Tensor::create<CPUDenseFloatTensor>(std::move(data), device(), requireGrad);
 		}
@@ -162,6 +177,11 @@ namespace dl {
 			return Tensor::create<CPUDenseFloatTensor>(expr, *this, requiresGrad);
 		}
 
+		virtual Tensor rand(Shape shape, bool requiresGrad) const noexcept override {
+			xt::xarray<float> expr = xt::random::rand<float>(shape, 0, 1);
+			return Tensor::create<CPUDenseFloatTensor>(expr, *this, requiresGrad);
+		}
+
 		virtual Tensor constant(int value, bool requiresGrad) const noexcept override {
 			xt::xarray<float> expr = value; /** \todo: allow tensors of different datatypes **/
 			return Tensor::create<CPUDenseFloatTensor>(expr, *this, requiresGrad);
@@ -179,6 +199,16 @@ namespace dl {
 			data = std::memcpy(data, value.data.data(), value.data.size() * sizeof(float));
 			xt::xarray<float> expr = xt::adapt((float*)data, value.data.size(), xt::acquire_ownership(), value.shape);
 			return Tensor::create<CPUDenseFloatTensor>(expr, *this, requiresGrad);
+		}
+
+		virtual Tensor fromBytesFP32(const char* buffer, size_t bufsize, Shape shape) const noexcept override {
+			auto numentries = std::accumulate(shape.cbegin(), shape.cend(), 1, std::multiplies<size_t>{});
+			assert(bufsize == sizeof(float) * numentries);
+			void* data = std::malloc(bufsize);
+			float* fptr = reinterpret_cast<float*>(data);
+			data = std::memcpy(data, buffer, bufsize);
+			xt::xarray<float> expr = xt::adapt((float*)data, numentries, xt::acquire_ownership(), shape);
+			return Tensor::create<CPUDenseFloatTensor>(expr, *this, false);
 		}
 	};
 

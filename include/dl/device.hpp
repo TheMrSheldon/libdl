@@ -55,10 +55,12 @@ namespace dl {
 		 * @return The newly created tensor.
 		 */
 		virtual Tensor ones(Shape shape, bool requiresGrad = false) const noexcept = 0;
+		virtual Tensor rand(Shape shape, bool requiresGrad = false) const noexcept = 0;
 		virtual Tensor constant(int value, bool requiresGrad = false) const noexcept = 0;
 		virtual Tensor constant(float value, bool requiresGrad = false) const noexcept = 0;
 		virtual Tensor constant(double value, bool requiresGrad = false) const noexcept = 0;
 		virtual Tensor constant(InitializerTensor<float>&& value, bool requiresGrad = false) const noexcept = 0;
+		virtual Tensor fromBytesFP32(const char* buffer, size_t bufsize, Shape shape) const noexcept = 0;
 
 		template <typename T>
 		void setDefaultFloatTensorType();
@@ -103,13 +105,23 @@ namespace dl {
 	inline Tensor empty(const Shape& size, Device const& device = Device::getDefault()) { return device.empty(size); }
 	inline Tensor zeros(const Shape& size, Device const& device = Device::getDefault()) { return device.zeros(size); }
 	inline Tensor ones(const Shape& size, Device const& device = Device::getDefault()) { return device.ones(size); }
+	inline Tensor rand(const Shape& size, Device const& device = Device::getDefault()) { return device.rand(size); }
 	Tensor zeros_like(const Tensor& tenosr, Device const& device = Device::getDefault());
 	Tensor ones_like(const Tensor& tensor, Device const& device = Device::getDefault());
+	Tensor rand_like(const Tensor& tensor, Device const& device = Device::getDefault());
 	inline Tensor constant(int value, Device const& device = Device::getDefault()) { return device.constant(value); }
 	inline Tensor constant(float value, Device const& device = Device::getDefault()) { return device.constant(value); }
 	inline Tensor constant(double value, Device const& device = Device::getDefault()) { return device.constant(value); }
 	inline Tensor constant(InitializerTensor<float>&& value, Device const& device = Device::getDefault()) {
 		return device.constant(std::move(value));
+	}
+
+	template <typename T>
+	Tensor
+	fromBytes(const char* buffer, size_t buflen, const Shape& shape, Device const& device = Device::getDefault());
+	template <>
+	inline Tensor fromBytes<float>(const char* buffer, size_t buflen, const Shape& shape, Device const& device) {
+		return device.fromBytesFP32(buffer, buflen, shape);
 	}
 
 	Tensor clone(const Tensor& tensor);
