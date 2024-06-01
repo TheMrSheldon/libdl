@@ -10,6 +10,96 @@
 
 #include <numeric>
 
+namespace tmp {
+	// https://github.com/xtensor-stack/xtensor/issues/1375
+	/** \todo reimplement myself **/
+	template <class _Tp>
+	xt::xarray<_Tp> matmul(xt::xarray<_Tp> a, xt::xarray<_Tp> b) {
+		using Arr = xt::xarray<_Tp>;
+
+		if (a.dimension() == 1 && b.dimension() == 1) {
+			return xt::linalg::outer(a, b);
+		} else if (a.dimension() <= 2 && b.dimension() <= 2) {
+			return xt::linalg::dot(a, b);
+		} else {
+			if (a.dimension() == b.dimension()) {
+				assert(a.shape()[0] == b.shape()[0]);
+				size_t layers = a.shape()[0];
+
+				Arr tmp;
+				{
+					Arr a0 = xt::view(a, 0);
+					Arr b0 = xt::view(b, 0);
+					tmp = matmul(std::move(a0), std::move(b0));
+				}
+
+				auto out_shape = tmp.shape();
+				out_shape.insert(out_shape.begin(), layers);
+
+				auto result = Arr::from_shape(out_shape);
+				xt::view(result, 0) = tmp;
+
+				for (size_t i = 1; i < layers; i++) {
+					Arr ai = xt::view(a, i);
+					Arr bi = xt::view(b, i);
+					xt::view(result, i) = matmul(std::move(ai), std::move(bi));
+				}
+
+				return result;
+			} else if (a.dimension() > b.dimension()) {
+				size_t layers = a.shape()[0];
+
+				Arr tmp;
+				{
+					Arr a0 = xt::view(a, 0);
+					tmp = matmul(std::move(a0), b);
+				}
+
+				auto out_shape = tmp.shape();
+				out_shape.insert(out_shape.begin(), layers);
+
+				auto result = Arr::from_shape(out_shape);
+				xt::view(result, 0) = std::move(tmp);
+
+				for (size_t i = 1; i < layers; i++) {
+					Arr ai = xt::view(a, i);
+					xt::view(result, i) = matmul(std::move(ai), b);
+				}
+
+				return result;
+			} else {
+				assert(a.dimension() < b.dimension());
+				size_t layers = b.shape().back();
+
+				Arr tmp;
+				{
+					Arr b0 = xt::strided_view(b, {xt::ellipsis(), 0});
+					tmp = matmul(a, std::move(b0));
+				}
+
+				auto out_shape = tmp.shape();
+				out_shape.insert(out_shape.end(), layers);
+
+				auto result = Arr::from_shape(out_shape);
+				xt::strided_view(result, {xt::ellipsis(), 0}) = std::move(tmp);
+
+				for (size_t i = 1; i < layers; i++) {
+					Arr bi = xt::strided_view(b, {xt::ellipsis(), i});
+					xt::strided_view(result, {xt::ellipsis(), i}) = matmul(a, std::move(bi));
+				}
+
+				return result;
+			}
+		}
+	}
+} // namespace tmp
+
+static dl::Shape removeDim(dl::Shape shape, int dim) {
+	// shape.erase(std::next(shape.begin(), dim));
+	shape[(dim >= 0) ? dim : (shape.size() + dim)] = 1;
+	return shape;
+}
+
 namespace dl {
 	class CPUDenseFloatTensor final : public TensorImpl {
 	private:
@@ -60,7 +150,8 @@ namespace dl {
 			);
 		}
 		virtual Tensor matmul(const Tensor& other) const noexcept override {
-			return createResult(xt::linalg::dot(data, downcast(other).data), requiresGrad());
+			// return createResult(xt::linalg::dot(data, downcast(other).data), requiresGrad());
+			return createResult(tmp::matmul(data, downcast(other).data), requiresGrad());
 		}
 
 		virtual Tensor transpose(std::vector<size_t>&& perm) const noexcept {
@@ -87,20 +178,32 @@ namespace dl {
 		virtual Tensor rsqrt() const noexcept override { return createResult(1 / xt::sqrt(data), requiresGrad()); }
 
 		virtual Tensor mean() const noexcept override { return createResult(xt::mean(data), requiresGrad()); }
-		virtual Tensor mean(size_t dim) const noexcept override {
+		virtual Tensor mean(int dim, bool keepdim) const noexcept override {
+			/** \todo implement keepdim **/
 			return createResult(xt::mean(data, {dim}), requiresGrad());
 		}
 		virtual Tensor sum() const noexcept override { return createResult(xt::sum(data), requiresGrad()); }
-		virtual Tensor sum(size_t dim) const noexcept override {
-			return createResult(xt::sum(data, {dim}), requiresGrad());
+		virtual Tensor sum(int dim, bool keepdim) const noexcept override {
+			xt::xarray<float> result = xt::sum(data, {dim});
+			if (keepdim) {
+				auto shape = removeDim(this->shape(), dim);
+				result = xt::reshape_view(result, shape);
+			}
+			return createResult(result, requiresGrad());
 		}
 		virtual Tensor min() const noexcept override { return createResult(xt::amin(data), requiresGrad()); }
-		virtual Tensor min(size_t dim) const noexcept override {
+		virtual Tensor min(int dim, bool keepdim) const noexcept override {
+			/** \todo implement keepdim **/
 			return createResult(xt::amin(data, {dim}), requiresGrad());
 		}
 		virtual Tensor max() const noexcept override { return createResult(xt::amax(data), requiresGrad()); }
-		virtual Tensor max(size_t dim) const noexcept override {
-			return createResult(xt::amax(data, {dim}), requiresGrad());
+		virtual Tensor max(int dim, bool keepdim) const noexcept override {
+			xt::xarray<float> result = xt::amax(data, {dim});
+			if (keepdim) {
+				auto shape = removeDim(this->shape(), dim);
+				result = xt::reshape_view(result, shape);
+			}
+			return createResult(result, requiresGrad());
 		}
 		virtual Tensor max(const Tensor& other) const noexcept {
 			return createResult(xt::maximum(data, downcast(other).data), requiresGrad());
@@ -115,7 +218,7 @@ namespace dl {
 			//return createResult(std::move(result), requiresGrad());
 			return createResult(xt::variance(data, dof.dof), requiresGrad());
 		}
-		virtual Tensor var(size_t dim, DOF dof) const noexcept override {
+		virtual Tensor var(int dim, DOF dof) const noexcept override {
 			return createResult(
 					xt::detail::mean<void>(
 							xt::square(data - xt::reshape_view(xt::mean(data, {dim}), {-1, 1})), {dim}, dof.dof,
@@ -126,12 +229,14 @@ namespace dl {
 			//return createResult(xt::variance(data, {dim}, dof.dof), requiresGrad());
 		}
 
+		virtual Tensor erf() const noexcept override { return createResult(xt::erf(data), requiresGrad()); }
+
 		virtual void mul_inplace(const Tensor& other) noexcept override { data *= downcast(other).data; }
 		virtual void reshape(SShape shape) noexcept override { data.reshape(std::move(shape)); }
 
 		virtual Tensor clone() const noexcept override { return Tensor::create<CPUDenseFloatTensor>(*this); }
 
-		virtual size_t shape(size_t dim) const noexcept { return data.shape(dim); }
+		virtual size_t shape(int dim) const noexcept { return data.shape(dim); }
 
 		virtual Shape shape() const noexcept { return Shape(std::begin(data.shape()), std::end(data.shape())); }
 

@@ -26,8 +26,16 @@ public:
 		// Read the header
 		uint64_t headerSize;
 		stream.read((char*)&headerSize, sizeof(headerSize));
+		if (stream.fail()) {
+			logger->error("File endded too early");
+			return false;
+		}
 		std::vector<char> headerJSON(headerSize);
 		stream.read(headerJSON.data(), headerSize);
+		if (stream.fail()) {
+			logger->error("File endded too early");
+			return false;
+		}
 		auto json = json::parse(headerJSON.begin(), headerJSON.end());
 		// Iterate all tensors defined in the header and check that they match the model. Also track how much data at
 		// the end of the file makes up tensor data.
@@ -58,6 +66,10 @@ public:
 		// Preload
 		std::vector<char> tensorData(largestOffset, 0);
 		stream.read(tensorData.data(), tensorData.size());
+		if (stream.fail()) {
+			logger->error("File endded too early");
+			return false;
+		}
 		// Init the tensors
 		for (auto& [tensorName, metadata] : json.items()) {
 			if (tensorName != "__metadata__") {

@@ -52,7 +52,7 @@ namespace nlp {
      * 
      */
 	class BERT : public dl::Model<dl::Tensor(dl::Tensor&)> {
-	private:
+	public:
 		static constexpr dl::TransformerConf transformerConf{
 				.dimensions = {.model = 768, .key = 64, .value = 64, .inner = 3072},
 				.numEncoders = 12,

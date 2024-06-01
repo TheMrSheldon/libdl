@@ -10,6 +10,10 @@ using dl::Tensor;
 using dl::Transformer;
 using dl::TransformerEncoder;
 
+static dl::Tensor BertGELU(const dl::Tensor& input) {
+	return input * dl::constant(0.5) * (dl::constant(1.0) + dl::erf(input * dl::rsqrt({2.0})));
+}
+
 Transformer::Transformer(TransformerConf conf) noexcept
 		: conf(conf), weightOut(conf.numAttnHeads * conf.dimensions.value, conf.dimensions.model), encoders() {
 	for (size_t i = 0; i < conf.numEncoders; ++i) {
@@ -42,8 +46,9 @@ TransformerEncoder::TransformerEncoder(TransformerConf conf) noexcept
 }
 
 Tensor TransformerEncoder::multiHeadAttention(Tensor&& query, Tensor&& key, Tensor&& value) noexcept {
-	auto attn = dl::transpose(scaledDotProductAttention(std::move(query), std::move(key), std::move(value)), {0, 1});
-	attn->reshape({-1, (int)(conf.numAttnHeads * conf.dimensions.value)});
+	// auto attn = dl::transpose(scaledDotProductAttention(std::move(query), std::move(key), std::move(value)), {0, 1});
+	// attn->reshape({-1, (int)(conf.numAttnHeads * conf.dimensions.value)});
+	auto attn = scaledDotProductAttention(std::move(query), std::move(key), std::move(value));
 	return weightOut.forward(std::move(attn));
 }
 
@@ -51,21 +56,22 @@ Tensor TransformerEncoder::scaledDotProductAttention(Tensor&& query, Tensor&& ke
 	// Reshape key and query and compute (QK^T) batched
 	query->reshape({-1, (int)(conf.numAttnHeads), (int)(conf.dimensions.key)});
 	key->reshape({-1, (int)(conf.numAttnHeads), (int)(conf.dimensions.key)});
+	value->reshape({-1, (int)conf.numAttnHeads, (int)conf.dimensions.value});
 	auto facq = dl::transpose(std::move(query), {0, 1});
 	auto fack = dl::transpose(std::move(key), {0, 1});
-	// (12, 10, 64) @ (12, 64, 10) -> (12, 10, 10)
+	auto facv = dl::transpose(std::move(value), {0, 1});
+	// (12, 10, dmodel) @ (12, dmodel, 10) -> (12, 10, 10)
 	auto prod = dl::matmul(std::move(facq), dl::transpose(std::move(fack), {-1, -2}));
-	std::cout << facq->numDim() << ':' << facq->shape(0) << ',' << facq->shape(1) << ',' << facq->shape(2) << std::endl;
-	std::cout << fack->numDim() << ':' << fack->shape(0) << ',' << fack->shape(1) << ',' << fack->shape(2) << std::endl;
-	std::cout << prod->numDim() << ':' << prod->shape(0) << ',' << prod->shape(1) << ',' << prod->shape(2) << ','
-			  << prod->shape(3) << std::endl;
-	// Compute softmax(prod / sqrt(d_k)) * W^V + b^V
-	return weightValue.forward(dl::softmax(std::move(prod) * dl::constant(dimKeysInvSqrt), -1));
+	// Compute smax = softmax(prod / sqrt(d_k))
+	auto smax = dl::softmax(std::move(prod) * dl::constant(dimKeysInvSqrt), -1);
+	// compute smax * V
+	auto tmp = dl::matmul(std::move(smax), facv);
+	return dl::reshape(dl::transpose(std::move(tmp), {0, 1}), {-1, (int)conf.dimensions.model});
 }
 
 Tensor TransformerEncoder::forward(Tensor& input) {
 	auto mha = multiHeadAttention(weightQuery.forward(input), weightKey.forward(input), weightValue.forward(input));
-	auto tmp = mhaNorm.forward(std::move(mha) + input);
-	auto ffn = weightIntermedOut.forward(dl::relu(weightIntermed.forward(std::move(tmp))));
-	return ffnNorm.forward(std::move(ffn));
+	auto attention = mhaNorm.forward(std::move(mha) + input);
+	auto intermed = BertGELU(weightIntermed.forward(attention));
+	return ffnNorm.forward(weightIntermedOut.forward(std::move(intermed)) + attention);
 }

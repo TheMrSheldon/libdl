@@ -95,11 +95,11 @@ namespace dl {
 
 		// Statistical functions:
 		virtual Tensor mean() const noexcept = 0;
-		virtual Tensor mean(size_t dim) const noexcept = 0;
+		virtual Tensor mean(int dim, bool keepdim) const noexcept = 0;
 		virtual Tensor sum() const noexcept = 0;
-		virtual Tensor sum(size_t dim) const noexcept = 0;
+		virtual Tensor sum(int dim, bool keepdim) const noexcept = 0;
 		virtual Tensor min() const noexcept = 0;
-		virtual Tensor min(size_t dim) const noexcept = 0;
+		virtual Tensor min(int dim, bool keepdim) const noexcept = 0;
 		/**
 		 * @brief Computes the element-wise minimum between this tensor and the other.
 		 * 
@@ -108,10 +108,12 @@ namespace dl {
 		 */
 		virtual Tensor min(const Tensor& other) const noexcept = 0;
 		virtual Tensor max() const noexcept = 0;
-		virtual Tensor max(size_t dim) const noexcept = 0;
+		virtual Tensor max(int dim, bool keepdim) const noexcept = 0;
 		virtual Tensor max(const Tensor& other) const noexcept = 0;
 		virtual Tensor var(DOF dof) const noexcept = 0;
-		virtual Tensor var(size_t dim, DOF dof) const noexcept = 0;
+		virtual Tensor var(int dim, DOF dof) const noexcept = 0;
+
+		virtual Tensor erf() const noexcept = 0;
 
 		virtual void mul_inplace(const Tensor& other) noexcept = 0;
 		/**
@@ -126,7 +128,7 @@ namespace dl {
 		virtual Tensor clone() const noexcept = 0;
 
 		virtual Shape shape() const noexcept = 0;
-		virtual size_t shape(size_t dim) const noexcept = 0;
+		virtual size_t shape(int dim) const noexcept = 0;
 		size_t numDim() const noexcept { return shape().size(); }
 
 		virtual Tensor flatten() const noexcept = 0;

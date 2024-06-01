@@ -4,37 +4,25 @@
 #include <experimental/propagate_const>
 #include <istream>
 #include <memory>
-#include <semaphore>
-#include <streambuf>
 #include <string>
 #include <vector>
-
-// Forward declaration for pImpl
-// Not for information hiding but the user should not have to add cpr to their dependencies.
-namespace cpr {
-	template <typename T, bool isCancellable>
-	class AsyncWrapper;
-	class Response;
-} // namespace cpr
 
 namespace dl::utils {
 	/**
 	 * @brief Opens an input stream which serves the information pointed at by the provided URL.
-	 * @see URLStream
+	 * @details
+	 * \note The implementation is currently unstable
 	 */
-	class URLStreamBase : public std::streambuf {
+	class URLStream : virtual public std::basic_istream<char> {
 	private:
-		std::experimental::propagate_const<std::unique_ptr<cpr::AsyncWrapper<void, false>>> pImpl;
-		std::vector<char> buffer;
-		std::binary_semaphore dataIncommingSem;
-		std::binary_semaphore dataHandledSem;
-		bool ended = false;
+		struct Data;
+		std::experimental::propagate_const<std::unique_ptr<Data>> pImpl;
 
-		URLStreamBase() = delete;
-		URLStreamBase(const URLStreamBase& other) = delete;
+		URLStream() = delete;
+		URLStream(const URLStream& other) = delete;
 		// Deleted move constructor because we would have to move semaphores and we capture "this" in a lambda
 		// expression within the constructor.
-		URLStreamBase(URLStreamBase&& other) = delete;
+		URLStream(URLStream&& other) = delete;
 
 		/**
 		 * @brief Called internally by the implementation for every chunk of data.
@@ -49,22 +37,13 @@ namespace dl::utils {
 		bool onDataCallback(std::string data, intptr_t userdata);
 
 	public:
-		explicit URLStreamBase(const char* url) noexcept;
-		virtual ~URLStreamBase() override;
-		int_type underflow();
-	};
-
-	/**
-	 * @brief Opens an input stream which serves the information pointed at by the provided URL.
-	 */
-	class URLStream : virtual URLStreamBase, public std::istream {
-	public:
 		/**
 		 * @brief Instantiates a new URLStream that serves the data at the given URL.
 		 * 
 		 * @param url The URL to download data from.
 		 */
-		URLStream(const char* url) : URLStreamBase(url), std::istream(this) {}
+		explicit URLStream(const char* url) noexcept;
+		virtual ~URLStream();
 	};
 } // namespace dl::utils
 

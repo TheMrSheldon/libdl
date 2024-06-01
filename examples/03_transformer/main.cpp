@@ -1,14 +1,14 @@
 #include <dl/device.hpp>
 #include <dl/io/weightsfile.hpp>
+#include <dl/logging.hpp>
 #include <dl/model/transformer/wordpiece.hpp>
 #include <dl/utils/urlstream.hpp>
 #include <nlp/transformer/bert.hpp>
 
-#include <iostream>
-
 #include <nlohmann/json.hpp>
 
-#include <dl/logging.hpp>
+#include <fstream>
+#include <iostream>
 
 using json = nlohmann::json;
 
@@ -18,6 +18,12 @@ namespace hf {
 	};
 	static Conf defaultConf{.baseUrl = "https://huggingface.co"};
 } // namespace hf
+
+void download(std::string url, std::filesystem::path file) {
+	dl::utils::URLStream input(url.c_str());
+	std::ofstream output(file, std::ios::binary);
+	output << input.rdbuf();
+}
 
 nlp::BERTConfig loadConfigFromHuggingFace(std::string repoURL, const hf::Conf& conf = hf::defaultConf) {
 	dl::utils::URLStream confStream{
@@ -53,38 +59,38 @@ dl::WordPieceTokenizer loadTokenizerFromHuggingFace(std::string repoURL, const h
 }
 
 int main(void) {
-	/*dl::InitializerTensor<float> tmp = {{{1, 2, 3}, {4, 5, 6}}, {{7, 8, 9}, {0, 1, 2}}};
-	auto tensorA = dl::constant(std::move(tmp));
-	auto tensorB = dl::transpose(dl::Tensor(tensorA), {-1, -2});
-
-	for (auto tmp : tensorA->shape())
-		std::cout << tmp << ',';
-	std::cout << std::endl;
-	for (auto tmp : tensorB->shape())
-		std::cout << tmp << ',';
-	std::cout << std::endl;
-
-	auto tensorC = dl::matmul(tensorA, tensorB);
-	for (auto tmp : tensorC->shape())
-		std::cout << tmp << ',';
-	std::cout << std::endl;
-
-	std::cout << tensorC << std::endl;*/
-
+	dl::log::setVerbosity(dl::log::Verbosity::Debug);
 	auto logger = dl::log::getLogger("main");
 
-	auto tokenizer = loadTokenizerFromHuggingFace("google-bert/bert-base-uncased");
+	/*auto tokenizer = loadTokenizerFromHuggingFace("google-bert/bert-base-uncased");
 	auto text = "Hugging Face ABCDEF";
 	auto tokens = tokenizer.tokenize(text);
 	for (auto token : tokens)
 		std::cout << token << ", " << std::endl;
-	std::cout << std::endl;
+	std::cout << std::endl;*/
 
-	auto bert = loadModelFromHuggingFace("google-bert/bert-base-uncased");
+	/*download(
+			std::format(
+					"{}/{}/resolve/main/model.safetensors?download=true", hf::defaultConf.baseUrl,
+					"google-bert/bert-base-uncased"
+			)
+					.c_str(),
+			"bertmodel.safetensors"
+	);*/
 
-	// auto input = dl::ones({10, 768});
-	// auto output = bert.forward(input);
-	// std::cout << output->shape(0) << ',' << output->shape(1) << std::endl;
+	//auto bert = loadModelFromHuggingFace("google-bert/bert-base-uncased");
+	auto modelConf = loadConfigFromHuggingFace("google-bert/bert-base-uncased");
+	nlp::BERT bert(modelConf);
+	std::ifstream stream("bertmodel.safetensors", std::ios::binary);
+	auto success = dl::io::safetensorsFormat.loadModelFromStream(bert, stream);
+	std::cout << (success ? "Success!" : "Failed :(") << std::endl;
+
+	auto input = dl::ones({10, 768});
+	auto& encoder = *bert.encoder.encoders[0];
+	auto output = encoder.forward(input);
+	std::cout << output->numDim() << ':' << output->shape(0) << ',' << output->shape(1) << ',' << output->shape(2)
+			  << std::endl;
+	std::cout << output << std::endl;
 
 	/*dl::utils::URLStream in{"https://huggingface.co/google-bert/bert-base-uncased/raw/main/vocab.txt"};
 	auto tokenizer = dl::WordPieceTokenizer::fromStream(in);

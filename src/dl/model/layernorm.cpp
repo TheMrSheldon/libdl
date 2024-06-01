@@ -18,7 +18,7 @@ Tensor LayerNorm::forward(Tensor& input) noexcept {
 }
 Tensor LayerNorm::forward(Tensor&& input) noexcept {
 	/** \todo currently, this will result in memory errors for the backward pass since input will be deleted. **/
-	auto numerator = input - dl::reshape(dl::mean(input, 0), {-1, 1});
-	auto denominator = dl::rsqrt(dl::var(input, 0, dl::DOF{0}) + dl::constant(1e-5));
+	auto numerator = input - dl::reshape(dl::mean(input, 1), {-1, 1});
+	auto denominator = dl::reshape(dl::rsqrt(dl::var(input, 1, dl::DOF{0}) + dl::constant(1e-5)), {-1, 1});
 	return (std::move(numerator) * std::move(denominator)) * gamma + beta;
 }

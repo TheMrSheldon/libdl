@@ -80,9 +80,9 @@ Tensor dl::mean(Tensor&& x) noexcept {
 		auto size = (float)x->shape(0);
 		tensor->gradfn = [copy = std::move(x), size](Tensor& ptr) mutable {
 			if (copy->grad == nullptr)
-				copy->grad = std::move(ptr * dl::ones_like(copy) / size);
+				copy->grad = (ptr * dl::ones_like(copy)) / size;
 			else
-				copy->grad = std::move(copy->grad + (ptr * dl::ones_like(copy) / size));
+				copy->grad = copy->grad + ((ptr * dl::ones_like(copy)) / size);
 			if (copy->gradfn)
 				copy->gradfn(copy->grad);
 			else
@@ -94,33 +94,38 @@ Tensor dl::mean(Tensor&& x) noexcept {
 
 Tensor dl::mean(const Tensor& x) noexcept { return x->mean(); }
 
-Tensor dl::mean(Tensor& x, size_t dim) noexcept {
+Tensor dl::mean(Tensor& x, int dim, bool keepdim) noexcept {
 	/** \todo implement autodiff **/
-	return dl::mean((const Tensor&)x, dim);
+	return dl::mean((const Tensor&)x, dim, keepdim);
 }
-Tensor dl::mean(Tensor&& x, size_t dim) noexcept {
+Tensor dl::mean(Tensor&& x, int dim, bool keepdim) noexcept {
 	/** \todo implement autodiff **/
-	return dl::mean((const Tensor&)x, dim);
+	return dl::mean((const Tensor&)x, dim, keepdim);
 }
-Tensor dl::mean(const Tensor& x, size_t dim) noexcept { return x->mean(dim); }
+Tensor dl::mean(const Tensor& x, int dim, bool keepdim) noexcept { return x->mean(dim, keepdim); }
 
 Tensor dl::sum(const Tensor& x) noexcept { return x->sum(); }
 
-Tensor dl::sum(const Tensor& x, size_t dim) noexcept { return x->sum(dim); }
+Tensor dl::sum(const Tensor& x, int dim, bool keepdim) noexcept { return x->sum(dim, keepdim); }
 
 Tensor dl::min(const Tensor& x) noexcept { return x->min(); }
 
-Tensor dl::min(const Tensor& x, size_t dim) noexcept { return x->min(dim); }
+Tensor dl::min(const Tensor& x, int dim, bool keepdim) noexcept { return x->min(dim, keepdim); }
 
 Tensor dl::max(const Tensor& x) noexcept { return x->max(); }
 
-Tensor dl::max(const Tensor& x, size_t dim) noexcept { return x->max(dim); }
+Tensor dl::max(const Tensor& x, int dim, bool keepdim) noexcept { return x->max(dim, keepdim); }
 
 Tensor dl::max(const Tensor& x, const Tensor& y) noexcept { return x->max(y); }
 
 Tensor dl::var(const Tensor& x, DOF dof) noexcept { return x->var(dof); }
 
-Tensor dl::var(const Tensor& x, size_t dim, DOF dof) noexcept { return x->var(dim, dof); }
+Tensor dl::var(const Tensor& x, int dim, DOF dof) noexcept { return x->var(dim, dof); }
+
+Tensor dl::erf(Tensor&& x) noexcept {
+	/** \todo implement gradient **/
+	return x->erf();
+}
 
 Tensor dl::relu(Tensor& x) noexcept { return dl::max(x, {0}); }
 Tensor dl::relu(Tensor&& x) noexcept { return dl::max(std::move(x), dl::zeros_like(x)); }
@@ -134,13 +139,17 @@ Tensor dl::softmax(const Tensor& x) noexcept {
 	const auto power = dl::exp(x - dl::max(x));
 	return power / dl::sum(power);
 }
-Tensor dl::softmax(const Tensor& x, size_t dim) noexcept {
-	/** \todo This does not yet work since it assumes that - and / can be broadcasted **/
-	std::cout << x->numDim() << ':' << x->shape(0) << ',' << x->shape(1) << ',' << x->shape(2) << ',' << x->shape(3)
-			  << std::endl;
-	std::cout << dl::reshape(dl::max(x, dim), {-1, 1}) << std::endl;
-	const auto power = dl::exp(x - dl::reshape(dl::max(x, dim), {-1, 1}));
-	return power / dl::sum(power, dim);
+Tensor dl::softmax(const Tensor& x, int dim) noexcept {
+	/** \todo implement **/
+	const auto power = dl::exp(x - dl::max(x, dim, true));
+	return power / dl::sum(power, dim, true);
+}
+
+dl::Tensor dl::operator*(const dl::Tensor& left, float right) noexcept {
+	return left * dl::constant(right, left->device());
+}
+dl::Tensor dl::operator/(const dl::Tensor& left, float right) noexcept {
+	return left / dl::constant(right, left->device());
 }
 
 Tensor dl::operator+(Tensor&& left, Tensor& right) noexcept {
@@ -194,6 +203,7 @@ Tensor dl::operator*(Tensor&& left, Tensor&& right) noexcept {
 	/** \todo add support for autograd **/
 	return left->mul(right);
 }
+Tensor dl::operator*(const Tensor& left, const Tensor& right) noexcept { return left->mul(right); }
 Tensor dl::operator/(Tensor& left, Tensor& right) noexcept {
 	/** \todo add support for autograd **/
 	return left->div(right);

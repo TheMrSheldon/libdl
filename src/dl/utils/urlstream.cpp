@@ -1,58 +1,36 @@
 #include <dl/utils/urlstream.hpp>
 
+#include <boost/process/pipe.hpp>
 #include <cpr/cpr.h>
+
 #include <iostream>
 
 using namespace std::placeholders;
-using dl::utils::URLStreamBase;
+using dl::utils::URLStream;
 
-URLStreamBase::URLStreamBase(const char* url) noexcept
-		: pImpl{nullptr}, buffer{}, dataIncommingSem{0}, dataHandledSem{0} {
-	buffer.reserve(1024);
-	setg(0, 0, 0);
+struct URLStream::Data {
+	cpr::AsyncWrapper<void, false> wrapper;
+	boost::process::pstream pipe;
+};
+
+URLStream::URLStream(const char* url) noexcept : pImpl{nullptr} {
 	// Init pImpl last since it directly starts the download
 	auto onDoneCallback = [this](cpr::Response) {
-		ended = true;
-		// An empty buffer notifies the underflow() function to return eof()
-		buffer.clear();
-		dataIncommingSem.release();
+		pImpl->pipe.close();
+		pImpl->pipe.pipe().close();
 	};
-	pImpl = std::make_unique<cpr::AsyncWrapper<void, false>>(cpr::GetCallback(
-			onDoneCallback, cpr::Url{url}, cpr::WriteCallback(std::bind(&URLStreamBase::onDataCallback, this, _1, _2))
-	));
+	pImpl = std::make_unique<URLStream::Data>(URLStream::Data{
+			.wrapper = cpr::GetCallback(
+					onDoneCallback, cpr::Url{url},
+					cpr::WriteCallback(std::bind(&URLStream::onDataCallback, this, _1, _2))
+			),
+			.pipe = {}
+	});
+	this->rdbuf(pImpl->pipe.rdbuf());
 }
-URLStreamBase::~URLStreamBase() {
-	if (pImpl != nullptr) {
-		sync();
-	}
-}
-bool URLStreamBase::onDataCallback(std::string data, intptr_t userdata) {
+URLStream::~URLStream() {}
+bool URLStream::onDataCallback(std::string data, intptr_t userdata) {
 	// Update the buffer with the received data
-	buffer.assign(data.begin(), data.end());
-	// Signal that new data was read
-	dataIncommingSem.release();
-	// Wait for the data to be handled
-	dataHandledSem.acquire();
-	/**
-	 * \todo there is a race condition here, since dataHandledSem signals that the buffers were set and not that they
-	 * were read. Thus buffer.assign(...) can be called before the buffer was read entirely such that data gets skipped.
-	 **/
-	return true;
-}
-URLStreamBase::int_type URLStreamBase::underflow() {
-	if (ended)
-		return traits_type::eof();
-	// Wait for data
-	dataIncommingSem.acquire();
-	// Read/handle the information
-	URLStreamBase::int_type ret;
-	if (pImpl == nullptr || buffer.empty()) {
-		ret = traits_type::eof();
-	} else {
-		setg(buffer.data(), buffer.data(), buffer.data() + buffer.size());
-		ret = traits_type::to_int_type(*gptr());
-	}
-	// Signal CPR's callback that we have handled the information and can read more
-	dataHandledSem.release();
-	return ret;
+	pImpl->pipe.pipe().write(data.data(), data.size());
+	return !pImpl->pipe.bad();
 }

@@ -34,7 +34,7 @@ namespace dl {
 	};
 
 	class TransformerEncoder final : public Model<Tensor(Tensor&)> {
-	private:
+	public:
 		TransformerConf conf;
 		// Multi-Head Attention
 		dl::Linear weightQuery;
@@ -105,7 +105,7 @@ namespace dl {
      * @details
      */
 	class Transformer final : public Model<Tensor(Tensor&)> {
-	private:
+	public:
 		const TransformerConf conf;
 		std::vector<std::unique_ptr<TransformerEncoder>> encoders;
 		dl::Linear weightOut;
