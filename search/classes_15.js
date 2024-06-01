@@ -35,6 +35,5 @@ var searchData=
   ['unordered_5fmultiset_32',['unordered_multiset',['http://en.cppreference.com/w/cpp/container/unordered_multiset.html',1,'std']]],
   ['unordered_5fset_33',['unordered_set',['http://en.cppreference.com/w/cpp/container/unordered_set.html',1,'std']]],
   ['urlstream_34',['URLStream',['../classdl_1_1utils_1_1URLStream.html',1,'dl::utils']]],
-  ['urlstreambase_35',['URLStreamBase',['../classdl_1_1utils_1_1URLStreamBase.html',1,'dl::utils']]],
-  ['uses_5fallocator_36',['uses_allocator',['http://en.cppreference.com/w/cpp/memory/uses_allocator.html',1,'std']]]
+  ['uses_5fallocator_35',['uses_allocator',['http://en.cppreference.com/w/cpp/memory/uses_allocator.html',1,'std']]]
 ];

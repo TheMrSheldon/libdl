@@ -1,5 +1,16 @@
 <map id="dl::TransformerEncoder" name="dl::TransformerEncoder">
-<area shape="rect" id="Node000001" title=" " alt="" coords="27,79,199,104"/>
-<area shape="rect" id="Node000002" href="$classdl_1_1Model.html" title=" " alt="" coords="5,5,221,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,44,116,79,111,79,111,44"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="49,241,221,267"/>
+<area shape="rect" id="Node000002" href="$classdl_1_1Model.html" title=" " alt="" coords="30,5,246,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,38,43,55,29,67,17,81,9,104,11,127,21,150,37,172,78,211,117,239,114,243,75,215,33,176,16,153,6,128,4,103,13,79,25,63,40,51,73,33"/>
+<area shape="rect" id="Node000004" href="$classdl_1_1Linear.html" title="Applies a learnable linear transformation with optional bias." alt="" coords="342,80,424,105"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="190,32,345,77,343,83,189,37"/>
+<area shape="rect" id="Node000006" href="$classdl_1_1LayerNorm.html" title="Implements layer normalization as proposed by ." alt="" coords="203,80,318,105"/>
+<area shape="poly" id="edge8_Node000006_Node000002" title=" " alt="" coords="170,35,242,77,239,82,168,40"/>
+<area shape="rect" id="Node000003" href="$structdl_1_1TransformerConf.html" title=" " alt="" coords="28,80,178,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="111,118,135,240,130,241,105,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="376,119,350,170,329,197,304,220,265,239,222,250,221,245,263,234,301,215,326,194,345,168,372,117"/>
+<area shape="rect" id="Node000005" href="$classdl_1_1Model.html" title=" " alt="" coords="270,5,496,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="386,45,386,80,380,80,380,45"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="353,40,281,82,279,77,350,35"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="246,118,168,219,147,243,143,239,163,216,241,115"/>
 </map>

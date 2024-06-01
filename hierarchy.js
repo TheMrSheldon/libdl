@@ -1,7 +1,9 @@
 var hierarchy =
 [
     [ "dl::detail::_ModelSignature< T >", "structdl_1_1detail_1_1__ModelSignature.html", null ],
-    [ "cpr::AsyncWrapper< T, isCancellable >", "classcpr_1_1AsyncWrapper.html", null ],
+    [ "std::basic_istream< char >", "http://en.cppreference.com/w/cpp/io/basic_istream.html", [
+      [ "dl::utils::URLStream", "classdl_1_1utils_1_1URLStream.html", null ]
+    ] ],
     [ "nlp::BERTConfig", "structnlp_1_1BERTConfig.html", null ],
     [ "dl::Dataloader< typename >", "classdl_1_1Dataloader.html", null ],
     [ "dl::Dataloader< R(Args...)>", "classdl_1_1Dataloader_3_01R_07Args_8_8_8_08_4.html", null ],
@@ -22,9 +24,6 @@ var hierarchy =
     [ "tsl::htrie_map< CharT, T, Hash, KeySizeT >", "classtsl_1_1htrie__map.html", null ],
     [ "dl::InitializerTensor< T >", "structdl_1_1InitializerTensor.html", null ],
     [ "ir::IRDataset< typename >", "classir_1_1IRDataset.html", null ],
-    [ "std::istream", "http://en.cppreference.com/w/cpp/io/basic_istream.html", [
-      [ "dl::utils::URLStream", "classdl_1_1utils_1_1URLStream.html", null ]
-    ] ],
     [ "dl::utils::LineIterator", "structdl_1_1utils_1_1LineIterator.html", null ],
     [ "dl::Model< typename >", "classdl_1_1Model.html", null ],
     [ "dl::Model< dl::Tensor(dl::Tensor &)>", "classdl_1_1Model.html", [
@@ -50,11 +49,6 @@ var hierarchy =
     [ "ir::Query", "structir_1_1Query.html", null ],
     [ "dl::utils::ScopeGuard", "classdl_1_1utils_1_1ScopeGuard.html", null ],
     [ "tsl::ah::str_hash< CharT >", "structtsl_1_1ah_1_1str__hash.html", null ],
-    [ "std::streambuf", "http://en.cppreference.com/w/cpp/io/basic_streambuf.html", [
-      [ "dl::utils::URLStreamBase", "classdl_1_1utils_1_1URLStreamBase.html", [
-        [ "dl::utils::URLStream", "classdl_1_1utils_1_1URLStream.html", null ]
-      ] ]
-    ] ],
     [ "dl::Tensor", "classdl_1_1Tensor.html", null ],
     [ "dl::TensorImpl", "classdl_1_1TensorImpl.html", null ],
     [ "dl::Trainer< Model, Dataset, Optimizer >", "classdl_1_1Trainer.html", null ],

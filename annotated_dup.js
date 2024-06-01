@@ -1,8 +1,5 @@
 var annotated_dup =
 [
-    [ "cpr", null, [
-      [ "AsyncWrapper", "classcpr_1_1AsyncWrapper.html", null ]
-    ] ],
     [ "dl", null, [
       [ "detail", "namespacedl_1_1detail.html", [
         [ "_ModelSignature", "structdl_1_1detail_1_1__ModelSignature.html", null ]
@@ -14,8 +11,7 @@ var annotated_dup =
         [ "GenericIterator", "classdl_1_1utils_1_1GenericIterator.html", "classdl_1_1utils_1_1GenericIterator" ],
         [ "LineIterator", "structdl_1_1utils_1_1LineIterator.html", null ],
         [ "ScopeGuard", "classdl_1_1utils_1_1ScopeGuard.html", null ],
-        [ "URLStream", "classdl_1_1utils_1_1URLStream.html", "classdl_1_1utils_1_1URLStream" ],
-        [ "URLStreamBase", "classdl_1_1utils_1_1URLStreamBase.html", null ]
+        [ "URLStream", "classdl_1_1utils_1_1URLStream.html", "classdl_1_1utils_1_1URLStream" ]
       ] ],
       [ "Dataloader", "classdl_1_1Dataloader.html", null ],
       [ "Dataloader< R(Args...)>", "classdl_1_1Dataloader_3_01R_07Args_8_8_8_08_4.html", null ],

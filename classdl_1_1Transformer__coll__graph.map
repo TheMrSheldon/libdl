@@ -1,5 +1,14 @@
 <map id="dl::Transformer" name="dl::Transformer">
-<area shape="rect" id="Node000001" title=" " alt="" coords="53,79,173,104"/>
-<area shape="rect" id="Node000002" href="$classdl_1_1Model.html" title=" " alt="" coords="5,5,221,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,44,116,79,111,79,111,44"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="644,72,764,97"/>
+<area shape="rect" id="Node000002" href="$classdl_1_1Model.html" title=" " alt="" coords="11,5,227,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="241,10,326,10,422,16,523,28,621,50,675,69,673,74,619,55,522,33,421,21,326,16,241,15"/>
+<area shape="rect" id="Node000005" href="$classdl_1_1Linear.html" title="Applies a learnable linear transformation with optional bias." alt="" coords="361,47,444,72"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="220,30,361,51,361,56,219,35"/>
+<area shape="rect" id="Node000003" href="$structdl_1_1TransformerConf.html" title=" " alt="" coords="327,96,478,121"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="492,109,555,107,620,102,657,95,658,100,620,107,555,113,492,114"/>
+<area shape="rect" id="Node000004" href="/home/runner/work/libdl/libdl/build/_deps/cppreftags-src/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title=" " alt="" coords="281,146,524,186"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="537,150,619,129,654,113,683,95,686,100,656,118,621,134,538,155"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="458,61,644,77,643,82,457,67"/>
+<area shape="rect" id="Node000006" href="$classdl_1_1Model.html" title=" " alt="" coords="5,63,232,88"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="246,66,361,59,361,64,246,71"/>
 </map>
