@@ -5,7 +5,7 @@
 #include "model.hpp"
 
 namespace dl {
-	class Embedding : public dl::Model<dl::Tensor(dl::Tensor&)> {
+	class Embedding : public dl::Model<dl::Tensor&(const dl::Tensor&)> {
 	private:
 		dl::Tensor weight;
 
@@ -14,6 +14,9 @@ namespace dl {
 			registerParameter("weight", weight);
 		}
 
-		virtual dl::Tensor forward(dl::Tensor& input) { return nullptr; }
+		virtual dl::Tensor& forward(const dl::Tensor& input) {
+			/** \todo implement **/
+			throw std::runtime_error("Not yet implemented");
+		}
 	};
 } // namespace dl

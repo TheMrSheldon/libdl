@@ -1,5 +1,6 @@
 \page basicsIdx Basics
 
+- \subpage basicIntro
 - \subpage basicArithmetics
 - \subpage basicAutodiff
 

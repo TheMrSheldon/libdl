@@ -116,20 +116,29 @@ namespace dl {
 
 	[[nodiscard]] Tensor var(const Tensor& x, int dim, DOF dof = DOF{1}) noexcept;
 
+	[[nodiscard]] Tensor erf(Tensor& x) noexcept;
 	[[nodiscard]] Tensor erf(Tensor&& x) noexcept;
+	[[nodiscard]] Tensor erf(const Tensor& x) noexcept;
 
 	[[nodiscard]] Tensor relu(Tensor& x) noexcept;
 	[[nodiscard]] Tensor relu(Tensor&& x) noexcept;
 	[[nodiscard]] Tensor relu(const Tensor& x) noexcept;
 
 	// Tensor-Scalar Operations
+	[[nodiscard]] Tensor operator+(const Tensor& left, float right) noexcept;
+	[[nodiscard]] Tensor operator-(const Tensor& left, float right) noexcept;
 	[[nodiscard]] Tensor operator*(const Tensor& left, float right) noexcept;
 	[[nodiscard]] Tensor operator/(const Tensor& left, float right) noexcept;
+	[[nodiscard]] Tensor operator+(float left, const Tensor& right) noexcept;
+	[[nodiscard]] Tensor operator-(float left, const Tensor& right) noexcept;
+	[[nodiscard]] Tensor operator*(float left, const Tensor& right) noexcept;
+	[[nodiscard]] Tensor operator/(float left, const Tensor& right) noexcept;
 
 	// Tensor-Tensor Operations
 	[[nodiscard]] Tensor operator+(Tensor& left, Tensor& right) noexcept;
 	[[nodiscard]] Tensor operator+(Tensor&& left, Tensor& right) noexcept;
 	[[nodiscard]] Tensor operator+(Tensor&& left, Tensor&& right) noexcept;
+	[[nodiscard]] Tensor operator+(const Tensor& left, const Tensor& right) noexcept;
 	[[nodiscard]] Tensor operator-(Tensor& left, Tensor& right) noexcept;
 	[[nodiscard]] Tensor operator-(Tensor& left, Tensor&& right) noexcept;
 	[[nodiscard]] Tensor operator-(Tensor&& left, Tensor&& right) noexcept;
@@ -161,6 +170,7 @@ namespace dl {
 	 */
 	[[nodiscard]] Tensor transpose(Tensor&& x, std::vector<int>&& permutation) noexcept;
 
+	[[nodiscard]] Tensor softmax(Tensor& x) noexcept;
 	/**
 	 * @brief Computes the softmax function of the input vector.
 	 * @details Let \f(x \in \mathbb R^n\f) be a vector, the softmax is defined as
@@ -174,6 +184,8 @@ namespace dl {
 	 */
 	[[nodiscard]] Tensor softmax(Tensor&& x) noexcept;
 	[[nodiscard]] Tensor softmax(const Tensor& x) noexcept;
+	[[nodiscard]] Tensor softmax(Tensor& x, int dim) noexcept;
+	[[nodiscard]] Tensor softmax(Tensor&& x, int dim) noexcept;
 	[[nodiscard]] Tensor softmax(const Tensor& x, int dim) noexcept;
 
 	std::ostream& operator<<(std::ostream&, const Tensor& tensor) noexcept;

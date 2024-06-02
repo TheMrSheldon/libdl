@@ -11,12 +11,11 @@ using json = nlohmann::json;
 
 using dl::WordPieceTokenizer;
 
-WordPieceTokenizer::WordPieceTokenizer(StrIter begin, StrIter end) noexcept
-		: trie(std::make_unique<tsl::htrie_map<char, size_t>>()) {
-	size_t idx = 0;
+WordPieceTokenizer::WordPieceTokenizer(Conf conf, PieceIter begin, PieceIter end) noexcept
+		: logger(dl::log::getLogger("WordPiece")), contSubwordPrefix(conf.contSubwordPrefix),
+		  trie(std::make_unique<tsl::htrie_map<char, size_t>>()) {
 	for (auto it = begin; it != end; ++it) {
-		trie->insert(*it, idx);
-		++idx;
+		trie->insert(std::get<0>(*it), std::get<1>(*it));
 	}
 }
 WordPieceTokenizer::~WordPieceTokenizer() { trie = nullptr; }
@@ -35,20 +34,23 @@ std::vector<size_t> WordPieceTokenizer::tokenize(const std::string& text) const 
 			auto pIt = trie->longest_prefix(word);
 			assert(pIt != std::end(*trie)); /** \todo handle more gracefully **/
 			ids.push_back(*pIt);
-			word = "##" + word.substr(pIt.key().size());
+			word = contSubwordPrefix + word.substr(pIt.key().size());
 		} while (word.size() > 2);
 	}
 	return ids;
 }
 
-WordPieceTokenizer WordPieceTokenizer::fromWordPieces(StrIter begin, StrIter end) noexcept {
-	return WordPieceTokenizer(begin, end);
-}
-WordPieceTokenizer WordPieceTokenizer::fromStream(std::istream& stream) noexcept {
-	/*StrIter begin(std::move(dl::utils::LineIterator(stream)));
-	StrIter end(std::move(dl::utils::LineIterator()));
-	return WordPieceTokenizer::fromWordPieces(begin, end);*/
-	auto conf = json::parse(stream);
-	std::cout << conf["model"]["vocab"].dump() << std::endl;
-	exit(0);
+WordPieceTokenizer WordPieceTokenizer::fromConf(std::istream& stream) noexcept {
+	auto confJson = json::parse(stream);
+	std::vector<std::tuple<std::string, std::size_t>> wordpieces;
+	for (auto wordpiece : confJson["model"]["vocab"].items())
+		wordpieces.emplace_back((std::string)wordpiece.key(), (std::size_t)wordpiece.value());
+	Conf conf{.contSubwordPrefix = (std::string)confJson["model"]["continuing_subword_prefix"]};
+	/** \todo set and use the UNK token **/
+	std::cout << (std::string)confJson["model"]["unk_token"] << std::endl;
+	/** \todo handle and use the normalizer configuration **/
+	std::cout << confJson["normalizer"].dump() << std::endl;
+	/** \todo handle and use the pre_tokenizer configuration **/
+	/** \todo handle and use the post_processor configuration **/
+	return WordPieceTokenizer(conf, PieceIter{wordpieces.begin()}, PieceIter{wordpieces.end()});
 }

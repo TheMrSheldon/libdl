@@ -33,7 +33,7 @@ namespace dl {
 		size_t numAttnHeads;
 	};
 
-	class TransformerEncoder final : public Model<Tensor(Tensor&)> {
+	class TransformerEncoder final : public Model<Tensor(const Tensor&)> {
 	public:
 		TransformerConf conf;
 		// Multi-Head Attention
@@ -52,7 +52,7 @@ namespace dl {
 
 	public:
 		TransformerEncoder(TransformerConf conf) noexcept;
-		virtual Tensor forward(Tensor& input) override;
+		virtual Tensor forward(const Tensor& input) override;
 
 		/**
 		 * @brief The precomputed inverse square root of dimKeys.
@@ -104,7 +104,7 @@ namespace dl {
      * @brief @cite transformer
      * @details
      */
-	class Transformer final : public Model<Tensor(Tensor&)> {
+	class Transformer final : public Model<Tensor(const Tensor&)> {
 	public:
 		const TransformerConf conf;
 		std::vector<std::unique_ptr<TransformerEncoder>> encoders;
@@ -113,6 +113,6 @@ namespace dl {
 	public:
 		Transformer(TransformerConf conf) noexcept;
 
-		virtual Tensor forward(Tensor& input) override;
+		virtual Tensor forward(const Tensor& input) override;
 	};
 }; // namespace dl

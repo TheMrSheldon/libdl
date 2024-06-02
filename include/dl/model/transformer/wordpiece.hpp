@@ -1,5 +1,6 @@
 #pragma once
 
+#include "../../logging.hpp"
 #include "../../utils/generic_iterator.hpp"
 
 #include <experimental/propagate_const>
@@ -26,21 +27,26 @@ namespace dl {
 	 */
 	class WordPieceTokenizer final {
 	public:
-		using StrIter = utils::GenericIterator<std::string>;
+		using PieceIter = utils::GenericIterator<std::tuple<std::string, std::size_t>>;
+
+		struct Conf {
+			std::string contSubwordPrefix;
+		};
 
 	private:
+		dl::log::LoggerPtr logger;
+		std::string contSubwordPrefix;
 		std::experimental::propagate_const<
 				std::unique_ptr<tsl::htrie_map<char, size_t, tsl::ah::str_hash<char>, std::uint16_t>>>
 				trie;
 
-		WordPieceTokenizer(StrIter begin, StrIter end) noexcept;
+		WordPieceTokenizer(Conf conf, PieceIter begin, PieceIter end) noexcept;
 
 	public:
 		~WordPieceTokenizer();
 
 		[[nodiscard]] std::vector<size_t> tokenize(const std::string& text) const noexcept;
 
-		[[nodiscard]] static WordPieceTokenizer fromWordPieces(StrIter begin, StrIter end) noexcept;
-		[[nodiscard]] static WordPieceTokenizer fromStream(std::istream& stream) noexcept;
+		[[nodiscard]] static WordPieceTokenizer fromConf(std::istream& stream) noexcept;
 	};
 }; // namespace dl

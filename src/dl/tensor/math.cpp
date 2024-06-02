@@ -131,25 +131,54 @@ Tensor dl::relu(Tensor& x) noexcept { return dl::max(x, {0}); }
 Tensor dl::relu(Tensor&& x) noexcept { return dl::max(std::move(x), dl::zeros_like(x)); }
 Tensor dl::relu(const Tensor& x) noexcept { return dl::max(x, dl::zeros_like(x)); }
 
+Tensor dl::softmax(Tensor& x) noexcept {
+	/** \todo implement gradient **/
+	return dl::softmax((const Tensor&)x);
+}
 Tensor dl::softmax(Tensor&& x) noexcept {
 	/** \todo implement gradient **/
-	return dl::softmax(x);
+	return dl::softmax((const Tensor&)x);
 }
 Tensor dl::softmax(const Tensor& x) noexcept {
 	const auto power = dl::exp(x - dl::max(x));
 	return power / dl::sum(power);
 }
+Tensor dl::softmax(Tensor& x, int dim) noexcept {
+	/** \todo implement gradient **/
+	return dl::softmax((const Tensor&)x, dim);
+}
+Tensor dl::softmax(Tensor&& x, int dim) noexcept {
+	/** \todo implement gradient **/
+	return dl::softmax((const Tensor&)x, dim);
+}
 Tensor dl::softmax(const Tensor& x, int dim) noexcept {
-	/** \todo implement **/
 	const auto power = dl::exp(x - dl::max(x, dim, true));
 	return power / dl::sum(power, dim, true);
 }
 
+dl::Tensor dl::operator+(const dl::Tensor& left, float right) noexcept {
+	return left + dl::constant(right, left->device());
+}
+dl::Tensor dl::operator-(const dl::Tensor& left, float right) noexcept {
+	return left - dl::constant(right, left->device());
+}
 dl::Tensor dl::operator*(const dl::Tensor& left, float right) noexcept {
 	return left * dl::constant(right, left->device());
 }
 dl::Tensor dl::operator/(const dl::Tensor& left, float right) noexcept {
 	return left / dl::constant(right, left->device());
+}
+dl::Tensor dl::operator+(float left, const dl::Tensor& right) noexcept {
+	return dl::constant(left, right->device()) + right;
+}
+dl::Tensor dl::operator-(float left, const dl::Tensor& right) noexcept {
+	return dl::constant(left, right->device()) - right;
+}
+dl::Tensor dl::operator*(float left, const dl::Tensor& right) noexcept {
+	return dl::constant(left, right->device()) * right;
+}
+dl::Tensor dl::operator/(float left, const dl::Tensor& right) noexcept {
+	return dl::constant(left, right->device()) / right;
 }
 
 Tensor dl::operator+(Tensor&& left, Tensor& right) noexcept {
@@ -164,6 +193,7 @@ Tensor dl::operator+(Tensor&& left, Tensor&& right) noexcept {
 	/** \todo add support for autodiff **/
 	return left->add(right);
 }
+Tensor dl::operator+(const Tensor& left, const Tensor& right) noexcept { return left->add(right); }
 Tensor dl::operator-(Tensor& left, Tensor& right) noexcept {
 	/** \todo add support for autograd **/
 	left->gradfn = [left](Tensor& ptr) { dl::constant(1.0, left->device()); };

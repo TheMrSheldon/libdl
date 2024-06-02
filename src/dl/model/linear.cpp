@@ -23,5 +23,8 @@ Tensor Linear::forward(Tensor& input) noexcept {
 Tensor Linear::forward(Tensor&& input) noexcept {
 	return dl::matmul(std::move(input), dl::transpose(dl::Tensor(weights), {0, 1})) + bias;
 }
+Tensor Linear::forward(const Tensor& input) noexcept {
+	return dl::matmul(input, dl::transpose(dl::Tensor(weights), {0, 1})) + bias;
+}
 
 // Tensor Linear::forward(Tensor&& input) const noexcept { return dl::matmul(std::move(input), weights) + bias; }

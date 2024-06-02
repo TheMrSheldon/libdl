@@ -10,9 +10,7 @@ using dl::Tensor;
 using dl::Transformer;
 using dl::TransformerEncoder;
 
-static dl::Tensor BertGELU(const dl::Tensor& input) {
-	return input * dl::constant(0.5) * (dl::constant(1.0) + dl::erf(input * dl::rsqrt({2.0})));
-}
+static dl::Tensor BertGELU(const dl::Tensor& input) { return input * 0.5f * (1.0f + dl::erf(input / std::sqrt(2.0))); }
 
 Transformer::Transformer(TransformerConf conf) noexcept
 		: conf(conf), weightOut(conf.numAttnHeads * conf.dimensions.value, conf.dimensions.model), encoders() {
@@ -22,9 +20,11 @@ Transformer::Transformer(TransformerConf conf) noexcept
 	}
 }
 
-Tensor Transformer::forward(Tensor& input) {
-	/** \todo: implement */
-	return nullptr;
+Tensor Transformer::forward(const Tensor& input) {
+	Tensor tmp = encoders[0]->forward(std::forward<decltype(input)>(input));
+	for (size_t i = 1; i < encoders.size(); ++i)
+		tmp = encoders[i]->forward(std::move(tmp));
+	return tmp;
 }
 
 TransformerEncoder::TransformerEncoder(TransformerConf conf) noexcept
@@ -63,13 +63,13 @@ Tensor TransformerEncoder::scaledDotProductAttention(Tensor&& query, Tensor&& ke
 	// (12, 10, dmodel) @ (12, dmodel, 10) -> (12, 10, 10)
 	auto prod = dl::matmul(std::move(facq), dl::transpose(std::move(fack), {-1, -2}));
 	// Compute smax = softmax(prod / sqrt(d_k))
-	auto smax = dl::softmax(std::move(prod) * dl::constant(dimKeysInvSqrt), -1);
+	auto smax = dl::softmax(std::move(prod) * dimKeysInvSqrt, -1);
 	// compute smax * V
 	auto tmp = dl::matmul(std::move(smax), facv);
 	return dl::reshape(dl::transpose(std::move(tmp), {0, 1}), {-1, (int)conf.dimensions.model});
 }
 
-Tensor TransformerEncoder::forward(Tensor& input) {
+Tensor TransformerEncoder::forward(const Tensor& input) {
 	auto mha = multiHeadAttention(weightQuery.forward(input), weightKey.forward(input), weightValue.forward(input));
 	auto attention = mhaNorm.forward(std::move(mha) + input);
 	auto intermed = BertGELU(weightIntermed.forward(attention));

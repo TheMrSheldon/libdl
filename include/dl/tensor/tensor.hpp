@@ -1,11 +1,10 @@
 #pragma once
 
+#include <concepts>
 #include <experimental/propagate_const>
 #include <memory>
 #include <numeric>
 #include <vector>
-
-#include <iostream>
 
 namespace dl {
 	class TensorImpl;
@@ -32,6 +31,8 @@ namespace dl {
 			}
 			shape.insert(shape.end(), std::begin(value.begin()->shape), std::end(value.begin()->shape));
 		}
+		InitializerTensor(std::ranges::range auto range) noexcept
+				: data(std::begin(range), std::end(range)), shape({data.size()}) {}
 	};
 
 	/**
