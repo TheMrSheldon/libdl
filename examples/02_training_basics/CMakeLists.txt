@@ -2,6 +2,5 @@ add_executable(example_02_training_basics
 	main.cpp
 )
 
-
 target_compile_features(example_02_training_basics PUBLIC cxx_std_23)
-target_link_libraries(example_02_training_basics dl)
+target_link_libraries(example_02_training_basics libdl::dl)

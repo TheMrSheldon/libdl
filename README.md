@@ -16,17 +16,19 @@
 # Usage
 ```cpp
 int main(int argc, char* argv[]) {
-    MyModel model;
+	MyModel model;
 
-    using Trainer = dl::InferTrainer<MyModel>;
-    Trainer trainer(Trainer::Settings{
-        .createDataset = [] { return std::make_unique<MyDataset>(); },
-        .loss = dl::loss::mse,
-        .optimizer = std::make_unique<dl::optimizer::Adam>(),
-        .limitEpochs = 10,
-    });
-    trainer.fit(model);
-    trainer.test(model);
+	auto conf = dl::TrainerConfBuilder<MyModel>()
+                .setDataset<MyDataset>()
+                .setOptimizer<dl::optim::GradientDescent>(model.parameters())
+                .addObserver(dl::observers::limitEpochs(10))
+                .addObserver(dl::observers::earlyStopping(3))
+                .addObserver(dl::observers::consoleUI())
+                .build();
+	auto trainer = dl::Trainer(std::move(conf));
+	trainer.fit(model, dl::lossAdapter(dl::loss::mse));
+	trainer.test(model);
+	return 0;
 }
 ```
 

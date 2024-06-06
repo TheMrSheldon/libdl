@@ -1,10 +1,11 @@
-#include <iostream>
-
 #include <dl/learning/loss.hpp>
+#include <dl/learning/optimizers/adam.hpp>
 #include <dl/learning/trainer.hpp>
 #include <dl/model/model.hpp>
 #include <dl/utils/urlstream.hpp>
 #include <ir/data/datasets.hpp>
+
+#include <iostream>
 
 class MonoBERT : public dl::ModelBase {
 private:
@@ -37,28 +38,6 @@ TrecEvaluator::GradeTriple trecEvalAdapter(auto& model, ir::Query query, ir::Doc
 	return std::make_tuple(query, doc, model(query, doc));
 }
 
-namespace dl {
-	class AdamW;
-	class LimitEpochs;
-	class EarlyStopping;
-	class ConsoleUI;
-
-	template <typename Model = void*, typename Dataset = void*, typename Optimizer = void*>
-	class TrainerConfBuilder {
-	public:
-		template <typename DSet, typename... Args>
-		TrainerConfBuilder<Model, DSet, Optimizer> setDataset(Args&&... args);
-
-		template <typename Opt, typename... Args>
-		TrainerConfBuilder<Model, Dataset, Opt> setOptimizer(Args&&... args);
-
-		template <typename O, typename... Args>
-		TrainerConfBuilder& addObserver(Args&&... args);
-
-		TrainerConf<Model, Dataset, Optimizer> build();
-	};
-} // namespace dl
-
 int main(int argc, char* argv[]) {
 	MonoBERT model;
 	auto dataset = ir::datasets::load<ir::PointwiseDataset>("msmarco-passage/train/judged");
@@ -66,10 +45,10 @@ int main(int argc, char* argv[]) {
 
 	auto conf = dl::TrainerConfBuilder<MonoBERT>()
 						.setDataset<ir::PointwiseDataset>(std::move(dataset))
-						.setOptimizer<dl::AdamW>()
-						.addObserver<dl::LimitEpochs>(10)
-						.addObserver<dl::EarlyStopping>(3)
-						.addObserver<dl::ConsoleUI>()
+						.setOptimizer<dl::optim::Adam>()
+						.addObserver(dl::observers::limitEpochs(10))
+						.addObserver(dl::observers::earlyStopping(3))
+						.addObserver(dl::observers::consoleUI())
 						.build();
 	auto trainer = dl::Trainer(std::move(conf));
 	trainer.fit(model, pairwiseTrainer<MonoBERT>);

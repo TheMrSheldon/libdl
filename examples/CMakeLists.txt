@@ -1,4 +1,5 @@
 add_subdirectory(01_tensor_basics)
 add_subdirectory(02_training_basics)
 add_subdirectory(03_transformer)
+add_subdirectory(04_mnist)
 add_subdirectory(06_ranking)

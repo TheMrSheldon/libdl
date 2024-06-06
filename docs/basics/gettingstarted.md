@@ -11,3 +11,6 @@ Create a new file called `main.cpp` in your `src` directory with the following c
 ```{cpp}
 // todo
 ```
+
+# Common Pitfalls for Newcommers to C++
+1. Do not forget include guards in your headers

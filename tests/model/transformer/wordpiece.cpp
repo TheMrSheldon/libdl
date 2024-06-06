@@ -5,14 +5,27 @@
 
 using Catch::Matchers::RangeEquals;
 
+constexpr auto SimpleTokenizerConf = R"({
+	"normalizer": null,
+	"model": {
+		"unk_token": "[UNK]",
+		"continuing_subword_prefix": "##",
+		"vocab": {
+			"a": 0,
+			"abcdx": 1,
+			"##b": 2,
+			"##c": 3,
+			"##cdy": 4,
+			"##dz": 5
+		}
+	}
+})";
+
 TEST_CASE("WordPiece", "[Tokenization]") {
 	{
 		// Taken from figure 1 of \cite fast_wordpiece
-		std::vector<std::string> wordpieces{"a", "abcdx", "##b", "##c", "##cdy", "##dz"};
-		auto tokenizer = dl::WordPieceTokenizer::fromWordPieces(
-				dl::WordPieceTokenizer::StrIter{std::begin(wordpieces)},
-				dl::WordPieceTokenizer::StrIter{std::end(wordpieces)}
-		);
+		auto stream = std::istringstream(std::string(SimpleTokenizerConf));
+		auto tokenizer = dl::WordPieceTokenizer::fromConf(stream);
 		// The IDs of: a, ##b, ##c, ##dz
 		CHECK_THAT(tokenizer.tokenize("abcdz"), RangeEquals(std::vector{0, 2, 3, 5}));
 

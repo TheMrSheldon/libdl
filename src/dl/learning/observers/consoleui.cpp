@@ -14,6 +14,7 @@
 
 using dl::ModelBase;
 using dl::TrainerObserver;
+using dl::TrainerSubject;
 using dl::TrainStage;
 
 static size_t getRAMUsage_KB();
@@ -142,6 +143,7 @@ public:
 		screen->Exit();
 		renderThread.join();
 	}
+	virtual void setSubject(TrainerSubject& trainer) override {}
 	virtual void onTrainingBegun(const ModelBase& model) override {
 		this->model = &model;
 		screen->PostEvent(ftxui::Event::Custom);

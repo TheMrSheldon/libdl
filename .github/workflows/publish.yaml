@@ -1,0 +1,36 @@
+name: Publish Docker image
+
+on:
+  release:
+    types: [published]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  debian-package:
+    name: Build Debian Package
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          sudo apt remove needrestart # Workaround (https://github.com/actions/runner-images/issues/9937)
+          sudo apt-get -y install g++-13 libopenblas-dev libssl-dev libboost-iostreams-dev zlib1g-dev
+          sudo apt install -y -V ca-certificates lsb-release wget
+          wget https://apache.jfrog.io/artifactory/arrow/$(lsb_release --id --short | tr 'A-Z' 'a-z')/apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
+          sudo apt install -y -V ./apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
+          sudo apt update
+          sudo apt install -y -V libarrow-dev
+      - name: Configure CMake
+        run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=Release -D CMAKE_C_COMPILER=gcc-13 -D CMAKE_CXX_COMPILER=g++-13 -DBUILD_SHARED_LIBS=NO -DLIBDL_BUILD_DOCS=NO -DLIBDL_BUILD_DOCS=NO -DLIBDL_BUILD_DEB=YES
+      - name: Build
+        run: cmake --build ${{github.workspace}}/build --config Release --target package
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{github.workspace}}/build/libdl-full-dev-0.0.1rc-Linux.deb

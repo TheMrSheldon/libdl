@@ -1,8 +1,7 @@
 #pragma once
 
-#include "../tensor/tensor.hpp"
-
 namespace dl {
+	class Tensor;
 
 	/**
 	 * @brief Defines an optimization strategy for a given set of Parameters.
@@ -12,7 +11,7 @@ namespace dl {
 	class Optimizer {
 	private:
 	protected:
-		Optimizer(/*std::vector<Parameter> parameters*/) = default;
+		Optimizer() = default;
 
 	public:
 		virtual ~Optimizer() = default;

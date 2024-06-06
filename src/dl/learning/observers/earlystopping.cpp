@@ -6,6 +6,7 @@
 
 using dl::ModelBase;
 using dl::TrainerObserver;
+using dl::TrainerSubject;
 using dl::TrainStage;
 
 class EarlyStopping final : public TrainerObserver {
@@ -15,6 +16,7 @@ public:
 public:
 	EarlyStopping(size_t patience, Mode mode = Mode::Min) {}
 
+	virtual void setSubject(TrainerSubject& trainer) override {}
 	virtual void onTrainingBegun(const ModelBase& model) override {}
 	virtual void onTrainingEnded(const ModelBase& model) override {}
 	virtual void enterTrainingStage(TrainStage stage) override {}

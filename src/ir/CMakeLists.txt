@@ -4,6 +4,7 @@ include(FetchContent)
 add_library(ir STATIC
     data/datasets.cpp
 )
+add_library(libdl::ir ALIAS ir)
 target_compile_features(ir PUBLIC cxx_std_23)
 target_include_directories(ir PUBLIC ${CMAKE_CURRENT_LIST_DIR}/../../include)
 target_link_libraries(ir PUBLIC dl)

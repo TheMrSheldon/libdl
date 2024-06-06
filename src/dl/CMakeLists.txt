@@ -10,6 +10,7 @@ add_library(dl STATIC
     io/weightsfiles/weightsfile.cpp
     learning/observers/consoleui.cpp
     learning/observers/earlystopping.cpp
+    learning/observers/limitEpochs.cpp
     model/model.cpp
     model/layernorm.cpp
     model/linear.cpp
@@ -21,6 +22,7 @@ add_library(dl STATIC
 
     utils/urlstream.cpp
 )
+add_library(libdl::dl ALIAS dl)
 target_compile_features(dl PUBLIC cxx_std_23)
 target_include_directories(dl PUBLIC ${CMAKE_CURRENT_LIST_DIR}/../../include)
 
@@ -71,6 +73,7 @@ target_link_libraries(dl PRIVATE xtensor xsimd xtensor-blas openblas)
 
 
 # spdlog for logging
+set(SPDLOG_BUILD_SHARED OFF)
 FetchContent_Declare(spdlog GIT_REPOSITORY https://github.com/gabime/spdlog.git GIT_TAG v1.11.0)
 FetchContent_MakeAvailable(spdlog)
 target_link_libraries(dl PUBLIC spdlog::spdlog)

@@ -1,13 +1,14 @@
 #include <iostream>
 
+#include <dl/device.hpp>
 #include <dl/tensor/math.hpp>
-#include <dl/tensor/tensorimpl.hpp>
+#include <dl/tensor/tensor.hpp>
 
 int main(int argc, char* argv[]) {
-	dl::Tensor tensora = {1.0f, 2.0f, 3.0f, 4.0f};
+	dl::Tensor tensora = dl::constant({1.0f, 2.0f, 3.0f, 4.0f});
 	tensora->setRequiresGrad(true);
 
-	dl::Tensor tensorb = {2.0f, 2.0f, 3.0f, 3.0f};
+	dl::Tensor tensorb = dl::constant({2.0f, 2.0f, 3.0f, 3.0f});
 	tensorb->setRequiresGrad(true);
 	dl::Tensor tensord = nullptr;
 	{

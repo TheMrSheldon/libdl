@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 
 option(LIBDL_BUILD_TESTS "Build tests" ON)
 option(LIBDL_BUILD_DOCS "Build documentation" ON)
+option(LIBDL_BUILD_DEB "Build debian package" ON)
 option(LIBDL_ONLY_DOCS "Build only documentation -- this disables tests and others" OFF)
 
 file(STRINGS "${CMAKE_CURRENT_LIST_DIR}/include/dl/dl.hpp" LIBDL_VERSION_MACRO REGEX "^\tconstexpr const auto version = \"(([0-9]+\\.)*[0-9]+)\";$")
@@ -87,4 +88,30 @@ if((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME) AND LIBDL_BUILD_DOCS)
 	add_custom_command(TARGET libdl_docs POST_BUILD
     	COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/twemoji-brain.svg ${DOXYGEN_OUTPUT_DIRECTORY}/html/thirdparty/twemoji-brain.svg
 	)
+endif()
+
+##########################################################################################
+# Debian Package
+##########################################################################################
+# Debian Packaging only available if this is the main app
+if(NOT LIBDL_ONLY_DOCS AND (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME) AND LIBDL_BUILD_DEB)
+	install(TARGETS dl ARCHIVE DESTINATION lib COMPONENT libdl)
+	install(TARGETS dl FILE_SET HEADERS DESTINATION include COMPONENT libdl)
+	install(TARGETS ir ARCHIVE DESTINATION lib COMPONENT libir)
+	install(TARGETS ir FILE_SET HEADERS DESTINATION include COMPONENT libir)
+	cpack_add_component(libdl)
+	cpack_add_component(libir)
+
+	SET(CPACK_GENERATOR "DEB")
+	SET(CPACK_PACKAGE_NAME "libdl-full-dev")
+	SET(CPACK_SET_DESTDIR TRUE)
+	SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "not-set")
+	SET(CPACK_PACKAGE_VERSION "0.0.1rc")
+	include(GNUInstallDirs)
+	SET(CPACK_DEBIAN_PACKAGE_DESCRIPTION "A simple yet powerful deep learning library")
+	SET(CPACK_RESOURCE_FILE_README "${CMAKE_CURRENT_SOURCE_DIR}/README.md")
+	SET(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
+	SET(CPACK_DEBIAN_PACKAGE_DEPENDS "")
+	SET(CPACK_PACKAGE_VENDOR "")
+	include(CPack)
 endif()
