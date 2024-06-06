@@ -175,12 +175,19 @@ $(document).ready(function(){initNavTree('technicalTransformer.html',''); initRe
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md9">Background and Implementation</a><ul><li class="level2"><a href="#autotoc_md10">Optimization</a></li>
+<ul><li class="level1"><a href="#autotoc_md17">Background and Implementation</a><ul><li class="level2"><a href="#autotoc_md18">Optimization</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#autotoc_md19">Architectures</a><ul><li class="level2"><a href="#autotoc_md20">BERT</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#autotoc_md21">Tokenization</a><ul><li class="level2"><a href="#autotoc_md22">WordPiece</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="textblock"><p class="formulaDsp">
+<div class="textblock"><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000018">Todo:</a></b></dt><dd>WIP</dd></dl>
+<p class="formulaDsp">
 \[
     \begin{bmatrix}0 &amp; 1 &amp; 2\\3 &amp; 4 &amp; 5\\6 &amp; 7 &amp; 8\\9 &amp; 10 &amp; 11\end{bmatrix}
     \overset{\text{reshape}(2, 2, 3)}{\Rightarrow}
@@ -194,20 +201,32 @@ $(document).ready(function(){initNavTree('technicalTransformer.html',''); initRe
     \begin{bmatrix}\begin{bmatrix}0 &amp; 1 &amp; 2\\3 &amp; 4 &amp; 5\end{bmatrix} &amp; \begin{bmatrix}6 &amp; 7 &amp; 8\\9 &amp; 10 &amp; 11\end{bmatrix}\end{bmatrix}\\
     &amp;\overset{\text{transpose}(0, 2)}{\Rightarrow}&amp;
     \begin{bmatrix}\begin{bmatrix}0 &amp; 6\\3 &amp; 9\\\end{bmatrix} &amp; \begin{bmatrix}1 &amp; 7\\4 &amp; 10\\\end{bmatrix} &amp; \begin{bmatrix}2 &amp; 8\\5 &amp; 11\\\end{bmatrix}\end{bmatrix}\\
-    &amp;\overset{\text{transpose}(0, 2)}{\Rightarrow}&amp;
+    &amp;\overset{\text{transpose}(1, 2)}{\Rightarrow}&amp;
     \begin{bmatrix}\begin{bmatrix}0 &amp; 3\\ 1 &amp; 4\\2 &amp; 5\end{bmatrix} &amp; \begin{bmatrix}6 &amp; 9\\7 &amp; 10\\ 8 &amp; 11\end{bmatrix}\end{bmatrix}
 \end{eqnarray*}
 </p>
-<h1><a class="anchor" id="autotoc_md9"></a>
+<h1><a class="anchor" id="autotoc_md17"></a>
 Background and Implementation</h1>
 <p class="formulaDsp">
 \[\text{MHA}(Q, K, V) = \text{Concat}(\text{Attention}(QW_1^Q+b_1^Q, KW_1^K+b_1^K, VW_1^V+b_1^V), \dots)\cdot W^O + b^O.\]
 </p>
- <p class="formulaDsp">
+<dl class="section note"><dt>Note</dt><dd>The original proposal for transformers does not include the bias terms \(b_i^Q, b_i^K, b_i^V\), and \(b^O\). We mention them here anyway since some transformer architectures (most notably BERT) added these in.</dd></dl>
+<p class="formulaDsp">
 \[\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right)V.\]
 </p>
-<h2><a class="anchor" id="autotoc_md10"></a>
+<h2><a class="anchor" id="autotoc_md18"></a>
 Optimization</h2>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000019">Todo:</a></b></dt><dd>WIP</dd></dl>
+<h1><a class="anchor" id="autotoc_md19"></a>
+Architectures</h1>
+<h2><a class="anchor" id="autotoc_md20"></a>
+BERT</h2>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000020">Todo:</a></b></dt><dd>WIP</dd></dl>
+<h1><a class="anchor" id="autotoc_md21"></a>
+Tokenization</h1>
+<h2><a class="anchor" id="autotoc_md22"></a>
+WordPiece</h2>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000021">Todo:</a></b></dt><dd>WIP </dd></dl>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

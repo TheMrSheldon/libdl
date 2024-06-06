@@ -175,12 +175,12 @@ $(document).ready(function(){initNavTree('libIRTraining.html',''); initResizable
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md6">Datasets</a></li>
-<li class="level1"><a href="#autotoc_md7">Training</a></li>
-<li class="level1"><a href="#autotoc_md8">Evaluation</a></li>
+<ul><li class="level1"><a href="#autotoc_md9">Datasets</a></li>
+<li class="level1"><a href="#autotoc_md10">Training</a></li>
+<li class="level1"><a href="#autotoc_md11">Evaluation</a></li>
 </ul>
 </div>
-<div class="textblock"><p>The goal of this tutorial is to train and evaluate a ranking model (in our case "monoBERT" as described by <a class="el" href="citelist.html#CITEREF_monobert">[4]</a>) on the MS MARCO Passage <a class="el" href="citelist.html#CITEREF_msmarco">[2]</a> dataset. But keep in mind that everything discussed here can, of course, also be adapted to other models, other datasets, different training regimes (in-batch negatives, distillation, ...).</p>
+<div class="textblock"><p>The goal of this tutorial is to train and evaluate a ranking model (in our case "monoBERT" as described by <a class="el" href="citelist.html#CITEREF_monobert">[5]</a>) on the MS MARCO Passage <a class="el" href="citelist.html#CITEREF_msmarco">[2]</a> dataset. But keep in mind that everything discussed here can, of course, also be adapted to other models, other datasets, different training regimes (in-batch negatives, distillation, ...).</p>
 <p>We start of by defining our ranking model.</p>
 <div class="fragment"><div class="line"><span class="keyword">class </span>MonoBERT : <span class="keyword">public</span> <a class="code hl_class" href="classdl_1_1ModelBase.html">dl::ModelBase</a> {</div>
 <div class="line"><span class="keyword">private</span>:</div>
@@ -188,12 +188,12 @@ $(document).ready(function(){initNavTree('libIRTraining.html',''); initResizable
 <div class="line">    <a class="code hl_class" href="classdl_1_1Tensor.html">dl::Tensor</a> forward(<a class="code hl_struct" href="structir_1_1Query.html">ir::Query</a>, <a class="code hl_struct" href="structir_1_1Document.html">ir::Document</a>);</div>
 <div class="line">};</div>
 <div class="ttc" id="aclassdl_1_1ModelBase_html"><div class="ttname"><a href="classdl_1_1ModelBase.html">dl::ModelBase</a></div><div class="ttdef"><b>Definition</b> <a href="model_8hpp_source.html#l00013">model.hpp:13</a></div></div>
-<div class="ttc" id="aclassdl_1_1Tensor_html"><div class="ttname"><a href="classdl_1_1Tensor.html">dl::Tensor</a></div><div class="ttdoc">The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...</div><div class="ttdef"><b>Definition</b> <a href="tensor_8hpp_source.html#l00045">tensor.hpp:45</a></div></div>
+<div class="ttc" id="aclassdl_1_1Tensor_html"><div class="ttname"><a href="classdl_1_1Tensor.html">dl::Tensor</a></div><div class="ttdoc">The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...</div><div class="ttdef"><b>Definition</b> <a href="tensor_8hpp_source.html#l00046">tensor.hpp:46</a></div></div>
 <div class="ttc" id="astructir_1_1Document_html"><div class="ttname"><a href="structir_1_1Document.html">ir::Document</a></div><div class="ttdef"><b>Definition</b> <a href="ir_2data_2dataset_8hpp_source.html#l00008">dataset.hpp:8</a></div></div>
 <div class="ttc" id="astructir_1_1Query_html"><div class="ttname"><a href="structir_1_1Query.html">ir::Query</a></div><div class="ttdef"><b>Definition</b> <a href="ir_2data_2dataset_8hpp_source.html#l00012">dataset.hpp:12</a></div></div>
 </div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>A ranking model maps a query and a document to a relevance label: \(\mathcal{Q}\times \mathcal{D} \to \mathbb{R}\). But, flexibility is king and if you want a different signature, have a look at adapters.</dd></dl>
 <p>Ranking models are not different from any other ranking model. Thus, you can use any of the other facilities (dataset, optimizer, loss objectives, trainers, ...) to also train and evaluate your ranking model. But, for your convenience, and to reduce the amount of boilerplate such that you can quickly get started working on what is interesting, novel, and important, we provide some general implementations for you as well. We will discuss these in the following.</p>
-<h1><a class="anchor" id="autotoc_md6"></a>
+<h1><a class="anchor" id="autotoc_md9"></a>
 Datasets</h1>
 <p>libir provides two dataset types:</p><ol type="1">
 <li><code>ir::PointwiseDataset</code>, where each instance is a tuple \((q, d, r)\) consisting of a query \(q \in \mathcal{Q}\), document \(d \in \mathcal{D}\), and relevance label \(r \in \mathbb{R}\). Such a dataset can be used for training the ranking model "pointwise", i.e., as a <b>relevance classifier</b>. But also admits pairwise training using some negative sampling strategy (e.g., in-batch negatives).</li>
@@ -202,11 +202,11 @@ Datasets</h1>
 <p>It may look like there is a mismatch here since we previously defined ranking models to solely be mappings \(\mathcal{Q}\times \mathcal{D} \to \mathbb{R}\) and the <code>ir::PairwiseDataset</code> has the signature \(\mathcal{Q}\times \mathcal{D} \times \mathcal{D}\) but herein lies the magic of separation of concerns: Choose the signature that makes sense for your ranking model and use a trainer adapter to specify how it should be trained.</p>
 <div class="fragment"><div class="line"><span class="keyword">auto</span> dataset = ir::datasets::load&lt;ir::PairwiseDataset&gt;(<span class="stringliteral">&quot;msmarco-passage&quot;</span>);</div>
 <div class="line">assert(dataset != <span class="keyword">nullptr</span>);</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md7"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md10"></a>
 Training</h1>
 <div class="fragment"><div class="line">MonoBERT model;</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">auto</span> conf = dl::TrainerConfBuilder&lt;MonoBERT&gt;()</div>
+<div class="line"><span class="keyword">auto</span> conf = <a class="code hl_class" href="classdl_1_1TrainerConfBuilder.html">dl::TrainerConfBuilder&lt;MonoBERT&gt;</a>()</div>
 <div class="line">        .setDataset&lt;<a class="code hl_class" href="classir_1_1IRDataset_3_01void_07Query_00_01Document_00_01Document_08_4.html">ir::PairwiseDataset</a>&gt;(<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(dataset))</div>
 <div class="line">        .setOptimizer&lt;dl::AdamW&gt;()</div>
 <div class="line">        .addObserver&lt;dl::LimitEpochs&gt;(10)</div>
@@ -215,10 +215,11 @@ Training</h1>
 <div class="line">        .build();</div>
 <div class="line"><span class="keyword">auto</span> trainer = <a class="code hl_class" href="classdl_1_1Trainer.html">dl::Trainer</a>(<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(conf));</div>
 <div class="line">trainer.fit(model, pairwiseTrainer&lt;MonoBERT&gt;);</div>
-<div class="ttc" id="aclassdl_1_1Trainer_html"><div class="ttname"><a href="classdl_1_1Trainer.html">dl::Trainer</a></div><div class="ttdef"><b>Definition</b> <a href="trainer_8hpp_source.html#l00043">trainer.hpp:43</a></div></div>
+<div class="ttc" id="aclassdl_1_1TrainerConfBuilder_html"><div class="ttname"><a href="classdl_1_1TrainerConfBuilder.html">dl::TrainerConfBuilder</a></div><div class="ttdef"><b>Definition</b> <a href="trainer_8hpp_source.html#l00046">trainer.hpp:46</a></div></div>
+<div class="ttc" id="aclassdl_1_1Trainer_html"><div class="ttname"><a href="classdl_1_1Trainer.html">dl::Trainer</a></div><div class="ttdef"><b>Definition</b> <a href="trainer_8hpp_source.html#l00108">trainer.hpp:108</a></div></div>
 <div class="ttc" id="aclassir_1_1IRDataset_3_01void_07Query_00_01Document_00_01Document_08_4_html"><div class="ttname"><a href="classir_1_1IRDataset_3_01void_07Query_00_01Document_00_01Document_08_4.html">ir::IRDataset&lt; void(Query, Document, Document)&gt;</a></div><div class="ttdef"><b>Definition</b> <a href="ir_2data_2dataset_8hpp_source.html#l00027">dataset.hpp:27</a></div></div>
 <div class="ttc" id="amove_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a></div><div class="ttdeci">T move(T... args)</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md8"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md11"></a>
 Evaluation</h1>
 <div class="fragment"><div class="line"><span class="keyword">auto</span> results = trainer.test(model, TrecEvaluator(dataset, {<span class="stringliteral">&quot;MRR@10&quot;</span>, <span class="stringliteral">&quot;MAP&quot;</span>, <span class="stringliteral">&quot;nDCG@10&quot;</span>}), trecEvalAdapter&lt;MonoBERT&gt;);</div>
 <div class="line"><span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; [metric, score] : results)</div>

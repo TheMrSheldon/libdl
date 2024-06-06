@@ -24,11 +24,12 @@ var searchData=
   ['condition_5fvariable_21',['condition_variable',['http://en.cppreference.com/w/cpp/thread/condition_variable.html',1,'std']]],
   ['condition_5fvariable_5fany_22',['condition_variable_any',['http://en.cppreference.com/w/cpp/thread/condition_variable_any.html',1,'std']]],
   ['conditional_23',['conditional',['http://en.cppreference.com/w/cpp/types/conditional.html',1,'std']]],
-  ['cout_24',['cout',['http://en.cppreference.com/w/cpp/io/basic_ostream.html',1,'std']]],
-  ['cregex_5fiterator_25',['cregex_iterator',['http://en.cppreference.com/w/cpp/regex/regex_iterator.html',1,'std']]],
-  ['cregex_5ftoken_5fiterator_26',['cregex_token_iterator',['http://en.cppreference.com/w/cpp/regex/regex_token_iterator.html',1,'std']]],
-  ['csub_5fmatch_27',['csub_match',['http://en.cppreference.com/w/cpp/regex/sub_match.html',1,'std']]],
-  ['ctype_28',['ctype',['http://en.cppreference.com/w/cpp/locale/ctype.html',1,'std']]],
-  ['ctype_5fbase_29',['ctype_base',['http://en.cppreference.com/w/cpp/locale/ctype_base.html',1,'std']]],
-  ['ctype_5fbyname_30',['ctype_byname',['http://en.cppreference.com/w/cpp/locale/ctype_byname.html',1,'std']]]
+  ['conf_24',['Conf',['../structdl_1_1WordPieceTokenizer_1_1Conf.html',1,'dl::WordPieceTokenizer']]],
+  ['cout_25',['cout',['http://en.cppreference.com/w/cpp/io/basic_ostream.html',1,'std']]],
+  ['cregex_5fiterator_26',['cregex_iterator',['http://en.cppreference.com/w/cpp/regex/regex_iterator.html',1,'std']]],
+  ['cregex_5ftoken_5fiterator_27',['cregex_token_iterator',['http://en.cppreference.com/w/cpp/regex/regex_token_iterator.html',1,'std']]],
+  ['csub_5fmatch_28',['csub_match',['http://en.cppreference.com/w/cpp/regex/sub_match.html',1,'std']]],
+  ['ctype_29',['ctype',['http://en.cppreference.com/w/cpp/locale/ctype.html',1,'std']]],
+  ['ctype_5fbase_30',['ctype_base',['http://en.cppreference.com/w/cpp/locale/ctype_base.html',1,'std']]],
+  ['ctype_5fbyname_31',['ctype_byname',['http://en.cppreference.com/w/cpp/locale/ctype_byname.html',1,'std']]]
 ];

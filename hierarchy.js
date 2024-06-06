@@ -5,6 +5,7 @@ var hierarchy =
       [ "dl::utils::URLStream", "classdl_1_1utils_1_1URLStream.html", null ]
     ] ],
     [ "nlp::BERTConfig", "structnlp_1_1BERTConfig.html", null ],
+    [ "dl::WordPieceTokenizer::Conf", "structdl_1_1WordPieceTokenizer_1_1Conf.html", null ],
     [ "dl::Dataloader< typename >", "classdl_1_1Dataloader.html", null ],
     [ "dl::Dataloader< R(Args...)>", "classdl_1_1Dataloader_3_01R_07Args_8_8_8_08_4.html", null ],
     [ "dl::Dataset< typename >", "classdl_1_1Dataset.html", null ],
@@ -26,11 +27,20 @@ var hierarchy =
     [ "ir::IRDataset< typename >", "classir_1_1IRDataset.html", null ],
     [ "dl::utils::LineIterator", "structdl_1_1utils_1_1LineIterator.html", null ],
     [ "dl::Model< typename >", "classdl_1_1Model.html", null ],
-    [ "dl::Model< dl::Tensor(dl::Tensor &)>", "classdl_1_1Model.html", [
-      [ "dl::Embedding", "classdl_1_1Embedding.html", null ],
+    [ "dl::Model< dl::Tensor &(const dl::Tensor &)>", "classdl_1_1Model.html", [
+      [ "dl::Embedding", "classdl_1_1Embedding.html", null ]
+    ] ],
+    [ "dl::Model< dl::Tensor(const dl::Tensor &)>", "classdl_1_1Model.html", [
       [ "nlp::BERT", "classnlp_1_1BERT.html", null ],
-      [ "nlp::BERTEmbeddings", "classnlp_1_1BERTEmbeddings.html", null ],
       [ "nlp::BERTPooling", "classnlp_1_1BERTPooling.html", null ]
+    ] ],
+    [ "dl::Model< dl::Tensor(const dl::Tensor &, const dl::Tensor &)>", "classdl_1_1Model.html", [
+      [ "nlp::BERTEmbeddings", "classnlp_1_1BERTEmbeddings.html", null ]
+    ] ],
+    [ "dl::Model< Tensor(const Tensor &)>", "classdl_1_1Model.html", [
+      [ "dl::Linear", "classdl_1_1Linear.html", null ],
+      [ "dl::Transformer", "classdl_1_1Transformer.html", null ],
+      [ "dl::TransformerEncoder", "classdl_1_1TransformerEncoder.html", null ]
     ] ],
     [ "dl::Model< Tensor(Tensor &&)>", "classdl_1_1Model.html", [
       [ "dl::LayerNorm", "classdl_1_1LayerNorm.html", null ],
@@ -38,23 +48,27 @@ var hierarchy =
     ] ],
     [ "dl::Model< Tensor(Tensor &)>", "classdl_1_1Model.html", [
       [ "dl::LayerNorm", "classdl_1_1LayerNorm.html", null ],
-      [ "dl::Linear", "classdl_1_1Linear.html", null ],
-      [ "dl::Transformer", "classdl_1_1Transformer.html", null ],
-      [ "dl::TransformerEncoder", "classdl_1_1TransformerEncoder.html", null ]
+      [ "dl::Linear", "classdl_1_1Linear.html", null ]
     ] ],
     [ "dl::ModelBase", "classdl_1_1ModelBase.html", [
       [ "dl::Model< R(Args...)>", "classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html", null ]
     ] ],
-    [ "dl::Optimizer", "classdl_1_1Optimizer.html", null ],
+    [ "dl::Optimizer", "classdl_1_1Optimizer.html", [
+      [ "dl::optim::Adam", "classdl_1_1optim_1_1Adam.html", null ],
+      [ "dl::optim::GradientDescent", "classdl_1_1optim_1_1GradientDescent.html", null ]
+    ] ],
     [ "ir::Query", "structir_1_1Query.html", null ],
     [ "dl::utils::ScopeGuard", "classdl_1_1utils_1_1ScopeGuard.html", null ],
     [ "tsl::ah::str_hash< CharT >", "structtsl_1_1ah_1_1str__hash.html", null ],
     [ "dl::Tensor", "classdl_1_1Tensor.html", null ],
     [ "dl::TensorImpl", "classdl_1_1TensorImpl.html", null ],
-    [ "dl::Trainer< Model, Dataset, Optimizer >", "classdl_1_1Trainer.html", null ],
     [ "dl::TrainerConf< Model, Dataset, Optimizer >", "structdl_1_1TrainerConf.html", null ],
     [ "dl::TrainerConf< dl::Model, dl::Dataset, dl::Optimizer >", "structdl_1_1TrainerConf.html", null ],
+    [ "dl::TrainerConfBuilder< Model, Dataset, Optimizer >", "classdl_1_1TrainerConfBuilder.html", null ],
     [ "dl::TrainerObserver", "classdl_1_1TrainerObserver.html", null ],
+    [ "dl::TrainerSubject", "classdl_1_1TrainerSubject.html", [
+      [ "dl::Trainer< Model, Dataset, Optimizer >", "classdl_1_1Trainer.html", null ]
+    ] ],
     [ "dl::TransformerConf", "structdl_1_1TransformerConf.html", null ],
     [ "dl::io::WeightsFileFormat", "classdl_1_1io_1_1WeightsFileFormat.html", null ],
     [ "dl::WordPieceTokenizer", "classdl_1_1WordPieceTokenizer.html", null ]

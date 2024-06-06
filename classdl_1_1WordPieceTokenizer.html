@@ -172,6 +172,7 @@ $(document).ready(function(){initNavTree('classdl_1_1WordPieceTokenizer.html',''
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
@@ -180,15 +181,20 @@ $(document).ready(function(){initNavTree('classdl_1_1WordPieceTokenizer.html',''
 </div><!--header-->
 <div class="contents">
 
-<p>Implements WordPiece tokenizaton as proposed in <a class="el" href="citelist.html#CITEREF_wordpiece">[7]</a> using the optimized algorithm by <a class="el" href="citelist.html#CITEREF_fast_wordpiece">[5]</a> .  
+<p>Implements WordPiece tokenizaton as proposed in <a class="el" href="citelist.html#CITEREF_wordpiece">[8]</a> using the optimized algorithm by <a class="el" href="citelist.html#CITEREF_fast_wordpiece">[6]</a> .  
  <a href="classdl_1_1WordPieceTokenizer.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="wordpiece_8hpp_source.html">wordpiece.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdl_1_1WordPieceTokenizer_1_1Conf.html">Conf</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aefb80e262654d615db366fd6b7f5692a" id="r_aefb80e262654d615db366fd6b7f5692a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1WordPieceTokenizer.html#aefb80e262654d615db366fd6b7f5692a">StrIter</a> = <a class="el" href="classdl_1_1utils_1_1GenericIterator.html">utils::GenericIterator</a>&lt; <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &gt;</td></tr>
-<tr class="separator:aefb80e262654d615db366fd6b7f5692a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94db05538f5cebc561f970f7ffc29805" id="r_a94db05538f5cebc561f970f7ffc29805"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1WordPieceTokenizer.html#a94db05538f5cebc561f970f7ffc29805">PieceIter</a> = <a class="el" href="classdl_1_1utils_1_1GenericIterator.html">utils::GenericIterator</a>&lt; <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/tuple.html">std::tuple</a>&lt; <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>, <a class="elRef" href="http://en.cppreference.com/w/cpp/types/size_t.html">std::size_t</a> &gt; &gt;</td></tr>
+<tr class="separator:a94db05538f5cebc561f970f7ffc29805"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -198,31 +204,28 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:affbd950cd53946b85a2172acf1ac95fe" id="r_affbd950cd53946b85a2172acf1ac95fe"><td class="memItemLeft" align="right" valign="top"><a id="affbd950cd53946b85a2172acf1ac95fe" name="affbd950cd53946b85a2172acf1ac95fe"></a>
-static <a class="el" href="classdl_1_1WordPieceTokenizer.html">WordPieceTokenizer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>fromWordPieces</b> (<a class="el" href="classdl_1_1utils_1_1GenericIterator.html">StrIter</a> begin, <a class="el" href="classdl_1_1utils_1_1GenericIterator.html">StrIter</a> end) noexcept</td></tr>
-<tr class="separator:affbd950cd53946b85a2172acf1ac95fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6326ce12e1e7b76117ce23fbca815935" id="r_a6326ce12e1e7b76117ce23fbca815935"><td class="memItemLeft" align="right" valign="top"><a id="a6326ce12e1e7b76117ce23fbca815935" name="a6326ce12e1e7b76117ce23fbca815935"></a>
-static <a class="el" href="classdl_1_1WordPieceTokenizer.html">WordPieceTokenizer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>fromStream</b> (<a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_istream.html">std::istream</a> &amp;stream) noexcept</td></tr>
-<tr class="separator:a6326ce12e1e7b76117ce23fbca815935"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ebbc6574b8a096a2ca1762271e4e042" id="r_a8ebbc6574b8a096a2ca1762271e4e042"><td class="memItemLeft" align="right" valign="top"><a id="a8ebbc6574b8a096a2ca1762271e4e042" name="a8ebbc6574b8a096a2ca1762271e4e042"></a>
+static <a class="el" href="classdl_1_1WordPieceTokenizer.html">WordPieceTokenizer</a>&#160;</td><td class="memItemRight" valign="bottom"><b>fromConf</b> (<a class="elRef" href="http://en.cppreference.com/w/cpp/io/basic_istream.html">std::istream</a> &amp;stream) noexcept</td></tr>
+<tr class="separator:a8ebbc6574b8a096a2ca1762271e4e042"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implements WordPiece tokenizaton as proposed in <a class="el" href="citelist.html#CITEREF_wordpiece">[7]</a> using the optimized algorithm by <a class="el" href="citelist.html#CITEREF_fast_wordpiece">[5]</a> . </p>
+<div class="textblock"><p>Implements WordPiece tokenizaton as proposed in <a class="el" href="citelist.html#CITEREF_wordpiece">[8]</a> using the optimized algorithm by <a class="el" href="citelist.html#CITEREF_fast_wordpiece">[6]</a> . </p>
 
-<p class="definition">Definition at line <a class="el" href="wordpiece_8hpp_source.html#l00027">27</a> of file <a class="el" href="wordpiece_8hpp_source.html">wordpiece.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="wordpiece_8hpp_source.html#l00028">28</a> of file <a class="el" href="wordpiece_8hpp_source.html">wordpiece.hpp</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="aefb80e262654d615db366fd6b7f5692a" name="aefb80e262654d615db366fd6b7f5692a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefb80e262654d615db366fd6b7f5692a">&#9670;&#160;</a></span>StrIter</h2>
+<a id="a94db05538f5cebc561f970f7ffc29805" name="a94db05538f5cebc561f970f7ffc29805"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94db05538f5cebc561f970f7ffc29805">&#9670;&#160;</a></span>PieceIter</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classdl_1_1utils_1_1GenericIterator.html">dl::WordPieceTokenizer::StrIter</a> =  <a class="el" href="classdl_1_1utils_1_1GenericIterator.html">utils::GenericIterator</a>&lt;<a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>&gt;</td>
+          <td class="memname">using <a class="el" href="classdl_1_1utils_1_1GenericIterator.html">dl::WordPieceTokenizer::PieceIter</a> =  <a class="el" href="classdl_1_1utils_1_1GenericIterator.html">utils::GenericIterator</a>&lt;<a class="elRef" href="http://en.cppreference.com/w/cpp/utility/tuple.html">std::tuple</a>&lt;<a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>, <a class="elRef" href="http://en.cppreference.com/w/cpp/types/size_t.html">std::size_t</a>&gt; &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="wordpiece_8hpp_source.html#l00029">29</a> of file <a class="el" href="wordpiece_8hpp_source.html">wordpiece.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="wordpiece_8hpp_source.html#l00030">30</a> of file <a class="el" href="wordpiece_8hpp_source.html">wordpiece.hpp</a>.</p>
 
 </div>
 </div>

@@ -176,21 +176,40 @@ $(document).ready(function(){initNavTree('todo.html',''); initResizable(); });
 <div class="contents">
 <div class="textblock"><dl class="reflist">
 <dt>Page <a class="el" href="basicArithmetics.html">Arithmetics</a>  </dt>
-<dd><a class="anchor" id="_todo000010"></a>Possible solution: a function <code><a class="el" href="classdl_1_1Tensor.html" title="The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...">dl::Tensor</a>&amp; remember(<a class="el" href="classdl_1_1Tensor.html" title="The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...">dl::Tensor</a>&amp;&amp; tensor)</code> which remembers the input tensor in the computation tree and returns a reference to this tensor:  </dd>
+<dd><a class="anchor" id="_todo000013"></a>Possible solution: a function <code><a class="el" href="classdl_1_1Tensor.html" title="The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...">dl::Tensor</a>&amp; remember(<a class="el" href="classdl_1_1Tensor.html" title="The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...">dl::Tensor</a>&amp;&amp; tensor)</code> which remembers the input tensor in the computation tree and returns a reference to this tensor:  </dd>
+<dt>Page <a class="el" href="technicalAutodiff.html">Automatic Differentiation (Autodiff)</a>  </dt>
+<dd><p class="startdd"><a class="anchor" id="_todo000017"></a>WIP </p>
+<p class="interdd"><a class="anchor" id="_todo000016"></a>WIP</p>
+<p class="enddd"><a class="anchor" id="_todo000015"></a>WIP </p>
+</dd>
 <dt>Namespace <a class="el" href="namespacedl_1_1detail.html">dl::detail</a>  </dt>
-<dd><a class="anchor" id="_todo000001"></a>refine to check that T is actually a <a class="el" href="classdl_1_1Model.html">Model</a>  </dd>
+<dd><a class="anchor" id="_todo000002"></a>refine to check that T is actually a <a class="el" href="classdl_1_1Model.html">Model</a>  </dd>
+<dt>Member <a class="el" href="classdl_1_1Embedding.html#a6aaf2f2e3b096f7c354727ea8071846d">dl::Embedding::forward</a>  (const <a class="el" href="classdl_1_1Tensor.html" title="The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...">dl::Tensor</a> &amp;input)</dt>
+<dd><a class="anchor" id="_todo000006"></a>implement  </dd>
 <dt>Member <a class="el" href="structdl_1_1InitializerTensor.html#aae82ecaee21a80e4f967c76cbd2c4ce6">dl::InitializerTensor&lt; T &gt;::InitializerTensor</a>  (std::initializer_list&lt; InitializerTensor &gt; &amp;&amp;value) noexcept</dt>
-<dd><a class="anchor" id="_todo000008"></a>Check if all values have the same size  </dd>
+<dd><a class="anchor" id="_todo000010"></a>Check if all values have the same size  </dd>
 <dt>Member <a class="el" href="classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html#a9eb6518989b89f9f9873745a5ad42a78">dl::Model&lt; R(Args...)&gt;::~Model</a>  ()=default</dt>
-<dd><a class="anchor" id="_todo000006"></a>For later: these const member functions make sense to indicate that we know at compile time that the instance is not modified (e.g. since it is not part of the computation graph for auto differentiation.  </dd>
+<dd><a class="anchor" id="_todo000008"></a>For later: these const member functions make sense to indicate that we know at compile time that the instance is not modified (e.g. since it is not part of the computation graph for auto differentiation.  </dd>
+<dt>Member <a class="el" href="classdl_1_1optim_1_1GradientDescent.html#a1a3f5e22f2030cfe240fc8de91b88368">dl::optim::GradientDescent::step</a>  (const <a class="el" href="classdl_1_1Tensor.html" title="The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...">dl::Tensor</a> &amp;loss) override</dt>
+<dd><a class="anchor" id="_todo000001"></a>reintroduce, currently this gives a segmentation fault  </dd>
 <dt>Member <a class="el" href="classdl_1_1Trainer.html#aa8aa950baa3ac21112926f3b6e37c0a5">dl::Trainer&lt; Model, Dataset, Optimizer &gt;::fit</a>  (<a class="el" href="classdl_1_1Model.html">Model</a> model, auto adapter)</dt>
-<dd><p class="startdd"><a class="anchor" id="_todo000002"></a>log the loss </p>
-<p class="enddd"><a class="anchor" id="_todo000003"></a>with batching increment by batch size  </p>
+<dd><p class="startdd"><a class="anchor" id="_todo000004"></a>with batching increment by batch size </p>
+<p class="enddd"><a class="anchor" id="_todo000003"></a>log the loss  </p>
 </dd>
 <dt>Struct <a class="el" href="structfmt_1_1formatter_3_01std_1_1vector_3_01T_01_4_01_4.html">fmt::formatter&lt; std::vector&lt; T &gt; &gt;</a>  </dt>
-<dd><a class="anchor" id="_todo000004"></a>remove when formatting ranges is supported  </dd>
-<dt>Member <a class="el" href="classnlp_1_1BERT.html#a12e9eae9bf882dd77fe36aff025bf08f">nlp::BERT::forward</a>  (<a class="el" href="classdl_1_1Tensor.html" title="The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...">dl::Tensor</a> &amp;input) override</dt>
-<dd><a class="anchor" id="_todo000009"></a>implement </dd>
+<dd><a class="anchor" id="_todo000005"></a>remove when formatting ranges is supported  </dd>
+<dt>Page <a class="el" href="basicIntro.html">Getting Started</a>  </dt>
+<dd><a class="anchor" id="_todo000014"></a>WIP </dd>
+<dt>Member <a class="el" href="classnlp_1_1BERT.html#a245420f5fd731e6d903486f2d719debe">nlp::BERT::forward</a>  (const <a class="el" href="classdl_1_1Tensor.html" title="The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...">dl::Tensor</a> &amp;input) override</dt>
+<dd><a class="anchor" id="_todo000012"></a>implement  </dd>
+<dt>Member <a class="el" href="classnlp_1_1BERTEmbeddings.html#a920b4cc7500f23b1e61798a4053465ea">nlp::BERTEmbeddings::forward</a>  (const <a class="el" href="classdl_1_1Tensor.html" title="The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...">dl::Tensor</a> &amp;inputIds, const <a class="el" href="classdl_1_1Tensor.html" title="The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...">dl::Tensor</a> &amp;inputTokenTypes)</dt>
+<dd><a class="anchor" id="_todo000011"></a>implement  </dd>
+<dt>Page <a class="el" href="technicalTransformer.html">Transformer</a>  </dt>
+<dd><p class="startdd"><a class="anchor" id="_todo000018"></a>WIP</p>
+<p class="interdd"><a class="anchor" id="_todo000019"></a>WIP</p>
+<p class="interdd"><a class="anchor" id="_todo000020"></a>WIP</p>
+<p class="enddd"><a class="anchor" id="_todo000021"></a>WIP </p>
+</dd>
 </dl>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

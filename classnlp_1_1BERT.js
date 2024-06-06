@@ -1,4 +1,4 @@
 var classnlp_1_1BERT =
 [
-    [ "forward", "classnlp_1_1BERT.html#a12e9eae9bf882dd77fe36aff025bf08f", null ]
+    [ "forward", "classnlp_1_1BERT.html#a245420f5fd731e6d903486f2d719debe", null ]
 ];

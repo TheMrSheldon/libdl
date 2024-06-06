@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['model_0',['Training and Evaluating a Retrieval Model',['../libIRTraining.html',1,'basicsIdx']]]
+  ['libdl_0',['libdl',['../index.html',1,'']]],
+  ['list_1',['Todo List',['../todo.html',1,'']]]
 ];

@@ -182,19 +182,59 @@ $(document).ready(function(){initNavTree('classdl_1_1Optimizer.html',''); initRe
  <a href="classdl_1_1Optimizer.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="optimizer_8hpp_source.html">optimizer.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for dl::Optimizer:</div>
+<div class="dyncontent">
+<div class="center"><img src="classdl_1_1Optimizer__inherit__graph.png" border="0" usemap="#adl_1_1Optimizer_inherit__map" alt="Inheritance graph"/></div>
+<map name="adl_1_1Optimizer_inherit__map" id="adl_1_1Optimizer_inherit__map">
+<area shape="rect" title="Defines an optimization strategy for a given set of Parameters." alt="" coords="109,5,215,31"/>
+<area shape="rect" href="classdl_1_1optim_1_1Adam.html" title="Implements the Adam optimization algorithm &#160;." alt="" coords="5,79,132,104"/>
+<area shape="poly" title=" " alt="" coords="138,41,86,81,82,76,135,37"/>
+<area shape="rect" href="classdl_1_1optim_1_1GradientDescent.html" title=" " alt="" coords="157,79,354,104"/>
+<area shape="poly" title=" " alt="" coords="189,37,242,76,238,81,186,41"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aad662b1198b910375474a1e41224315f" id="r_aad662b1198b910375474a1e41224315f"><td class="memItemLeft" align="right" valign="top"><a id="aad662b1198b910375474a1e41224315f" name="aad662b1198b910375474a1e41224315f"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>step</b> (const <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;tensor)=0</td></tr>
+<tr class="memitem:aad662b1198b910375474a1e41224315f" id="r_aad662b1198b910375474a1e41224315f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Optimizer.html#aad662b1198b910375474a1e41224315f">step</a> (const <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;tensor)=0</td></tr>
 <tr class="separator:aad662b1198b910375474a1e41224315f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Defines an optimization strategy for a given set of Parameters. </p>
 <p>In its simplest form </p>
 
-<p class="definition">Definition at line <a class="el" href="optimizer_8hpp_source.html#l00012">12</a> of file <a class="el" href="optimizer_8hpp_source.html">optimizer.hpp</a>.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+<p class="definition">Definition at line <a class="el" href="optimizer_8hpp_source.html#l00011">11</a> of file <a class="el" href="optimizer_8hpp_source.html">optimizer.hpp</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="aad662b1198b910375474a1e41224315f" name="aad662b1198b910375474a1e41224315f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad662b1198b910375474a1e41224315f">&#9670;&#160;</a></span>step()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void dl::Optimizer::step </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classdl_1_1Tensor.html">Tensor</a> &amp;&#160;</td>
+          <td class="paramname"><em>tensor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classdl_1_1optim_1_1GradientDescent.html#a1a3f5e22f2030cfe240fc8de91b88368">dl::optim::GradientDescent</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>dl/learning/<a class="el" href="optimizer_8hpp_source.html">optimizer.hpp</a></li>
 </ul>
 </div><!-- contents -->

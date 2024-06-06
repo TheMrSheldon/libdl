@@ -1,0 +1,453 @@
+<!-- Heavily based on https://github.com/jothepro/doxygen-awesome-css/blob/main/doxygen-custom/header.html -->
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta name="generator" content="Doxygen 1.9.8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- BEGIN opengraph metadata -->
+    <meta property="og:title" content=libdl />
+    <meta property="og:image" content="twemoji-brain.png" />
+    <meta property="og:description" content="Simple yet powerful deep learning" />
+    <meta property="og:url" content="https://github.com/TheMrSheldon/libdl" />
+    <!-- END opengraph metadata -->
+    <!-- BEGIN twitter metadata -->
+    <meta name="twitter:image:src" content="twemoji-brain.png" />
+    <meta name="twitter:title" content="libdl" />
+    <meta name="twitter:description" content="Simple yet powerful deep learning" />
+    <!-- END twitter metadata -->
+    <title>libdl: dl::TrainerConfBuilder&lt; Model, Dataset, Optimizer &gt; Class Template Reference</title>
+    <link href="tabs.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/svg+xml" href="twemoji-brain.png" />
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="dynsections.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+    <script type="text/javascript" src="toggle-alternative-theme.js"></script>
+    <script type="text/javascript">
+        DoxygenAwesomeFragmentCopyButton.init()
+        DoxygenAwesomeDarkModeToggle.init()
+        DoxygenAwesomeParagraphLink.init()
+        DoxygenAwesomeInteractiveToc.init()
+        DoxygenAwesomeTabs.init()
+    </script>
+    <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+    <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+    <link href="doxygen.css" rel="stylesheet" type="text/css" />
+    <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-tabs.js" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <!-- https://tholman.com/github-corners/ -->
+    <a href="https://github.com/TheMrSheldon/libdl" class="github-corner" title="View source on GitHub" target="_blank"
+        rel="noopener noreferrer">
+        <svg viewBox="0 0 250 250" width="40" height="40"
+            style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+            <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+            <path
+                d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+                fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+            <path
+                d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+                fill="currentColor" class="octo-body"></path>
+        </svg></a>
+    <style>
+        .github-corner:hover .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+        }
+        @keyframes octocat-wave {
+            0%,
+            100% {
+                transform: rotate(0)
+            }
+            20%,
+            60% {
+                transform: rotate(-25deg)
+            }
+            40%,
+            80% {
+                transform: rotate(10deg)
+            }
+        }
+        @media (max-width:500px) {
+            .github-corner:hover .octo-arm {
+                animation: none
+            }
+            .github-corner .octo-arm {
+                animation: octocat-wave 560ms ease-in-out
+            }
+        }
+    </style>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+        <div id="titlearea">
+            <table cellspacing="0" cellpadding="0">
+                <tbody>
+                    <tr style="height: 56px;">
+                        <td id="projectlogo"><img alt="Logo" src="twemoji-brain.png" /></td>
+                        <td id="projectalign" style="padding-left: 0.5em;">
+                            <div id="projectname">libdl
+                                &#160;<span
+                                    id="projectnumber">0.0.1</span>
+                            </div>
+                            <div id="projectbrief">Simple yet powerful deep learning</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- end header part --><!-- Generated by Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classdl_1_1TrainerConfBuilder.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="classdl_1_1TrainerConfBuilder-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">dl::TrainerConfBuilder&lt; Model, Dataset, Optimizer &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a3382a782358737a5cae21b826d5b6ea4" id="r_a3382a782358737a5cae21b826d5b6ea4"><td class="memTemplParams" colspan="2">template&lt;typename DSet , typename... Args&gt; </td></tr>
+<tr class="memitem:a3382a782358737a5cae21b826d5b6ea4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classdl_1_1TrainerConfBuilder.html">TrainerConfBuilder</a>&lt; <a class="el" href="classdl_1_1Model.html">Model</a>, DSet, <a class="el" href="classdl_1_1Optimizer.html">Optimizer</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classdl_1_1TrainerConfBuilder.html#a3382a782358737a5cae21b826d5b6ea4">setDataset</a> (Args &amp;&amp;... args) noexcept</td></tr>
+<tr class="separator:a3382a782358737a5cae21b826d5b6ea4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6651934484bfff9e0ba7bb9c750e288b" id="r_a6651934484bfff9e0ba7bb9c750e288b"><td class="memTemplParams" colspan="2">template&lt;typename Opt , typename... Args&gt; </td></tr>
+<tr class="memitem:a6651934484bfff9e0ba7bb9c750e288b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classdl_1_1TrainerConfBuilder.html">TrainerConfBuilder</a>&lt; <a class="el" href="classdl_1_1Model.html">Model</a>, <a class="el" href="classdl_1_1Dataset.html">Dataset</a>, Opt &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classdl_1_1TrainerConfBuilder.html#a6651934484bfff9e0ba7bb9c750e288b">setOptimizer</a> (Args &amp;&amp;... args) noexcept</td></tr>
+<tr class="separator:a6651934484bfff9e0ba7bb9c750e288b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98f70e45d8d3f3f43ad7a73f2ec52ab0" id="r_a98f70e45d8d3f3f43ad7a73f2ec52ab0"><td class="memTemplParams" colspan="2">template&lt;typename O , typename... Args&gt; </td></tr>
+<tr class="memitem:a98f70e45d8d3f3f43ad7a73f2ec52ab0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classdl_1_1TrainerConfBuilder.html">TrainerConfBuilder</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classdl_1_1TrainerConfBuilder.html#a98f70e45d8d3f3f43ad7a73f2ec52ab0">addObserver</a> (Args &amp;&amp;... args) noexcept</td></tr>
+<tr class="separator:a98f70e45d8d3f3f43ad7a73f2ec52ab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a003bed254f2664bccb05a1ad02679af4" id="r_a003bed254f2664bccb05a1ad02679af4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdl_1_1TrainerConfBuilder.html">TrainerConfBuilder</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1TrainerConfBuilder.html#a003bed254f2664bccb05a1ad02679af4">addObserver</a> (<a class="elRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr</a>&lt; <a class="el" href="classdl_1_1TrainerObserver.html">TrainerObserver</a> &gt; observer) noexcept</td></tr>
+<tr class="separator:a003bed254f2664bccb05a1ad02679af4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b15b8ec15173f219305cc20b7ab9cbb" id="r_a0b15b8ec15173f219305cc20b7ab9cbb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdl_1_1TrainerConf.html">TrainerConf</a>&lt; <a class="el" href="classdl_1_1Model.html">Model</a>, <a class="el" href="classdl_1_1Dataset.html">Dataset</a>, <a class="el" href="classdl_1_1Optimizer.html">Optimizer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1TrainerConfBuilder.html#a0b15b8ec15173f219305cc20b7ab9cbb">build</a> () noexcept</td></tr>
+<tr class="separator:a0b15b8ec15173f219305cc20b7ab9cbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename <a class="el" href="classdl_1_1Model.html">Model</a> = void*, typename <a class="el" href="classdl_1_1Dataset.html">Dataset</a> = void*, typename <a class="el" href="classdl_1_1Optimizer.html">Optimizer</a> = void*&gt;<br />
+class dl::TrainerConfBuilder&lt; Model, Dataset, Optimizer &gt;</div>
+<p class="definition">Definition at line <a class="el" href="trainer_8hpp_source.html#l00046">46</a> of file <a class="el" href="trainer_8hpp_source.html">trainer.hpp</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a6901b78182d282c985c64329ad2bf73c" name="a6901b78182d282c985c64329ad2bf73c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6901b78182d282c985c64329ad2bf73c">&#9670;&#160;</a></span>TrainerConfBuilder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classdl_1_1Model.html">Model</a>  = void*, typename <a class="el" href="classdl_1_1Dataset.html">Dataset</a>  = void*, typename <a class="el" href="classdl_1_1Optimizer.html">Optimizer</a>  = void*&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdl_1_1TrainerConfBuilder.html">dl::TrainerConfBuilder</a>&lt; <a class="el" href="classdl_1_1Model.html">Model</a>, <a class="el" href="classdl_1_1Dataset.html">Dataset</a>, <a class="el" href="classdl_1_1Optimizer.html">Optimizer</a> &gt;::TrainerConfBuilder </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="trainer_8hpp_source.html#l00056">56</a> of file <a class="el" href="trainer_8hpp_source.html">trainer.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   56</span>{}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a98f70e45d8d3f3f43ad7a73f2ec52ab0" name="a98f70e45d8d3f3f43ad7a73f2ec52ab0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98f70e45d8d3f3f43ad7a73f2ec52ab0">&#9670;&#160;</a></span>addObserver() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classdl_1_1Model.html">Model</a>  = void*, typename <a class="el" href="classdl_1_1Dataset.html">Dataset</a>  = void*, typename <a class="el" href="classdl_1_1Optimizer.html">Optimizer</a>  = void*&gt; </div>
+<div class="memtemplate">
+template&lt;typename O , typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdl_1_1TrainerConfBuilder.html">TrainerConfBuilder</a> &amp; <a class="el" href="classdl_1_1TrainerConfBuilder.html">dl::TrainerConfBuilder</a>&lt; <a class="el" href="classdl_1_1Model.html">Model</a>, <a class="el" href="classdl_1_1Dataset.html">Dataset</a>, <a class="el" href="classdl_1_1Optimizer.html">Optimizer</a> &gt;::addObserver </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="trainer_8hpp_source.html#l00077">77</a> of file <a class="el" href="trainer_8hpp_source.html">trainer.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   77</span>                                                                 {</div>
+<div class="line"><span class="lineno">   78</span>            <span class="keywordflow">return</span> addObserver(std::make_unique&lt;O&gt;(std::forward&lt;Args&gt;(args)...));</div>
+<div class="line"><span class="lineno">   79</span>        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a003bed254f2664bccb05a1ad02679af4" name="a003bed254f2664bccb05a1ad02679af4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a003bed254f2664bccb05a1ad02679af4">&#9670;&#160;</a></span>addObserver() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classdl_1_1Model.html">Model</a>  = void*, typename <a class="el" href="classdl_1_1Dataset.html">Dataset</a>  = void*, typename <a class="el" href="classdl_1_1Optimizer.html">Optimizer</a>  = void*&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdl_1_1TrainerConfBuilder.html">TrainerConfBuilder</a> &amp; <a class="el" href="classdl_1_1TrainerConfBuilder.html">dl::TrainerConfBuilder</a>&lt; <a class="el" href="classdl_1_1Model.html">Model</a>, <a class="el" href="classdl_1_1Dataset.html">Dataset</a>, <a class="el" href="classdl_1_1Optimizer.html">Optimizer</a> &gt;::addObserver </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr</a>&lt; <a class="el" href="classdl_1_1TrainerObserver.html">TrainerObserver</a> &gt;&#160;</td>
+          <td class="paramname"><em>observer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="trainer_8hpp_source.html#l00081">81</a> of file <a class="el" href="trainer_8hpp_source.html">trainer.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   81</span>                                                                                          {</div>
+<div class="line"><span class="lineno">   82</span>            conf.observers.push_back(<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(observer));</div>
+<div class="line"><span class="lineno">   83</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><span class="lineno">   84</span>        }</div>
+<div class="ttc" id="amove_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a></div><div class="ttdeci">T move(T... args)</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a0b15b8ec15173f219305cc20b7ab9cbb" name="a0b15b8ec15173f219305cc20b7ab9cbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b15b8ec15173f219305cc20b7ab9cbb">&#9670;&#160;</a></span>build()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classdl_1_1Model.html">Model</a>  = void*, typename <a class="el" href="classdl_1_1Dataset.html">Dataset</a>  = void*, typename <a class="el" href="classdl_1_1Optimizer.html">Optimizer</a>  = void*&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdl_1_1TrainerConf.html">TrainerConf</a>&lt; <a class="el" href="classdl_1_1Model.html">Model</a>, <a class="el" href="classdl_1_1Dataset.html">Dataset</a>, <a class="el" href="classdl_1_1Optimizer.html">Optimizer</a> &gt; <a class="el" href="classdl_1_1TrainerConfBuilder.html">dl::TrainerConfBuilder</a>&lt; <a class="el" href="classdl_1_1Model.html">Model</a>, <a class="el" href="classdl_1_1Dataset.html">Dataset</a>, <a class="el" href="classdl_1_1Optimizer.html">Optimizer</a> &gt;::build </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="trainer_8hpp_source.html#l00086">86</a> of file <a class="el" href="trainer_8hpp_source.html">trainer.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   86</span>{ <span class="keywordflow">return</span> <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(conf); }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a3382a782358737a5cae21b826d5b6ea4" name="a3382a782358737a5cae21b826d5b6ea4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3382a782358737a5cae21b826d5b6ea4">&#9670;&#160;</a></span>setDataset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classdl_1_1Model.html">Model</a>  = void*, typename <a class="el" href="classdl_1_1Dataset.html">Dataset</a>  = void*, typename <a class="el" href="classdl_1_1Optimizer.html">Optimizer</a>  = void*&gt; </div>
+<div class="memtemplate">
+template&lt;typename DSet , typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdl_1_1TrainerConfBuilder.html">TrainerConfBuilder</a>&lt; <a class="el" href="classdl_1_1Model.html">Model</a>, DSet, <a class="el" href="classdl_1_1Optimizer.html">Optimizer</a> &gt; <a class="el" href="classdl_1_1TrainerConfBuilder.html">dl::TrainerConfBuilder</a>&lt; <a class="el" href="classdl_1_1Model.html">Model</a>, <a class="el" href="classdl_1_1Dataset.html">Dataset</a>, <a class="el" href="classdl_1_1Optimizer.html">Optimizer</a> &gt;::setDataset </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="trainer_8hpp_source.html#l00059">59</a> of file <a class="el" href="trainer_8hpp_source.html">trainer.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   59</span>                                                                                       {</div>
+<div class="line"><span class="lineno">   60</span>            <span class="keywordflow">return</span> TrainerConfBuilder&lt;Model, DSet, Optimizer&gt;{TrainerConf&lt;Model, DSet, Optimizer&gt;{</div>
+<div class="line"><span class="lineno">   61</span>                    .observers = <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(conf.observers),</div>
+<div class="line"><span class="lineno">   62</span>                    .dataset = std::make_unique&lt;DSet&gt;(std::forward&lt;Args&gt;(args)...),</div>
+<div class="line"><span class="lineno">   63</span>                    .optimizer = <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(conf.optimizer)</div>
+<div class="line"><span class="lineno">   64</span>            }};</div>
+<div class="line"><span class="lineno">   65</span>        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a6651934484bfff9e0ba7bb9c750e288b" name="a6651934484bfff9e0ba7bb9c750e288b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6651934484bfff9e0ba7bb9c750e288b">&#9670;&#160;</a></span>setOptimizer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classdl_1_1Model.html">Model</a>  = void*, typename <a class="el" href="classdl_1_1Dataset.html">Dataset</a>  = void*, typename <a class="el" href="classdl_1_1Optimizer.html">Optimizer</a>  = void*&gt; </div>
+<div class="memtemplate">
+template&lt;typename Opt , typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdl_1_1TrainerConfBuilder.html">TrainerConfBuilder</a>&lt; <a class="el" href="classdl_1_1Model.html">Model</a>, <a class="el" href="classdl_1_1Dataset.html">Dataset</a>, Opt &gt; <a class="el" href="classdl_1_1TrainerConfBuilder.html">dl::TrainerConfBuilder</a>&lt; <a class="el" href="classdl_1_1Model.html">Model</a>, <a class="el" href="classdl_1_1Dataset.html">Dataset</a>, <a class="el" href="classdl_1_1Optimizer.html">Optimizer</a> &gt;::setOptimizer </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="trainer_8hpp_source.html#l00068">68</a> of file <a class="el" href="trainer_8hpp_source.html">trainer.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   68</span>                                                                                      {</div>
+<div class="line"><span class="lineno">   69</span>            <span class="keywordflow">return</span> TrainerConfBuilder&lt;Model, Dataset, Opt&gt;{TrainerConf&lt;Model, Dataset, Opt&gt;{</div>
+<div class="line"><span class="lineno">   70</span>                    .observers = <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(conf.observers),</div>
+<div class="line"><span class="lineno">   71</span>                    .dataset = <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(conf.dataset),</div>
+<div class="line"><span class="lineno">   72</span>                    .optimizer = std::make_unique&lt;Opt&gt;(std::forward&lt;Args&gt;(args)...)</div>
+<div class="line"><span class="lineno">   73</span>            }};</div>
+<div class="line"><span class="lineno">   74</span>        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Symbol Documentation</h2>
+<a id="a38f5141a7a9ceb1ecbd1217b3b8f1e0d" name="a38f5141a7a9ceb1ecbd1217b3b8f1e0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38f5141a7a9ceb1ecbd1217b3b8f1e0d">&#9670;&#160;</a></span>TrainerConfBuilder</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classdl_1_1Model.html">Model</a>  = void*, typename <a class="el" href="classdl_1_1Dataset.html">Dataset</a>  = void*, typename <a class="el" href="classdl_1_1Optimizer.html">Optimizer</a>  = void*&gt; </div>
+<div class="memtemplate">
+template&lt;typename M , typename D , typename O &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classdl_1_1TrainerConfBuilder.html">TrainerConfBuilder</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="trainer_8hpp_source.html#l00048">48</a> of file <a class="el" href="trainer_8hpp_source.html">trainer.hpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>dl/learning/<a class="el" href="trainer_8hpp_source.html">trainer.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>dl</b></li><li class="navelem"><a class="el" href="classdl_1_1TrainerConfBuilder.html">TrainerConfBuilder</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>
