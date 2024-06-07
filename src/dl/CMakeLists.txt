@@ -47,27 +47,30 @@ target_compile_definitions(dl PRIVATE "-DXTENSOR_USE_XSIMD")
 ##########################################################################################
 # Libraries
 ##########################################################################################
+# ATTENTION: Note the "EXCLUDE_FROM_ALL" directive. This stops thirdparty libraries loaded with FetchContent from being
+# installed with libdl. This should be applied for all *PRIVATE* dependencies.
+
 # xtensor
 set(BUILD_TESTS OFF)
 set(XTENSOR_USE_XSIMD ON)
 set(XTENSOR_USE_OPENMP ON)
 
 # Dependency of xtensor
-FetchContent_Declare(xtl GIT_REPOSITORY https://github.com/xtensor-stack/xtl.git GIT_TAG 0.7.5)
+FetchContent_Declare(xtl GIT_REPOSITORY https://github.com/xtensor-stack/xtl.git GIT_TAG 0.7.5 EXCLUDE_FROM_ALL)
 FetchContent_MakeAvailable(xtl)
 # Dependency of xtensor
-FetchContent_Declare(xsimd GIT_REPOSITORY https://github.com/xtensor-stack/xsimd.git GIT_TAG 11.0.0)
+FetchContent_Declare(xsimd GIT_REPOSITORY https://github.com/xtensor-stack/xsimd.git GIT_TAG 11.0.0 EXCLUDE_FROM_ALL)
 FetchContent_MakeAvailable(xsimd)
 
-FetchContent_Declare(xtensor GIT_REPOSITORY https://github.com/xtensor-stack/xtensor.git GIT_TAG 0.25.0)
+FetchContent_Declare(xtensor GIT_REPOSITORY https://github.com/xtensor-stack/xtensor.git GIT_TAG 0.25.0 EXCLUDE_FROM_ALL)
 FetchContent_MakeAvailable(xtensor)
 
 # Dependency of xtensor-blas
-FetchContent_Declare(openblas GIT_REPOSITORY https://github.com/OpenMathLib/OpenBLAS.git GIT_TAG v0.3.27)
+FetchContent_Declare(openblas GIT_REPOSITORY https://github.com/OpenMathLib/OpenBLAS.git GIT_TAG v0.3.27 EXCLUDE_FROM_ALL)
 FetchContent_MakeAvailable(openblas)
 
 # Dependency of xtensor
-FetchContent_Declare(xblas GIT_REPOSITORY https://github.com/xtensor-stack/xtensor-blas.git GIT_TAG 0.21.0)
+FetchContent_Declare(xblas GIT_REPOSITORY https://github.com/xtensor-stack/xtensor-blas.git GIT_TAG 0.21.0 EXCLUDE_FROM_ALL)
 FetchContent_MakeAvailable(xblas)
 target_link_libraries(dl PRIVATE xtensor xsimd xtensor-blas openblas)
 
@@ -83,13 +86,14 @@ FetchContent_Declare(ryml
     GIT_REPOSITORY https://github.com/biojppm/rapidyaml.git
     GIT_TAG v0.5.0
     GIT_SHALLOW FALSE  # ensure submodules are checked out
+    EXCLUDE_FROM_ALL
 )
 FetchContent_MakeAvailable(ryml)
 target_link_libraries(dl PRIVATE ryml::ryml)
 
 # libcpr
 FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git
-                         GIT_TAG 1.10.5)
+                         GIT_TAG 1.10.5 EXCLUDE_FROM_ALL)
 FetchContent_MakeAvailable(cpr)
 target_link_libraries(dl PRIVATE cpr::cpr)
 
@@ -98,12 +102,12 @@ find_package(Arrow REQUIRED)
 target_link_libraries(dl PRIVATE arrow)
 
 # hat-trie (for WordPiece tokenization)
-FetchContent_Declare(hattrie GIT_REPOSITORY https://github.com/Tessil/hat-trie.git GIT_TAG 906e6ab)
+FetchContent_Declare(hattrie GIT_REPOSITORY https://github.com/Tessil/hat-trie.git GIT_TAG 906e6ab EXCLUDE_FROM_ALL)
 FetchContent_MakeAvailable(hattrie)
 target_link_libraries(dl PRIVATE tsl::hat_trie)
 
 # TODO: make optional since this is only necessary for a pretty UI during training
 # ftxui
-FetchContent_Declare(ftxui GIT_REPOSITORY https://github.com/ArthurSonzogni/FTXUI.git GIT_TAG v5.0.0)
+FetchContent_Declare(ftxui GIT_REPOSITORY https://github.com/ArthurSonzogni/FTXUI.git GIT_TAG v5.0.0 EXCLUDE_FROM_ALL)
 FetchContent_MakeAvailable(ftxui)
 target_link_libraries(dl PRIVATE ftxui::screen ftxui::component ftxui::dom)
