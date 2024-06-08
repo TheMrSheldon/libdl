@@ -1,3 +1,8 @@
+/**
+ * @file adapters.hpp
+ * @brief Contains some general purpose loss adapters.
+ */
+
 #ifndef DL_LEARNING_ADAPTERS_HPP
 #define DL_LEARNING_ADAPTERS_HPP
 
@@ -12,7 +17,7 @@ namespace dl {
      * \f(\mathcal L\colon Y\times Y \to \mathbb R\f) denote a loss objective. Given the input \f(x\in X\f) and desired
      * output \f(y\in Y\f), the loss adapter returns
      * \f[\mathcal{L}(\mathcal{M}(x), y).\f]
-     * Or, in short: The loss adapter tells the trainer to minimize the given loss objective.
+     * Or, in short: The loss adapter tells the trainer to optimize the given loss objective.
      * 
      * @param lossObjective the loss objective to be optimized for.
      * @return A loss adapter for optimizing the specified loss objective.

@@ -1,0 +1,4 @@
+/**
+@dir dl/learning
+@brief Contains anything to do with training models (trainer, optimizer, loss, lossadapter)
+ */

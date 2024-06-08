@@ -15,17 +15,22 @@
 
 class MyModel : public dl::Model<dl::Tensor(dl::Tensor&)> {
 private:
-	dl::Linear linear;
+	//dl::Linear linear;
+	dl::Tensor factor;
+	dl::Tensor bias;
 
 public:
-	MyModel() : linear(1, 1, true) { registerSubmodel("linear", linear); }
+	MyModel() : factor(dl::empty({})), bias(dl::empty({})) {
+		registerParameter("factor", factor);
+		registerParameter("bias", bias);
+	}
 
 	//Maybe this solves the duplication https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0847r7.html
 	dl::Tensor forward(dl::Tensor& input) {
 		std::this_thread::sleep_for(std::chrono::milliseconds(1000)); // Simulate doing work
-		return linear.forward(std::move(input));
+		//return linear.forward(input);
+		return factor * input + bias;
 	}
-	// dl::Tensor forward(dl::Tensor& input) const { return linear(input); }
 
 	dl::Tensor operator()(dl::Tensor& input) { return forward(input); }
 };
@@ -67,13 +72,17 @@ public:
 
 int main(int argc, char* argv[]) {
 	MyModel model;
+	dl::Tensor& weight = model.parameters().find("factor")->second;
+	dl::Tensor& bias = model.parameters().find("bias")->second;
+	weight = dl::constant(2);
+	bias = dl::constant(1);
 
 	auto conf = dl::TrainerConfBuilder<MyModel>()
 						.setDataset<MyDataset>()
 						.setOptimizer<dl::optim::GradientDescent>(model.parameters())
 						.addObserver(dl::observers::limitEpochs(10))
 						.addObserver(dl::observers::earlyStopping(3))
-						.addObserver(dl::observers::consoleUI())
+						// .addObserver(dl::observers::consoleUI())
 						.build();
 	auto trainer = dl::Trainer(std::move(conf));
 	trainer.fit(model, dl::lossAdapter(dl::loss::mse));

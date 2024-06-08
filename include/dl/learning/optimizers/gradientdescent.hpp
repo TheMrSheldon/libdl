@@ -17,7 +17,10 @@ namespace dl::optim {
 		explicit GradientDescent(const std::map<std::string, dl::TensorRef>& parameters, float learnrate = 0.001f)
 				: dl::Optimizer(), parameters(parameters), learnrate(learnrate) {}
 
-		virtual void step(const dl::Tensor& loss) override {
+		virtual void step(dl::Tensor& loss) override {
+			loss->backward();
+
+			std::cout << loss << std::endl;
 			/** \todo reintroduce, currently this gives a segmentation fault **/
 			//for (dl::Tensor& tensor : parameters)
 			//	tensor->mul_inplace(tensor->grad);

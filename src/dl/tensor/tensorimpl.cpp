@@ -17,5 +17,6 @@ bool TensorImpl::requiresGrad() const noexcept { return _requiresGrad; }
 void TensorImpl::backward(bool enableAutodiff) noexcept {
 	grad = dl::constant(1.0f, device());
 	grad->setRequiresGrad(enableAutodiff);
+	assert(gradfn != nullptr);
 	gradfn(grad);
 }
