@@ -182,32 +182,33 @@ $(document).ready(function(){initNavTree('embedding_8hpp_source.html',''); initR
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../device.hpp&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../tensor/tensor.hpp&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../tensor/tensorptr.hpp&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;model.hpp&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>dl {</div>
 <div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="classdl_1_1Embedding.html">    8</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classdl_1_1Embedding.html">Embedding</a> : <span class="keyword">public</span> <a class="code hl_class" href="classdl_1_1Model.html">dl::Model</a>&lt;dl::Tensor&amp;(const dl::Tensor&amp;)&gt; {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="classdl_1_1Embedding.html">    8</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classdl_1_1Embedding.html">Embedding</a> : <span class="keyword">public</span> <a class="code hl_class" href="classdl_1_1Model.html">dl::Model</a>&lt;dl::TensorPtr(const dl::TensorPtr)&gt; {</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        <a class="code hl_class" href="classdl_1_1Tensor.html">dl::Tensor</a> weight;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        <a class="code hl_class" href="classdl_1_1TensorPtr.html">dl::TensorPtr</a> weight;</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        <a class="code hl_class" href="classdl_1_1Embedding.html">Embedding</a>(<span class="keywordtype">size_t</span> numEmbeddings, <span class="keywordtype">size_t</span> embeddingDim) : weight(dl::empty({numEmbeddings, embeddingDim})) {</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>            registerParameter(<span class="stringliteral">&quot;weight&quot;</span>, weight);</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        }</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classdl_1_1Embedding.html#a6aaf2f2e3b096f7c354727ea8071846d">   17</a></span>        <span class="keyword">virtual</span> <a class="code hl_class" href="classdl_1_1Tensor.html">dl::Tensor</a>&amp; <a class="code hl_function" href="classdl_1_1Embedding.html#a6aaf2f2e3b096f7c354727ea8071846d">forward</a>(<span class="keyword">const</span> <a class="code hl_class" href="classdl_1_1Tensor.html">dl::Tensor</a>&amp; input) {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            <span class="keywordflow">throw</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/error/runtime_error.html">std::runtime_error</a>(<span class="stringliteral">&quot;Not yet implemented&quot;</span>);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        }</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <span class="keyword">virtual</span> <a class="code hl_class" href="classdl_1_1Embedding.html">~Embedding</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classdl_1_1Embedding.html#a7699ca8502e95528bbd49938d51549ff">   18</a></span>        <span class="keyword">virtual</span> <a class="code hl_class" href="classdl_1_1TensorPtr.html">dl::TensorPtr</a> <a class="code hl_function" href="classdl_1_1Embedding.html#a7699ca8502e95528bbd49938d51549ff">forward</a>(<span class="keyword">const</span> <a class="code hl_class" href="classdl_1_1TensorPtr.html">dl::TensorPtr</a> input) {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            <span class="keywordflow">throw</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/error/runtime_error.html">std::runtime_error</a>(<span class="stringliteral">&quot;Not yet implemented&quot;</span>);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        }</div>
 </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    };</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    };</div>
 </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>} <span class="comment">// namespace dl</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>} <span class="comment">// namespace dl</span></div>
 <div class="ttc" id="aclassdl_1_1Embedding_html"><div class="ttname"><a href="classdl_1_1Embedding.html">dl::Embedding</a></div><div class="ttdef"><b>Definition</b> <a href="embedding_8hpp_source.html#l00008">embedding.hpp:8</a></div></div>
-<div class="ttc" id="aclassdl_1_1Embedding_html_a6aaf2f2e3b096f7c354727ea8071846d"><div class="ttname"><a href="classdl_1_1Embedding.html#a6aaf2f2e3b096f7c354727ea8071846d">dl::Embedding::forward</a></div><div class="ttdeci">virtual dl::Tensor &amp; forward(const dl::Tensor &amp;input)</div><div class="ttdef"><b>Definition</b> <a href="embedding_8hpp_source.html#l00017">embedding.hpp:17</a></div></div>
+<div class="ttc" id="aclassdl_1_1Embedding_html_a7699ca8502e95528bbd49938d51549ff"><div class="ttname"><a href="classdl_1_1Embedding.html#a7699ca8502e95528bbd49938d51549ff">dl::Embedding::forward</a></div><div class="ttdeci">virtual dl::TensorPtr forward(const dl::TensorPtr input)</div><div class="ttdef"><b>Definition</b> <a href="embedding_8hpp_source.html#l00018">embedding.hpp:18</a></div></div>
 <div class="ttc" id="aclassdl_1_1Model_html"><div class="ttname"><a href="classdl_1_1Model.html">dl::Model</a></div><div class="ttdef"><b>Definition</b> <a href="model_8hpp_source.html#l00033">model.hpp:33</a></div></div>
-<div class="ttc" id="aclassdl_1_1Tensor_html"><div class="ttname"><a href="classdl_1_1Tensor.html">dl::Tensor</a></div><div class="ttdoc">The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...</div><div class="ttdef"><b>Definition</b> <a href="tensor_8hpp_source.html#l00046">tensor.hpp:46</a></div></div>
+<div class="ttc" id="aclassdl_1_1TensorPtr_html"><div class="ttname"><a href="classdl_1_1TensorPtr.html">dl::TensorPtr</a></div><div class="ttdoc">The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...</div><div class="ttdef"><b>Definition</b> <a href="tensorptr_8hpp_source.html#l00046">tensorptr.hpp:46</a></div></div>
 <div class="ttc" id="aruntime_error_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/error/runtime_error.html">std::runtime_error</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

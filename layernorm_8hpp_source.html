@@ -182,22 +182,22 @@ $(document).ready(function(){initNavTree('layernorm_8hpp_source.html',''); initR
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../device.hpp&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../tensor/tensor.hpp&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../tensor/tensorptr.hpp&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;./model.hpp&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>dl {</div>
 <div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classdl_1_1LayerNorm.html">   12</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classdl_1_1LayerNorm.html">LayerNorm</a> final : <span class="keyword">public</span> <a class="code hl_class" href="classdl_1_1Model.html">Model</a>&lt;Tensor(Tensor&amp;&amp;)&gt;, <a class="code hl_class" href="classdl_1_1Model.html">Model</a>&lt;Tensor(Tensor&amp;)&gt; {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classdl_1_1LayerNorm.html">   12</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classdl_1_1LayerNorm.html">LayerNorm</a> final : <span class="keyword">public</span> <a class="code hl_class" href="classdl_1_1Model.html">Model</a>&lt;TensorPtr(TensorPtr)&gt; {</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <a class="code hl_class" href="classdl_1_1Tensor.html">Tensor</a> beta;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <a class="code hl_class" href="classdl_1_1Tensor.html">Tensor</a> gamma;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <a class="code hl_class" href="classdl_1_1TensorPtr.html">TensorPtr</a> beta;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <a class="code hl_class" href="classdl_1_1TensorPtr.html">TensorPtr</a> gamma;</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <a class="code hl_class" href="classdl_1_1LayerNorm.html">LayerNorm</a>(<a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/container/vector.html">Shape</a> normShape, <span class="keyword">const</span> <a class="code hl_class" href="classdl_1_1Device.html">Device</a>&amp; device = <a class="code hl_function" href="classdl_1_1Device.html#abfb49b4a316a448db61dcd80dbedfec6">Device::getDefault</a>()) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keyword">virtual</span> <a class="code hl_class" href="classdl_1_1Tensor.html">Tensor</a> forward(<a class="code hl_class" href="classdl_1_1Tensor.html">Tensor</a>&amp; input) <span class="keyword">noexcept</span> <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keyword">virtual</span> <a class="code hl_class" href="classdl_1_1Tensor.html">Tensor</a> forward(<a class="code hl_class" href="classdl_1_1Tensor.html">Tensor</a>&amp;&amp; input) <span class="keyword">noexcept</span> <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keyword">virtual</span> <a class="code hl_class" href="classdl_1_1LayerNorm.html">~LayerNorm</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keyword">virtual</span> <a class="code hl_class" href="classdl_1_1TensorPtr.html">TensorPtr</a> forward(<a class="code hl_class" href="classdl_1_1TensorPtr.html">TensorPtr</a> input) <span class="keyword">noexcept</span> <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    };</div>
 </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>} <span class="comment">// namespace dl</span></div>
@@ -205,7 +205,7 @@ $(document).ready(function(){initNavTree('layernorm_8hpp_source.html',''); initR
 <div class="ttc" id="aclassdl_1_1Device_html_abfb49b4a316a448db61dcd80dbedfec6"><div class="ttname"><a href="classdl_1_1Device.html#abfb49b4a316a448db61dcd80dbedfec6">dl::Device::getDefault</a></div><div class="ttdeci">static const Device &amp; getDefault() noexcept</div><div class="ttdoc">Returns the default device for this thread.</div><div class="ttdef"><b>Definition</b> <a href="device_8hpp_source.html#l00076">device.hpp:76</a></div></div>
 <div class="ttc" id="aclassdl_1_1LayerNorm_html"><div class="ttname"><a href="classdl_1_1LayerNorm.html">dl::LayerNorm</a></div><div class="ttdoc">Implements layer normalization as proposed by .</div><div class="ttdef"><b>Definition</b> <a href="layernorm_8hpp_source.html#l00012">layernorm.hpp:12</a></div></div>
 <div class="ttc" id="aclassdl_1_1Model_html"><div class="ttname"><a href="classdl_1_1Model.html">dl::Model</a></div><div class="ttdef"><b>Definition</b> <a href="model_8hpp_source.html#l00033">model.hpp:33</a></div></div>
-<div class="ttc" id="aclassdl_1_1Tensor_html"><div class="ttname"><a href="classdl_1_1Tensor.html">dl::Tensor</a></div><div class="ttdoc">The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...</div><div class="ttdef"><b>Definition</b> <a href="tensor_8hpp_source.html#l00046">tensor.hpp:46</a></div></div>
+<div class="ttc" id="aclassdl_1_1TensorPtr_html"><div class="ttname"><a href="classdl_1_1TensorPtr.html">dl::TensorPtr</a></div><div class="ttdoc">The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...</div><div class="ttdef"><b>Definition</b> <a href="tensorptr_8hpp_source.html#l00046">tensorptr.hpp:46</a></div></div>
 <div class="ttc" id="avector_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

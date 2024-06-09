@@ -17,7 +17,7 @@ var searchData=
   ['fstream_14',['fstream',['http://en.cppreference.com/w/cpp/io/basic_fstream.html',1,'std']]],
   ['function_15',['function',['http://en.cppreference.com/w/cpp/utility/functional/function.html',1,'std']]],
   ['function_3c_20void_28_29_3e_16',['function&lt; void()&gt;',['http://en.cppreference.com/w/cpp/utility/functional/function.html',1,'std']]],
-  ['function_3c_20void_28tensor_20_26_29_3e_17',['function&lt; void(Tensor &amp;)&gt;',['http://en.cppreference.com/w/cpp/utility/functional/function.html',1,'std']]],
+  ['function_3c_20void_28tensorptr_20_26_29_3e_17',['function&lt; void(TensorPtr &amp;)&gt;',['http://en.cppreference.com/w/cpp/utility/functional/function.html',1,'std']]],
   ['future_18',['future',['http://en.cppreference.com/w/cpp/thread/future.html',1,'std']]],
   ['future_5ferror_19',['future_error',['http://en.cppreference.com/w/cpp/thread/future_error.html',1,'std']]]
 ];

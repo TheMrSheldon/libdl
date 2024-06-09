@@ -1,6 +1,6 @@
 <map id="dl/tensor/math.hpp" name="dl/tensor/math.hpp">
 <area shape="rect" id="Node000001" title="Implements auto&#45;diff enabled wrappers around their concrete tensor implementations." alt="" coords="229,5,374,31"/>
-<area shape="rect" id="Node000002" href="$loss_8hpp_source.html" title=" " alt="" coords="132,79,281,104"/>
+<area shape="rect" id="Node000002" href="$loss_8hpp.html" title="Contains some general purpose loss objectives." alt="" coords="132,79,281,104"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="277,41,224,81,221,76,274,37"/>
 <area shape="rect" id="Node000003" href="$tensorimpl_8hpp_source.html" title=" " alt="" coords="305,79,487,104"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="329,37,382,76,379,81,326,41"/>

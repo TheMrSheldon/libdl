@@ -1,4 +1,4 @@
 var classdl_1_1optim_1_1GradientDescent =
 [
-    [ "step", "classdl_1_1optim_1_1GradientDescent.html#a1a3f5e22f2030cfe240fc8de91b88368", null ]
+    [ "step", "classdl_1_1optim_1_1GradientDescent.html#a63ed44bc27d05178979ae5536b846db6", null ]
 ];

@@ -185,10 +185,9 @@ $(document).ready(function(){initNavTree('libIRTraining.html',''); initResizable
 <div class="fragment"><div class="line"><span class="keyword">class </span>MonoBERT : <span class="keyword">public</span> <a class="code hl_class" href="classdl_1_1ModelBase.html">dl::ModelBase</a> {</div>
 <div class="line"><span class="keyword">private</span>:</div>
 <div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    <a class="code hl_class" href="classdl_1_1Tensor.html">dl::Tensor</a> forward(<a class="code hl_struct" href="structir_1_1Query.html">ir::Query</a>, <a class="code hl_struct" href="structir_1_1Document.html">ir::Document</a>);</div>
+<div class="line">    dl::Tensor forward(<a class="code hl_struct" href="structir_1_1Query.html">ir::Query</a>, <a class="code hl_struct" href="structir_1_1Document.html">ir::Document</a>);</div>
 <div class="line">};</div>
 <div class="ttc" id="aclassdl_1_1ModelBase_html"><div class="ttname"><a href="classdl_1_1ModelBase.html">dl::ModelBase</a></div><div class="ttdef"><b>Definition</b> <a href="model_8hpp_source.html#l00013">model.hpp:13</a></div></div>
-<div class="ttc" id="aclassdl_1_1Tensor_html"><div class="ttname"><a href="classdl_1_1Tensor.html">dl::Tensor</a></div><div class="ttdoc">The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...</div><div class="ttdef"><b>Definition</b> <a href="tensor_8hpp_source.html#l00046">tensor.hpp:46</a></div></div>
 <div class="ttc" id="astructir_1_1Document_html"><div class="ttname"><a href="structir_1_1Document.html">ir::Document</a></div><div class="ttdef"><b>Definition</b> <a href="ir_2data_2dataset_8hpp_source.html#l00008">dataset.hpp:8</a></div></div>
 <div class="ttc" id="astructir_1_1Query_html"><div class="ttname"><a href="structir_1_1Query.html">ir::Query</a></div><div class="ttdef"><b>Definition</b> <a href="ir_2data_2dataset_8hpp_source.html#l00012">dataset.hpp:12</a></div></div>
 </div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>A ranking model maps a query and a document to a relevance label: \(\mathcal{Q}\times \mathcal{D} \to \mathbb{R}\). But, flexibility is king and if you want a different signature, have a look at adapters.</dd></dl>

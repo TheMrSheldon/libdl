@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['tensor_0',['Tensor',['../classdl_1_1Tensor.html',1,'dl']]],
-  ['tensorimpl_1',['TensorImpl',['../classdl_1_1TensorImpl.html',1,'dl']]],
+  ['tensorimpl_0',['TensorImpl',['../classdl_1_1TensorImpl.html',1,'dl']]],
+  ['tensorptr_1',['TensorPtr',['../classdl_1_1TensorPtr.html',1,'dl']]],
   ['tera_2',['tera',['http://en.cppreference.com/w/cpp/numeric/ratio/ratio.html',1,'std']]],
   ['terminate_5fhandler_3',['terminate_handler',['http://en.cppreference.com/w/cpp/error/terminate_handler.html',1,'std']]],
   ['thread_4',['thread',['http://en.cppreference.com/w/cpp/thread/thread.html',1,'std']]],

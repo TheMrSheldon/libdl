@@ -200,17 +200,17 @@ Collaboration diagram for dl::optim::GradientDescent:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a882cbd1b88f0854e68a1bc32adca7739" id="r_a882cbd1b88f0854e68a1bc32adca7739"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1optim_1_1GradientDescent.html#a882cbd1b88f0854e68a1bc32adca7739">GradientDescent</a> (const <a class="elRef" href="http://en.cppreference.com/w/cpp/container/map.html">std::map</a>&lt; <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>, <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/functional/reference_wrapper.html">dl::TensorRef</a> &gt; &amp;parameters, float learnrate=0.001f)</td></tr>
-<tr class="separator:a882cbd1b88f0854e68a1bc32adca7739"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a3f5e22f2030cfe240fc8de91b88368" id="r_a1a3f5e22f2030cfe240fc8de91b88368"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1optim_1_1GradientDescent.html#a1a3f5e22f2030cfe240fc8de91b88368">step</a> (const <a class="el" href="classdl_1_1Tensor.html">dl::Tensor</a> &amp;loss) override</td></tr>
-<tr class="separator:a1a3f5e22f2030cfe240fc8de91b88368"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49a6c9e6b1f4d7c9ae9c231a57619c68" id="r_a49a6c9e6b1f4d7c9ae9c231a57619c68"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1optim_1_1GradientDescent.html#a49a6c9e6b1f4d7c9ae9c231a57619c68">GradientDescent</a> (const <a class="elRef" href="http://en.cppreference.com/w/cpp/container/map.html">std::map</a>&lt; <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>, <a class="el" href="classdl_1_1TensorPtr.html">dl::TensorPtr</a> &gt; &amp;parameters, float learnrate=0.001f)</td></tr>
+<tr class="separator:a49a6c9e6b1f4d7c9ae9c231a57619c68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63ed44bc27d05178979ae5536b846db6" id="r_a63ed44bc27d05178979ae5536b846db6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1optim_1_1GradientDescent.html#a63ed44bc27d05178979ae5536b846db6">step</a> (<a class="el" href="classdl_1_1TensorPtr.html">dl::TensorPtr</a> &amp;loss) override</td></tr>
+<tr class="separator:a63ed44bc27d05178979ae5536b846db6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="gradientdescent_8hpp_source.html#l00011">11</a> of file <a class="el" href="gradientdescent_8hpp_source.html">gradientdescent.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a882cbd1b88f0854e68a1bc32adca7739" name="a882cbd1b88f0854e68a1bc32adca7739"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a882cbd1b88f0854e68a1bc32adca7739">&#9670;&#160;</a></span>GradientDescent()</h2>
+<a id="a49a6c9e6b1f4d7c9ae9c231a57619c68" name="a49a6c9e6b1f4d7c9ae9c231a57619c68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49a6c9e6b1f4d7c9ae9c231a57619c68">&#9670;&#160;</a></span>GradientDescent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -221,7 +221,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">dl::optim::GradientDescent::GradientDescent </td>
           <td>(</td>
-          <td class="paramtype">const <a class="elRef" href="http://en.cppreference.com/w/cpp/container/map.html">std::map</a>&lt; <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>, <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/functional/reference_wrapper.html">dl::TensorRef</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="elRef" href="http://en.cppreference.com/w/cpp/container/map.html">std::map</a>&lt; <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>, <a class="el" href="classdl_1_1TensorPtr.html">dl::TensorPtr</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>parameters</em>, </td>
         </tr>
         <tr>
@@ -250,8 +250,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1a3f5e22f2030cfe240fc8de91b88368" name="a1a3f5e22f2030cfe240fc8de91b88368"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a3f5e22f2030cfe240fc8de91b88368">&#9670;&#160;</a></span>step()</h2>
+<a id="a63ed44bc27d05178979ae5536b846db6" name="a63ed44bc27d05178979ae5536b846db6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63ed44bc27d05178979ae5536b846db6">&#9670;&#160;</a></span>step()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -262,7 +262,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">virtual void dl::optim::GradientDescent::step </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classdl_1_1Tensor.html">dl::Tensor</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classdl_1_1TensorPtr.html">dl::TensorPtr</a> &amp;&#160;</td>
           <td class="paramname"><em>loss</em></td><td>)</td>
           <td></td>
         </tr>
@@ -278,10 +278,15 @@ Public Member Functions</h2></td></tr>
 <p>Implements <a class="el" href="classdl_1_1Optimizer.html">dl::Optimizer</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="gradientdescent_8hpp_source.html#l00020">20</a> of file <a class="el" href="gradientdescent_8hpp_source.html">gradientdescent.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   20</span>                                                         {</div>
-<div class="line"><span class="lineno">   22</span>            <span class="comment">//for (dl::Tensor&amp; tensor : parameters)</span></div>
-<div class="line"><span class="lineno">   23</span>            <span class="comment">//  tensor-&gt;mul_inplace(tensor-&gt;grad);</span></div>
-<div class="line"><span class="lineno">   24</span>        }</div>
+<div class="fragment"><div class="line"><span class="lineno">   20</span>                                                      {</div>
+<div class="line"><span class="lineno">   21</span>            loss-&gt;backward();</div>
+<div class="line"><span class="lineno">   22</span> </div>
+<div class="line"><span class="lineno">   23</span>            <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; loss &lt;&lt; <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><span class="lineno">   25</span>            <span class="comment">//for (dl::TensorPtr&amp; tensor : parameters)</span></div>
+<div class="line"><span class="lineno">   26</span>            <span class="comment">//  tensor-&gt;mul_inplace(tensor-&gt;grad);</span></div>
+<div class="line"><span class="lineno">   27</span>        }</div>
+<div class="ttc" id="abasic_ostream_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a></div></div>
+<div class="ttc" id="aendl_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a></div><div class="ttdeci">T endl(T... args)</div></div>
 </div><!-- fragment -->
 </div>
 </div>

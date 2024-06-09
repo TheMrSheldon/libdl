@@ -1,28 +1,24 @@
 <map id="nlp::BERT" name="nlp::BERT">
-<area shape="rect" id="Node000001" title=" " alt="" coords="940,95,1023,121"/>
-<area shape="rect" id="Node000002" href="$classdl_1_1Model.html" title=" " alt="" coords="323,5,482,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="496,18,642,17,725,21,807,28,864,33,888,39,917,51,947,71,970,93,967,97,944,75,915,56,886,44,863,39,806,33,725,26,642,23,496,24"/>
-<area shape="rect" id="Node000012" href="$classnlp_1_1BERTPooling.html" title=" " alt="" coords="660,43,791,69"/>
-<area shape="poly" id="edge14_Node000012_Node000002" title=" " alt="" coords="496,31,660,47,660,53,495,37"/>
-<area shape="rect" id="Node000003" href="$structdl_1_1TransformerConf.html" title=" " alt="" coords="327,109,478,134"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="491,117,940,106,940,112,492,122"/>
-<area shape="rect" id="Node000006" href="$classdl_1_1Transformer.html" title=" " alt="" coords="665,174,785,199"/>
-<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="480,134,666,172,665,177,479,139"/>
-<area shape="rect" id="Node000004" href="$classnlp_1_1BERTEmbeddings.html" title=" " alt="" coords="644,289,807,314"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="765,280,838,240,877,214,914,185,946,151,969,119,974,122,950,154,918,189,880,218,840,244,768,285"/>
-<area shape="rect" id="Node000005" href="$classdl_1_1Model.html" title=" " alt="" coords="323,339,482,394"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="495,346,619,321,666,311,667,317,621,327,496,352"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="798,171,856,157,915,139,958,118,960,123,917,144,857,163,799,176"/>
-<area shape="rect" id="Node000007" href="$classdl_1_1Model.html" title=" " alt="" coords="29,171,208,211"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="222,187,665,184,665,190,222,193"/>
-<area shape="rect" id="Node000009" href="$classdl_1_1Linear.html" title="Applies a learnable linear transformation with optional bias." alt="" coords="361,225,444,250"/>
-<area shape="poly" id="edge12_Node000009_Node000007" title=" " alt="" coords="222,205,362,228,361,233,221,210"/>
-<area shape="rect" id="Node000008" href="/home/runner/work/libdl/libdl/build/_deps/cppreftags-src/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title=" " alt="" coords="281,275,524,315"/>
-<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="537,273,619,248,667,223,706,197,709,202,670,228,621,253,538,278"/>
-<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="458,234,535,229,619,217,690,197,692,202,621,223,535,234,458,239"/>
-<area shape="rect" id="Node000010" href="$classdl_1_1Model.html" title=" " alt="" coords="5,241,232,266"/>
-<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="246,244,361,237,361,242,246,249"/>
-<area shape="rect" id="Node000011" href="$classdl_1_1Model.html" title=" " alt="" coords="11,290,227,315"/>
-<area shape="poly" id="edge11_Node000009_Node000011" title=" " alt="" coords="192,284,231,275,281,260,361,242,362,248,282,265,233,280,193,290"/>
-<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="805,65,917,87,941,93,939,98,915,92,804,70"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="871,95,953,121"/>
+<area shape="rect" id="Node000002" href="$classdl_1_1Model.html" title=" " alt="" coords="245,5,422,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="436,18,579,18,659,21,738,28,794,33,819,39,848,51,878,71,901,93,897,97,875,75,845,56,817,44,793,39,737,33,659,26,579,23,436,23"/>
+<area shape="rect" id="Node000010" href="$classnlp_1_1BERTPooling.html" title=" " alt="" coords="591,43,721,69"/>
+<area shape="poly" id="edge12_Node000010_Node000002" title=" " alt="" coords="436,32,590,47,590,52,435,38"/>
+<area shape="rect" id="Node000003" href="$structdl_1_1TransformerConf.html" title=" " alt="" coords="258,109,409,134"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="422,117,870,106,871,112,422,122"/>
+<area shape="rect" id="Node000006" href="$classdl_1_1Transformer.html" title=" " alt="" coords="596,174,716,199"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="411,134,597,172,595,177,409,139"/>
+<area shape="rect" id="Node000004" href="$classnlp_1_1BERTEmbeddings.html" title=" " alt="" coords="575,289,737,314"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="696,280,768,240,808,214,845,185,877,151,900,119,904,122,881,154,848,189,811,218,771,244,699,285"/>
+<area shape="rect" id="Node000005" href="$classdl_1_1Model.html" title=" " alt="" coords="245,339,422,394"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="435,345,550,321,597,311,598,317,551,327,436,350"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="729,171,787,157,846,139,888,118,891,123,848,144,788,163,730,176"/>
+<area shape="rect" id="Node000007" href="$classdl_1_1Model.html" title=" " alt="" coords="5,192,163,232"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="176,203,187,203,596,186,596,191,187,208,176,209"/>
+<area shape="rect" id="Node000009" href="$classdl_1_1Linear.html" title="Applies a learnable linear transformation with optional bias." alt="" coords="292,225,375,250"/>
+<area shape="poly" id="edge10_Node000009_Node000007" title=" " alt="" coords="176,219,292,231,292,236,176,224"/>
+<area shape="rect" id="Node000008" href="/home/runner/work/libdl/libdl/build/_deps/cppreftags-src/cppreference-doxygen-web.tag.xml$cpp/container/vector.html" title=" " alt="" coords="212,275,455,315"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="467,273,550,248,598,223,636,197,639,202,601,228,552,253,469,278"/>
+<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="388,234,465,229,550,217,621,197,622,202,551,223,466,234,389,239"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="736,65,847,87,871,93,870,98,846,92,734,70"/>
 </map>

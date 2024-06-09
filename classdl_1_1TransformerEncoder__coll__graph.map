@@ -1,18 +1,13 @@
 <map id="dl::TransformerEncoder" name="dl::TransformerEncoder">
-<area shape="rect" id="Node000001" title=" " alt="" coords="149,256,321,281"/>
-<area shape="rect" id="Node000002" href="$classdl_1_1Model.html" title=" " alt="" coords="5,5,184,45"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,58,107,89,117,119,142,161,171,199,224,254,220,258,167,203,137,164,112,121,101,90,95,60"/>
-<area shape="rect" id="Node000004" href="$classdl_1_1Linear.html" title="Applies a learnable linear transformation with optional bias." alt="" coords="303,95,385,120"/>
-<area shape="poly" id="edge6_Node000004_Node000002" title=" " alt="" coords="167,47,309,92,307,97,166,52"/>
-<area shape="rect" id="Node000003" href="$structdl_1_1TransformerConf.html" title=" " alt="" coords="127,95,278,120"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="209,133,228,231,234,255,229,256,223,233,204,134"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="317,130,302,146,288,168,280,188,273,208,261,233,245,257,241,254,256,231,268,206,275,186,283,166,298,142,314,127"/>
-<area shape="rect" id="Node000005" href="$classdl_1_1Model.html" title=" " alt="" coords="456,13,683,38"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="525,45,377,97,375,92,523,40"/>
-<area shape="rect" id="Node000007" href="$classdl_1_1LayerNorm.html" title="Implements layer normalization as proposed by ." alt="" coords="409,95,524,120"/>
-<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="546,48,483,97,480,93,542,44"/>
-<area shape="rect" id="Node000006" href="$classdl_1_1Model.html" title=" " alt="" coords="216,13,432,38"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="333,50,344,94,339,95,328,52"/>
-<area shape="poly" id="edge9_Node000007_Node000006" title=" " alt="" coords="358,42,448,92,445,97,355,47"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="468,134,459,185,447,211,428,234,411,244,385,252,321,263,321,257,383,247,408,239,425,230,442,209,453,183,463,133"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="59,256,231,281"/>
+<area shape="rect" id="Node000002" href="$classdl_1_1Model.html" title=" " alt="" coords="5,5,163,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="56,57,43,76,33,96,27,128,28,164,37,200,55,230,71,244,91,254,88,258,68,248,51,234,32,202,22,165,21,128,28,94,38,73,52,54"/>
+<area shape="rect" id="Node000004" href="$classdl_1_1Linear.html" title="Applies a learnable linear transformation with optional bias." alt="" coords="43,95,125,120"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="87,59,87,94,81,94,81,59"/>
+<area shape="rect" id="Node000005" href="$classdl_1_1LayerNorm.html" title="Implements layer normalization as proposed by ." alt="" coords="149,95,264,120"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="126,51,190,92,187,97,123,55"/>
+<area shape="rect" id="Node000003" href="$structdl_1_1TransformerConf.html" title=" " alt="" coords="289,95,439,120"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="357,134,329,185,308,212,283,234,257,249,229,258,227,253,255,244,280,230,304,208,324,182,352,132"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="75,133,67,156,61,181,62,207,70,231,83,244,100,254,97,258,80,248,66,233,56,208,56,181,62,154,70,132"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="213,134,212,182,207,208,197,233,185,247,171,258,168,254,182,244,192,231,202,207,207,181,207,134"/>
 </map>

@@ -33,9 +33,10 @@ var searchData=
   ['longjmp_30',['longjmp',['http://en.cppreference.com/w/cpp/utility/program/longjmp.html',1,'std']]],
   ['lookup_5fclassname_31',['lookup_classname',['http://en.cppreference.com/w/cpp/regex/regex_traits/lookup_classname.html',1,'std::regex_traits']]],
   ['lookup_5fcollatename_32',['lookup_collatename',['http://en.cppreference.com/w/cpp/regex/regex_traits/lookup_collatename.html',1,'std::regex_traits']]],
-  ['lower_5fbound_33',['lower_bound',['http://en.cppreference.com/w/cpp/algorithm/lower_bound.html',1,'std::lower_bound()'],['http://en.cppreference.com/w/cpp/container/multiset/lower_bound.html',1,'std::multiset::lower_bound()'],['http://en.cppreference.com/w/cpp/container/multimap/lower_bound.html',1,'std::multimap::lower_bound()'],['http://en.cppreference.com/w/cpp/container/map/lower_bound.html',1,'std::map::lower_bound()'],['http://en.cppreference.com/w/cpp/container/set/lower_bound.html',1,'std::set::lower_bound()']]],
-  ['lowest_34',['lowest',['http://en.cppreference.com/w/cpp/types/numeric_limits/lowest.html',1,'std::numeric_limits']]],
-  ['lrint_35',['lrint',['http://en.cppreference.com/w/cpp/numeric/math/rint.html',1,'std']]],
-  ['lround_36',['lround',['http://en.cppreference.com/w/cpp/numeric/math/round.html',1,'std']]],
-  ['lt_37',['lt',['http://en.cppreference.com/w/cpp/string/char_traits/cmp.html',1,'std::char_traits']]]
+  ['lossadapter_33',['lossAdapter',['../adapters_8hpp.html#ad486cf5893a90bf8648989237cf68a14',1,'dl']]],
+  ['lower_5fbound_34',['lower_bound',['http://en.cppreference.com/w/cpp/algorithm/lower_bound.html',1,'std::lower_bound()'],['http://en.cppreference.com/w/cpp/container/multiset/lower_bound.html',1,'std::multiset::lower_bound()'],['http://en.cppreference.com/w/cpp/container/multimap/lower_bound.html',1,'std::multimap::lower_bound()'],['http://en.cppreference.com/w/cpp/container/map/lower_bound.html',1,'std::map::lower_bound()'],['http://en.cppreference.com/w/cpp/container/set/lower_bound.html',1,'std::set::lower_bound()']]],
+  ['lowest_35',['lowest',['http://en.cppreference.com/w/cpp/types/numeric_limits/lowest.html',1,'std::numeric_limits']]],
+  ['lrint_36',['lrint',['http://en.cppreference.com/w/cpp/numeric/math/rint.html',1,'std']]],
+  ['lround_37',['lround',['http://en.cppreference.com/w/cpp/numeric/math/round.html',1,'std']]],
+  ['lt_38',['lt',['http://en.cppreference.com/w/cpp/string/char_traits/cmp.html',1,'std::char_traits']]]
 ];

@@ -1,6 +1,6 @@
 <map id="dl" name="dl">
 <area shape="rect" id="node2" href="dir_98300d88c0f328ba2296a391f2f69206.html" title="io" alt="" coords="289,27,327,52"/>
-<area shape="rect" id="node3" href="dir_70e3a06b4733149dbb3ba4722d4ce4e8.html" title="learning" alt="" coords="189,27,264,52"/>
+<area shape="rect" id="node3" href="dir_70e3a06b4733149dbb3ba4722d4ce4e8.html" title="Contains anything to do with training models (trainer, optimizer, loss, lossadapter)" alt="" coords="189,27,264,52"/>
 <area shape="rect" id="node5" href="dir_9693762ae4318979fa0e1dfb1c86bf00.html" title="tensor" alt="" coords="195,100,258,125"/>
 <area shape="poly" id="edge1" href="dir_000006_000012.html" alt="" coords="229,52,229,86,224,86,224,52"/>
 <area shape="rect" id="edge1-headlabel" href="dir_000006_000012.html" title="1" alt="" coords="230,74,240,89"/>

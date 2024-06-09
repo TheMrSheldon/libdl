@@ -179,27 +179,31 @@ $(document).ready(function(){initNavTree('adapters_8hpp_source.html',''); initRe
   <div class="headertitle"><div class="title">adapters.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef DL_LEARNING_ADAPTERS_HPP</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define DL_LEARNING_ADAPTERS_HPP</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;concepts&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">namespace </span>dl {</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">auto</span> lossAdapter(<span class="keyword">auto</span> lossObjective) {</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keyword">constexpr</span> <span class="keyword">auto</span> func = [](<span class="keyword">auto</span> loss, <span class="keyword">auto</span> model, <span class="keyword">auto</span> x, <span class="keyword">auto</span> y) { <span class="keywordflow">return</span> loss(model(x), y); };</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keywordflow">return</span> std::bind_front(func, lossObjective);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    }</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>} <span class="comment">// namespace dl</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#endif</span></div>
+<a href="adapters_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef DL_LEARNING_ADAPTERS_HPP</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define DL_LEARNING_ADAPTERS_HPP</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;concepts&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span>dl {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="adapters_8hpp.html#ad486cf5893a90bf8648989237cf68a14">   25</a></span>    <span class="keyword">auto</span> <a class="code hl_function" href="adapters_8hpp.html#ad486cf5893a90bf8648989237cf68a14">lossAdapter</a>(<span class="keyword">auto</span> lossObjective) {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keyword">constexpr</span> <span class="keyword">auto</span> func = [](<span class="keyword">auto</span> loss, <span class="keyword">auto</span> model, <span class="keyword">auto</span> x, <span class="keyword">auto</span> y) { <span class="keywordflow">return</span> loss(model(x), y); };</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordflow">return</span> std::bind_front(func, lossObjective);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
+</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>} <span class="comment">// namespace dl</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aadapters_8hpp_html_ad486cf5893a90bf8648989237cf68a14"><div class="ttname"><a href="adapters_8hpp.html#ad486cf5893a90bf8648989237cf68a14">dl::lossAdapter</a></div><div class="ttdeci">auto lossAdapter(auto lossObjective)</div><div class="ttdoc">A training adapter for applying a single loss objective.</div><div class="ttdef"><b>Definition</b> <a href="adapters_8hpp_source.html#l00025">adapters.hpp:25</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_72e87d33af2b4b38946ff5c853655f37.html">dl</a></li><li class="navelem"><a class="el" href="dir_70e3a06b4733149dbb3ba4722d4ce4e8.html">learning</a></li><li class="navelem"><b>adapters.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_72e87d33af2b4b38946ff5c853655f37.html">dl</a></li><li class="navelem"><a class="el" href="dir_70e3a06b4733149dbb3ba4722d4ce4e8.html">learning</a></li><li class="navelem"><a class="el" href="adapters_8hpp.html">adapters.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>

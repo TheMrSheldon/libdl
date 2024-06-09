@@ -27,28 +27,21 @@ var hierarchy =
     [ "ir::IRDataset< typename >", "classir_1_1IRDataset.html", null ],
     [ "dl::utils::LineIterator", "structdl_1_1utils_1_1LineIterator.html", null ],
     [ "dl::Model< typename >", "classdl_1_1Model.html", null ],
-    [ "dl::Model< dl::Tensor &(const dl::Tensor &)>", "classdl_1_1Model.html", [
-      [ "dl::Embedding", "classdl_1_1Embedding.html", null ]
-    ] ],
-    [ "dl::Model< dl::Tensor(const dl::Tensor &)>", "classdl_1_1Model.html", [
+    [ "dl::Model< dl::TensorPtr(const dl::TensorPtr &)>", "classdl_1_1Model.html", [
       [ "nlp::BERT", "classnlp_1_1BERT.html", null ],
       [ "nlp::BERTPooling", "classnlp_1_1BERTPooling.html", null ]
     ] ],
-    [ "dl::Model< dl::Tensor(const dl::Tensor &, const dl::Tensor &)>", "classdl_1_1Model.html", [
+    [ "dl::Model< dl::TensorPtr(const dl::TensorPtr &, const dl::TensorPtr &)>", "classdl_1_1Model.html", [
       [ "nlp::BERTEmbeddings", "classnlp_1_1BERTEmbeddings.html", null ]
     ] ],
-    [ "dl::Model< Tensor(const Tensor &)>", "classdl_1_1Model.html", [
+    [ "dl::Model< dl::TensorPtr(const dl::TensorPtr)>", "classdl_1_1Model.html", [
+      [ "dl::Embedding", "classdl_1_1Embedding.html", null ]
+    ] ],
+    [ "dl::Model< TensorPtr(TensorPtr)>", "classdl_1_1Model.html", [
+      [ "dl::LayerNorm", "classdl_1_1LayerNorm.html", null ],
       [ "dl::Linear", "classdl_1_1Linear.html", null ],
       [ "dl::Transformer", "classdl_1_1Transformer.html", null ],
       [ "dl::TransformerEncoder", "classdl_1_1TransformerEncoder.html", null ]
-    ] ],
-    [ "dl::Model< Tensor(Tensor &&)>", "classdl_1_1Model.html", [
-      [ "dl::LayerNorm", "classdl_1_1LayerNorm.html", null ],
-      [ "dl::Linear", "classdl_1_1Linear.html", null ]
-    ] ],
-    [ "dl::Model< Tensor(Tensor &)>", "classdl_1_1Model.html", [
-      [ "dl::LayerNorm", "classdl_1_1LayerNorm.html", null ],
-      [ "dl::Linear", "classdl_1_1Linear.html", null ]
     ] ],
     [ "dl::ModelBase", "classdl_1_1ModelBase.html", [
       [ "dl::Model< R(Args...)>", "classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html", null ]
@@ -60,8 +53,8 @@ var hierarchy =
     [ "ir::Query", "structir_1_1Query.html", null ],
     [ "dl::utils::ScopeGuard", "classdl_1_1utils_1_1ScopeGuard.html", null ],
     [ "tsl::ah::str_hash< CharT >", "structtsl_1_1ah_1_1str__hash.html", null ],
-    [ "dl::Tensor", "classdl_1_1Tensor.html", null ],
     [ "dl::TensorImpl", "classdl_1_1TensorImpl.html", null ],
+    [ "dl::TensorPtr", "classdl_1_1TensorPtr.html", null ],
     [ "dl::TrainerConf< Model, Dataset, Optimizer >", "structdl_1_1TrainerConf.html", null ],
     [ "dl::TrainerConf< dl::Model, dl::Dataset, dl::Optimizer >", "structdl_1_1TrainerConf.html", null ],
     [ "dl::TrainerConfBuilder< Model, Dataset, Optimizer >", "classdl_1_1TrainerConfBuilder.html", null ],

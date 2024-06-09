@@ -349,134 +349,27 @@ $(document).ready(function(){initNavTree('trainer_8hpp_source.html',''); initRes
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    };</div>
 </div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="preprocessor">#if 0</span></div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt;</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keyword">class </span>Trainer;</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> R, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="keyword">class </span>Trainer&lt;R(Args...)&gt; final {</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <span class="keyword">using </span>T = R(Args...);</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <span class="keyword">using </span>TDataset = Dataset&lt;T&gt;;</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        <span class="keyword">using </span>TDataloader = Dataloader&lt;T&gt;;</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <span class="keyword">using </span>DatasetSetupFn = <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function&lt;std::unique_ptr&lt;TDataset&gt;</a>(<span class="keywordtype">void</span>)&gt;;</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        <span class="keyword">using </span>OptimizerSetupFn = <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function&lt;std::unique_ptr&lt;TDataset&gt;</a>()&gt;;</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <span class="keyword">using </span>LossFn = <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function</a>&lt;Tensor(R&amp;&amp;, R&amp;)&gt;;</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <span class="keyword">struct </span>Settings {</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            <span class="keywordtype">bool</span> enableCheckpointing = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            std::variant&lt;DatasetSetupFn, std::unique_ptr&lt;TDataset&gt;&gt; dataset;</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>            LossFn loss;</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>            <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;Optimizer&gt;</a> optimizer;</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            <span class="keywordtype">unsigned</span> limitEpochs = 0;</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>            <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;std::unique_ptr&lt;TrainerObserver&gt;</a>&gt; observers;</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        };</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        Settings settings;</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        Trainer(<span class="keyword">const</span> Trainer&amp; other) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        Trainer(Trainer&amp;&amp; other) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        Trainer&amp; operator=(<span class="keyword">const</span> Trainer&amp; other) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        Trainer&amp; operator=(Trainer&amp;&amp; other) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        <span class="comment">/*inline static float validation_step(TDataloader&amp; dataloader) const noexcept {</span></div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment">            unsigned count = 0;</span></div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment">            float sum = 0;</span></div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="comment">            for (auto&amp;&amp; [out, in] : *dataloader) {</span></div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="comment">                auto loss = settings.loss(model(in), out);</span></div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="comment">                sum += (float) loss;</span></div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="comment">                count++;</span></div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="comment">            }</span></div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="comment">            return sum / count;</span></div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="comment">        }*/</span></div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        <span class="keywordtype">void</span> notify(<span class="keywordtype">void</span> (TrainerObserver::*)(Args...) fn, Args&amp;&amp;... args) {</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; observer : settings.observers)</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>                observer.*fn(<a class="code hl_namespaceRef" href="http://en.cppreference.com/w/namespacestd.html">std</a>::<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/forward.html">forward</a>&lt;Args&gt;(args)...);</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        }</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        <span class="keyword">using </span>BatchedOutput = <span class="keywordtype">void</span>*;</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        <span class="keyword">using </span>BatchedInput = <span class="keywordtype">void</span>*;</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> trainStep(BatchedInput in, BatchedOutput out);</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        <span class="keyword">explicit</span> Trainer(Settings&amp;&amp; settings) : settings(<a class="code hl_namespaceRef" href="http://en.cppreference.com/w/namespacestd.html">std</a>::<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">move</a>(settings)) {</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>            assert(this-&gt;settings.createDataset != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>            assert(this-&gt;settings.loss != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        }</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classdl_1_1Trainer.html#aa8aa950baa3ac21112926f3b6e37c0a5">fit</a>(Model&lt;T&gt;&amp; model) <span class="keyword">noexcept</span> {</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            <span class="keyword">auto</span> dataset = settings.createDataset();</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>            assert(dataset != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>            <span class="keyword">auto</span> dataloader = dataset-&gt;trainingData();</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>            assert(dataloader != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            <span class="keyword">auto</span> validationData = dataset-&gt;validationData();</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>            assert(validationData != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>            notify(TrainerObserver::onBeginTraining, model);</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>            <span class="comment">// model.fit();</span></div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>            <span class="keyword">const</span> <span class="keyword">auto</span> trainsetSize = <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/iterator/distance.html">std::distance</a>(<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/iterator/begin.html">std::begin</a>(*dataloader), <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/iterator/end.html">std::end</a>(*dataloader));</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> epoch = 0; settings.limitEpochs == 0 || epoch &lt; settings.limitEpochs; ++epoch) {</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>                <span class="keywordtype">size_t</span> progress = 0;</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; [out, in] : *dataloader) {</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>                    trainStep(<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/forward.html">std::forward</a>&lt;<span class="keyword">decltype</span>(in)&gt;(in), <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/forward.html">std::forward</a>&lt;<span class="keyword">decltype</span>(out)&gt;(out));</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>                    <span class="keyword">auto</span> loss = settings.loss(model(<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/forward.html">std::forward</a>&lt;<span class="keyword">decltype</span>(in)&gt;(in)), out);</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>                    settings.optimizer-&gt;step(loss);</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>                    notify(TrainerObserver::progressChanged, epoch, trainsetSize, progress);</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>                    progress += 1; </div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>                }</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>                <span class="comment">// auto valLoss = validation_step(validationData);</span></div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>            }</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        }</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        <span class="keywordtype">void</span> validate(<span class="keyword">const</span> Model&lt;T&gt;&amp; model) <span class="keyword">const</span> <span class="keyword">noexcept</span> {</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>            <span class="keyword">auto</span> dataset = settings.createDataset();</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>            assert(dataset != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>            <span class="keyword">auto</span> dataloader = dataset-&gt;validationData();</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>            assert(dataloader != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>            <span class="comment">// model.inference();</span></div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; [out, in] : *dataloader) {</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>                <span class="keyword">auto</span> loss = settings.loss(model(<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(in)), out);</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>            }</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        }</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        <span class="keywordtype">void</span> test(<span class="comment">/*const */</span> Model&lt;T&gt;&amp; model) <span class="keyword">const</span> <span class="keyword">noexcept</span> {</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>            <span class="keyword">auto</span> dataset = settings.createDataset();</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            assert(dataset != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>            <span class="keyword">auto</span> dataloader = dataset-&gt;testData();</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>            assert(dataloader != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>            <span class="comment">// model.inference();</span></div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; [out, in] : *dataloader) {</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>                <span class="keyword">auto</span> loss = settings.loss(model(<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(in)), out);</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>            }</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        }</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    };</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
-<div class="foldopen" id="foldopen00285" data-start="{" data-end="}">
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno"><a class="line" href="namespacedl_1_1detail.html">  285</a></span>    <span class="keyword">namespace </span>detail {</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00292" data-start="{" data-end="};">
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno"><a class="line" href="structdl_1_1detail_1_1__ModelSignature.html">  292</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structdl_1_1detail_1_1__ModelSignature.html">_ModelSignature</a> {</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>            <span class="keyword">using </span>type = T::signature;</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>        };</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="foldopen" id="foldopen00166" data-start="{" data-end="}">
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="namespacedl_1_1detail.html">  166</a></span>    <span class="keyword">namespace </span>detail {</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00173" data-start="{" data-end="};">
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="structdl_1_1detail_1_1__ModelSignature.html">  173</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structdl_1_1detail_1_1__ModelSignature.html">_ModelSignature</a> {</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            <span class="keyword">using </span>type = T::signature;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        };</div>
 </div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    } <span class="comment">// namespace detail</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    } <span class="comment">// namespace detail</span></div>
 </div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span> </div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    <span class="keyword">using </span>ModelSignature = <span class="keyword">typename</span> detail::_ModelSignature&lt;T&gt;::type;</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span> </div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    <span class="keyword">namespace </span>observers {</div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>        <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;TrainerObserver&gt;</a> limitEpochs(<span class="keywordtype">size_t</span> epochs) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>        <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;TrainerObserver&gt;</a> earlyStopping(<span class="keywordtype">size_t</span> patience) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;TrainerObserver&gt;</a> consoleUI() noexcept;</div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    } <span class="comment">// namespace observers</span></div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>} <span class="comment">// namespace dl</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keyword">using </span>ModelSignature = <span class="keyword">typename</span> detail::_ModelSignature&lt;T&gt;::type;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keyword">namespace </span>observers {</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;TrainerObserver&gt;</a> limitEpochs(<span class="keywordtype">size_t</span> epochs) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;TrainerObserver&gt;</a> earlyStopping(<span class="keywordtype">size_t</span> patience) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;TrainerObserver&gt;</a> consoleUI() noexcept;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    } <span class="comment">// namespace observers</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>} <span class="comment">// namespace dl</span></div>
 <div class="ttc" id="abegin_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/iterator/begin.html">std::begin</a></div><div class="ttdeci">T begin(T... args)</div></div>
 <div class="ttc" id="aclassdl_1_1ModelBase_html"><div class="ttname"><a href="classdl_1_1ModelBase.html">dl::ModelBase</a></div><div class="ttdef"><b>Definition</b> <a href="model_8hpp_source.html#l00013">model.hpp:13</a></div></div>
 <div class="ttc" id="aclassdl_1_1Model_html"><div class="ttname"><a href="classdl_1_1Model.html">dl::Model</a></div><div class="ttdef"><b>Definition</b> <a href="model_8hpp_source.html#l00033">model.hpp:33</a></div></div>
@@ -489,11 +382,9 @@ $(document).ready(function(){initNavTree('trainer_8hpp_source.html',''); initRes
 <div class="ttc" id="adistance_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/iterator/distance.html">std::distance</a></div><div class="ttdeci">T distance(T... args)</div></div>
 <div class="ttc" id="aend_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/iterator/end.html">std::end</a></div><div class="ttdeci">T end(T... args)</div></div>
 <div class="ttc" id="aforward_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/forward.html">std::forward</a></div><div class="ttdeci">T forward(T... args)</div></div>
-<div class="ttc" id="afunction_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function</a></div></div>
 <div class="ttc" id="amove_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a></div><div class="ttdeci">T move(T... args)</div></div>
-<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="http://en.cppreference.com/w/namespacestd.html">std</a></div></div>
 <div class="ttc" id="astructdl_1_1TrainerConf_html"><div class="ttname"><a href="structdl_1_1TrainerConf.html">dl::TrainerConf</a></div><div class="ttdef"><b>Definition</b> <a href="trainer_8hpp_source.html#l00038">trainer.hpp:38</a></div></div>
-<div class="ttc" id="astructdl_1_1detail_1_1__ModelSignature_html"><div class="ttname"><a href="structdl_1_1detail_1_1__ModelSignature.html">dl::detail::_ModelSignature</a></div><div class="ttdoc">Infers the model signature from the provided model type.</div><div class="ttdef"><b>Definition</b> <a href="trainer_8hpp_source.html#l00292">trainer.hpp:292</a></div></div>
+<div class="ttc" id="astructdl_1_1detail_1_1__ModelSignature_html"><div class="ttname"><a href="structdl_1_1detail_1_1__ModelSignature.html">dl::detail::_ModelSignature</a></div><div class="ttdoc">Infers the model signature from the provided model type.</div><div class="ttdef"><b>Definition</b> <a href="trainer_8hpp_source.html#l00173">trainer.hpp:173</a></div></div>
 <div class="ttc" id="aunique_ptr_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr</a></div></div>
 <div class="ttc" id="avector_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

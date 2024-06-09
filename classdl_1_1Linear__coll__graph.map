@@ -1,9 +1,5 @@
 <map id="dl::Linear" name="dl::Linear">
-<area shape="rect" id="Node000001" title="Applies a learnable linear transformation with optional bias." alt="" coords="280,55,363,80"/>
-<area shape="rect" id="Node000002" href="$classdl_1_1Model.html" title=" " alt="" coords="5,5,232,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,31,233,39,281,53,279,58,231,45,196,36"/>
-<area shape="rect" id="Node000003" href="$classdl_1_1Model.html" title=" " alt="" coords="11,55,227,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="241,65,280,65,280,70,241,70"/>
-<area shape="rect" id="Node000004" href="$classdl_1_1Model.html" title=" " alt="" coords="29,105,208,145"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="202,98,279,76,280,81,204,103"/>
+<area shape="rect" id="Node000001" title="Applies a learnable linear transformation with optional bias." alt="" coords="43,93,125,119"/>
+<area shape="rect" id="Node000002" href="$classdl_1_1Model.html" title=" " alt="" coords="5,5,163,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,59,87,93,81,93,81,59"/>
 </map>
