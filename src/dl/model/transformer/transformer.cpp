@@ -6,11 +6,13 @@
 #include <format>
 
 using dl::Linear;
-using dl::Tensor;
+using dl::TensorPtr;
 using dl::Transformer;
 using dl::TransformerEncoder;
 
-static dl::Tensor BertGELU(const dl::Tensor& input) { return input * 0.5f * (1.0f + dl::erf(input / std::sqrt(2.0))); }
+static dl::TensorPtr BertGELU(const dl::TensorPtr& input) {
+	return input * 0.5f * (1.0f + dl::erf(input / std::sqrt(2.0f)));
+}
 
 Transformer::Transformer(TransformerConf conf) noexcept
 		: conf(conf), weightOut(conf.numAttnHeads * conf.dimensions.value, conf.dimensions.model), encoders() {
@@ -20,10 +22,10 @@ Transformer::Transformer(TransformerConf conf) noexcept
 	}
 }
 
-Tensor Transformer::forward(const Tensor& input) {
-	Tensor tmp = encoders[0]->forward(std::forward<decltype(input)>(input));
-	for (size_t i = 1; i < encoders.size(); ++i)
-		tmp = encoders[i]->forward(std::move(tmp));
+TensorPtr Transformer::forward(TensorPtr input) {
+	TensorPtr tmp = input;
+	for (size_t i = 0; i < encoders.size(); ++i)
+		tmp = encoders[i]->forward(tmp);
 	return tmp;
 }
 
@@ -45,33 +47,47 @@ TransformerEncoder::TransformerEncoder(TransformerConf conf) noexcept
 	registerSubmodel("output.LayerNorm", ffnNorm);
 }
 
-Tensor TransformerEncoder::multiHeadAttention(Tensor&& query, Tensor&& key, Tensor&& value) noexcept {
-	// auto attn = dl::transpose(scaledDotProductAttention(std::move(query), std::move(key), std::move(value)), {0, 1});
-	// attn->reshape({-1, (int)(conf.numAttnHeads * conf.dimensions.value)});
-	auto attn = scaledDotProductAttention(std::move(query), std::move(key), std::move(value));
-	return weightOut.forward(std::move(attn));
+TensorPtr TransformerEncoder::multiHeadAttention(TensorPtr query, TensorPtr key, TensorPtr value) noexcept {
+	auto attn = scaledDotProductAttention(query, key, value);
+	return weightOut.forward(attn);
 }
 
-Tensor TransformerEncoder::scaledDotProductAttention(Tensor&& query, Tensor&& key, Tensor&& value) noexcept {
+TensorPtr TransformerEncoder::scaledDotProductAttention(TensorPtr query, TensorPtr key, TensorPtr value) noexcept {
+	std::cout << "Query" << std::endl;
+	std::cout << query << std::endl;
+	std::cout << "Key" << std::endl;
+	std::cout << key << std::endl;
+	std::cout << "Value" << std::endl;
+	std::cout << value << std::endl;
+	/** \todo use std::move to reduce copying temporaries **/
 	// Reshape key and query and compute (QK^T) batched
 	query->reshape({-1, (int)(conf.numAttnHeads), (int)(conf.dimensions.key)});
 	key->reshape({-1, (int)(conf.numAttnHeads), (int)(conf.dimensions.key)});
 	value->reshape({-1, (int)conf.numAttnHeads, (int)conf.dimensions.value});
-	auto facq = dl::transpose(std::move(query), {0, 1});
-	auto fack = dl::transpose(std::move(key), {0, 1});
-	auto facv = dl::transpose(std::move(value), {0, 1});
+	auto facq = dl::transpose(query, {0, 1});
+	auto fack = dl::transpose(key, {0, 1});
+	auto facv = dl::transpose(value, {0, 1});
 	// (12, 10, dmodel) @ (12, dmodel, 10) -> (12, 10, 10)
-	auto prod = dl::matmul(std::move(facq), dl::transpose(std::move(fack), {-1, -2}));
+	auto prod = dl::matmul(facq, dl::transpose(fack, {-1, -2}));
+	std::cout << "Prod" << std::endl;
+	std::cout << prod << std::endl;
 	// Compute smax = softmax(prod / sqrt(d_k))
-	auto smax = dl::softmax(std::move(prod) * dimKeysInvSqrt, -1);
+	//auto smax = dl::softmax(prod * dimKeysInvSqrt, -1);
+	auto smax = dl::softmax(prod / std::sqrt(conf.dimensions.key), -1);
+	std::cout << "smax" << std::endl;
+	std::cout << smax << std::endl;
 	// compute smax * V
-	auto tmp = dl::matmul(std::move(smax), facv);
-	return dl::reshape(dl::transpose(std::move(tmp), {0, 1}), {-1, (int)conf.dimensions.model});
+	auto tmp = dl::matmul(smax, facv);
+	return dl::reshape(dl::transpose(tmp, {0, 1}), {-1, (int)conf.dimensions.model});
 }
 
-Tensor TransformerEncoder::forward(const Tensor& input) {
+TensorPtr TransformerEncoder::forward(TensorPtr input) {
 	auto mha = multiHeadAttention(weightQuery.forward(input), weightKey.forward(input), weightValue.forward(input));
-	auto attention = mhaNorm.forward(std::move(mha) + input);
+	std::cout << input << std::endl;
+	std::cout << mha << std::endl;
+	auto attention = mhaNorm.forward(mha + input);
+	// std::cout << attention << std::endl;
 	auto intermed = BertGELU(weightIntermed.forward(attention));
-	return ffnNorm.forward(weightIntermedOut.forward(std::move(intermed)) + attention);
+	//std::cout << intermed << std::endl;
+	return ffnNorm.forward(weightIntermedOut.forward(intermed) + attention);
 }

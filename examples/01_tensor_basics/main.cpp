@@ -2,20 +2,18 @@
 
 #include <dl/device.hpp>
 #include <dl/tensor/math.hpp>
-#include <dl/tensor/tensor.hpp>
+#include <dl/tensor/tensorptr.hpp>
 
 int main(int argc, char* argv[]) {
-	dl::Tensor tensora = dl::constant({1.0f, 2.0f, 3.0f, 4.0f});
+	dl::TensorPtr tensora = dl::constant({1.0f, 2.0f, 3.0f, 4.0f});
 	tensora->setRequiresGrad(true);
 
-	dl::Tensor tensorb = dl::constant({2.0f, 2.0f, 3.0f, 3.0f});
+	dl::TensorPtr tensorb = dl::constant({2.0f, 2.0f, 3.0f, 3.0f});
 	tensorb->setRequiresGrad(true);
-	dl::Tensor tensord = nullptr;
+	dl::TensorPtr tensord = nullptr;
 	{
 		auto tensorc = tensora * tensorb;
-		// Important: move tensorc's ownership into dl::mean, otherwise it will be deleted before backward() can be
-		// called.
-		tensord = std::move(dl::mean(std::move(tensorc)));
+		tensord = dl::mean(tensorc);
 	}
 	std::cout << tensord << std::endl; // Expected: 6.75
 	tensord->backward();

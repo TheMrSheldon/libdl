@@ -17,8 +17,8 @@ add_library(dl STATIC
     model/transformer/transformer.cpp
     model/transformer/wordpiece.cpp
     tensor/math.cpp
-    tensor/tensor.cpp
     tensor/tensorimpl.cpp
+    tensor/tensorptr.cpp
 
     utils/urlstream.cpp
 )

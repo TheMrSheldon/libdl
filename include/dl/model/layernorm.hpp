@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../device.hpp"
-#include "../tensor/tensor.hpp"
+#include "../tensor/tensorptr.hpp"
 #include "./model.hpp"
 
 namespace dl {
@@ -9,16 +9,16 @@ namespace dl {
      * @brief Implements layer normalization as proposed by \cite layernorm.
      * 
      */
-	class LayerNorm final : public Model<Tensor(Tensor&&)>, Model<Tensor(Tensor&)> {
+	class LayerNorm final : public Model<TensorPtr(TensorPtr)> {
 	private:
-		Tensor beta;
-		Tensor gamma;
+		TensorPtr beta;
+		TensorPtr gamma;
 
 	public:
 		LayerNorm(Shape normShape, const Device& device = Device::getDefault()) noexcept;
+		virtual ~LayerNorm() = default;
 
 	public:
-		virtual Tensor forward(Tensor& input) noexcept override;
-		virtual Tensor forward(Tensor&& input) noexcept override;
+		virtual TensorPtr forward(TensorPtr input) noexcept override;
 	};
 } // namespace dl

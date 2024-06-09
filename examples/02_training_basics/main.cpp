@@ -13,11 +13,11 @@
 #include <iostream>
 #include <thread>
 
-class MyModel : public dl::Model<dl::Tensor(dl::Tensor&)> {
+class MyModel : public dl::Model<dl::TensorPtr(dl::TensorPtr)> {
 private:
 	//dl::Linear linear;
-	dl::Tensor factor;
-	dl::Tensor bias;
+	dl::TensorPtr factor;
+	dl::TensorPtr bias;
 
 public:
 	MyModel() : factor(dl::empty({})), bias(dl::empty({})) {
@@ -26,16 +26,16 @@ public:
 	}
 
 	//Maybe this solves the duplication https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0847r7.html
-	dl::Tensor forward(dl::Tensor& input) {
+	dl::TensorPtr forward(dl::TensorPtr input) {
 		std::this_thread::sleep_for(std::chrono::milliseconds(1000)); // Simulate doing work
 		//return linear.forward(input);
 		return factor * input + bias;
 	}
 
-	dl::Tensor operator()(dl::Tensor& input) { return forward(input); }
+	dl::TensorPtr operator()(dl::TensorPtr input) { return forward(input); }
 };
 
-class MemoryDataloader : public dl::Dataloader<dl::Tensor(dl::Tensor&&)> {
+class MemoryDataloader : public dl::Dataloader<dl::TensorPtr(dl::TensorPtr)> {
 private:
 	using Iterator = dl::utils::GenericIterator<Instance>;
 	std::vector<Instance> data;
@@ -48,9 +48,9 @@ public:
 	Iterator end() override { return Iterator(data.end()); }
 };
 
-class MyDataset : public dl::Dataset<dl::Tensor(dl::Tensor&&)> {
+class MyDataset : public dl::Dataset<dl::TensorPtr(dl::TensorPtr)> {
 private:
-	using _DataLoader = dl::Dataloader<dl::Tensor(dl::Tensor&&)>;
+	using _DataLoader = dl::Dataloader<dl::TensorPtr(dl::TensorPtr)>;
 
 public:
 	MyDataset() {}
@@ -72,8 +72,8 @@ public:
 
 int main(int argc, char* argv[]) {
 	MyModel model;
-	dl::Tensor& weight = model.parameters().find("factor")->second;
-	dl::Tensor& bias = model.parameters().find("bias")->second;
+	dl::TensorPtr& weight = model.parameters().find("factor")->second;
+	dl::TensorPtr& bias = model.parameters().find("bias")->second;
 	weight = dl::constant(2);
 	bias = dl::constant(1);
 

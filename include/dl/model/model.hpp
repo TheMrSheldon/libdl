@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../tensor/tensor.hpp"
 #include "../tensor/tensorimpl.hpp"
+#include "../tensor/tensorptr.hpp"
 
 #include <format>
 #include <map>
@@ -15,7 +15,7 @@ namespace dl {
 		std::map<std::string, dl::TensorRef> _parameters;
 
 	protected:
-		void registerParameter(std::string name, Tensor& tensor);
+		void registerParameter(std::string name, TensorPtr& tensor);
 		void registerParameters(std::string prefix, std::ranges::range auto& tensors) {
 			for (auto&& [key, value] : tensors)
 				_parameters.insert({std::format("{}.{}", prefix, key), value});

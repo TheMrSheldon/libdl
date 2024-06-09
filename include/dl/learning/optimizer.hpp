@@ -1,7 +1,7 @@
 #pragma once
 
 namespace dl {
-	class Tensor;
+	class TensorPtr;
 
 	/**
 	 * @brief Defines an optimization strategy for a given set of Parameters.
@@ -16,7 +16,7 @@ namespace dl {
 	public:
 		virtual ~Optimizer() = default;
 
-		virtual void step(Tensor& tensor) = 0;
+		virtual void step(TensorPtr& tensor) = 0;
 	};
 
 } // namespace dl

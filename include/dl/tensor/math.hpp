@@ -6,64 +6,24 @@
 #pragma once
 
 #include "shape.hpp"
-#include "tensor.hpp"
+#include "tensorptr.hpp"
 
 #include <iostream>
 #include <vector>
 
 namespace dl {
 	/**
-	 * @brief \copybrief dl::pow(const dl::Tensor&,float)
-	 * @details This function is part of automatic differentiation. If \p base requires a gradient
-	 * (dl::TensorImpl::requiresGrad() is \c true ), a reference to it is stored in the compute graph for the backwards
-	 * pass. As such, **do not** delete the base tensor before the backwards pass finished. If you can't don't want to
-	 * keep the tensor, move it into the compute graph via dl::pow(dl::Tensor&&,float).
-	 * 
-	 * ```{cpp}
-	 * dl::Tensor out;
-	 * {
-	 *     dl::Tensor base = {1, 2, 3};
-	 *     base->setRequiresGrad(true);
-	 *     // The following will result in a segmentation fault since backward() is called when base was deleted
-	 *     // out = dl::pow(base, 2);
-	 *     // Solution: Move the tensor into the computation graph
-	 *     out = dl::pow(std::move(base), 2);
-	 * }
-	 * out.backward();
-	 * ```
-	 * 
-	 * @param base the basis for which to compute the \p exponent -th power.
-	 * @param exponent the exponent.
-	 * @return Tensor the \p exponent -th power of each component of \p base .
-	 * @see dl::pow(dl::Tensor&&,float)
-	 */
-	[[nodiscard]] Tensor pow(Tensor& base, float exponent) noexcept;
-	/**
-	 * @brief \copybrief dl::pow(const dl::Tensor&,float)
-	 * 
-	 * @param base the basis for which to compute the \p exponent -th power.
-	 * @param exponent the exponent.
-	 * @return Tensor the \p exponent -th power of each component of \p base .
-	 * @see dl::pow(dl::Tensor&,float)
-	 */
-	[[nodiscard]] Tensor pow(Tensor&& base, float exponent) noexcept;
-	/**
 	 * @brief Computes the \p exponent -th power of each element in \p base and returns the resulting tensor.
-	 * @details This overload does **not** compute a gradient (note that \p base is constant). Use
-	 * dl::pow(dl::Tensor&,float) or dl::pow(dl::Tensor&&,float) to enable gradient calculation.
-	 * 
+	 * @details
 	 * @param base the basis for which to compute the \p exponent -th power.
 	 * @param exponent the exponent.
-	 * @return Tensor the \p exponent -th power of each component of \p base .
-	 * @see dl::pow(dl::Tensor&,float)
+	 * @return the \p exponent -th power of each component of \p base .
 	 */
-	[[nodiscard]] Tensor pow(const Tensor& base, float exponent) noexcept;
+	[[nodiscard]] TensorPtr pow(TensorPtr base, float exponent) noexcept;
 
-	[[nodiscard]] Tensor exp(Tensor& base) noexcept;
-	[[nodiscard]] Tensor exp(Tensor&& base) noexcept;
-	[[nodiscard]] Tensor exp(const Tensor& base) noexcept;
+	[[nodiscard]] TensorPtr exp(TensorPtr base) noexcept;
 
-	[[nodiscard]] Tensor sqrt(const Tensor& x) noexcept;
+	[[nodiscard]] TensorPtr sqrt(TensorPtr x) noexcept;
 
 	/**
 	 * @brief Computes the reciprocal square root for each element in \p x.
@@ -71,93 +31,54 @@ namespace dl {
 	 * @param x 
 	 * @return 
 	 */
-	[[nodiscard]] Tensor rsqrt(const Tensor& x) noexcept;
+	[[nodiscard]] TensorPtr rsqrt(TensorPtr x) noexcept;
 
-	[[nodiscard]] Tensor mean(Tensor& x) noexcept;
-	[[nodiscard]] Tensor mean(Tensor&& x) noexcept;
-	[[nodiscard]] Tensor mean(const Tensor& x) noexcept;
+	[[nodiscard]] TensorPtr mean(TensorPtr x) noexcept;
+	[[nodiscard]] TensorPtr mean(TensorPtr x, int dim, bool keepdim = false) noexcept;
 
-	[[nodiscard]] Tensor mean(Tensor& x, int dim, bool keepdim = false) noexcept;
-	[[nodiscard]] Tensor mean(Tensor&& x, int dim, bool keepdim = false) noexcept;
-	[[nodiscard]] Tensor mean(const Tensor& x, int dim, bool keepdim = false) noexcept;
+	[[nodiscard]] TensorPtr sum(TensorPtr x) noexcept;
+	[[nodiscard]] TensorPtr sum(TensorPtr x, int dim, bool keepdim = false) noexcept;
 
-	[[nodiscard]] Tensor sum(Tensor& x) noexcept;
-	[[nodiscard]] Tensor sum(Tensor&& x) noexcept;
-	[[nodiscard]] Tensor sum(const Tensor& x) noexcept;
+	[[nodiscard]] TensorPtr min(TensorPtr x) noexcept;
+	[[nodiscard]] TensorPtr min(TensorPtr x, int dim, bool keepdim = false) noexcept;
 
-	[[nodiscard]] Tensor sum(Tensor& x, int dim, bool keepdim = false) noexcept;
-	[[nodiscard]] Tensor sum(Tensor&& x, int dim, bool keepdim = false) noexcept;
-	[[nodiscard]] Tensor sum(const Tensor& x, int dim, bool keepdim = false) noexcept;
-
-	[[nodiscard]] Tensor min(Tensor& x) noexcept;
-	[[nodiscard]] Tensor min(Tensor&& x) noexcept;
-	[[nodiscard]] Tensor min(const Tensor& x) noexcept;
-
-	[[nodiscard]] Tensor min(Tensor& x, int dim, bool keepdim = false) noexcept;
-	[[nodiscard]] Tensor min(Tensor&& x, int dim, bool keepdim = false) noexcept;
-	[[nodiscard]] Tensor min(const Tensor& x, int dim, bool keepdim = false) noexcept;
-
-	[[nodiscard]] Tensor max(Tensor& x) noexcept;
-	[[nodiscard]] Tensor max(Tensor&& x) noexcept;
-	[[nodiscard]] Tensor max(const Tensor& x) noexcept;
-
-	[[nodiscard]] Tensor max(const Tensor& x, int dim, bool keepdim = false) noexcept;
-
-	[[nodiscard]] Tensor max(const Tensor& x, const Tensor& y) noexcept;
+	[[nodiscard]] TensorPtr max(TensorPtr x) noexcept;
+	[[nodiscard]] TensorPtr max(TensorPtr x, int dim, bool keepdim = false) noexcept;
+	[[nodiscard]] TensorPtr max(TensorPtr x, TensorPtr y) noexcept;
 
 	/**
-	 * @brief Wrapper around std::size_t to discern between var(const Tensor&, DOF) and var(const Tensor&, size_t).
+	 * @brief Wrapper around std::size_t to discern between var(TensorPtr, DOF) and var(TensorPtr, size_t).
 	 */
 	struct DOF {
 		size_t dof;
 	};
 
-	[[nodiscard]] Tensor var(const Tensor& x, DOF dof = DOF{1}) noexcept;
+	[[nodiscard]] TensorPtr var(TensorPtr x, DOF dof = DOF{1}) noexcept;
+	[[nodiscard]] TensorPtr var(TensorPtr x, int dim, DOF dof = DOF{1}) noexcept;
 
-	[[nodiscard]] Tensor var(const Tensor& x, int dim, DOF dof = DOF{1}) noexcept;
+	[[nodiscard]] TensorPtr erf(TensorPtr x) noexcept;
 
-	[[nodiscard]] Tensor erf(Tensor& x) noexcept;
-	[[nodiscard]] Tensor erf(Tensor&& x) noexcept;
-	[[nodiscard]] Tensor erf(const Tensor& x) noexcept;
-
-	[[nodiscard]] Tensor relu(Tensor& x) noexcept;
-	[[nodiscard]] Tensor relu(Tensor&& x) noexcept;
-	[[nodiscard]] Tensor relu(const Tensor& x) noexcept;
+	[[nodiscard]] TensorPtr relu(TensorPtr x) noexcept;
 
 	// Tensor-Scalar Operations
-	[[nodiscard]] Tensor operator+(const Tensor& left, float right) noexcept;
-	[[nodiscard]] Tensor operator-(const Tensor& left, float right) noexcept;
-	[[nodiscard]] Tensor operator*(const Tensor& left, float right) noexcept;
-	[[nodiscard]] Tensor operator/(const Tensor& left, float right) noexcept;
-	[[nodiscard]] Tensor operator+(float left, const Tensor& right) noexcept;
-	[[nodiscard]] Tensor operator-(float left, const Tensor& right) noexcept;
-	[[nodiscard]] Tensor operator*(float left, const Tensor& right) noexcept;
-	[[nodiscard]] Tensor operator/(float left, const Tensor& right) noexcept;
+	[[nodiscard]] TensorPtr operator+(TensorPtr left, float right) noexcept;
+	[[nodiscard]] TensorPtr operator-(TensorPtr left, float right) noexcept;
+	[[nodiscard]] TensorPtr operator*(TensorPtr left, float right) noexcept;
+	[[nodiscard]] TensorPtr operator/(TensorPtr left, float right) noexcept;
+	[[nodiscard]] TensorPtr operator+(float left, TensorPtr right) noexcept;
+	[[nodiscard]] TensorPtr operator-(float left, TensorPtr right) noexcept;
+	[[nodiscard]] TensorPtr operator*(float left, TensorPtr right) noexcept;
+	[[nodiscard]] TensorPtr operator/(float left, TensorPtr right) noexcept;
 
 	// Tensor-Tensor Operations
-	[[nodiscard]] Tensor operator+(Tensor& left, Tensor& right) noexcept;
-	[[nodiscard]] Tensor operator+(Tensor&& left, Tensor& right) noexcept;
-	[[nodiscard]] Tensor operator+(Tensor&& left, Tensor&& right) noexcept;
-	[[nodiscard]] Tensor operator+(const Tensor& left, const Tensor& right) noexcept;
-	[[nodiscard]] Tensor operator-(Tensor& left, Tensor& right) noexcept;
-	[[nodiscard]] Tensor operator-(Tensor& left, Tensor&& right) noexcept;
-	[[nodiscard]] Tensor operator-(Tensor&& left, Tensor&& right) noexcept;
-	[[nodiscard]] Tensor operator-(const Tensor& left, const Tensor& right) noexcept;
-	[[nodiscard]] Tensor operator*(Tensor& left, Tensor& right) noexcept;
-	[[nodiscard]] Tensor operator*(Tensor&& left, Tensor& right) noexcept;
-	[[nodiscard]] Tensor operator*(Tensor&& left, Tensor&& right) noexcept;
-	[[nodiscard]] Tensor operator*(const Tensor& left, const Tensor& right) noexcept;
-	[[nodiscard]] Tensor operator/(Tensor& left, Tensor& right) noexcept;
-	[[nodiscard]] Tensor operator/(Tensor& left, Tensor&& right) noexcept;
-	[[nodiscard]] Tensor operator/(const Tensor& left, const Tensor& right) noexcept;
+	[[nodiscard]] TensorPtr operator+(TensorPtr left, TensorPtr right) noexcept;
+	[[nodiscard]] TensorPtr operator-(TensorPtr left, TensorPtr right) noexcept;
+	[[nodiscard]] TensorPtr operator*(TensorPtr left, TensorPtr right) noexcept;
+	[[nodiscard]] TensorPtr operator/(TensorPtr left, TensorPtr right) noexcept;
 
-	[[nodiscard]] Tensor fma(const Tensor& factor1, const Tensor& factor2, const Tensor& summand) noexcept;
+	[[nodiscard]] TensorPtr fma(const TensorPtr& factor1, const TensorPtr& factor2, const TensorPtr& summand) noexcept;
 
-	[[nodiscard]] Tensor matmul(Tensor& left, Tensor& right) noexcept;
-	[[nodiscard]] Tensor matmul(Tensor&& left, Tensor& right) noexcept;
-	[[nodiscard]] Tensor matmul(Tensor& left, Tensor&& right) noexcept;
-	[[nodiscard]] Tensor matmul(Tensor&& left, Tensor&& right) noexcept;
-	[[nodiscard]] Tensor matmul(const Tensor& left, const Tensor& right) noexcept;
+	[[nodiscard]] TensorPtr matmul(TensorPtr left, TensorPtr right) noexcept;
 
 	/**
 	 * @brief Transposes the given tensor at the specified coordinates.
@@ -168,9 +89,9 @@ namespace dl {
 	 * @param permutation the permutation to apply to the dimensions.
 	 * @return a new tensor with the permutation \p permutation applied to the dimensions.
 	 */
-	[[nodiscard]] Tensor transpose(Tensor&& x, std::vector<int>&& permutation) noexcept;
+	[[nodiscard]] TensorPtr transpose(TensorPtr x, std::vector<int>&& permutation) noexcept;
 
-	[[nodiscard]] Tensor softmax(Tensor& x) noexcept;
+	[[nodiscard]] TensorPtr softmax(TensorPtr x) noexcept;
 	/**
 	 * @brief Computes the softmax function of the input vector.
 	 * @details Let \f(x \in \mathbb R^n\f) be a vector, the softmax is defined as
@@ -180,17 +101,15 @@ namespace dl {
 	 * \f]
 	 * 
 	 * @param x the input tensor.
-	 * @return Tensor the softmax of \p x .
+	 * @return TensorPtr the softmax of \p x .
 	 */
-	[[nodiscard]] Tensor softmax(Tensor&& x) noexcept;
-	[[nodiscard]] Tensor softmax(const Tensor& x) noexcept;
-	[[nodiscard]] Tensor softmax(Tensor& x, int dim) noexcept;
-	[[nodiscard]] Tensor softmax(Tensor&& x, int dim) noexcept;
-	[[nodiscard]] Tensor softmax(const Tensor& x, int dim) noexcept;
+	[[nodiscard]] TensorPtr softmax(TensorPtr x) noexcept;
+	[[nodiscard]] TensorPtr softmax(TensorPtr x, int dim) noexcept;
 
-	std::ostream& operator<<(std::ostream&, const Tensor& tensor) noexcept;
-	[[nodiscard]] bool operator==(const Tensor& left, const Tensor& right) noexcept;
-	[[nodiscard]] bool allclose(const Tensor& left, const Tensor& right, float rtol = 1e-5, float atol = 1e-8) noexcept;
+	std::ostream& operator<<(std::ostream&, const TensorPtr& tensor) noexcept;
+	[[nodiscard]] bool operator==(const TensorPtr& left, const TensorPtr& right) noexcept;
+	[[nodiscard]] bool
+	allclose(const TensorPtr& left, const TensorPtr& right, float rtol = 1e-5, float atol = 1e-8) noexcept;
 
 	/**
 	 * @brief Returns the number of entries in the tensor.
@@ -199,8 +118,7 @@ namespace dl {
 	 * @param tensor The tensor to count the number of entries for.
 	 * @return size_t The number of entries in \p tensor.
 	 */
-	[[nodiscard]] size_t numEntries(const Tensor& tensor) noexcept;
+	[[nodiscard]] size_t numEntries(const TensorPtr& tensor) noexcept;
 
-	Tensor& reshape(Tensor& tensor, SShape shape) noexcept;
-	[[nodiscard]] Tensor reshape(Tensor&& tensor, SShape shape) noexcept;
+	TensorPtr reshape(TensorPtr tensor, SShape shape) noexcept;
 } // namespace dl

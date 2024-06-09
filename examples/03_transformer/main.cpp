@@ -73,7 +73,9 @@ int main(void) {
 	// std::cout << embeddings << std::endl;
 
 	auto input = dl::ones({10, 768});
-	auto& encoder = bert.encoder;
+	std::cout << input << std::endl;
+	std::cout << input << std::endl;
+	auto& encoder = *bert.encoder.encoders[0];
 	auto output = encoder.forward(input);
 	std::cout << output->numDim() << ':' << output->shape(0) << ',' << output->shape(1) << std::endl;
 	std::cout << output << std::endl;

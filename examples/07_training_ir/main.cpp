@@ -30,7 +30,7 @@ public:
 	std::map<std::string, float> aggregated();
 };
 
-dl::Tensor pairwiseTrainer(auto& model, ir::Query query, ir::Document pos, ir::Document neg) {
+dl::TensorPtr pairwiseTrainer(auto& model, ir::Query query, ir::Document pos, ir::Document neg) {
 	return model(query, neg) - model(query, pos);
 }
 

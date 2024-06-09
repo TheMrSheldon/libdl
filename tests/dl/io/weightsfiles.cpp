@@ -8,7 +8,7 @@
 
 TEST_CASE("Safetensors", "[IO]") {
 	auto linear = dl::Linear(10, 20);
-	dl::Tensor& weight = linear.parameters().find("weight")->second;
+	dl::TensorPtr& weight = linear.parameters().find("weight")->second;
 	weight = dl::rand_like(weight);
 
 	std::stringstream stream;
@@ -17,14 +17,14 @@ TEST_CASE("Safetensors", "[IO]") {
 	stream.seekg(0, std::ios::beg);
 
 	auto loaded = dl::Linear(10, 20);
-	dl::Tensor& loadedWeight = loaded.parameters().find("weight")->second;
+	dl::TensorPtr& loadedWeight = loaded.parameters().find("weight")->second;
 	REQUIRE(dl::io::safetensorsFormat.loadModelFromStream(loaded, stream));
 	REQUIRE(dl::allclose(weight, loadedWeight));
 }
 
 TEST_CASE("GGUF", "[IO]") {
 	auto linear = dl::Linear(10, 20);
-	dl::Tensor& weight = linear.parameters().find("weight")->second;
+	dl::TensorPtr& weight = linear.parameters().find("weight")->second;
 	weight = dl::rand_like(weight);
 
 	std::stringstream stream;
@@ -33,7 +33,7 @@ TEST_CASE("GGUF", "[IO]") {
 	stream.seekg(0, std::ios::beg);
 
 	auto loaded = dl::Linear(10, 20);
-	dl::Tensor& loadedWeight = loaded.parameters().find("weight")->second;
+	dl::TensorPtr& loadedWeight = loaded.parameters().find("weight")->second;
 	REQUIRE(dl::io::ggufFormat.loadModelFromStream(loaded, stream));
 	REQUIRE(dl::allclose(weight, loadedWeight));
 }

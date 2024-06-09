@@ -4,7 +4,7 @@
 #include <dl/tensor/math.hpp>
 
 using dl::Linear;
-using dl::Tensor;
+using dl::TensorPtr;
 
 Linear::Linear(size_t inFeatures, size_t outFeatures, const Device& device, bool bias) noexcept
 		: weights(dl::empty({outFeatures, inFeatures}, device)),
@@ -17,14 +17,7 @@ Linear::Linear(size_t inFeatures, size_t outFeatures, const Device& device, bool
 Linear::Linear(size_t inFeatures, size_t outFeatures, bool bias) noexcept
 		: Linear(inFeatures, outFeatures, Device::getDefault(), bias) {}
 
-Tensor Linear::forward(Tensor& input) noexcept {
-	return dl::matmul(input, dl::transpose(dl::Tensor(weights), {0, 1})) + bias;
+TensorPtr Linear::forward(TensorPtr input) noexcept {
+	std::cout << weights << std::endl;
+	return dl::matmul(input, dl::transpose(weights, {0, 1})) + bias;
 }
-Tensor Linear::forward(Tensor&& input) noexcept {
-	return dl::matmul(std::move(input), dl::transpose(dl::Tensor(weights), {0, 1})) + bias;
-}
-Tensor Linear::forward(const Tensor& input) noexcept {
-	return dl::matmul(input, dl::transpose(dl::Tensor(weights), {0, 1})) + bias;
-}
-
-// Tensor Linear::forward(Tensor&& input) const noexcept { return dl::matmul(std::move(input), weights) + bias; }

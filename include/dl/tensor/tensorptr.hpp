@@ -43,23 +43,23 @@ namespace dl {
 	 * using different drivers like cuda or xtensor). The implementation, generally, is agnostic to these differences
 	 * and Tensor hides them.
 	 */
-	class Tensor final {
+	class TensorPtr final {
 	private:
-		std::experimental::propagate_const<std::unique_ptr<TensorImpl>> data;
+		std::experimental::propagate_const<std::shared_ptr<TensorImpl>> data;
 
-		explicit Tensor(std::experimental::propagate_const<std::unique_ptr<TensorImpl>>&& data)
+		explicit TensorPtr(std::experimental::propagate_const<std::shared_ptr<TensorImpl>>&& data)
 				: data(std::move(data)) {}
 
 	public:
-		Tensor(Tensor&& other) : data(std::move(other.data)){};
-		Tensor(const Tensor& other);
-		Tensor(std::nullptr_t p) : data(p) {}
-		Tensor(int value);
-		Tensor(float value);
-		Tensor(double value);
-		Tensor(InitializerTensor<int> value);
-		Tensor(InitializerTensor<float> value);
-		Tensor(InitializerTensor<double> value);
+		TensorPtr(TensorPtr&& other) : data(std::move(other.data)){};
+		TensorPtr(const TensorPtr& other);
+		TensorPtr(std::nullptr_t p) : data(p) {}
+		TensorPtr(int value);
+		TensorPtr(float value);
+		TensorPtr(double value);
+		TensorPtr(InitializerTensor<int> value);
+		TensorPtr(InitializerTensor<float> value);
+		TensorPtr(InitializerTensor<double> value);
 
 		TensorImpl* operator->() noexcept { return data.get(); }
 		const TensorImpl* operator->() const noexcept { return data.get(); }
@@ -67,8 +67,8 @@ namespace dl {
 		TensorImpl& operator*() noexcept { return *data; }
 		const TensorImpl& operator*() const noexcept { return *data; }
 
-		Tensor& operator=(const Tensor& other);
-		Tensor& operator=(Tensor&& other) {
+		TensorPtr& operator=(const TensorPtr& other);
+		TensorPtr& operator=(TensorPtr&& other) {
 			this->data = std::move(other.data);
 			return *this;
 		}
@@ -77,10 +77,10 @@ namespace dl {
 		operator bool() const noexcept { return (bool)data; }
 
 		template <typename T, typename... Args>
-		static Tensor create(Args&&... args) noexcept {
-			return Tensor(std::make_unique<T>(std::forward<Args>(args)...));
+		static TensorPtr create(Args&&... args) noexcept {
+			return TensorPtr(std::make_unique<T>(std::forward<Args>(args)...));
 		}
 	};
 
-	using TensorRef = std::reference_wrapper<Tensor>;
+	using TensorRef = std::reference_wrapper<TensorPtr>;
 } // namespace dl

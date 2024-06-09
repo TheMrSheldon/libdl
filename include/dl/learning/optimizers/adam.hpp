@@ -18,7 +18,7 @@ namespace dl::optim {
 		Adam(float lr = 0.001f, float beta1 = 0.9f, float beta2 = 0.999f, float eps = 1e-8f)
 				: dl::Optimizer(), lr(lr), beta1(beta1), beta2(beta2), eps(eps) {}
 
-		virtual void step(dl::Tensor& loss) override { throw std::runtime_error("Not yet implemented"); }
+		virtual void step(dl::TensorPtr& loss) override { throw std::runtime_error("Not yet implemented"); }
 	};
 } // namespace dl::optim
 

@@ -6,7 +6,7 @@
 
 using Catch::Matchers::RangeEquals;
 
-TEST_CASE("Basics", "[Tensor]") {
+TEST_CASE("Basics", "[TensorPtr]") {
 	{
 		dl::InitializerTensor<float> init1D = {1, 2, 3};
 		CHECK_THAT(init1D.shape, RangeEquals(std::vector{3}));

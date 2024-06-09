@@ -3,7 +3,7 @@
 #include <dl/model/embedding.hpp>
 #include <dl/model/model.hpp>
 #include <dl/model/transformer/transformer.hpp>
-#include <dl/tensor/tensor.hpp>
+#include <dl/tensor/tensorptr.hpp>
 
 #include <dl/utils/composed.hpp>
 
@@ -15,7 +15,7 @@ namespace nlp {
 		size_t typeVocabSize;
 	};
 
-	class BERTEmbeddings : public dl::Model<dl::Tensor(const dl::Tensor&, const dl::Tensor&)> {
+	class BERTEmbeddings : public dl::Model<dl::TensorPtr(const dl::TensorPtr&, const dl::TensorPtr&)> {
 	private:
 		dl::Embedding wordEmbeddings;
 		dl::Embedding positionalEmbeddings;
@@ -34,18 +34,18 @@ namespace nlp {
 			registerSubmodel("LayerNorm", layerNorm);
 		}
 
-		virtual dl::Tensor forward(const dl::Tensor& inputIds, const dl::Tensor& inputTokenTypes) {
+		virtual dl::TensorPtr forward(const dl::TensorPtr& inputIds, const dl::TensorPtr& inputTokenTypes) {
 			/** Note that the embeddings returned are references to tensors instead of tensors since they return the
 			 * references to the learned embeddings. **/
 			// auto& inputEmbeds = wordEmbeddings.forward(std::forward<decltype(inputIds)>(inputIds));
 			// auto& typeEmbeds = tokenTypeEmbeddings.forward(std::forward<decltype(inputTokenTypes)>(inputTokenTypes));
-			// return layerNorm.forward(std::move(inputEmbeds) + std::move(typeEmbeds) + posEmbeds);
+			// return layerNorm.forward(inputEmbeds + typeEmbeds + posEmbeds);
 			/** \todo implement **/
 			throw std::runtime_error("Not yet implemented");
 		}
 	};
 
-	class BERTPooling : public dl::Model<dl::Tensor(const dl::Tensor&)> {
+	class BERTPooling : public dl::Model<dl::TensorPtr(const dl::TensorPtr&)> {
 	private:
 		dl::Linear dense;
 
@@ -54,14 +54,14 @@ namespace nlp {
 			registerSubmodel("dense", dense);
 		}
 
-		virtual dl::Tensor forward(const dl::Tensor& input) { return nullptr; }
+		virtual dl::TensorPtr forward(const dl::TensorPtr& input) { return nullptr; }
 	};
 
 	/**
      * @brief \cite bert
      * 
      */
-	class BERT : public dl::Model<dl::Tensor(const dl::Tensor&)> {
+	class BERT : public dl::Model<dl::TensorPtr(const dl::TensorPtr&)> {
 	public:
 		static constexpr dl::TransformerConf transformerConf{
 				.dimensions = {.model = 768, .key = 64, .value = 64, .inner = 3072},
@@ -80,7 +80,7 @@ namespace nlp {
 			registerSubmodel("bert.pooler", pooling);
 		}
 
-		virtual dl::Tensor forward(const dl::Tensor& input) override {
+		virtual dl::TensorPtr forward(const dl::TensorPtr& input) override {
 			/** \todo implement **/
 			throw std::runtime_error("Not yet implemented");
 			// return pooling.forward(encoder.forward(embeddings.forward(input)));

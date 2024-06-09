@@ -38,7 +38,7 @@ namespace dl {
 		 * @param requiresGrad True if a gradient should be calculate for the newly constructed tensor.
 		 * @return The newly created tensor.
 		 */
-		virtual Tensor empty(Shape shape, bool requiresGrad = false) const noexcept = 0;
+		virtual TensorPtr empty(Shape shape, bool requiresGrad = false) const noexcept = 0;
 		/**
 		 * @brief Creates a new tensor of the specified shape. All entries are initialized to zero.
 		 * 
@@ -46,7 +46,7 @@ namespace dl {
 		 * @param requiresGrad True if a gradient should be calculate for the newly constructed tensor.
 		 * @return The newly created tensor.
 		 */
-		virtual Tensor zeros(Shape shape, bool requiresGrad = false) const noexcept = 0;
+		virtual TensorPtr zeros(Shape shape, bool requiresGrad = false) const noexcept = 0;
 		/**
 		 * @brief Creates a new tensor of the specified shape. All entries are initialized to one.
 		 * 
@@ -54,13 +54,13 @@ namespace dl {
 		 * @param requiresGrad True if a gradient should be calculate for the newly constructed tensor.
 		 * @return The newly created tensor.
 		 */
-		virtual Tensor ones(Shape shape, bool requiresGrad = false) const noexcept = 0;
-		virtual Tensor rand(Shape shape, bool requiresGrad = false) const noexcept = 0;
-		virtual Tensor constant(int value, bool requiresGrad = false) const noexcept = 0;
-		virtual Tensor constant(float value, bool requiresGrad = false) const noexcept = 0;
-		virtual Tensor constant(double value, bool requiresGrad = false) const noexcept = 0;
-		virtual Tensor constant(InitializerTensor<float>&& value, bool requiresGrad = false) const noexcept = 0;
-		virtual Tensor fromBytesFP32(const char* buffer, size_t bufsize, Shape shape) const noexcept = 0;
+		virtual TensorPtr ones(Shape shape, bool requiresGrad = false) const noexcept = 0;
+		virtual TensorPtr rand(Shape shape, bool requiresGrad = false) const noexcept = 0;
+		virtual TensorPtr constant(int value, bool requiresGrad = false) const noexcept = 0;
+		virtual TensorPtr constant(float value, bool requiresGrad = false) const noexcept = 0;
+		virtual TensorPtr constant(double value, bool requiresGrad = false) const noexcept = 0;
+		virtual TensorPtr constant(InitializerTensor<float>&& value, bool requiresGrad = false) const noexcept = 0;
+		virtual TensorPtr fromBytesFP32(const char* buffer, size_t bufsize, Shape shape) const noexcept = 0;
 
 		template <typename T>
 		void setDefaultFloatTensorType();
@@ -102,27 +102,35 @@ namespace dl {
 	template <>
 	void Device::setDefaultFloatTensorType<double>();
 
-	inline Tensor empty(const Shape& size, Device const& device = Device::getDefault()) { return device.empty(size); }
-	inline Tensor zeros(const Shape& size, Device const& device = Device::getDefault()) { return device.zeros(size); }
-	inline Tensor ones(const Shape& size, Device const& device = Device::getDefault()) { return device.ones(size); }
-	inline Tensor rand(const Shape& size, Device const& device = Device::getDefault()) { return device.rand(size); }
-	Tensor zeros_like(const Tensor& tenosr, Device const& device = Device::getDefault());
-	Tensor ones_like(const Tensor& tensor, Device const& device = Device::getDefault());
-	Tensor rand_like(const Tensor& tensor, Device const& device = Device::getDefault());
-	inline Tensor constant(int value, Device const& device = Device::getDefault()) { return device.constant(value); }
-	inline Tensor constant(float value, Device const& device = Device::getDefault()) { return device.constant(value); }
-	inline Tensor constant(double value, Device const& device = Device::getDefault()) { return device.constant(value); }
-	inline Tensor constant(InitializerTensor<float>&& value, Device const& device = Device::getDefault()) {
+	inline TensorPtr empty(const Shape& size, Device const& device = Device::getDefault()) {
+		return device.empty(size);
+	}
+	inline TensorPtr zeros(const Shape& size, Device const& device = Device::getDefault()) {
+		return device.zeros(size);
+	}
+	inline TensorPtr ones(const Shape& size, Device const& device = Device::getDefault()) { return device.ones(size); }
+	inline TensorPtr rand(const Shape& size, Device const& device = Device::getDefault()) { return device.rand(size); }
+	TensorPtr zeros_like(const TensorPtr& tensor, Device const& device = Device::getDefault());
+	TensorPtr ones_like(const TensorPtr& tensor, Device const& device = Device::getDefault());
+	TensorPtr rand_like(const TensorPtr& tensor, Device const& device = Device::getDefault());
+	inline TensorPtr constant(int value, Device const& device = Device::getDefault()) { return device.constant(value); }
+	inline TensorPtr constant(float value, Device const& device = Device::getDefault()) {
+		return device.constant(value);
+	}
+	inline TensorPtr constant(double value, Device const& device = Device::getDefault()) {
+		return device.constant(value);
+	}
+	inline TensorPtr constant(InitializerTensor<float>&& value, Device const& device = Device::getDefault()) {
 		return device.constant(std::move(value));
 	}
 
 	template <typename T>
-	Tensor
+	TensorPtr
 	fromBytes(const char* buffer, size_t buflen, const Shape& shape, Device const& device = Device::getDefault());
 	template <>
-	inline Tensor fromBytes<float>(const char* buffer, size_t buflen, const Shape& shape, Device const& device) {
+	inline TensorPtr fromBytes<float>(const char* buffer, size_t buflen, const Shape& shape, Device const& device) {
 		return device.fromBytesFP32(buffer, buflen, shape);
 	}
 
-	Tensor clone(const Tensor& tensor);
+	TensorPtr clone(const TensorPtr& tensor);
 } // namespace dl

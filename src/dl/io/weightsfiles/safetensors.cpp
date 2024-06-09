@@ -46,7 +46,7 @@ public:
 				assert(shape.is_array());
 				auto it = model.parameters().find(tensorName);
 				if (it != model.parameters().end()) {
-					dl::Tensor& param = it->second;
+					const auto& param = it->second.get();
 					bool shapesMatch = std::equal(shape.begin(), shape.end(), param->shape().begin());
 					if (!shapesMatch) {
 						logger->error(
@@ -78,7 +78,7 @@ public:
 				size_t to = metadata["data_offsets"][1];
 				auto it = model.parameters().find(tensorName);
 				if (it != model.parameters().end()) {
-					dl::Tensor& param = it->second;
+					dl::TensorPtr& param = it->second;
 					param = dl::fromBytes<float>(tensorData.data() + from, to - from, shape, param->device());
 				}
 			}

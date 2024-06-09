@@ -11,7 +11,7 @@ namespace dl {
 	class Device;
 
 	class TensorImpl {
-		using GradFn = std::function<void(Tensor&)>;
+		using GradFn = std::function<void(TensorPtr&)>;
 
 	private:
 		bool _requiresGrad;
@@ -19,7 +19,7 @@ namespace dl {
 
 	public:
 		GradFn gradfn = nullptr;
-		Tensor grad = nullptr;
+		TensorPtr grad = nullptr;
 
 	protected:
 		TensorImpl(Device const& device, bool requiresGrad) noexcept;
@@ -33,7 +33,7 @@ namespace dl {
 		 * @return The newly created tensor on the specified device.
 		 * @see TensorImpl::device()
 		 */
-		Tensor to(Device const& other) const noexcept;
+		TensorPtr to(Device const& other) const noexcept;
 		/**
 		 * @brief Returns the device this tensor is stored on.
 		 * 
@@ -59,20 +59,20 @@ namespace dl {
 
 		void backward(bool enableAutodiff = false) noexcept;
 
-		const Tensor gradient() const noexcept { return grad; }
+		const TensorPtr gradient() const noexcept { return grad; }
 		void discardGradient() noexcept {
 			gradfn = nullptr;
 			grad = nullptr;
 		}
 
 		virtual std::ostream& writeToStream(std::ostream& stream) const noexcept = 0;
-		virtual bool operator==(const Tensor& other) const noexcept = 0;
-		virtual bool allclose(const Tensor& other, float rtol = 1e-5, float atol = 1e-8) const noexcept = 0;
+		virtual bool operator==(const TensorPtr& other) const noexcept = 0;
+		virtual bool allclose(const TensorPtr& other, float rtol = 1e-5, float atol = 1e-8) const noexcept = 0;
 
-		virtual Tensor add(const Tensor& other) const noexcept = 0;
-		virtual Tensor sub(const Tensor& other) const noexcept = 0;
-		virtual Tensor mul(const Tensor& other) const noexcept = 0;
-		virtual Tensor div(const Tensor& other) const noexcept = 0;
+		virtual TensorPtr add(const TensorPtr& other) const noexcept = 0;
+		virtual TensorPtr sub(const TensorPtr& other) const noexcept = 0;
+		virtual TensorPtr mul(const TensorPtr& other) const noexcept = 0;
+		virtual TensorPtr div(const TensorPtr& other) const noexcept = 0;
 
 		/**
 		 * @brief Performs "fused multiply and add".
@@ -83,39 +83,39 @@ namespace dl {
 		 * @param summand the summand to add to the product of this with \p factor.
 		 * @return the result.
 		 */
-		virtual Tensor fma(const Tensor& factor, const Tensor& summand) const noexcept = 0;
-		virtual Tensor matmul(const Tensor& other) const noexcept = 0;
-		virtual Tensor transpose(std::vector<size_t>&& permutation) const noexcept = 0;
+		virtual TensorPtr fma(const TensorPtr& factor, const TensorPtr& summand) const noexcept = 0;
+		virtual TensorPtr matmul(const TensorPtr& other) const noexcept = 0;
+		virtual TensorPtr transpose(std::vector<size_t>&& permutation) const noexcept = 0;
 
 		// Powers:
-		virtual Tensor pow(float exponent) const noexcept = 0;
-		virtual Tensor exp() const noexcept = 0;
-		virtual Tensor sqrt() const noexcept = 0;
-		virtual Tensor rsqrt() const noexcept = 0;
+		virtual TensorPtr pow(float exponent) const noexcept = 0;
+		virtual TensorPtr exp() const noexcept = 0;
+		virtual TensorPtr sqrt() const noexcept = 0;
+		virtual TensorPtr rsqrt() const noexcept = 0;
 
 		// Statistical functions:
-		virtual Tensor mean() const noexcept = 0;
-		virtual Tensor mean(int dim, bool keepdim) const noexcept = 0;
-		virtual Tensor sum() const noexcept = 0;
-		virtual Tensor sum(int dim, bool keepdim) const noexcept = 0;
-		virtual Tensor min() const noexcept = 0;
-		virtual Tensor min(int dim, bool keepdim) const noexcept = 0;
+		virtual TensorPtr mean() const noexcept = 0;
+		virtual TensorPtr mean(int dim, bool keepdim) const noexcept = 0;
+		virtual TensorPtr sum() const noexcept = 0;
+		virtual TensorPtr sum(int dim, bool keepdim) const noexcept = 0;
+		virtual TensorPtr min() const noexcept = 0;
+		virtual TensorPtr min(int dim, bool keepdim) const noexcept = 0;
 		/**
 		 * @brief Computes the element-wise minimum between this tensor and the other.
 		 * 
 		 * @param other 
-		 * @return Tensor 
+		 * @return TensorPtr 
 		 */
-		virtual Tensor min(const Tensor& other) const noexcept = 0;
-		virtual Tensor max() const noexcept = 0;
-		virtual Tensor max(int dim, bool keepdim) const noexcept = 0;
-		virtual Tensor max(const Tensor& other) const noexcept = 0;
-		virtual Tensor var(DOF dof) const noexcept = 0;
-		virtual Tensor var(int dim, DOF dof) const noexcept = 0;
+		virtual TensorPtr min(const TensorPtr& other) const noexcept = 0;
+		virtual TensorPtr max() const noexcept = 0;
+		virtual TensorPtr max(int dim, bool keepdim) const noexcept = 0;
+		virtual TensorPtr max(const TensorPtr& other) const noexcept = 0;
+		virtual TensorPtr var(DOF dof) const noexcept = 0;
+		virtual TensorPtr var(int dim, DOF dof) const noexcept = 0;
 
-		virtual Tensor erf() const noexcept = 0;
+		virtual TensorPtr erf() const noexcept = 0;
 
-		virtual void mul_inplace(const Tensor& other) noexcept = 0;
+		virtual void mul_inplace(const TensorPtr& other) noexcept = 0;
 		/**
 		 * @brief Reshapes the tensor to fit the specified size.
 		 * @details At most one of the entries in the shape may be -1 and will then be inferred by the remaining shape.
@@ -125,13 +125,13 @@ namespace dl {
 		 */
 		virtual void reshape(SShape shape) noexcept = 0;
 
-		virtual Tensor clone() const noexcept = 0;
+		virtual TensorPtr clone() const noexcept = 0;
 
 		virtual Shape shape() const noexcept = 0;
 		virtual size_t shape(int dim) const noexcept = 0;
 		size_t numDim() const noexcept { return shape().size(); }
 
-		virtual Tensor flatten() const noexcept = 0;
+		virtual TensorPtr flatten() const noexcept = 0;
 
 		/**
 		 * @brief Writes this tensor's data into the byte array.

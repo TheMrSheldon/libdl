@@ -33,7 +33,7 @@ namespace dl {
 		size_t numAttnHeads;
 	};
 
-	class TransformerEncoder final : public Model<Tensor(const Tensor&)> {
+	class TransformerEncoder final : public Model<TensorPtr(TensorPtr)> {
 	public:
 		TransformerConf conf;
 		// Multi-Head Attention
@@ -52,14 +52,14 @@ namespace dl {
 
 	public:
 		TransformerEncoder(TransformerConf conf) noexcept;
-		virtual Tensor forward(const Tensor& input) override;
+		virtual TensorPtr forward(TensorPtr input) override;
 
 		/**
 		 * @brief The precomputed inverse square root of dimKeys.
 		 * @details This is the precomputed normalization factor \f$\sqrt{d_k}^{-1}\f$ used in the scaled dot-product
 		 * attention.
 		 */
-		const double dimKeysInvSqrt;
+		const float dimKeysInvSqrt;
 
 		/**
 		 * @brief Implements the scaled dot-product attention.
@@ -71,7 +71,7 @@ namespace dl {
 		 * @param query 
 		 * @return the scaled dot-product attention.
 		 */
-		Tensor scaledDotProductAttention(Tensor&& query, Tensor&& key, Tensor&& value) noexcept;
+		TensorPtr scaledDotProductAttention(TensorPtr query, TensorPtr key, TensorPtr value) noexcept;
 
 		/**
 		 * @brief Implements the transformer's multi-head attention.
@@ -94,17 +94,17 @@ namespace dl {
 		 * @param query 
 		 * @param key 
 		 * @param value 
-		 * @return Tensor 
+		 * @return TensorPtr 
 		 * @see For a more detailed description, please read the \ref technicalTransformer page.
 		 */
-		Tensor multiHeadAttention(Tensor&& query, Tensor&& key, Tensor&& value) noexcept;
+		TensorPtr multiHeadAttention(TensorPtr query, TensorPtr key, TensorPtr value) noexcept;
 	};
 
 	/**
      * @brief @cite transformer
      * @details
      */
-	class Transformer final : public Model<Tensor(const Tensor&)> {
+	class Transformer final : public Model<TensorPtr(TensorPtr)> {
 	public:
 		const TransformerConf conf;
 		std::vector<std::unique_ptr<TransformerEncoder>> encoders;
@@ -113,6 +113,6 @@ namespace dl {
 	public:
 		Transformer(TransformerConf conf) noexcept;
 
-		virtual Tensor forward(const Tensor& input) override;
+		virtual TensorPtr forward(TensorPtr input) override;
 	};
 }; // namespace dl

@@ -6,11 +6,11 @@
 
 using Catch::Matchers::RangeEquals;
 
-TEST_CASE("Math", "[Tensor]") {
+TEST_CASE("Math", "[TensorPtr]") {
 	SECTION("multiplication") {
 		{
 			auto tensorA = dl::constant({{1, 2, 3}, {4, 5, 6}});
-			auto tensorB = dl::transpose(dl::Tensor(tensorA), {-1, -2});
+			auto tensorB = dl::transpose(dl::TensorPtr(tensorA), {-1, -2});
 			auto result = dl::matmul(tensorA, tensorB);
 			REQUIRE_THAT(result->shape(), RangeEquals(std::vector{2, 2}));
 			CHECK(dl::allclose(result, dl::constant({{14, 32}, {32, 77}})));
@@ -19,7 +19,7 @@ TEST_CASE("Math", "[Tensor]") {
 			// Batched multiplication:
 			// Multiplying a 2x2x3 tensor with a 2x3x2 tensor should result in a 2x2x2 tensor
 			auto tensorA = dl::constant({{{1, 2, 3}, {4, 5, 6}}, {{7, 8, 9}, {0, 1, 2}}});
-			auto tensorB = dl::transpose(dl::Tensor(tensorA), {-1, -2});
+			auto tensorB = dl::transpose(dl::TensorPtr(tensorA), {-1, -2});
 			auto result = dl::matmul(tensorA, tensorB);
 			CHECK_THAT(tensorA->shape(), RangeEquals(std::vector{2, 2, 3}));
 			CHECK_THAT(tensorB->shape(), RangeEquals(std::vector{2, 3, 2}));
