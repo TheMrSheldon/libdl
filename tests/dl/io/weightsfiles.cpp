@@ -1,39 +1,43 @@
 #include <dl/device.hpp>
 #include <dl/io/weightsfile.hpp>
-#include <dl/model/linear.hpp>
+#include <dl/model/model.hpp>
 
 #include <sstream>
 
 #include <catch2/catch_test_macros.hpp>
 
+class DummyModel : public dl::Model<void(void)> {
+public:
+	dl::TensorPtr weight;
+	DummyModel() noexcept : weight(dl::empty({20, 20})) { registerParameter("weight", weight); }
+
+	virtual void forward() {}
+};
+
 TEST_CASE("Safetensors", "[IO]") {
-	auto linear = dl::Linear(10, 20);
-	dl::TensorPtr& weight = linear.parameters().find("weight")->second;
-	weight = dl::rand_like(weight);
+	DummyModel linear;
+	linear.weight = dl::rand_like(linear.weight);
 
 	std::stringstream stream;
 	dl::io::safetensorsFormat.writeModelToStream(linear, stream);
 
 	stream.seekg(0, std::ios::beg);
 
-	auto loaded = dl::Linear(10, 20);
-	dl::TensorPtr& loadedWeight = loaded.parameters().find("weight")->second;
+	DummyModel loaded;
 	REQUIRE(dl::io::safetensorsFormat.loadModelFromStream(loaded, stream));
-	REQUIRE(dl::allclose(weight, loadedWeight));
+	REQUIRE(dl::allclose(linear.weight, loaded.weight));
 }
 
 TEST_CASE("GGUF", "[IO]") {
-	auto linear = dl::Linear(10, 20);
-	dl::TensorPtr& weight = linear.parameters().find("weight")->second;
-	weight = dl::rand_like(weight);
+	DummyModel linear;
+	linear.weight = dl::rand_like(linear.weight);
 
 	std::stringstream stream;
 	dl::io::ggufFormat.writeModelToStream(linear, stream);
 
 	stream.seekg(0, std::ios::beg);
 
-	auto loaded = dl::Linear(10, 20);
-	dl::TensorPtr& loadedWeight = loaded.parameters().find("weight")->second;
+	DummyModel loaded;
 	REQUIRE(dl::io::ggufFormat.loadModelFromStream(loaded, stream));
-	REQUIRE(dl::allclose(weight, loadedWeight));
+	REQUIRE(dl::allclose(linear.weight, loaded.weight));
 }
