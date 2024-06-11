@@ -59,7 +59,7 @@ namespace dl {
 
 		void backward(bool enableAutodiff = false) noexcept;
 
-		const TensorPtr gradient() const noexcept { return grad; }
+		const TensorPtr& gradient() const noexcept { return grad; }
 		void discardGradient() noexcept {
 			gradfn = nullptr;
 			grad = nullptr;

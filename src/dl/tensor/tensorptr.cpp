@@ -4,7 +4,7 @@
 
 using dl::TensorPtr;
 
-TensorPtr::TensorPtr(const TensorPtr& other) : TensorPtr(std::move(other->clone())) {}
+TensorPtr::TensorPtr(const TensorPtr& other) : data(other.data) {}
 TensorPtr::TensorPtr(int value) : TensorPtr(std::move(dl::constant(value))) {}
 TensorPtr::TensorPtr(float value) : TensorPtr(std::move(dl::constant(value))) {}
 TensorPtr::TensorPtr(double value) : TensorPtr(std::move(dl::constant(value))) {}
@@ -14,6 +14,10 @@ TensorPtr::TensorPtr(InitializerTensor<float> value) : TensorPtr(std::move(dl::c
 // TensorPtr::TensorPtr(InitializerTensor<double> value) : TensorPtr(std::move(dl::constant(std::move(value)))) {}
 
 TensorPtr& TensorPtr::operator=(const TensorPtr& other) {
-	*this = std::move(other->clone());
+	data = other.data;
+	return *this;
+}
+TensorPtr& TensorPtr::operator=(TensorPtr&& other) {
+	this->data = std::move(other.data);
 	return *this;
 }

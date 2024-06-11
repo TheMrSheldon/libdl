@@ -53,12 +53,6 @@ TensorPtr TransformerEncoder::multiHeadAttention(TensorPtr query, TensorPtr key,
 }
 
 TensorPtr TransformerEncoder::scaledDotProductAttention(TensorPtr query, TensorPtr key, TensorPtr value) noexcept {
-	std::cout << "Query" << std::endl;
-	std::cout << query << std::endl;
-	std::cout << "Key" << std::endl;
-	std::cout << key << std::endl;
-	std::cout << "Value" << std::endl;
-	std::cout << value << std::endl;
 	/** \todo use std::move to reduce copying temporaries **/
 	// Reshape key and query and compute (QK^T) batched
 	query->reshape({-1, (int)(conf.numAttnHeads), (int)(conf.dimensions.key)});
@@ -69,13 +63,8 @@ TensorPtr TransformerEncoder::scaledDotProductAttention(TensorPtr query, TensorP
 	auto facv = dl::transpose(value, {0, 1});
 	// (12, 10, dmodel) @ (12, dmodel, 10) -> (12, 10, 10)
 	auto prod = dl::matmul(facq, dl::transpose(fack, {-1, -2}));
-	std::cout << "Prod" << std::endl;
-	std::cout << prod << std::endl;
 	// Compute smax = softmax(prod / sqrt(d_k))
-	//auto smax = dl::softmax(prod * dimKeysInvSqrt, -1);
-	auto smax = dl::softmax(prod / std::sqrt(conf.dimensions.key), -1);
-	std::cout << "smax" << std::endl;
-	std::cout << smax << std::endl;
+	auto smax = dl::softmax(prod * dimKeysInvSqrt, -1);
 	// compute smax * V
 	auto tmp = dl::matmul(smax, facv);
 	return dl::reshape(dl::transpose(tmp, {0, 1}), {-1, (int)conf.dimensions.model});
@@ -83,11 +72,7 @@ TensorPtr TransformerEncoder::scaledDotProductAttention(TensorPtr query, TensorP
 
 TensorPtr TransformerEncoder::forward(TensorPtr input) {
 	auto mha = multiHeadAttention(weightQuery.forward(input), weightKey.forward(input), weightValue.forward(input));
-	std::cout << input << std::endl;
-	std::cout << mha << std::endl;
 	auto attention = mhaNorm.forward(mha + input);
-	// std::cout << attention << std::endl;
 	auto intermed = BertGELU(weightIntermed.forward(attention));
-	//std::cout << intermed << std::endl;
 	return ffnNorm.forward(weightIntermedOut.forward(intermed) + attention);
 }

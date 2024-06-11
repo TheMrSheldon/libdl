@@ -14,9 +14,9 @@ TensorPtr dl::pow(TensorPtr base, float exponent) noexcept {
 	if (base->requiresGrad()) {
 		result->gradfn = [base = std::move(base), exponent](TensorPtr& ptr) mutable {
 			if (base->grad == nullptr)
-				base->grad = std::move(ptr * exponent);
+				base->grad = ptr * exponent * dl::pow(base, exponent - 1);
 			else
-				base->grad = std::move(base->grad + (ptr * exponent));
+				base->grad = base->grad + (ptr * exponent * dl::pow(base, exponent - 1));
 			if (base->gradfn)
 				base->gradfn(base->grad);
 			else
@@ -42,15 +42,16 @@ TensorPtr dl::rsqrt(TensorPtr x) noexcept {
 }
 
 TensorPtr dl::mean(TensorPtr x) noexcept {
-	/** \todo add support for autograd **/
+	if (x->numDim() == 0) // Mean of a scalar is the scalar itself
+		return x;
 	auto tensor = x->mean();
 	if (tensor->requiresGrad()) {
 		auto size = (float)x->shape(0);
-		tensor->gradfn = [x, size](TensorPtr& ptr) mutable {
+		tensor->gradfn = [x = std::move(x), size](TensorPtr& ptr) mutable {
 			if (x->grad == nullptr)
-				x->grad = std::move(ptr * dl::ones_like(x) / size);
+				x->grad = (ptr * dl::ones_like(x) / size);
 			else
-				x->grad = std::move(x->grad + (ptr * dl::ones_like(x) / size));
+				x->grad = (x->grad + (ptr * dl::ones_like(x) / size));
 			if (x->gradfn)
 				x->gradfn(x->grad);
 			else
@@ -129,30 +130,71 @@ dl::TensorPtr dl::operator/(float left, dl::TensorPtr right) noexcept {
 
 TensorPtr dl::operator+(TensorPtr left, TensorPtr right) noexcept {
 	/** \todo add support for autograd **/
-	if (left->requiresGrad())
-		left->gradfn = [left](TensorPtr& ptr) { dl::constant(1.0, left->device()); };
-	if (right->requiresGrad())
-		right->gradfn = [right](TensorPtr& ptr) { dl::constant(1.0, right->device()); };
-	return left->add(right);
+	auto tensor = left->add(right);
+	if (tensor->requiresGrad()) {
+		tensor->gradfn = [left = std::move(left), right = std::move(right)](TensorPtr& ptr) mutable {
+			// Left Gradient
+			if (left->grad == nullptr)
+				left->grad = dl::ones_like(left) * ptr;
+			else
+				left->grad = (left->grad + ptr);
+			if (left->gradfn)
+				left->gradfn(left->grad);
+			else
+				assert(left->requiresGrad());
+			// Right Gradient
+			if (right->grad == nullptr)
+				right->grad = dl::ones_like(left) * ptr;
+			else
+				right->grad = (right->grad + ptr);
+			if (right->gradfn)
+				right->gradfn(right->grad);
+			else
+				assert(right->requiresGrad());
+		};
+	}
+	return tensor;
 }
 TensorPtr dl::operator-(TensorPtr left, TensorPtr right) noexcept {
 	/** \todo add support for autograd **/
-	left->gradfn = [left](TensorPtr ptr) { dl::constant(1.0, left->device()); };
-	right->gradfn = [right](TensorPtr ptr) { dl::constant(-1.0, right->device()); };
-	return left->sub(right);
+	auto tensor = left->sub(right);
+	if (tensor->requiresGrad()) {
+		tensor->gradfn = [left = std::move(left), right = std::move(right)](TensorPtr& ptr) mutable {
+			// Left Gradient
+			if (left->requiresGrad()) {
+				left->grad = (left->grad == nullptr) ? ptr : (left->grad + ptr);
+				if (left->gradfn)
+					left->gradfn(left->grad);
+			}
+			// Right Gradient
+			if (right->requiresGrad()) {
+				right->grad = (right->grad == nullptr) ? (-1.0f * ptr) : (right->grad - ptr);
+				if (right->gradfn)
+					right->gradfn(right->grad);
+			}
+		};
+	}
+	return tensor;
 }
 TensorPtr dl::operator*(TensorPtr left, TensorPtr right) noexcept {
 	/** \todo add support for autograd **/
 	auto tensor = left->mul(right);
 	if (tensor->requiresGrad()) {
-		tensor->gradfn = [&left, &right](TensorPtr& ptr) {
-			auto lgrad = right;
-			lgrad->discardGradient();
-			auto rgrad = left;
-			rgrad->discardGradient();
-
-			left->grad = lgrad * ptr;
-			right->grad = rgrad * ptr;
+		tensor->gradfn = [left = std::move(left), right = std::move(right)](TensorPtr& ptr) mutable {
+			if (left->requiresGrad()) {
+				auto lgrad = right->clone();
+				lgrad->discardGradient();
+				left->grad = (left->grad == nullptr) ? (lgrad * ptr) : (left->grad + (lgrad * ptr));
+				if (left->gradfn)
+					left->gradfn(left->grad);
+			}
+			if (right->requiresGrad()) {
+				auto rgrad = left->clone();
+				rgrad->discardGradient();
+				right->grad = (right->grad == nullptr) ? (rgrad * ptr) : (right->grad + (rgrad * ptr));
+				if (right->gradfn)
+					right->gradfn(right->grad);
+			}
 		};
 	}
 	return tensor;

@@ -1,10 +1,10 @@
 #include <dl/device.hpp>
 #include <dl/learning/adapters.hpp>
 #include <dl/learning/dataset.hpp>
+#include <dl/learning/evaluators.hpp>
 #include <dl/learning/loss.hpp>
 #include <dl/learning/optimizers/gradientdescent.hpp>
 #include <dl/learning/trainer.hpp>
-#include <dl/model/linear.hpp>
 #include <dl/model/model.hpp>
 #include <dl/tensor/math.hpp>
 #include <dl/tensor/tensorimpl.hpp>
@@ -15,9 +15,10 @@
 
 class MyModel : public dl::Model<dl::TensorPtr(dl::TensorPtr)> {
 private:
-	//dl::Linear linear;
 	dl::TensorPtr factor;
 	dl::TensorPtr bias;
+
+	MyModel(MyModel& other) = delete;
 
 public:
 	MyModel() : factor(dl::empty({})), bias(dl::empty({})) {
@@ -27,8 +28,7 @@ public:
 
 	//Maybe this solves the duplication https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2021/p0847r7.html
 	dl::TensorPtr forward(dl::TensorPtr input) {
-		std::this_thread::sleep_for(std::chrono::milliseconds(1000)); // Simulate doing work
-		//return linear.forward(input);
+		// std::this_thread::sleep_for(std::chrono::milliseconds(1000)); // Simulate doing work
 		return factor * input + bias;
 	}
 
@@ -57,15 +57,18 @@ public:
 	virtual ~MyDataset() = default;
 
 	std::unique_ptr<_DataLoader> trainingData() override {
-		std::vector<_DataLoader::Instance> data = {{1.0f, 2.0f}, {3.0f, 4.0f}, {-2.0f, -1.0f}};
+		// y = 5x+3
+		std::vector<_DataLoader::Instance> data = {{13.0f, 2.0f}, {23.0f, 4.0f}, {-22.0f, -5.0f}};
 		return {std::make_unique<MemoryDataloader>(data)};
 	}
 	std::unique_ptr<_DataLoader> validationData() override {
-		std::vector<_DataLoader::Instance> data = {{2.0f, 3.0f}, {100.0f, 101.0f}};
+		// y = 5x+3
+		std::vector<_DataLoader::Instance> data = {{18.0f, 3.0f}, {508.0f, 101.0f}};
 		return {std::make_unique<MemoryDataloader>(data)};
 	}
 	std::unique_ptr<_DataLoader> testData() override {
-		std::vector<_DataLoader::Instance> data = {{-20.0f, -19.0f}, {202.0f, 203.0f}};
+		// y = 5x+3
+		std::vector<_DataLoader::Instance> data = {{-92.0f, -19.0f}, {1018.0f, 203.0f}};
 		return {std::make_unique<MemoryDataloader>(data)};
 	}
 };
@@ -74,18 +77,22 @@ int main(int argc, char* argv[]) {
 	MyModel model;
 	dl::TensorPtr& weight = model.parameters().find("factor")->second;
 	dl::TensorPtr& bias = model.parameters().find("bias")->second;
-	weight = dl::constant(2);
-	bias = dl::constant(1);
+	bias->setRequiresGrad(true);
+	weight->setRequiresGrad(true);
 
 	auto conf = dl::TrainerConfBuilder<MyModel>()
 						.setDataset<MyDataset>()
 						.setOptimizer<dl::optim::GradientDescent>(model.parameters())
-						.addObserver(dl::observers::limitEpochs(10))
+						.addObserver(dl::observers::limitEpochs(10000))
 						.addObserver(dl::observers::earlyStopping(3))
 						// .addObserver(dl::observers::consoleUI())
 						.build();
 	auto trainer = dl::Trainer(std::move(conf));
+	auto before = trainer.test(model, dl::MeanError(), dl::lossAdapter(dl::loss::mse));
 	trainer.fit(model, dl::lossAdapter(dl::loss::mse));
-	// trainer.test(model);
+	auto after = trainer.test(model, dl::MeanError(), dl::lossAdapter(dl::loss::mse));
+
+	std::cout << "Test Loss Before Training: " << before << std::endl;
+	std::cout << "Test Loss After Training:  " << after << std::endl;
 	return 0;
 }

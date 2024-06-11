@@ -10,20 +10,20 @@
 namespace dl::optim {
 	class GradientDescent : public dl::Optimizer {
 	private:
-		const std::map<std::string, dl::TensorPtr> parameters;
+		std::map<std::string, dl::TensorRef> parameters;
 		const float learnrate;
 
 	public:
-		explicit GradientDescent(const std::map<std::string, dl::TensorPtr>& parameters, float learnrate = 0.001f)
+		explicit GradientDescent(std::map<std::string, dl::TensorRef>& parameters, float learnrate = 0.001f)
 				: dl::Optimizer(), parameters(parameters), learnrate(learnrate) {}
 
 		virtual void step(dl::TensorPtr& loss) override {
 			loss->backward();
-
-			std::cout << loss << std::endl;
-			/** \todo reintroduce, currently this gives a segmentation fault **/
-			//for (dl::TensorPtr& tensor : parameters)
-			//	tensor->mul_inplace(tensor->grad);
+			for (auto&& [_, tensor] : parameters) {
+				auto& gradient = tensor.get()->gradient();
+				assert(gradient != nullptr);
+				tensor.get() = tensor.get()->add(gradient->mul(dl::constant(-learnrate, gradient->device())));
+			}
 		}
 	};
 } // namespace dl::optim

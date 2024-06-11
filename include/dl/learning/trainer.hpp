@@ -125,7 +125,7 @@ namespace dl {
 			notify(&TrainerObserver::setSubject, (TrainerSubject&)*this);
 		}
 
-		void fit(Model model, auto adapter) {
+		void fit(Model& model, auto adapter) {
 			setRunning();
 			auto& dataset = conf.dataset;
 			assert(dataset != nullptr);
@@ -148,14 +148,14 @@ namespace dl {
 			auto tmp = &TrainerObserver::onTrainingEnded;
 			notify(&TrainerObserver::onTrainingEnded, model);
 		}
-		void validate(Model model, auto evaluator, auto adapter) {}
-		auto test(Model model, auto evaluator, auto adapter) {
-			auto dataset = conf.dataset;
+		void validate(Model& model, auto evaluator, auto adapter) {}
+		auto test(Model& model, auto evaluator, auto adapter) {
+			auto& dataset = conf.dataset;
 			assert(dataset != nullptr);
 			auto dataloader = dataset->testData();
 			assert(dataloader != nullptr);
 			for (auto&& [out, in] : *dataloader) {
-				evaluator += adapter(model, std::forward<decltype(in)>(in), std::forward<decltype(out)>(out));
+				evaluator += adapter(model, in, out);
 			}
 			return evaluator.aggregated();
 		}

@@ -10,7 +10,7 @@ using dl::TensorPtr;
 
 void ModelBase::registerParameter(std::string name, TensorPtr& tensor) {
 	tensor->setRequiresGrad(true);
-	_parameters.insert({name, std::ref(tensor)});
+	_parameters.insert({name, tensor});
 }
 
 size_t ModelBase::numParameters() const noexcept {

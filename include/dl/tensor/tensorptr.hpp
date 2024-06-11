@@ -1,7 +1,6 @@
 #pragma once
 
 #include <concepts>
-#include <experimental/propagate_const>
 #include <memory>
 #include <numeric>
 #include <vector>
@@ -45,10 +44,9 @@ namespace dl {
 	 */
 	class TensorPtr final {
 	private:
-		std::experimental::propagate_const<std::shared_ptr<TensorImpl>> data;
+		std::shared_ptr<TensorImpl> data;
 
-		explicit TensorPtr(std::experimental::propagate_const<std::shared_ptr<TensorImpl>>&& data)
-				: data(std::move(data)) {}
+		explicit TensorPtr(std::shared_ptr<TensorImpl>&& data) : data(std::move(data)) {}
 
 	public:
 		TensorPtr(TensorPtr&& other) : data(std::move(other.data)){};
@@ -68,10 +66,7 @@ namespace dl {
 		const TensorImpl& operator*() const noexcept { return *data; }
 
 		TensorPtr& operator=(const TensorPtr& other);
-		TensorPtr& operator=(TensorPtr&& other) {
-			this->data = std::move(other.data);
-			return *this;
-		}
+		TensorPtr& operator=(TensorPtr&& other);
 
 		bool operator==(const std::nullptr_t& other) const noexcept { return data == other; }
 		operator bool() const noexcept { return (bool)data; }
