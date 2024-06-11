@@ -1,7 +1,7 @@
 var searchData=
 [
   ['a_0',['a',['http://en.cppreference.com/w/cpp/numeric/random/extreme_value_distribution/params.html',1,'std::extreme_value_distribution::a()'],['http://en.cppreference.com/w/cpp/numeric/random/uniform_real_distribution/params.html',1,'std::uniform_real_distribution::a()'],['http://en.cppreference.com/w/cpp/numeric/random/weibull_distribution/params.html',1,'std::weibull_distribution::a()'],['http://en.cppreference.com/w/cpp/numeric/random/uniform_int_distribution/params.html',1,'std::uniform_int_distribution::a()'],['http://en.cppreference.com/w/cpp/numeric/random/cauchy_distribution/params.html',1,'std::cauchy_distribution::a()']]],
-  ['a_20function_1',['a function',['../todo.html#_todo000016',1,'Adding Autodiff Support to a Function'],['../technicalAutodiff.html#autotoc_md13',1,'Adding Autodiff Support to a Function']]],
+  ['a_20function_1',['a function',['../todo.html#_todo000015',1,'Adding Autodiff Support to a Function'],['../technicalAutodiff.html#autotoc_md13',1,'Adding Autodiff Support to a Function']]],
   ['a_20retrieval_20model_2',['Training and Evaluating a Retrieval Model',['../libIRTraining.html',1,'basicsIdx']]],
   ['a_20simple_20training_20example_3',['A Simple Training Example',['../basicIntro.html#autotoc_md7',1,'']]],
   ['abort_4',['abort',['http://en.cppreference.com/w/cpp/utility/program/abort.html',1,'std']]],
@@ -18,7 +18,7 @@ var searchData=
   ['add_5fpointer_15',['add_pointer',['http://en.cppreference.com/w/cpp/types/add_pointer.html',1,'std']]],
   ['add_5frvalue_5freference_16',['add_rvalue_reference',['http://en.cppreference.com/w/cpp/types/add_reference.html',1,'std']]],
   ['add_5fvolatile_17',['add_volatile',['http://en.cppreference.com/w/cpp/types/add_cv.html',1,'std']]],
-  ['adding_20autodiff_20support_20to_20a_20function_18',['adding autodiff support to a function',['../technicalAutodiff.html#autotoc_md13',1,'Adding Autodiff Support to a Function'],['../todo.html#_todo000016',1,'Adding Autodiff Support to a Function']]],
+  ['adding_20autodiff_20support_20to_20a_20function_18',['adding autodiff support to a function',['../technicalAutodiff.html#autotoc_md13',1,'Adding Autodiff Support to a Function'],['../todo.html#_todo000015',1,'Adding Autodiff Support to a Function']]],
   ['address_19',['address',['http://en.cppreference.com/w/cpp/memory/allocator/address.html',1,'std::allocator']]],
   ['addressof_20',['addressof',['http://en.cppreference.com/w/cpp/memory/addressof.html',1,'std']]],
   ['adjacent_5fdifference_21',['adjacent_difference',['http://en.cppreference.com/w/cpp/algorithm/adjacent_difference.html',1,'std']]],
@@ -89,6 +89,6 @@ var searchData=
   ['atomic_5fthread_5ffence_86',['atomic_thread_fence',['http://en.cppreference.com/w/cpp/atomic/atomic_thread_fence.html',1,'std']]],
   ['auto_5fptr_87',['auto_ptr',['http://en.cppreference.com/w/cpp/memory/auto_ptr/auto_ptr.html',1,'std::auto_ptr::auto_ptr()'],['http://en.cppreference.com/w/cpp/memory/auto_ptr.html',1,'std::auto_ptr']]],
   ['autodiff_88',['autodiff',['../technicalAutodiff.html',1,'Automatic Differentiation (Autodiff)'],['../basicAutodiff.html',1,'Introduction to Automatic Differentiation (Autodiff)']]],
-  ['autodiff_20support_20to_20a_20function_89',['autodiff support to a function',['../technicalAutodiff.html#autotoc_md13',1,'Adding Autodiff Support to a Function'],['../todo.html#_todo000016',1,'Adding Autodiff Support to a Function']]],
+  ['autodiff_20support_20to_20a_20function_89',['autodiff support to a function',['../technicalAutodiff.html#autotoc_md13',1,'Adding Autodiff Support to a Function'],['../todo.html#_todo000015',1,'Adding Autodiff Support to a Function']]],
   ['automatic_20differentiation_20autodiff_90',['automatic differentiation autodiff',['../technicalAutodiff.html',1,'Automatic Differentiation (Autodiff)'],['../basicAutodiff.html',1,'Introduction to Automatic Differentiation (Autodiff)']]]
 ];

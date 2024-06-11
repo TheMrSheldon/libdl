@@ -9,7 +9,7 @@ var annotated_dup =
       ] ],
       [ "optim", null, [
         [ "Adam", "classdl_1_1optim_1_1Adam.html", null ],
-        [ "GradientDescent", "classdl_1_1optim_1_1GradientDescent.html", "classdl_1_1optim_1_1GradientDescent" ]
+        [ "GradientDescent", "classdl_1_1optim_1_1GradientDescent.html", null ]
       ] ],
       [ "utils", null, [
         [ "GenericIterator", "classdl_1_1utils_1_1GenericIterator.html", "classdl_1_1utils_1_1GenericIterator" ],
@@ -27,6 +27,7 @@ var annotated_dup =
       [ "InitializerTensor", "structdl_1_1InitializerTensor.html", "structdl_1_1InitializerTensor" ],
       [ "LayerNorm", "classdl_1_1LayerNorm.html", null ],
       [ "Linear", "classdl_1_1Linear.html", null ],
+      [ "MeanError", "classdl_1_1MeanError.html", null ],
       [ "Model", "classdl_1_1Model.html", null ],
       [ "Model< R(Args...)>", "classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html", "classdl_1_1Model_3_01R_07Args_8_8_8_08_4" ],
       [ "ModelBase", "classdl_1_1ModelBase.html", null ],

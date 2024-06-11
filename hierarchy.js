@@ -26,6 +26,7 @@ var hierarchy =
     [ "dl::InitializerTensor< T >", "structdl_1_1InitializerTensor.html", null ],
     [ "ir::IRDataset< typename >", "classir_1_1IRDataset.html", null ],
     [ "dl::utils::LineIterator", "structdl_1_1utils_1_1LineIterator.html", null ],
+    [ "dl::MeanError", "classdl_1_1MeanError.html", null ],
     [ "dl::Model< typename >", "classdl_1_1Model.html", null ],
     [ "dl::Model< dl::TensorPtr(const dl::TensorPtr &)>", "classdl_1_1Model.html", [
       [ "nlp::BERT", "classnlp_1_1BERT.html", null ],

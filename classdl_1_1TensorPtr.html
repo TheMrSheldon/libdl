@@ -222,7 +222,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a34e7c9acd6f6209423d15b11538d0554" id="r_a34e7c9acd6f6209423d15b11538d0554"><td class="memItemLeft" align="right" valign="top"><a id="a34e7c9acd6f6209423d15b11538d0554" name="a34e7c9acd6f6209423d15b11538d0554"></a>
 <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp;other)</td></tr>
 <tr class="separator:a34e7c9acd6f6209423d15b11538d0554"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefeec2fae10bfe0d8a7d2f30922b9bdb" id="r_aefeec2fae10bfe0d8a7d2f30922b9bdb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1TensorPtr.html#aefeec2fae10bfe0d8a7d2f30922b9bdb">operator=</a> (<a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp;&amp;other)</td></tr>
+<tr class="memitem:aefeec2fae10bfe0d8a7d2f30922b9bdb" id="r_aefeec2fae10bfe0d8a7d2f30922b9bdb"><td class="memItemLeft" align="right" valign="top"><a id="aefeec2fae10bfe0d8a7d2f30922b9bdb" name="aefeec2fae10bfe0d8a7d2f30922b9bdb"></a>
+<a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp;&amp;other)</td></tr>
 <tr class="separator:aefeec2fae10bfe0d8a7d2f30922b9bdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef0b685ca6bcb79d36bfdf4ab9103dc3" id="r_aef0b685ca6bcb79d36bfdf4ab9103dc3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1TensorPtr.html#aef0b685ca6bcb79d36bfdf4ab9103dc3">operator==</a> (const <a class="elRef" href="http://en.cppreference.com/w/cpp/types/nullptr_t.html">std::nullptr_t</a> &amp;other) const noexcept</td></tr>
 <tr class="separator:aef0b685ca6bcb79d36bfdf4ab9103dc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -239,7 +240,7 @@ Static Public Member Functions</h2></td></tr>
 <div class="textblock"><p>The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;TensorImpl&gt;. </p>
 <p>The Tensor's main purpose is implementation hiding, which is especially importan since the concrete tensor implementation could be, e.g., a sparse tensor, a dense tensor or even tensors on different devices (i.e., using different drivers like cuda or xtensor). The implementation, generally, is agnostic to these differences and Tensor hides them. </p>
 
-<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00046">46</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00045">45</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="adf8a9c939be848402121b988223a40a7" name="adf8a9c939be848402121b988223a40a7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adf8a9c939be848402121b988223a40a7">&#9670;&#160;</a></span>TensorPtr() <span class="overload">[1/2]</span></h2>
@@ -265,8 +266,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00054">54</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   54</span>: data(<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(other.data)){};</div>
+<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00052">52</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   52</span>: data(<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(other.data)){};</div>
 <div class="ttc" id="amove_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a></div><div class="ttdeci">T move(T... args)</div></div>
 </div><!-- fragment -->
 </div>
@@ -295,8 +296,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00056">56</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   56</span>: data(p) {}</div>
+<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00054">54</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   54</span>: data(p) {}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -327,10 +328,10 @@ template&lt;typename T , typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00080">80</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   80</span>                                                         {</div>
-<div class="line"><span class="lineno">   81</span>            <span class="keywordflow">return</span> TensorPtr(std::make_unique&lt;T&gt;(std::forward&lt;Args&gt;(args)...));</div>
-<div class="line"><span class="lineno">   82</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00075">75</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   75</span>                                                         {</div>
+<div class="line"><span class="lineno">   76</span>            <span class="keywordflow">return</span> TensorPtr(std::make_unique&lt;T&gt;(std::forward&lt;Args&gt;(args)...));</div>
+<div class="line"><span class="lineno">   77</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -357,8 +358,8 @@ template&lt;typename T , typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00077">77</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   77</span>{ <span class="keywordflow">return</span> (<span class="keywordtype">bool</span>)data; }</div>
+<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00072">72</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   72</span>{ <span class="keywordflow">return</span> (<span class="keywordtype">bool</span>)data; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -385,8 +386,8 @@ template&lt;typename T , typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00068">68</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   68</span>{ <span class="keywordflow">return</span> *data; }</div>
+<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00066">66</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   66</span>{ <span class="keywordflow">return</span> *data; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -413,8 +414,8 @@ template&lt;typename T , typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00067">67</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   67</span>{ <span class="keywordflow">return</span> *data; }</div>
+<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00065">65</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   65</span>{ <span class="keywordflow">return</span> *data; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -441,8 +442,8 @@ template&lt;typename T , typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00065">65</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   65</span>{ <span class="keywordflow">return</span> data.get(); }</div>
+<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00063">63</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   63</span>{ <span class="keywordflow">return</span> data.get(); }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -469,40 +470,8 @@ template&lt;typename T , typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00064">64</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   64</span>{ <span class="keywordflow">return</span> data.get(); }</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="aefeec2fae10bfe0d8a7d2f30922b9bdb" name="aefeec2fae10bfe0d8a7d2f30922b9bdb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefeec2fae10bfe0d8a7d2f30922b9bdb">&#9670;&#160;</a></span>operator=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp; dl::TensorPtr::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp;&amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00071">71</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   71</span>                                                {</div>
-<div class="line"><span class="lineno">   72</span>            this-&gt;data = <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(other.data);</div>
-<div class="line"><span class="lineno">   73</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><span class="lineno">   74</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00062">62</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   62</span>{ <span class="keywordflow">return</span> data.get(); }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -530,8 +499,8 @@ template&lt;typename T , typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00076">76</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   76</span>{ <span class="keywordflow">return</span> data == other; }</div>
+<p class="definition">Definition at line <a class="el" href="tensorptr_8hpp_source.html#l00071">71</a> of file <a class="el" href="tensorptr_8hpp_source.html">tensorptr.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   71</span>{ <span class="keywordflow">return</span> data == other; }</div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -189,7 +189,7 @@ $(document).ready(function(){initNavTree('adapters_8hpp_source.html',''); initRe
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="adapters_8hpp.html#ad486cf5893a90bf8648989237cf68a14">   25</a></span>    <span class="keyword">auto</span> <a class="code hl_function" href="adapters_8hpp.html#ad486cf5893a90bf8648989237cf68a14">lossAdapter</a>(<span class="keyword">auto</span> lossObjective) {</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keyword">constexpr</span> <span class="keyword">auto</span> func = [](<span class="keyword">auto</span> loss, <span class="keyword">auto</span> model, <span class="keyword">auto</span> x, <span class="keyword">auto</span> y) { <span class="keywordflow">return</span> loss(model(x), y); };</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keyword">constexpr</span> <span class="keyword">auto</span> func = [](<span class="keyword">auto</span> loss, <span class="keyword">auto</span>&amp; model, <span class="keyword">auto</span>&amp; x, <span class="keyword">auto</span>&amp; y) { <span class="keywordflow">return</span> loss(model(x), y); };</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordflow">return</span> std::bind_front(func, lossObjective);</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
 </div>

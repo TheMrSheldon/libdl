@@ -1,25 +1,23 @@
 <map id="dl/learning/loss.hpp" name="dl/learning/loss.hpp">
-<area shape="rect" id="Node000001" title="Contains some general purpose loss objectives." alt="" coords="157,5,307,31"/>
-<area shape="rect" id="Node000002" href="$math_8hpp.html" title="Implements auto&#45;diff enabled wrappers around their concrete tensor implementations." alt="" coords="161,79,303,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="235,31,235,65,229,65,229,31"/>
-<area shape="rect" id="Node000003" href="$shape_8hpp_source.html" title=" " alt="" coords="59,152,149,177"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="213,106,138,147,136,143,210,102"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="113,233,175,258"/>
-<area shape="poly" id="edge12_Node000002_Node000005" title=" " alt="" coords="228,105,160,222,155,220,223,103"/>
-<area shape="rect" id="Node000006" href="$tensorptr_8hpp_source.html" title=" " alt="" coords="225,152,333,177"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="242,103,266,139,261,142,237,106"/>
-<area shape="rect" id="Node000011" title=" " alt="" coords="357,152,437,177"/>
-<area shape="poly" id="edge11_Node000002_Node000011" title=" " alt="" coords="260,102,359,144,357,149,258,106"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="5,233,88,258"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="98,179,65,223,61,220,93,176"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="112,176,134,219,130,222,108,179"/>
-<area shape="poly" id="edge10_Node000006_Node000005" title=" " alt="" coords="260,180,177,228,174,223,257,175"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="200,233,280,258"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="275,179,254,221,249,219,271,176"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="304,225,483,265"/>
-<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="297,175,356,215,353,220,294,180"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="507,233,584,258"/>
-<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="325,175,495,223,503,225,502,230,494,228,324,180"/>
-<area shape="rect" id="Node000010" title=" " alt="" coords="608,233,683,258"/>
-<area shape="poly" id="edge9_Node000006_Node000010" title=" " alt="" coords="333,173,597,223,606,226,605,231,595,228,332,178"/>
+<area shape="rect" id="Node000001" title="Contains some general purpose loss objectives." alt="" coords="119,5,268,31"/>
+<area shape="rect" id="Node000002" href="$math_8hpp.html" title="Implements auto&#45;diff enabled wrappers around their concrete tensor implementations." alt="" coords="123,79,264,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,31,196,65,191,65,191,31"/>
+<area shape="rect" id="Node000003" href="$shape_8hpp_source.html" title=" " alt="" coords="21,152,110,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="174,106,100,147,97,143,171,102"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="113,225,175,251"/>
+<area shape="poly" id="edge11_Node000002_Node000005" title=" " alt="" coords="192,105,155,213,150,212,187,104"/>
+<area shape="rect" id="Node000006" href="$tensorptr_8hpp_source.html" title=" " alt="" coords="186,152,294,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="203,103,227,139,223,142,199,106"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="319,152,399,177"/>
+<area shape="poly" id="edge10_Node000002_Node000010" title=" " alt="" coords="221,102,320,144,318,149,219,106"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,225,88,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="65,178,56,213,51,212,60,177"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="80,175,123,214,119,218,76,179"/>
+<area shape="poly" id="edge9_Node000006_Node000005" title=" " alt="" coords="226,180,172,219,169,215,223,175"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="200,225,280,251"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="243,178,243,212,237,212,237,178"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="304,225,381,251"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="258,175,316,215,313,219,255,180"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="405,225,480,251"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="273,175,398,218,396,223,272,180"/>
 </map>
