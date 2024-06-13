@@ -175,22 +175,87 @@ $(document).ready(function(){initNavTree('basicIntro.html',''); initResizable();
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#autotoc_md6">Setting up the Project</a></li>
-<li class="level1"><a href="#autotoc_md7">A Simple Training Example</a></li>
-<li class="level1"><a href="#autotoc_md8">Common Pitfalls for Newcommers to C++</a></li>
+<ul><li class="level1"><a href="#autotoc_md4">Setting up the Project</a></li>
+<li class="level1"><a href="#autotoc_md5">A Simple Training Example</a></li>
+<li class="level1"><a href="#autotoc_md6">Common Pitfalls for Newcommers to C++</a></li>
 </ul>
 </div>
 <div class="textblock"><dl class="section attention"><dt>Attention</dt><dd>This introduction guide is aimed at people with no prior experience in C++ or CMake.</dd></dl>
-<h1><a class="anchor" id="autotoc_md6"></a>
+<h1><a class="anchor" id="autotoc_md4"></a>
 Setting up the Project</h1>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>WIP</dd></dl>
-<h1><a class="anchor" id="autotoc_md7"></a>
+<h1><a class="anchor" id="autotoc_md5"></a>
 A Simple Training Example</h1>
-<p>Create a new file called <code>main.cpp</code> in your <code>src</code> directory with the following contents: </p><div class="fragment"><div class="line"><span class="comment">// todo</span></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md8"></a>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>Example training, validating and evaluating on MNIST Digits Create a new file called <code>main.cpp</code> in your <code>src</code> directory with the following contents: </dd></dl>
+<div class="fragment"><div class="line"><span class="comment">// todo</span></div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
 Common Pitfalls for Newcommers to C++</h1>
+<dl class="section note"><dt>Note</dt><dd>Please do not let these pitfalls make you think that C++ may be too daunting... after all everything is daunting when one first starts out. Instead, let it be a lesson to use linters to look over your shoulder and teach your &ndash; as should be done in any language.</dd></dl>
 <ol type="1">
-<li>Do not forget include guards in your headers </li>
+<li>If a class should be inherited from, it <b>must</b> declare a public virtual destructor: <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>WrongBase {};</div>
+<div class="line"><span class="keyword">class </span>RightBase {</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <span class="keyword">virtual</span> ~RightBase() = <span class="keywordflow">default</span>;</div>
+<div class="line">};</div>
+<div class="line"><span class="keyword">class </span>WrongDerived : <span class="keyword">public</span> WrongBase {</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    ~WrongDerived() {</div>
+<div class="line">        <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;WrongDerived Destroyed&quot;</span> &lt;&lt; <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="line"><span class="keyword">class </span>RightDerived : <span class="keyword">public</span> RightBase {</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <span class="keyword">virtual</span> ~RightDerived() {</div>
+<div class="line">        <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;RightDerived Destroyed&quot;</span> &lt;&lt; <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[]) {</div>
+<div class="line">    WrongBase* ptrA = <span class="keyword">new</span> WrongDerived;</div>
+<div class="line">    RightBase* ptrB = <span class="keyword">new</span> RightDerived;</div>
+<div class="line">    <span class="keyword">delete</span> ptrA;</div>
+<div class="line">    <span class="keyword">delete</span> ptrB;</div>
+<div class="line">}</div>
+<div class="ttc" id="abasic_ostream_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a></div></div>
+<div class="ttc" id="aendl_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a></div><div class="ttdeci">T endl(T... args)</div></div>
+</div><!-- fragment --> will only print out <code>RightDerived Destroyed</code> and <b>not</b> <code>WrongDerived Destroyed</code>. <dl class="section note"><dt>Note</dt><dd>This problem is not exclusive to raw pointers and can also occur if you don't use them. In this case, raw pointers are the simplest form of showing it crash and burn.</dd></dl>
+</li>
+<li>Passing child-types by value. Consider the following example: <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>Base {</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <span class="keyword">virtual</span> ~Base() = <span class="keywordflow">default</span>;</div>
+<div class="line">    <span class="keyword">virtual</span> <span class="keywordtype">void</span> doSomething() {</div>
+<div class="line">        <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;Base&quot;</span> &lt;&lt; <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="line"><span class="keyword">class </span>Derived : <span class="keyword">public</span> Base {</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <span class="keyword">virtual</span> <span class="keywordtype">void</span> doSomething()<span class="keyword"> override </span>{</div>
+<div class="line">        <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;Derived&quot;</span> &lt;&lt; <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> wrong(Base base) { <span class="comment">// Wrong; Arguments are passed *by value*!</span></div>
+<div class="line">    base.doSomething();</div>
+<div class="line">}</div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/io/manip/left.html">right</a>(Base&amp; base) { <span class="comment">// Correct; Arguments are passed *by reference* :)</span></div>
+<div class="line">    base.doSomething();</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[]) {</div>
+<div class="line">    Derived derived;</div>
+<div class="line">    wrong(derived);</div>
+<div class="line">    <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/io/manip/left.html">right</a>(derived);</div>
+<div class="line">}</div>
+<div class="ttc" id="aleft_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/manip/left.html">std::right</a></div><div class="ttdeci">T right(T... args)</div></div>
+</div><!-- fragment --> If you run this, you will see that it prints out <code>Base</code> and then <code>Derived</code>, which may be surprising. But consider this: <code>wrong(derived)</code> actually creates a <b>copy</b> of the object to pass by copying <code>derived</code>. As such, the code is equivalent to <div class="fragment"><div class="line">Base base = Base(derived);</div>
+<div class="line">base.doSomething();</div>
+</div><!-- fragment --></li>
+<li>Do not forget include guards in your headers</li>
+<li><a href="https://en.cppreference.com/w/cpp/language/rule_of_three">Rule of 3, Rule of 5, Rule of 0</a> </li>
 </ol>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

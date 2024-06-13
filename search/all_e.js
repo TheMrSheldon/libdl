@@ -17,7 +17,7 @@ var searchData=
   ['nested_5fexception_14',['nested_exception',['http://en.cppreference.com/w/cpp/error/nested_exception/nested_exception.html',1,'std::nested_exception::nested_exception()'],['http://en.cppreference.com/w/cpp/error/nested_exception.html',1,'std::nested_exception']]],
   ['nested_5fptr_15',['nested_ptr',['http://en.cppreference.com/w/cpp/error/nested_exception/nested_ptr.html',1,'std::nested_exception']]],
   ['new_5fhandler_16',['new_handler',['http://en.cppreference.com/w/cpp/memory/new/new_handler.html',1,'std']]],
-  ['newcommers_20to_20c_17',['Common Pitfalls for Newcommers to C++',['../basicIntro.html#autotoc_md8',1,'']]],
+  ['newcommers_20to_20c_17',['Common Pitfalls for Newcommers to C++',['../basicIntro.html#autotoc_md6',1,'']]],
   ['next_18',['next',['http://en.cppreference.com/w/cpp/iterator/next.html',1,'std']]],
   ['next_5fpermutation_19',['next_permutation',['http://en.cppreference.com/w/cpp/algorithm/next_permutation.html',1,'std']]],
   ['nextafter_20',['nextafter',['http://en.cppreference.com/w/cpp/numeric/math/nextafter.html',1,'std']]],

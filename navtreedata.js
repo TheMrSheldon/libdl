@@ -32,41 +32,40 @@ var NAVTREE =
     [ "Basics", "basicsIdx.html", [
       [ "Information Retrieval (libir)", "basicsIdx.html#autotoc_md3", null ],
       [ "Getting Started", "basicIntro.html", [
-        [ "Setting up the Project", "basicIntro.html#autotoc_md6", null ],
-        [ "A Simple Training Example", "basicIntro.html#autotoc_md7", null ],
-        [ "Common Pitfalls for Newcommers to C++", "basicIntro.html#autotoc_md8", null ]
+        [ "Setting up the Project", "basicIntro.html#autotoc_md4", null ],
+        [ "A Simple Training Example", "basicIntro.html#autotoc_md5", null ],
+        [ "Common Pitfalls for Newcommers to C++", "basicIntro.html#autotoc_md6", null ]
       ] ],
-      [ "Arithmetics", "basicArithmetics.html", [
-        [ "What is the difference between const Tensor&, Tensor&, Tensor&&?", "basicArithmetics.html#autotoc_md4", [
-          [ "Small Exercise", "basicArithmetics.html#autotoc_md5", null ]
-        ] ]
-      ] ],
+      [ "Arithmetics", "basicArithmetics.html", null ],
       [ "Introduction to Automatic Differentiation (Autodiff)", "basicAutodiff.html", null ],
       [ "Training and Evaluating a Retrieval Model", "libIRTraining.html", [
-        [ "Datasets", "libIRTraining.html#autotoc_md9", null ],
-        [ "Training", "libIRTraining.html#autotoc_md10", null ],
-        [ "Evaluation", "libIRTraining.html#autotoc_md11", null ]
+        [ "Datasets", "libIRTraining.html#autotoc_md7", null ],
+        [ "Training", "libIRTraining.html#autotoc_md8", null ],
+        [ "Evaluation", "libIRTraining.html#autotoc_md9", null ]
       ] ]
     ] ],
     [ "Technical", "technicalIdx.html", [
+      [ "Tensors", "technicalTensors.html", [
+        [ "Design Decisions", "technicalTensors.html#autotoc_md15", null ]
+      ] ],
       [ "Automatic Differentiation (Autodiff)", "technicalAutodiff.html", [
-        [ "How it works", "technicalAutodiff.html#autotoc_md12", null ],
-        [ "Adding Autodiff Support to a Function", "technicalAutodiff.html#autotoc_md13", null ],
-        [ "Gradients", "technicalAutodiff.html#autotoc_md14", [
-          [ "Gradients of Matrix Operations", "technicalAutodiff.html#autotoc_md15", [
-            [ "Matrix Product", "technicalAutodiff.html#autotoc_md16", null ]
+        [ "How it works", "technicalAutodiff.html#autotoc_md10", null ],
+        [ "Adding Autodiff Support to a Function", "technicalAutodiff.html#autotoc_md11", null ],
+        [ "Gradients", "technicalAutodiff.html#autotoc_md12", [
+          [ "Gradients of Matrix Operations", "technicalAutodiff.html#autotoc_md13", [
+            [ "Matrix Product", "technicalAutodiff.html#autotoc_md14", null ]
           ] ]
         ] ]
       ] ],
       [ "Transformer", "technicalTransformer.html", [
-        [ "Background and Implementation", "technicalTransformer.html#autotoc_md17", [
-          [ "Optimization", "technicalTransformer.html#autotoc_md18", null ]
+        [ "Background and Implementation", "technicalTransformer.html#autotoc_md16", [
+          [ "Optimization", "technicalTransformer.html#autotoc_md17", null ]
         ] ],
-        [ "Architectures", "technicalTransformer.html#autotoc_md19", [
-          [ "BERT", "technicalTransformer.html#autotoc_md20", null ]
+        [ "Architectures", "technicalTransformer.html#autotoc_md18", [
+          [ "BERT", "technicalTransformer.html#autotoc_md19", null ]
         ] ],
-        [ "Tokenization", "technicalTransformer.html#autotoc_md21", [
-          [ "WordPiece", "technicalTransformer.html#autotoc_md22", null ]
+        [ "Tokenization", "technicalTransformer.html#autotoc_md20", [
+          [ "WordPiece", "technicalTransformer.html#autotoc_md21", null ]
         ] ]
       ] ]
     ] ],
