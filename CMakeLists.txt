@@ -67,7 +67,7 @@ if((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME) AND LIBDL_BUILD_DOCS)
 	set(DOXYGEN_GENERATE_HTML "YES")
 
     ## Install and configure the "Doxygen Awesome" theme
-	FetchContent_Declare(doxawesome GIT_REPOSITORY https://github.com/jothepro/doxygen-awesome-css GIT_TAG v2.3.2)
+	FetchContent_Declare(doxawesome GIT_REPOSITORY https://github.com/jothepro/doxygen-awesome-css GIT_TAG v2.3.3)
 	FetchContent_MakeAvailable(doxawesome)
 	set(DOXYGEN_GENERATE_TREEVIEW "YES")
 	set(DOXYGEN_DISABLE_INDEX "NO")
