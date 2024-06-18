@@ -3,6 +3,21 @@
  * @brief Implements auto-diff enabled wrappers around their concrete tensor implementations.
  */
 
+/**
+ * @defgroup TensorOp Tensor Operations
+ */
+
+/**
+ * @defgroup Arithmetic Arithmetic Tensor Operations
+ * @ingroup TensorOp
+ */
+
+/**
+ * @defgroup Statistics Statistical Tensor Operations
+ * @ingroup TensorOp
+ * 
+ */
+
 #pragma once
 
 #include "shape.hpp"
@@ -15,35 +30,145 @@ namespace dl {
 	/**
 	 * @brief Computes the \p exponent -th power of each element in \p base and returns the resulting tensor.
 	 * @details
+	 * @ingroup Arithmetic
 	 * @param base the basis for which to compute the \p exponent -th power.
 	 * @param exponent the exponent.
 	 * @return the \p exponent -th power of each component of \p base .
 	 */
 	[[nodiscard]] TensorPtr pow(TensorPtr base, float exponent) noexcept;
 
-	[[nodiscard]] TensorPtr exp(TensorPtr base) noexcept;
+	/**
+	 * @brief Computes the elementwise \p x -th power of e.
+	 * @details \f[(x_i)_{1\leq i \leq n} \mapsto (e^{x_i})_{1\leq i \leq n}.\f]
+	 * @ingroup Arithmetic
+	 * 
+	 * @param base 
+	 * @return the \p x -th power of e for  each component of \p x .
+	 */
+	[[nodiscard]] TensorPtr exp(TensorPtr x) noexcept;
 
+	/**
+	 * @brief Natural logarithm, \f(\log_e(\,\cdot\,)\f)
+	 * @details \f[(x_i)_{1\leq i \leq n} \mapsto (\log_e x_i)_{1\leq i \leq n}.\f]
+	 * @ingroup Arithmetic
+	 * 
+	 * @param x 
+	 * @return the natural logarithm of \p x .
+	 */
+	[[nodiscard]] TensorPtr log(TensorPtr x) noexcept;
+
+	/**
+	 * @brief Computes the elementwise square root of \p x .
+	 * @details \f[(x_i)_{1\leq i \leq n} \mapsto (\sqrt{x_i})_{1\leq i \leq n}.\f]
+	 * @ingroup Arithmetic
+	 * 
+	 * @param x 
+	 * @return the square root of each component of \p x .
+	 */
 	[[nodiscard]] TensorPtr sqrt(TensorPtr x) noexcept;
 
 	/**
 	 * @brief Computes the reciprocal square root for each element in \p x.
+	 * @details \f[(x_i)_{1\leq i \leq n} \mapsto \left(\frac{1}{\sqrt{x_i}}\right)_{1\leq i \leq n}.\f]
+	 * @ingroup Arithmetic
 	 * 
 	 * @param x 
 	 * @return 
 	 */
 	[[nodiscard]] TensorPtr rsqrt(TensorPtr x) noexcept;
 
+	/**
+	 * @brief Mean
+	 * @details
+	 * @ingroup Statistics
+	 * 
+	 * @param x 
+	 * @return TensorPtr 
+	 */
 	[[nodiscard]] TensorPtr mean(TensorPtr x) noexcept;
+	/**
+	 * @brief Mean along a specified axis
+	 * @details
+	 * @ingroup Statistics
+	 * 
+	 * @param x 
+	 * @param dim 
+	 * @param keepdim 
+	 * @return TensorPtr 
+	 */
 	[[nodiscard]] TensorPtr mean(TensorPtr x, int dim, bool keepdim = false) noexcept;
 
+	/**
+	 * @brief Sum
+	 * @details
+	 * @ingroup Statistics
+	 * 
+	 * @param x 
+	 * @return TensorPtr 
+	 */
 	[[nodiscard]] TensorPtr sum(TensorPtr x) noexcept;
+	/**
+	 * @brief Sum along a specified axis
+	 * @details
+	 * @ingroup Statistics
+	 * 
+	 * @param x 
+	 * @param dim 
+	 * @param keepdim 
+	 * @return TensorPtr 
+	 */
 	[[nodiscard]] TensorPtr sum(TensorPtr x, int dim, bool keepdim = false) noexcept;
 
+	/**
+	 * @brief Minimum
+	 * @details
+	 * @ingroup Statistics
+	 * 
+	 * @param x 
+	 * @return TensorPtr 
+	 */
 	[[nodiscard]] TensorPtr min(TensorPtr x) noexcept;
+	/**
+	 * @brief Minimum along a specified axis
+	 * @details
+	 * @ingroup Statistics
+	 * 
+	 * @param x 
+	 * @param dim 
+	 * @param keepdim 
+	 * @return TensorPtr 
+	 */
 	[[nodiscard]] TensorPtr min(TensorPtr x, int dim, bool keepdim = false) noexcept;
 
+	/**
+	 * @brief Maximum
+	 * @details
+	 * @ingroup Statistics
+	 * 
+	 * @param x 
+	 * @return TensorPtr 
+	 */
 	[[nodiscard]] TensorPtr max(TensorPtr x) noexcept;
+	/**
+	 * @brief Maximum along a specified axis
+	 * @details
+	 * @ingroup Statistics
+	 * 
+	 * @param x 
+	 * @param dim 
+	 * @param keepdim 
+	 * @return TensorPtr 
+	 */
 	[[nodiscard]] TensorPtr max(TensorPtr x, int dim, bool keepdim = false) noexcept;
+	/**
+	 * @brief Elementwise maximum
+	 * @details
+	 * @ingroup Statistics
+	 * 
+	 * @param x 
+	 * @param y 
+	 * @return TensorPtr 
+	 */
 	[[nodiscard]] TensorPtr max(TensorPtr x, TensorPtr y) noexcept;
 
 	/**
@@ -53,9 +178,36 @@ namespace dl {
 		size_t dof;
 	};
 
+	/**
+	 * @brief Variance
+	 * @details
+	 * @ingroup Statistics
+	 * 
+	 * @param x 
+	 * @param dof 
+	 * @return TensorPtr 
+	 */
 	[[nodiscard]] TensorPtr var(TensorPtr x, DOF dof = DOF{1}) noexcept;
+	/**
+	 * @brief Variance along a specified axis
+	 * @details
+	 * @ingroup Statistics
+	 * 
+	 * @param x 
+	 * @param dim 
+	 * @param dof 
+	 * @return TensorPtr 
+	 */
 	[[nodiscard]] TensorPtr var(TensorPtr x, int dim, DOF dof = DOF{1}) noexcept;
 
+	/**
+	 * @brief (Gauss) Error Function
+	 * @details
+	 * @ingroup Statistics
+	 * 
+	 * @param x 
+	 * @return TensorPtr 
+	 */
 	[[nodiscard]] TensorPtr erf(TensorPtr x) noexcept;
 
 	[[nodiscard]] TensorPtr relu(TensorPtr x) noexcept;

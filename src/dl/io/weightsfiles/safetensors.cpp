@@ -13,10 +13,10 @@ using json = nlohmann::json;
 
 class SafetensorsFormat final : public dl::io::WeightsFileFormat {
 private:
-	dl::log::LoggerPtr logger;
+	dl::logging::LoggerPtr logger;
 
 public:
-	SafetensorsFormat() noexcept : logger(dl::log::getLogger("Safetensors")) {}
+	SafetensorsFormat() noexcept : logger(dl::logging::getLogger("Safetensors")) {}
 
 	virtual bool loadModelFromStream(dl::ModelBase& model, std::istream& stream) override {
 		std::set<std::string> paramNames;

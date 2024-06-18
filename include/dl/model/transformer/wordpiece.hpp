@@ -34,7 +34,7 @@ namespace dl {
 		};
 
 	private:
-		dl::log::LoggerPtr logger;
+		dl::logging::LoggerPtr logger;
 		std::string contSubwordPrefix;
 		std::experimental::propagate_const<
 				std::unique_ptr<tsl::htrie_map<char, size_t, tsl::ah::str_hash<char>, std::uint16_t>>>

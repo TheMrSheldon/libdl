@@ -12,7 +12,7 @@ using json = nlohmann::json;
 using dl::WordPieceTokenizer;
 
 WordPieceTokenizer::WordPieceTokenizer(Conf conf, PieceIter begin, PieceIter end) noexcept
-		: logger(dl::log::getLogger("WordPiece")), contSubwordPrefix(conf.contSubwordPrefix),
+		: logger(dl::logging::getLogger("WordPiece")), contSubwordPrefix(conf.contSubwordPrefix),
 		  trie(std::make_unique<tsl::htrie_map<char, size_t>>()) {
 	for (auto it = begin; it != end; ++it) {
 		trie->insert(std::get<0>(*it), std::get<1>(*it));

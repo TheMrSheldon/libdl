@@ -174,6 +174,7 @@ namespace dl {
 		}
 
 		virtual TensorPtr exp() const noexcept override { return createResult(xt::exp(data), requiresGrad()); }
+		virtual TensorPtr log() const noexcept override { return createResult(xt::log(data), requiresGrad()); }
 		virtual TensorPtr sqrt() const noexcept override { return createResult(xt::sqrt(data), requiresGrad()); }
 		virtual TensorPtr rsqrt() const noexcept override { return createResult(1 / xt::sqrt(data), requiresGrad()); }
 

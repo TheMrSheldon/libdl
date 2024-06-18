@@ -50,8 +50,8 @@ dl::WordPieceTokenizer loadTokenizerFromHuggingFace(std::string repoURL, const h
 }
 
 int main(void) {
-	dl::log::setVerbosity(dl::log::Verbosity::Debug);
-	auto logger = dl::log::getLogger("main");
+	dl::logging::setVerbosity(dl::logging::Verbosity::Debug);
+	auto logger = dl::logging::getLogger("main");
 
 	// auto tokenizer = loadTokenizerFromHuggingFace("google-bert/bert-base-uncased");
 	auto tokenizerConf = std::ifstream("tokenizer.json", std::ios::binary);

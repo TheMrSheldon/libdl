@@ -6,7 +6,7 @@
 
 using namespace ir;
 
-static auto logger = dl::log::getLogger("datasets");
+static auto logger = dl::logging::getLogger("datasets");
 
 template <>
 std::unique_ptr<PointwiseDataset> ir::datasets::load<>(std::string identifier) noexcept {

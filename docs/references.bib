@@ -1,123 +1,172 @@
-@misc{adam,
-  title         = {Adam: {{A Method}} for {{Stochastic Optimization}}},
-  shorttitle    = {Adam},
-  author        = {Kingma, Diederik P. and Ba, Jimmy},
-  year          = {2017},
-  month         = jan,
-  number        = {arXiv:1412.6980},
-  eprint        = {1412.6980},
-  primaryclass  = {cs},
-  publisher     = {arXiv},
-  urldate       = {2024-05-06},
-  archiveprefix = {arxiv},
-  langid        = {english},
-  keywords      = {Computer Science - Machine Learning}
+@inproceedings{adam,
+  author    = {Diederik P. Kingma and Jimmy Ba},
+  editor    = {Yoshua Bengio and Yann LeCun},
+  title     = {Adam: {A} Method for Stochastic Optimization},
+  booktitle = {3rd International Conference on Learning Representations, {ICLR} 2015,
+               San Diego, CA, USA, May 7-9, 2015, Conference Track Proceedings},
+  year      = {2015},
+  url       = {http://arxiv.org/abs/1412.6980}
 }
 
-@misc{bert,
-  title         = {{{BERT}}: {{Pre-training}} of {{Deep Bidirectional Transformers}} for {{Language Understanding}}},
-  shorttitle    = {{{BERT}}},
-  author        = {Devlin, Jacob and Chang, Ming-Wei and Lee, Kenton and Toutanova, Kristina},
-  year          = {2019},
-  month         = may,
-  number        = {arXiv:1810.04805},
-  eprint        = {1810.04805},
-  primaryclass  = {cs},
-  publisher     = {arXiv},
-  doi           = {10.48550/arXiv.1810.04805},
-  urldate       = {2024-05-06},
-  archiveprefix = {arxiv},
-  keywords      = {Computer Science - Computation and Language}
+@article{autodiff_survey,
+  title      = {Automatic {{Differentiation}} in {{Machine Learning}}: A {{Survey}}},
+  shorttitle = {Automatic {{Differentiation}} in {{Machine Learning}}},
+  author     = {Baydin, Atilim Gunes and Pearlmutter, Barak A. and Radul, Alexey Andreyevich and Siskind, Jeffrey Mark},
+  year       = {2017},
+  journal    = {J. Mach. Learn. Res.},
+  volume     = {18},
+  pages      = {153:1--153:43},
+  urldate    = {2024-06-17}
 }
 
-@misc{fast_wordpiece,
-  title         = {Fast {{WordPiece Tokenization}}},
-  author        = {Song, Xinying and Salcianu, Alex and Song, Yang and Dopson, Dave and Zhou, Denny},
-  year          = {2021},
-  month         = oct,
-  number        = {arXiv:2012.15524},
-  eprint        = {2012.15524},
-  primaryclass  = {cs},
-  publisher     = {arXiv},
-  urldate       = {2024-05-06},
-  archiveprefix = {arxiv},
-  langid        = {english},
-  keywords      = {Computer Science - Computation and Language}
+@inproceedings{bert,
+  author    = {Jacob Devlin and Ming{-}Wei Chang and Kenton Lee and Kristina Toutanova},
+  editor    = {Jill Burstein and Christy Doran and Thamar Solorio},
+  title     = {{BERT:} Pre-training of Deep Bidirectional Transformers for Language Understanding},
+  booktitle = {Proceedings of the 2019 Conference of the North American Chapter of
+               the Association for Computational Linguistics: Human Language Technologies,
+               {NAACL-HLT} 2019, Minneapolis, MN, USA, June 2-7, 2019, Volume 1 (Long
+               and Short Papers)},
+  pages     = {4171--4186},
+  publisher = {Association for Computational Linguistics},
+  year      = {2019},
+  url       = {https://doi.org/10.18653/v1/n19-1423},
+  doi       = {10.18653/V1/N19-1423}
 }
 
-@misc{layernorm,
-  title         = {Layer {{Normalization}}},
-  author        = {Ba, Jimmy Lei and Kiros, Jamie Ryan and Hinton, Geoffrey E.},
-  year          = {2016},
-  month         = jul,
-  number        = {arXiv:1607.06450},
-  eprint        = {1607.06450},
-  primaryclass  = {cs, stat},
-  publisher     = {arXiv},
-  doi           = {10.48550/arXiv.1607.06450},
-  urldate       = {2024-05-12},
-  archiveprefix = {arxiv},
-  keywords      = {Computer Science - Machine Learning,Statistics - Machine Learning}
+@inproceedings{fast_wordpiece,
+  author    = {Xinying Song and
+               Alex Salcianu and
+               Yang Song and
+               Dave Dopson and
+               Denny Zhou},
+  editor    = {Marie{-}Francine Moens and
+               Xuanjing Huang and
+               Lucia Specia and
+               Scott Wen{-}tau Yih},
+  title     = {Fast WordPiece Tokenization},
+  booktitle = {Proceedings of the 2021 Conference on Empirical Methods in Natural
+               Language Processing, {EMNLP} 2021, Virtual Event / Punta Cana, Dominican
+               Republic, 7-11 November, 2021},
+  pages     = {2089--2103},
+  publisher = {Association for Computational Linguistics},
+  year      = {2021},
+  url       = {https://doi.org/10.18653/v1/2021.emnlp-main.160},
+  doi       = {10.18653/V1/2021.EMNLP-MAIN.160}
 }
 
-@misc{monobert,
-  title         = {Passage {{Re-ranking}} with {{BERT}}},
-  author        = {Nogueira, Rodrigo and Cho, Kyunghyun},
-  year          = {2020},
-  month         = apr,
-  number        = {arXiv:1901.04085},
-  eprint        = {1901.04085},
-  primaryclass  = {cs},
-  publisher     = {arXiv},
-  doi           = {10.48550/arXiv.1901.04085},
-  urldate       = {2023-12-20},
-  archiveprefix = {arxiv},
-  keywords      = {Computer Science - Computation and Language,Computer Science - Information Retrieval,Computer Science - Machine Learning}
+@article{layernorm,
+  author     = {Lei Jimmy Ba and
+                Jamie Ryan Kiros and
+                Geoffrey E. Hinton},
+  title      = {Layer Normalization},
+  journal    = {CoRR},
+  volume     = {abs/1607.06450},
+  year       = {2016},
+  url        = {http://arxiv.org/abs/1607.06450},
+  eprinttype = {arXiv},
+  eprint     = {1607.06450}
 }
 
-@misc{msmarco,
-  title         = {{{MS MARCO}}: {{A Human Generated MAchine Reading COmprehension Dataset}}},
-  shorttitle    = {{{MS MARCO}}},
-  author        = {Bajaj, Payal and Campos, Daniel and Craswell, Nick and Deng, Li and Gao, Jianfeng and Liu, Xiaodong and Majumder, Rangan and McNamara, Andrew and Mitra, Bhaskar and Nguyen, Tri and Rosenberg, Mir and Song, Xia and Stoica, Alina and Tiwary, Saurabh and Wang, Tong},
-  year          = {2018},
-  month         = oct,
-  number        = {arXiv:1611.09268},
-  eprint        = {1611.09268},
-  primaryclass  = {cs},
-  publisher     = {arXiv},
-  doi           = {10.48550/arXiv.1611.09268},
-  urldate       = {2024-05-24},
-  archiveprefix = {arxiv},
-  keywords      = {Computer Science - Computation and Language,Computer Science - Information Retrieval}
+@article{monobert,
+  author     = {Rodrigo Frassetto Nogueira and
+                Kyunghyun Cho},
+  title      = {Passage Re-ranking with {BERT}},
+  journal    = {CoRR},
+  volume     = {abs/1901.04085},
+  year       = {2019},
+  url        = {http://arxiv.org/abs/1901.04085},
+  eprinttype = {arXiv},
+  eprint     = {1901.04085}
 }
 
-@misc{transformer,
-  title         = {Attention {{Is All You Need}}},
-  author        = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N. and Kaiser, Lukasz and Polosukhin, Illia},
-  year          = {2023},
-  month         = aug,
-  number        = {arXiv:1706.03762},
-  eprint        = {1706.03762},
-  primaryclass  = {cs},
-  publisher     = {arXiv},
-  doi           = {10.48550/arXiv.1706.03762},
-  urldate       = {2023-12-07},
-  archiveprefix = {arxiv},
-  keywords      = {Computer Science - Computation and Language,Computer Science - Machine Learning}
+@inproceedings{msmarco,
+  author    = {Tri Nguyen and
+               Mir Rosenberg and
+               Xia Song and
+               Jianfeng Gao and
+               Saurabh Tiwary and
+               Rangan Majumder and
+               Li Deng},
+  editor    = {Tarek Richard Besold and
+               Antoine Bordes and
+               Artur S. d'Avila Garcez and
+               Greg Wayne},
+  title     = {{MS} {MARCO:} {A} Human Generated MAchine Reading COmprehension Dataset},
+  booktitle = {Proceedings of the Workshop on Cognitive Computation: Integrating
+               neural and symbolic approaches 2016 co-located with the 30th Annual
+               Conference on Neural Information Processing Systems {(NIPS} 2016),
+               Barcelona, Spain, December 9, 2016},
+  series    = {{CEUR} Workshop Proceedings},
+  volume    = {1773},
+  publisher = {CEUR-WS.org},
+  year      = {2016},
+  url       = {https://ceur-ws.org/Vol-1773/CoCoNIPS\_2016\_paper9.pdf}
 }
 
-@misc{wordpiece,
-  title         = {Google's {{Neural Machine Translation System}}: {{Bridging}} the {{Gap}} between {{Human}} and {{Machine Translation}}},
-  shorttitle    = {Google's {{Neural Machine Translation System}}},
-  author        = {Wu, Yonghui and Schuster, Mike and Chen, Zhifeng and Le, Quoc V. and Norouzi, Mohammad and Macherey, Wolfgang and Krikun, Maxim and Cao, Yuan and Gao, Qin and Macherey, Klaus and Klingner, Jeff and Shah, Apurva and Johnson, Melvin and Liu, Xiaobing and Kaiser, {\L}ukasz and Gouws, Stephan and Kato, Yoshikiyo and Kudo, Taku and Kazawa, Hideto and Stevens, Keith and Kurian, George and Patil, Nishant and Wang, Wei and Young, Cliff and Smith, Jason and Riesa, Jason and Rudnick, Alex and Vinyals, Oriol and Corrado, Greg and Hughes, Macduff and Dean, Jeffrey},
-  year          = {2016},
-  month         = oct,
-  number        = {arXiv:1609.08144},
-  eprint        = {1609.08144},
-  primaryclass  = {cs},
-  publisher     = {arXiv},
-  urldate       = {2024-05-06},
-  archiveprefix = {arxiv},
-  langid        = {english},
-  keywords      = {Computer Science - Artificial Intelligence,Computer Science - Computation and Language,Computer Science - Machine Learning}
+@inproceedings{transformer,
+  author    = {Ashish Vaswani and
+               Noam Shazeer and
+               Niki Parmar and
+               Jakob Uszkoreit and
+               Llion Jones and
+               Aidan N. Gomez and
+               Lukasz Kaiser and
+               Illia Polosukhin},
+  editor    = {Isabelle Guyon and
+               Ulrike von Luxburg and
+               Samy Bengio and
+               Hanna M. Wallach and
+               Rob Fergus and
+               S. V. N. Vishwanathan and
+               Roman Garnett},
+  title     = {Attention is All you Need},
+  booktitle = {Advances in Neural Information Processing Systems 30: Annual Conference
+               on Neural Information Processing Systems 2017, December 4-9, 2017,
+               Long Beach, CA, {USA}},
+  pages     = {5998--6008},
+  year      = {2017},
+  url       = {https://proceedings.neurips.cc/paper/2017/hash/3f5ee243547dee91fbd053c1c4a845aa-Abstract.html}
+}
+
+@article{wordpiece,
+  author     = {Yonghui Wu and
+                Mike Schuster and
+                Zhifeng Chen and
+                Quoc V. Le and
+                Mohammad Norouzi and
+                Wolfgang Macherey and
+                Maxim Krikun and
+                Yuan Cao and
+                Qin Gao and
+                Klaus Macherey and
+                Jeff Klingner and
+                Apurva Shah and
+                Melvin Johnson and
+                Xiaobing Liu and
+                Lukasz Kaiser and
+                Stephan Gouws and
+                Yoshikiyo Kato and
+                Taku Kudo and
+                Hideto Kazawa and
+                Keith Stevens and
+                George Kurian and
+                Nishant Patil and
+                Wei Wang and
+                Cliff Young and
+                Jason Smith and
+                Jason Riesa and
+                Alex Rudnick and
+                Oriol Vinyals and
+                Greg Corrado and
+                Macduff Hughes and
+                Jeffrey Dean},
+  title      = {Google's Neural Machine Translation System: Bridging the Gap between
+                Human and Machine Translation},
+  journal    = {CoRR},
+  volume     = {abs/1609.08144},
+  year       = {2016},
+  url        = {http://arxiv.org/abs/1609.08144},
+  eprinttype = {arXiv},
+  eprint     = {1609.08144}
 }

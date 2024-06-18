@@ -22,10 +22,10 @@ struct GGUFTensor {};
 
 class GGUFFormat final : public WeightsFileFormat {
 private:
-	dl::log::LoggerPtr logger;
+	dl::logging::LoggerPtr logger;
 
 public:
-	GGUFFormat() noexcept : logger(dl::log::getLogger("GGUF")) {}
+	GGUFFormat() noexcept : logger(dl::logging::getLogger("GGUF")) {}
 
 	virtual bool loadModelFromStream(dl::ModelBase& model, std::istream& stream) override {
 		GGUFHeader header;

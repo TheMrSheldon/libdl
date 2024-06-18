@@ -4,7 +4,7 @@
 
 #include <spdlog/spdlog.h>
 
-namespace dl::log {
+namespace dl::logging {
 	using LoggerPtr = std::shared_ptr<spdlog::logger>;
 
 	enum class Verbosity : int { Off, Critical, Error, Warning, Info, Debug, Trace };
@@ -26,7 +26,7 @@ namespace dl::log {
 	 * @return A logger with the specified name.
 	 */
 	LoggerPtr getLogger(std::string name);
-} // namespace dl::log
+} // namespace dl::logging
 
 ///////////////////////////
 // Custom loggable types //

@@ -31,6 +31,11 @@ TensorPtr dl::exp(TensorPtr base) noexcept {
 	return base->exp();
 }
 
+TensorPtr dl::log(TensorPtr base) noexcept {
+	/** \todo implement autodiff **/
+	return base->log();
+}
+
 TensorPtr dl::sqrt(TensorPtr x) noexcept {
 	/** \todo implement autodiff **/
 	return x->sqrt();
@@ -210,8 +215,13 @@ TensorPtr dl::fma(const TensorPtr& factor1, const TensorPtr& factor2, const Tens
 
 TensorPtr dl::matmul(TensorPtr left, TensorPtr right) noexcept {
 	/** \todo add support for autograd **/
-	auto tmp = left->matmul(right);
-	return tmp;
+	auto tensor = left->matmul(right);
+	if (tensor->requiresGrad()) {
+		tensor->gradfn = [left = std::move(left), right = std::move(right)](TensorPtr& ptr) mutable {
+			throw std::runtime_error("Not yet implemented");
+		};
+	}
+	return tensor;
 }
 
 TensorPtr dl::transpose(TensorPtr x, std::vector<int>&& perm) noexcept {
@@ -235,6 +245,8 @@ bool dl::operator==(const dl::TensorPtr& left, const dl::TensorPtr& right) noexc
 	return *left == right;
 }
 bool dl::allclose(const TensorPtr& left, const TensorPtr& right, float rtol, float atol) noexcept {
+	if ((left == nullptr) || (right == nullptr))
+		return (left == nullptr) && (right == nullptr);
 	return left->allclose(right, rtol, atol);
 }
 

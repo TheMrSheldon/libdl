@@ -90,6 +90,7 @@ namespace dl {
 		// Powers:
 		virtual TensorPtr pow(float exponent) const noexcept = 0;
 		virtual TensorPtr exp() const noexcept = 0;
+		virtual TensorPtr log() const noexcept = 0;
 		virtual TensorPtr sqrt() const noexcept = 0;
 		virtual TensorPtr rsqrt() const noexcept = 0;
 
