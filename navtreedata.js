@@ -46,31 +46,38 @@ var NAVTREE =
     ] ],
     [ "Technical", "technicalIdx.html", [
       [ "Tensors", "technicalTensors.html", [
-        [ "Design Decisions", "technicalTensors.html#autotoc_md15", null ]
+        [ "Design Decisions", "technicalTensors.html#autotoc_md19", null ]
       ] ],
       [ "Automatic Differentiation (Autodiff)", "technicalAutodiff.html", [
-        [ "How it works", "technicalAutodiff.html#autotoc_md10", null ],
-        [ "Adding Autodiff Support to a Function", "technicalAutodiff.html#autotoc_md11", null ],
-        [ "Gradients", "technicalAutodiff.html#autotoc_md12", [
-          [ "Gradients of Matrix Operations", "technicalAutodiff.html#autotoc_md13", [
-            [ "Matrix Product", "technicalAutodiff.html#autotoc_md14", null ]
+        [ "How it works", "technicalAutodiff.html#autotoc_md10", [
+          [ "Mathematical Background", "technicalAutodiff.html#autotoc_md11", [
+            [ "Forward Mode", "technicalAutodiff.html#autotoc_md12", null ],
+            [ "Reverse Mode", "technicalAutodiff.html#autotoc_md13", null ]
+          ] ],
+          [ "Implementation in libdl", "technicalAutodiff.html#autotoc_md14", null ]
+        ] ],
+        [ "Adding Autodiff Support to a Function", "technicalAutodiff.html#autotoc_md15", null ],
+        [ "Gradients", "technicalAutodiff.html#autotoc_md16", [
+          [ "Gradients of Matrix Operations", "technicalAutodiff.html#autotoc_md17", [
+            [ "Matrix Product", "technicalAutodiff.html#autotoc_md18", null ]
           ] ]
         ] ]
       ] ],
       [ "Transformer", "technicalTransformer.html", [
-        [ "Background and Implementation", "technicalTransformer.html#autotoc_md16", [
-          [ "Optimization", "technicalTransformer.html#autotoc_md17", null ]
+        [ "Background and Implementation", "technicalTransformer.html#autotoc_md20", [
+          [ "Optimization", "technicalTransformer.html#autotoc_md21", null ]
         ] ],
-        [ "Architectures", "technicalTransformer.html#autotoc_md18", [
-          [ "BERT", "technicalTransformer.html#autotoc_md19", null ]
+        [ "Architectures", "technicalTransformer.html#autotoc_md22", [
+          [ "BERT", "technicalTransformer.html#autotoc_md23", null ]
         ] ],
-        [ "Tokenization", "technicalTransformer.html#autotoc_md20", [
-          [ "WordPiece", "technicalTransformer.html#autotoc_md21", null ]
+        [ "Tokenization", "technicalTransformer.html#autotoc_md24", [
+          [ "WordPiece", "technicalTransformer.html#autotoc_md25", null ]
         ] ]
       ] ]
     ] ],
     [ "Todo List", "todo.html", null ],
     [ "Bibliography", "citelist.html", null ],
+    [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", null ]
     ] ],

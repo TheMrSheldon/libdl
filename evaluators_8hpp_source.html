@@ -194,15 +194,15 @@ $(document).ready(function(){initNavTree('evaluators_8hpp_source.html',''); init
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <span class="keywordtype">size_t</span> num;</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <a class="code hl_class" href="classdl_1_1MeanError.html">MeanError</a>() noexcept : sum(dl::constant(0)), num(0) {}</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <a class="code hl_class" href="classdl_1_1MeanError.html">MeanError</a>() noexcept : <a class="code hl_function" href="group__Statistics.html#ga5f7cb3b53798da5ef166e6fda187651b">sum</a>(dl::constant(0)), num(0) {}</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <a class="code hl_class" href="classdl_1_1MeanError.html">MeanError</a>&amp; operator+=(<a class="code hl_class" href="classdl_1_1TensorPtr.html">dl::TensorPtr</a> loss) <span class="keyword">noexcept</span> {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            sum = sum + dl::sum(loss);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <a class="code hl_function" href="group__Statistics.html#ga5f7cb3b53798da5ef166e6fda187651b">sum</a> = <a class="code hl_function" href="group__Statistics.html#ga5f7cb3b53798da5ef166e6fda187651b">sum</a> + <a class="code hl_function" href="group__Statistics.html#ga5f7cb3b53798da5ef166e6fda187651b">dl::sum</a>(loss);</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            num += <a class="code hl_function" href="math_8hpp.html#a72b6767ec5bd2b488b279ca1fa532ab0">dl::numEntries</a>(loss);</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        }</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <a class="code hl_class" href="classdl_1_1TensorPtr.html">dl::TensorPtr</a> aggregated()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> sum / (float)num; }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <a class="code hl_class" href="classdl_1_1TensorPtr.html">dl::TensorPtr</a> aggregated()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_function" href="group__Statistics.html#ga5f7cb3b53798da5ef166e6fda187651b">sum</a> / (float)num; }</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    };</div>
 </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
@@ -211,6 +211,7 @@ $(document).ready(function(){initNavTree('evaluators_8hpp_source.html',''); init
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassdl_1_1MeanError_html"><div class="ttname"><a href="classdl_1_1MeanError.html">dl::MeanError</a></div><div class="ttdef"><b>Definition</b> <a href="evaluators_8hpp_source.html#l00013">evaluators.hpp:13</a></div></div>
 <div class="ttc" id="aclassdl_1_1TensorPtr_html"><div class="ttname"><a href="classdl_1_1TensorPtr.html">dl::TensorPtr</a></div><div class="ttdoc">The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...</div><div class="ttdef"><b>Definition</b> <a href="tensorptr_8hpp_source.html#l00045">tensorptr.hpp:45</a></div></div>
+<div class="ttc" id="agroup__Statistics_html_ga5f7cb3b53798da5ef166e6fda187651b"><div class="ttname"><a href="group__Statistics.html#ga5f7cb3b53798da5ef166e6fda187651b">dl::sum</a></div><div class="ttdeci">TensorPtr sum(TensorPtr x) noexcept</div><div class="ttdoc">Sum.</div></div>
 <div class="ttc" id="amath_8hpp_html_a72b6767ec5bd2b488b279ca1fa532ab0"><div class="ttname"><a href="math_8hpp.html#a72b6767ec5bd2b488b279ca1fa532ab0">dl::numEntries</a></div><div class="ttdeci">size_t numEntries(const TensorPtr &amp;tensor) noexcept</div><div class="ttdoc">Returns the number of entries in the tensor.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -297,7 +297,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Implements the transformer's multi-head attention. </p>
-<p>Multi-head attention is chapter 3.2.2 in the transformer paper <a class="el" href="citelist.html#CITEREF_transformer">[7]</a>. Let \(W_i^Q, W_i^K\in \mathbb{R}^{d_\text{model} \times d_k}, W_i^V \in \mathbb{R}^{d_\text{model} \times d_v}\) denote the query, key and value matrix of the i-th head respectively for \(1\leq i \leq h\), where \(h\) is the total number of heads. Further, let \(W^O\) denote the output linearity. Multi-head attention is defined as the concatinated attention of each attention head:  </p><p class="formulaDsp">
+<p>Multi-head attention is chapter 3.2.2 in the transformer paper <a class="el" href="citelist.html#CITEREF_transformer">[8]</a>. Let \(W_i^Q, W_i^K\in \mathbb{R}^{d_\text{model} \times d_k}, W_i^V \in \mathbb{R}^{d_\text{model} \times d_v}\) denote the query, key and value matrix of the i-th head respectively for \(1\leq i \leq h\), where \(h\) is the total number of heads. Further, let \(W^O\) denote the output linearity. Multi-head attention is defined as the concatinated attention of each attention head:  </p><p class="formulaDsp">
 \[
     \text{MHA}(Q, K, V) = \text{Concat}(\text{head}_1, \dots, \text{head}_h)\cdot W^O \text{ with }
     \text{head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V),
@@ -363,7 +363,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Implements the scaled dot-product attention. </p>
-<p>Scaled dot-product attention is Eq. (1) in the transformer paper <a class="el" href="citelist.html#CITEREF_transformer">[7]</a> : </p><p class="formulaDsp">
+<p>Scaled dot-product attention is Eq. (1) in the transformer paper <a class="el" href="citelist.html#CITEREF_transformer">[8]</a> : </p><p class="formulaDsp">
 \[\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right)V.\]
 </p>
 <dl class="params"><dt>Parameters</dt><dd>

@@ -214,13 +214,71 @@ Include dependency graph for loss.hpp:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa0a61a7b9926ea3142949d3811c4b56f" id="r_aa0a61a7b9926ea3142949d3811c4b56f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="loss_8hpp.html#aa0a61a7b9926ea3142949d3811c4b56f">dl::loss::mse</a> (<a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> x, <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> y) noexcept</td></tr>
+<tr class="memdesc:aa0a61a7b9926ea3142949d3811c4b56f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mean Square Error.  <br /></td></tr>
 <tr class="separator:aa0a61a7b9926ea3142949d3811c4b56f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdc36e35dc2f0bd61fb094143d7b1b7a" id="r_afdc36e35dc2f0bd61fb094143d7b1b7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="loss_8hpp.html#afdc36e35dc2f0bd61fb094143d7b1b7a">dl::loss::bce</a> (<a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> x, <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> y) noexcept</td></tr>
+<tr class="memdesc:afdc36e35dc2f0bd61fb094143d7b1b7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binary Cross Entropy Loss.  <br /></td></tr>
+<tr class="separator:afdc36e35dc2f0bd61fb094143d7b1b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains some general purpose loss objectives. </p>
 
 <p class="definition">Definition in file <a class="el" href="loss_8hpp_source.html">loss.hpp</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="afdc36e35dc2f0bd61fb094143d7b1b7a" name="afdc36e35dc2f0bd61fb094143d7b1b7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdc36e35dc2f0bd61fb094143d7b1b7a">&#9670;&#160;</a></span>bce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TensorPtr dl::loss::bce </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Binary Cross Entropy Loss. </p>
+<p>Implements the binary cross entropy loss function. Let \(\vec{x}=\begin{pmatrix}x_1 &amp; \dots &amp; x_n\end{pmatrix}\) be the model's outputs and \(\vec{y}=\begin{pmatrix}y_1 &amp; \dots &amp; y_n\end{pmatrix}\) the targets, the binary cross entropy loss is defined as </p><p class="formulaDsp">
+\[\text{BCE}(\vec{x}, \vec{y}) := -\frac{1}{n}\sum_{i=1}^n (y_i\log x_i + (1-y_i)\log(1-x_i)).\]
+</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>the model outputs </td></tr>
+    <tr><td class="paramname">y</td><td>the targets (desired outputs) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the binary cross entropy </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="loss_8hpp_source.html#l00037">37</a> of file <a class="el" href="loss_8hpp_source.html">loss.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   37</span>{ <span class="keywordflow">return</span> -<a class="code hl_function" href="group__Statistics.html#ga24c204f46dfd23fc5e2136dd50785ddf">dl::mean</a>(y * <a class="code hl_function" href="group__Arithmetic.html#gaf6ac5629058e70cd3bde237b5845d9ad">dl::log</a>(x) + (1 - y) * <a class="code hl_function" href="group__Arithmetic.html#gaf6ac5629058e70cd3bde237b5845d9ad">dl::log</a>(1 - x)); }</div>
+<div class="ttc" id="agroup__Arithmetic_html_gaf6ac5629058e70cd3bde237b5845d9ad"><div class="ttname"><a href="group__Arithmetic.html#gaf6ac5629058e70cd3bde237b5845d9ad">dl::log</a></div><div class="ttdeci">TensorPtr log(TensorPtr x) noexcept</div><div class="ttdoc">Natural logarithm, .</div></div>
+<div class="ttc" id="agroup__Statistics_html_ga24c204f46dfd23fc5e2136dd50785ddf"><div class="ttname"><a href="group__Statistics.html#ga24c204f46dfd23fc5e2136dd50785ddf">dl::mean</a></div><div class="ttdeci">TensorPtr mean(TensorPtr x) noexcept</div><div class="ttdoc">Mean.</div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="aa0a61a7b9926ea3142949d3811c4b56f" name="aa0a61a7b9926ea3142949d3811c4b56f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa0a61a7b9926ea3142949d3811c4b56f">&#9670;&#160;</a></span>mse()</h2>
 
@@ -255,8 +313,22 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="loss_8hpp_source.html#l00012">12</a> of file <a class="el" href="loss_8hpp_source.html">loss.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   12</span>{ <span class="keywordflow">return</span> dl::mean(dl::pow(x - y, 2.0f)); }</div>
+<p>Mean Square Error. </p>
+<p>Implements the mean square error loss function. Let \(\vec{x}=\begin{pmatrix}x_1 &amp; \dots &amp; x_n\end{pmatrix}\) be the model's outputs and \(\vec{y}=\begin{pmatrix}y_1 &amp; \dots &amp; y_n\end{pmatrix}\) the targets, the margin square error is defined as </p><p class="formulaDsp">
+\[\text{MSE}(\vec{x}, \vec{y}) := \frac{1}{n}\sum_{i=1}^n (x_i - y_i)^2.\]
+</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>the model outputs </td></tr>
+    <tr><td class="paramname">y</td><td>the targets (desired outputs) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the mean square error </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="loss_8hpp_source.html#l00023">23</a> of file <a class="el" href="loss_8hpp_source.html">loss.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   23</span>{ <span class="keywordflow">return</span> <a class="code hl_function" href="group__Statistics.html#ga24c204f46dfd23fc5e2136dd50785ddf">dl::mean</a>(<a class="code hl_function" href="group__Arithmetic.html#ga4ba4e220a507c0be472da13d2fccb89e">dl::pow</a>(x - y, 2.0f)); }</div>
+<div class="ttc" id="agroup__Arithmetic_html_ga4ba4e220a507c0be472da13d2fccb89e"><div class="ttname"><a href="group__Arithmetic.html#ga4ba4e220a507c0be472da13d2fccb89e">dl::pow</a></div><div class="ttdeci">TensorPtr pow(TensorPtr base, float exponent) noexcept</div><div class="ttdoc">Computes the exponent -th power of each element in base and returns the resulting tensor.</div></div>
 </div><!-- fragment -->
 </div>
 </div>
