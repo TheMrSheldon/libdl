@@ -54,12 +54,45 @@ This way, we can compute all derivatives at the same time (and thus are **more e
 store the intermediate results and the computation order for the backwards pass (and thus are **less performant** than
 forward mode).
 
-## Implementation in libdl
+## Implementation in libdl      {#autodiffimpl}
 \todo WIP
 
 
 # Adding Autodiff Support to a Function
+This example with equip the logarithm, `dl::log(dl::TensorPtr x)` with support for automatic differentiation. We will
+start of with the basic stub
+```{cpp}
+TensorPtr dl::log(TensorPtr x) noexcept {
+    auto tensor = x->log();
+    if (tensor->requiresGrad()) {
+	    /* implement derivative here */
+    }
+	return tensor;
+}
+```
+Remember from the [description above](@ref autodiffimpl) that, to enable a function for the backwards pass, it only
+needs to register a callback for calculating the derivative to `dl::TensorImpl::gradfn`.
+```{cpp}
+tensor->grad = [x = std::move(x)](dl::TensorPtr agg) {
+    // Compute the gradient
+    auto grad = 1/x;
+    // Update the gradient of x
+    x->grad = (x->grad == nullptr)? grad : (x->grad + grad);
+    // Compute the gradients for the value that x depends on (go one step further back in the chain rule) or, if x is
+    // the last element in the chain (i.e., it has no gradfn to go back further), it must require a gradient itself
+    if (x->gradfn)
+        x->gradfn(grad);
+    else
+        assert(x->requiresGrad());
+};
+```
 \todo WIP
+
+## Functions with Multiple Inputs
+\todo WIP
+
+## Adding Autodiff to a Function that Composites autodiff enabled functions
+\todo This is not currently supported
 
 
 # Gradients
