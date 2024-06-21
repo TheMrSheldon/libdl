@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$classtsl_1_1htrie__map.html" title=" " alt="" coords="5,5,175,45"/>
+<area shape="rect" id="Node000000" href="/home/runner/work/libdl/libdl/build/_deps/cppreftags-src/cppreference-doxygen-web.tag.xml$cpp/io/basic_streambuf.html" title=" " alt="" coords="5,67,164,93"/>
+<area shape="rect" id="Node000001" href="$classdl_1_1utils_1_1basic__pipebuf.html" title=" " alt="" coords="220,5,403,75"/>
+<area shape="poly" id="edge17_Node000000_Node000001" title=" " alt="" coords="170,62,219,53,220,59,171,67"/>
+<area shape="rect" id="Node000002" href="$classdl_1_1utils_1_1basic__pipebuf.html" title=" " alt="" coords="212,99,411,139"/>
+<area shape="poly" id="edge18_Node000000_Node000002" title=" " alt="" coords="174,92,212,99,211,104,173,98"/>
 </map>

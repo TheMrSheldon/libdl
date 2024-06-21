@@ -12,6 +12,8 @@ var annotated_dup =
         [ "GradientDescent", "classdl_1_1optim_1_1GradientDescent.html", null ]
       ] ],
       [ "utils", null, [
+        [ "basic_pipebuf", "classdl_1_1utils_1_1basic__pipebuf.html", null ],
+        [ "basic_pipestream", "classdl_1_1utils_1_1basic__pipestream.html", null ],
         [ "GenericIterator", "classdl_1_1utils_1_1GenericIterator.html", "classdl_1_1utils_1_1GenericIterator" ],
         [ "LineIterator", "structdl_1_1utils_1_1LineIterator.html", null ],
         [ "ScopeGuard", "classdl_1_1utils_1_1ScopeGuard.html", null ],

@@ -179,11 +179,14 @@ $(document).ready(function(){initNavTree('technicalAutodiff.html',''); initResiz
 <li class="level3"><a href="#autotoc_md13">Reverse Mode</a></li>
 </ul>
 </li>
-<li class="level2"><a href="#autotoc_md14">Implementation in libdl</a></li>
+<li class="level2"><a href="#autodiffimpl">Implementation in libdl</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#autotoc_md15">Adding Autodiff Support to a Function</a></li>
-<li class="level1"><a href="#autotoc_md16">Gradients</a><ul><li class="level2"><a href="#autotoc_md17">Gradients of Matrix Operations</a><ul><li class="level3"><a href="#autotoc_md18">Matrix Product</a></li>
+<li class="level1"><a href="#autotoc_md14">Adding Autodiff Support to a Function</a><ul><li class="level2"><a href="#autotoc_md15">Functions with Multiple Inputs</a></li>
+<li class="level2"><a href="#autotoc_md16">Adding Autodiff to a Function that Composites autodiff enabled functions</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#autotoc_md17">Gradients</a><ul><li class="level2"><a href="#autotoc_md18">Gradients of Matrix Operations</a><ul><li class="level3"><a href="#autotoc_md19">Matrix Product</a></li>
 </ul>
 </li>
 </ul>
@@ -222,19 +225,47 @@ Reverse Mode</h3>
 </p>
 <p> This is crucial since it allows us to compute the gradient at a single point without first calculating the first order derivative over all points (as would be done with symbolic differentiation). Instead, we have to overload the semantics of each function to calculate the value (as it usually would) and additionally store the computation information somewhere to allow computing the gradient in the <b>reverse</b> order of the functions. That is, in the example above, the forward pass would first compute \(y = f(x)\), then \(z = g(y)\) and then go backwards and compute the gradients \(\frac{\partial z}{\partial y}\) and then \(\frac{\partial y}{\partial x}\).</p>
 <p>This way, we can compute all derivatives at the same time (and thus are <b>more efficient</b> than forward mode) but need to store the intermediate results and the computation order for the backwards pass (and thus are <b>less performant</b> than forward mode).</p>
-<h2><a class="anchor" id="autotoc_md14"></a>
+<h2><a class="anchor" id="autodiffimpl"></a>
 Implementation in libdl</h2>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000015">Todo:</a></b></dt><dd>WIP</dd></dl>
-<h1><a class="anchor" id="autotoc_md15"></a>
+<h1><a class="anchor" id="autotoc_md14"></a>
 Adding Autodiff Support to a Function</h1>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000016">Todo:</a></b></dt><dd>WIP</dd></dl>
-<h1><a class="anchor" id="autotoc_md16"></a>
+<p>This example with equip the logarithm, <code><a class="el" href="group__Arithmetic.html#gaf6ac5629058e70cd3bde237b5845d9ad" title="Natural logarithm, .">dl::log(dl::TensorPtr x)</a></code> with support for automatic differentiation. We will start of with the basic stub </p><div class="fragment"><div class="line">TensorPtr <a class="code hl_function" href="group__Arithmetic.html#gaf6ac5629058e70cd3bde237b5845d9ad">dl::log</a>(TensorPtr x) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">auto</span> tensor = x-&gt;log();</div>
+<div class="line">    <span class="keywordflow">if</span> (tensor-&gt;requiresGrad()) {</div>
+<div class="line">        <span class="comment">/* implement derivative here */</span></div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> tensor;</div>
+<div class="line">}</div>
+<div class="ttc" id="agroup__Arithmetic_html_gaf6ac5629058e70cd3bde237b5845d9ad"><div class="ttname"><a href="group__Arithmetic.html#gaf6ac5629058e70cd3bde237b5845d9ad">dl::log</a></div><div class="ttdeci">TensorPtr log(TensorPtr x) noexcept</div><div class="ttdoc">Natural logarithm, .</div></div>
+</div><!-- fragment --><p> Remember from the <a class="el" href="technicalAutodiff.html#autodiffimpl">description above</a> that, to enable a function for the backwards pass, it only needs to register a callback for calculating the derivative to <code>dl::TensorImpl::gradfn</code>. </p><div class="fragment"><div class="line">tensor-&gt;grad = [x = <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(x)](<a class="code hl_class" href="classdl_1_1TensorPtr.html">dl::TensorPtr</a> agg) {</div>
+<div class="line">    <span class="comment">// Compute the gradient</span></div>
+<div class="line">    <span class="keyword">auto</span> grad = 1/x;</div>
+<div class="line">    <span class="comment">// Update the gradient of x</span></div>
+<div class="line">    x-&gt;grad = (x-&gt;grad == <span class="keyword">nullptr</span>)? grad : (x-&gt;grad + grad);</div>
+<div class="line">    <span class="comment">// Compute the gradients for the value that x depends on (go one step further back in the chain rule) or, if x is</span></div>
+<div class="line">    <span class="comment">// the last element in the chain (i.e., it has no gradfn to go back further), it must require a gradient itself</span></div>
+<div class="line">    <span class="keywordflow">if</span> (x-&gt;gradfn)</div>
+<div class="line">        x-&gt;gradfn(grad);</div>
+<div class="line">    <span class="keywordflow">else</span></div>
+<div class="line">        assert(x-&gt;requiresGrad());</div>
+<div class="line">};</div>
+<div class="ttc" id="aclassdl_1_1TensorPtr_html"><div class="ttname"><a href="classdl_1_1TensorPtr.html">dl::TensorPtr</a></div><div class="ttdoc">The Tensor is a managed pointer to a tensor. It can generally be thought of like an std::unique_ptr&lt;T...</div><div class="ttdef"><b>Definition</b> <a href="tensorptr_8hpp_source.html#l00045">tensorptr.hpp:45</a></div></div>
+<div class="ttc" id="amove_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a></div><div class="ttdeci">T move(T... args)</div></div>
+</div><!-- fragment --> <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000016">Todo:</a></b></dt><dd>WIP</dd></dl>
+<h2><a class="anchor" id="autotoc_md15"></a>
+Functions with Multiple Inputs</h2>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000017">Todo:</a></b></dt><dd>WIP</dd></dl>
+<h2><a class="anchor" id="autotoc_md16"></a>
+Adding Autodiff to a Function that Composites autodiff enabled functions</h2>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000018">Todo:</a></b></dt><dd>This is not currently supported</dd></dl>
+<h1><a class="anchor" id="autotoc_md17"></a>
 Gradients</h1>
-<h2><a class="anchor" id="autotoc_md17"></a>
+<h2><a class="anchor" id="autotoc_md18"></a>
 Gradients of Matrix Operations</h2>
-<h3><a class="anchor" id="autotoc_md18"></a>
+<h3><a class="anchor" id="autotoc_md19"></a>
 Matrix Product</h3>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000017">Todo:</a></b></dt><dd>WIP </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000019">Todo:</a></b></dt><dd>WIP </dd></dl>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

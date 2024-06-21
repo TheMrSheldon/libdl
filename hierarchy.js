@@ -1,8 +1,15 @@
 var hierarchy =
 [
     [ "dl::detail::_ModelSignature< T >", "structdl_1_1detail_1_1__ModelSignature.html", null ],
+    [ "std::basic_iostream", "http://en.cppreference.com/w/cpp/io/basic_iostream.html", [
+      [ "dl::utils::basic_pipestream< CharT, Traits, Allocator >", "classdl_1_1utils_1_1basic__pipestream.html", null ]
+    ] ],
     [ "std::basic_istream< char >", "http://en.cppreference.com/w/cpp/io/basic_istream.html", [
       [ "dl::utils::URLStream", "classdl_1_1utils_1_1URLStream.html", null ]
+    ] ],
+    [ "std::basic_streambuf", "http://en.cppreference.com/w/cpp/io/basic_streambuf.html", [
+      [ "dl::utils::basic_pipebuf< CharT, std::char_traits< CharT >, std::allocator< CharT > >", "classdl_1_1utils_1_1basic__pipebuf.html", null ],
+      [ "dl::utils::basic_pipebuf< CharT, Traits, Allocator >", "classdl_1_1utils_1_1basic__pipebuf.html", null ]
     ] ],
     [ "nlp::BERTConfig", "structnlp_1_1BERTConfig.html", null ],
     [ "dl::WordPieceTokenizer::Conf", "structdl_1_1WordPieceTokenizer_1_1Conf.html", null ],
