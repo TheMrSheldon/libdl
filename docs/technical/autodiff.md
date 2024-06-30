@@ -99,3 +99,4 @@ tensor->grad = [x = std::move(x)](dl::TensorPtr agg) {
 ## Gradients of Matrix Operations
 ### Matrix Product
 \todo WIP
+\f[\frac{\partial AB}{\partial A} = B^\top\f]

@@ -38,7 +38,7 @@ nlp::BERT loadModelFromHuggingFace(std::string repoURL, const hf::Conf& conf = h
 			std::format("{}/{}/resolve/main/model.safetensors?download=true", conf.baseUrl, repoURL).c_str()
 	};
 	auto success = dl::io::safetensorsFormat.loadModelFromStream(bert, in);
-	std::cout << (success ? "Success!" : "Failed :(") << std::endl;
+	assert(success);
 	return bert;
 }
 
@@ -53,30 +53,20 @@ int main(void) {
 	dl::logging::setVerbosity(dl::logging::Verbosity::Debug);
 	auto logger = dl::logging::getLogger("main");
 
-	// auto tokenizer = loadTokenizerFromHuggingFace("google-bert/bert-base-uncased");
-	auto tokenizerConf = std::ifstream("tokenizer.json", std::ios::binary);
-	auto tokenizer = dl::WordPieceTokenizer::fromConf(tokenizerConf);
+	auto tokenizer = loadTokenizerFromHuggingFace("google-bert/bert-base-uncased");
 	auto text = "Hugging Face ABCDEF";
 	auto tokens = tokenizer.tokenize(text);
 	for (auto token : tokens)
 		std::cout << token << ", ";
 	std::cout << std::endl;
 
-	//auto bert = loadModelFromHuggingFace("google-bert/bert-base-uncased");
-	auto modelConf = loadConfigFromHuggingFace("google-bert/bert-base-uncased");
-	nlp::BERT bert(modelConf);
-	std::ifstream stream("bertmodel.safetensors", std::ios::binary);
-	auto success = dl::io::safetensorsFormat.loadModelFromStream(bert, stream);
-	std::cout << (success ? "Success!" : "Failed :(") << std::endl;
-
+	auto bert = loadModelFromHuggingFace("google-bert/bert-base-uncased");
 	// auto embeddings = bert.embeddings(dl::constant(tokens));
 	// std::cout << embeddings << std::endl;
 
 	auto input = dl::ones({10, 768});
 	std::cout << input << std::endl;
-	std::cout << input << std::endl;
 	auto& encoder = *bert.encoder.encoders[0];
 	auto output = encoder.forward(input);
-	std::cout << output->numDim() << ':' << output->shape(0) << ',' << output->shape(1) << std::endl;
 	std::cout << output << std::endl;
 }

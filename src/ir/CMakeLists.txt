@@ -18,3 +18,7 @@ set(Boost_USE_STATIC_RUNTIME OFF)
 set(BOOST_ENABLE_CMAKE ON)
 find_package(Boost 1.45.0 COMPONENTS iostreams REQUIRED)
 target_link_libraries(ir PUBLIC Boost::iostreams)
+
+# apache arrow
+find_package(Arrow REQUIRED)
+target_link_libraries(ir PUBLIC Arrow::arrow_static)

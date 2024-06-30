@@ -6,6 +6,7 @@
 #ifndef DL_LEARNING_EVALUATORS_HPP
 #define DL_LEARNING_EVALUATORS_HPP
 
+#include "../device.hpp"
 #include "../tensor/tensorptr.hpp"
 
 namespace dl {

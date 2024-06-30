@@ -65,8 +65,15 @@ namespace dl {
 		TensorImpl& operator*() noexcept { return *data; }
 		const TensorImpl& operator*() const noexcept { return *data; }
 
-		TensorPtr& operator=(const TensorPtr& other);
 		TensorPtr& operator=(TensorPtr&& other);
+		TensorPtr& operator=(const TensorPtr& other);
+		TensorPtr& operator=(std::nullptr_t p);
+		TensorPtr& operator=(int value);
+		TensorPtr& operator=(float value);
+		TensorPtr& operator=(double value);
+		TensorPtr& operator=(InitializerTensor<int>&& value);
+		TensorPtr& operator=(InitializerTensor<float>&& value);
+		TensorPtr& operator=(InitializerTensor<double>&& value);
 
 		bool operator==(const std::nullptr_t& other) const noexcept { return data == other; }
 		operator bool() const noexcept { return (bool)data; }

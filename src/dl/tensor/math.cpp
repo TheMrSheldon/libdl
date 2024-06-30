@@ -218,7 +218,23 @@ TensorPtr dl::matmul(TensorPtr left, TensorPtr right) noexcept {
 	auto tensor = left->matmul(right);
 	if (tensor->requiresGrad()) {
 		tensor->gradfn = [left = std::move(left), right = std::move(right)](TensorPtr& ptr) mutable {
-			throw std::runtime_error("Not yet implemented");
+			//throw std::runtime_error("Not yet implemented");
+			if (left->requiresGrad()) {
+				auto lgrad = (right->numDim() >= 2) ? dl::transpose(right, {-1, -2}) : dl::clone(right);
+				lgrad->discardGradient();
+				left->grad = (left->grad == nullptr) ? dl::matmul(ptr, lgrad) : (left->grad + dl::matmul(ptr, lgrad));
+				if (left->gradfn)
+					left->gradfn(left->grad);
+			}
+			if (right->requiresGrad()) {
+				auto rgrad = (left->numDim() >= 2) ? dl::transpose(left, {-1, -2}) : dl::clone(left);
+				rgrad->discardGradient();
+				right->grad = (right->grad == nullptr)
+									  ? dl::transpose(dl::matmul(ptr, rgrad), {-1, -2})
+									  : (right->grad + dl::transpose(dl::matmul(ptr, rgrad), {-1, -2}));
+				if (right->gradfn)
+					right->gradfn(right->grad);
+			}
 		};
 	}
 	return tensor;

@@ -34,7 +34,9 @@ namespace dl::loss {
 	 * @param y the targets (desired outputs)
 	 * @return the binary cross entropy 
 	 */
-	TensorPtr bce(TensorPtr x, TensorPtr y) noexcept { return -dl::mean(y * dl::log(x) + (1 - y) * dl::log(1 - x)); }
+	TensorPtr bce(TensorPtr x, TensorPtr y) noexcept {
+		return -dl::mean(y * dl::log(x) + (1.0f - y) * dl::log(1.0f - x));
+	}
 } // namespace dl::loss
 
 #endif

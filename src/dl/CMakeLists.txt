@@ -97,10 +97,6 @@ FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git
 FetchContent_MakeAvailable(cpr)
 target_link_libraries(dl PRIVATE cpr::cpr)
 
-# apache arrow
-find_package(Arrow REQUIRED)
-target_link_libraries(dl PRIVATE arrow)
-
 # hat-trie (for WordPiece tokenization)
 FetchContent_Declare(hattrie GIT_REPOSITORY https://github.com/Tessil/hat-trie.git GIT_TAG 906e6ab EXCLUDE_FROM_ALL)
 FetchContent_MakeAvailable(hattrie)

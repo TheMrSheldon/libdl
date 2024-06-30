@@ -11,8 +11,10 @@ using dl::utils::pipestream;
 using dl::utils::URLStream;
 
 struct URLStream::Data {
-	cpr::AsyncWrapper<void, false> wrapper;
 	pipestream pipe;
+	cpr::AsyncWrapper<void, false> wrapper;
+
+	Data(cpr::AsyncWrapper<void, false>&& wrapper) noexcept : wrapper(std::move(wrapper)) {}
 };
 
 URLStream::URLStream(const char* url) noexcept : pImpl{nullptr} {
@@ -27,4 +29,8 @@ URLStream::URLStream(const char* url) noexcept : pImpl{nullptr} {
 	);
 	this->rdbuf(pImpl->pipe.rdbuf());
 }
-URLStream::~URLStream() {}
+URLStream::~URLStream() {
+	pImpl->pipe.close();
+	pImpl->wrapper.Cancel();
+	pImpl->wrapper.wait();
+}

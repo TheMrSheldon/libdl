@@ -11,8 +11,8 @@ namespace dl {
 	 */
 	class Linear final : public Model<TensorPtr(TensorPtr)> {
 	private:
-		TensorPtr weights;
-		TensorPtr bias;
+		TensorPtr _weights;
+		TensorPtr _bias;
 
 	public:
 		Linear(size_t inFeatures, size_t outFeatures, const Device& device, bool bias = true) noexcept;
@@ -22,5 +22,12 @@ namespace dl {
 		virtual TensorPtr forward(TensorPtr input) noexcept override;
 		/** \todo For later: these const member functions make sense to indicate that we know at compile time that the
 		 * instance is not modified (e.g. since it is not part of the computation graph for auto differentiation. **/
+
+		inline TensorPtr& weights() noexcept { return _weights; }
+		inline const TensorPtr& weights() const noexcept { return _weights; }
+		inline TensorPtr& bias() noexcept { return _bias; }
+		inline const TensorPtr& bias() const noexcept { return _bias; }
+
+		dl::TensorPtr operator()(TensorPtr input) noexcept { return forward(input); }
 	};
 } // namespace dl

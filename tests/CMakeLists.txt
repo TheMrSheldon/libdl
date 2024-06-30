@@ -13,6 +13,7 @@ add_executable(tests
 	dl/io/weightsfiles.cpp
 	model/transformer/wordpiece.cpp
 	model/layernorm.cpp
+	model/linear.cpp
 	tensor/autodiff.cpp
 	tensor/basics.cpp
 	tensor/math.cpp

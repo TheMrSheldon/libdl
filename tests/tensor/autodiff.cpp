@@ -23,20 +23,20 @@ TEST_CASE("Basic Differentiation", "[Autodiff]") {
 		REQUIRE(dl::allclose(tensorb->grad, dl::constant({0.25f, 0.50f, 0.75f, 1.00f})));
 	}
 	{
-		dl::TensorPtr tensora =
-				dl::constant({{1.0f, 2.0f, 3.0f, 4.0f}, {5.0f, 6.0f, 7.0f, 8.0f}, {9.0f, 10.0f, 11.0f, 12.0f}});
+		dl::TensorPtr tensora = dl::constant({2.0f, 3.0f, 4.0f});
 		tensora->setRequiresGrad(true);
 
-		dl::TensorPtr tensorb = dl::constant({2.0f, 3.0f, 4.0f});
+		dl::TensorPtr tensorb =
+				dl::constant({{1.0f, 2.0f, 3.0f, 4.0f}, {5.0f, 6.0f, 7.0f, 8.0f}, {9.0f, 10.0f, 11.0f, 12.0f}});
 		tensorb->setRequiresGrad(true);
 
-		auto tensorc = dl::mean(dl::matmul(tensorb, tensora));
+		auto tensorc = dl::mean(dl::matmul(tensora, tensorb));
 		tensorc->backward();
 		REQUIRE(dl::allclose(tensorc, dl::constant(66.5f)));
+		REQUIRE(dl::allclose(tensora->grad, dl::constant({2.5f, 6.5f, 10.5f})));
 		REQUIRE(dl::allclose(
-				tensora->grad,
+				tensorb->grad,
 				dl::constant({{0.50f, 0.50f, 0.50f, 0.50f}, {0.75f, 0.75f, 0.75f, 0.75f}, {1.0f, 1.0f, 1.0f, 1.0f}})
 		));
-		REQUIRE(dl::allclose(tensorb->grad, dl::constant({2.5f, 6.5f, 10.5f})));
 	}
 }
