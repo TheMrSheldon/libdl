@@ -145,8 +145,6 @@ TensorPtr dl::operator+(TensorPtr left, TensorPtr right) noexcept {
 				left->grad = (left->grad + ptr);
 			if (left->gradfn)
 				left->gradfn(left->grad);
-			else
-				assert(left->requiresGrad());
 			// Right Gradient
 			if (right->grad == nullptr)
 				right->grad = dl::ones_like(left) * ptr;
@@ -154,8 +152,6 @@ TensorPtr dl::operator+(TensorPtr left, TensorPtr right) noexcept {
 				right->grad = (right->grad + ptr);
 			if (right->gradfn)
 				right->gradfn(right->grad);
-			else
-				assert(right->requiresGrad());
 		};
 	}
 	return tensor;
@@ -246,7 +242,17 @@ TensorPtr dl::transpose(TensorPtr x, std::vector<int>&& perm) noexcept {
 	std::vector<size_t> vec;
 	for (auto tmp : p)
 		vec.push_back(tmp);
-	return x->transpose(std::move(vec));
+	auto tensor = x->transpose(std::move(vec));
+	if (tensor->requiresGrad()) {
+		tensor->gradfn = [x = std::move(x), perm](TensorPtr& ptr) mutable {
+			/** \todo calculate correct inversion of perm **/
+			x->grad = (x->grad == nullptr) ? dl::transpose(ptr, std::move(perm))
+										   : (x->grad + dl::transpose(ptr, std::move(perm)));
+			if (x->gradfn)
+				x->gradfn(x->grad);
+		};
+	}
+	return tensor;
 }
 
 std::ostream& dl::operator<<(std::ostream& stream, const TensorPtr& tensor) noexcept {

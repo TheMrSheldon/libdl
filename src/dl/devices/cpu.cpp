@@ -151,7 +151,7 @@ namespace dl {
 		}
 		virtual TensorPtr matmul(const TensorPtr& other) const noexcept override {
 			// return createResult(xt::linalg::dot(data, downcast(other).data), requiresGrad());
-			return createResult(tmp::matmul(data, downcast(other).data), requiresGrad());
+			return createResult(tmp::matmul(data, downcast(other).data), requiresGrad() || other->requiresGrad());
 		}
 
 		virtual TensorPtr transpose(std::vector<size_t>&& perm) const noexcept {
@@ -241,7 +241,9 @@ namespace dl {
 
 		virtual Shape shape() const noexcept { return Shape(std::begin(data.shape()), std::end(data.shape())); }
 
-		virtual TensorPtr flatten() const noexcept { return createResult(std::move(xt::flatten(data)), requiresGrad()); }
+		virtual TensorPtr flatten() const noexcept {
+			return createResult(std::move(xt::flatten(data)), requiresGrad());
+		}
 
 		virtual size_t toBytes(char* buffer, size_t buflen) const noexcept override {
 			size_t numentries =

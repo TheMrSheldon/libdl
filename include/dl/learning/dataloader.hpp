@@ -12,8 +12,8 @@ namespace dl {
 	template <typename R, typename... Args>
 	class Dataloader<R(Args...)> {
 	public:
-		using Instance = std::tuple<R, std::remove_reference_t<Args>...>;
-		using Batch = std::vector<Instance>;
+		using Instance = typename std::tuple<R, std::remove_reference_t<Args>...>;
+		using Batch = typename std::vector<Instance>;
 
 	private:
 	public:

@@ -20,8 +20,6 @@ namespace dl {
 
 	public:
 		virtual TensorPtr forward(TensorPtr input) noexcept override;
-		/** \todo For later: these const member functions make sense to indicate that we know at compile time that the
-		 * instance is not modified (e.g. since it is not part of the computation graph for auto differentiation. **/
 
 		inline TensorPtr& weights() noexcept { return _weights; }
 		inline const TensorPtr& weights() const noexcept { return _weights; }
