@@ -273,7 +273,9 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>the binary cross entropy </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="loss_8hpp_source.html#l00037">37</a> of file <a class="el" href="loss_8hpp_source.html">loss.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   37</span>{ <span class="keywordflow">return</span> -<a class="code hl_function" href="group__Statistics.html#ga24c204f46dfd23fc5e2136dd50785ddf">dl::mean</a>(y * <a class="code hl_function" href="group__Arithmetic.html#gaf6ac5629058e70cd3bde237b5845d9ad">dl::log</a>(x) + (1 - y) * <a class="code hl_function" href="group__Arithmetic.html#gaf6ac5629058e70cd3bde237b5845d9ad">dl::log</a>(1 - x)); }</div>
+<div class="fragment"><div class="line"><span class="lineno">   37</span>                                                     {</div>
+<div class="line"><span class="lineno">   38</span>        <span class="keywordflow">return</span> -<a class="code hl_function" href="group__Statistics.html#ga24c204f46dfd23fc5e2136dd50785ddf">dl::mean</a>(y * <a class="code hl_function" href="group__Arithmetic.html#gaf6ac5629058e70cd3bde237b5845d9ad">dl::log</a>(x) + (1.0f - y) * <a class="code hl_function" href="group__Arithmetic.html#gaf6ac5629058e70cd3bde237b5845d9ad">dl::log</a>(1.0f - x));</div>
+<div class="line"><span class="lineno">   39</span>    }</div>
 <div class="ttc" id="agroup__Arithmetic_html_gaf6ac5629058e70cd3bde237b5845d9ad"><div class="ttname"><a href="group__Arithmetic.html#gaf6ac5629058e70cd3bde237b5845d9ad">dl::log</a></div><div class="ttdeci">TensorPtr log(TensorPtr x) noexcept</div><div class="ttdoc">Natural logarithm, .</div></div>
 <div class="ttc" id="agroup__Statistics_html_ga24c204f46dfd23fc5e2136dd50785ddf"><div class="ttname"><a href="group__Statistics.html#ga24c204f46dfd23fc5e2136dd50785ddf">dl::mean</a></div><div class="ttdeci">TensorPtr mean(TensorPtr x) noexcept</div><div class="ttdoc">Mean.</div></div>
 </div><!-- fragment -->

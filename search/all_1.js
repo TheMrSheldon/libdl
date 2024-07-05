@@ -1,10 +1,10 @@
 var searchData=
 [
   ['a_0',['a',['http://en.cppreference.com/w/cpp/numeric/random/uniform_real_distribution/params.html',1,'std::uniform_real_distribution::a()'],['http://en.cppreference.com/w/cpp/numeric/random/uniform_int_distribution/params.html',1,'std::uniform_int_distribution::a()'],['http://en.cppreference.com/w/cpp/numeric/random/cauchy_distribution/params.html',1,'std::cauchy_distribution::a()'],['http://en.cppreference.com/w/cpp/numeric/random/weibull_distribution/params.html',1,'std::weibull_distribution::a()'],['http://en.cppreference.com/w/cpp/numeric/random/extreme_value_distribution/params.html',1,'std::extreme_value_distribution::a()']]],
-  ['a_20function_1',['a function',['../technicalAutodiff.html#autotoc_md14',1,'Adding Autodiff Support to a Function'],['../todo.html#_todo000016',1,'Adding Autodiff Support to a Function']]],
-  ['a_20function_20that_20composites_20autodiff_20enabled_20functions_2',['a function that composites autodiff enabled functions',['../technicalAutodiff.html#autotoc_md16',1,'Adding Autodiff to a Function that Composites autodiff enabled functions'],['../todo.html#_todo000018',1,'Adding Autodiff to a Function that Composites autodiff enabled functions']]],
+  ['a_20function_1',['a function',['../technicalAutodiff.html#autotoc_md14',1,'Adding Autodiff Support to a Function'],['../todo.html#_todo000015',1,'Adding Autodiff Support to a Function']]],
+  ['a_20function_20that_20composites_20autodiff_20enabled_20functions_2',['a function that composites autodiff enabled functions',['../technicalAutodiff.html#autotoc_md16',1,'Adding Autodiff to a Function that Composites autodiff enabled functions'],['../todo.html#_todo000017',1,'Adding Autodiff to a Function that Composites autodiff enabled functions']]],
   ['a_20retrieval_20model_3',['Training and Evaluating a Retrieval Model',['../libIRTraining.html',1,'basicsIdx']]],
-  ['a_20simple_20training_20example_4',['a simple training example',['../todo.html#_todo000014',1,'A Simple Training Example'],['../basicIntro.html#autotoc_md5',1,'A Simple Training Example']]],
+  ['a_20simple_20training_20example_4',['a simple training example',['../todo.html#_todo000013',1,'A Simple Training Example'],['../basicIntro.html#autotoc_md5',1,'A Simple Training Example']]],
   ['abort_5',['abort',['http://en.cppreference.com/w/cpp/utility/program/abort.html',1,'std']]],
   ['abs_28float_29_6',['abs(float)',['http://en.cppreference.com/w/cpp/numeric/math/fabs.html',1,'std']]],
   ['abs_28int_29_7',['abs(int)',['http://en.cppreference.com/w/cpp/numeric/math/abs.html',1,'std']]],
@@ -19,8 +19,8 @@ var searchData=
   ['add_5fpointer_16',['add_pointer',['http://en.cppreference.com/w/cpp/types/add_pointer.html',1,'std']]],
   ['add_5frvalue_5freference_17',['add_rvalue_reference',['http://en.cppreference.com/w/cpp/types/add_reference.html',1,'std']]],
   ['add_5fvolatile_18',['add_volatile',['http://en.cppreference.com/w/cpp/types/add_cv.html',1,'std']]],
-  ['adding_20autodiff_20support_20to_20a_20function_19',['adding autodiff support to a function',['../technicalAutodiff.html#autotoc_md14',1,'Adding Autodiff Support to a Function'],['../todo.html#_todo000016',1,'Adding Autodiff Support to a Function']]],
-  ['adding_20autodiff_20to_20a_20function_20that_20composites_20autodiff_20enabled_20functions_20',['adding autodiff to a function that composites autodiff enabled functions',['../technicalAutodiff.html#autotoc_md16',1,'Adding Autodiff to a Function that Composites autodiff enabled functions'],['../todo.html#_todo000018',1,'Adding Autodiff to a Function that Composites autodiff enabled functions']]],
+  ['adding_20autodiff_20support_20to_20a_20function_19',['adding autodiff support to a function',['../technicalAutodiff.html#autotoc_md14',1,'Adding Autodiff Support to a Function'],['../todo.html#_todo000015',1,'Adding Autodiff Support to a Function']]],
+  ['adding_20autodiff_20to_20a_20function_20that_20composites_20autodiff_20enabled_20functions_20',['adding autodiff to a function that composites autodiff enabled functions',['../technicalAutodiff.html#autotoc_md16',1,'Adding Autodiff to a Function that Composites autodiff enabled functions'],['../todo.html#_todo000017',1,'Adding Autodiff to a Function that Composites autodiff enabled functions']]],
   ['address_21',['address',['http://en.cppreference.com/w/cpp/memory/allocator/address.html',1,'std::allocator']]],
   ['addressof_22',['addressof',['http://en.cppreference.com/w/cpp/memory/addressof.html',1,'std']]],
   ['adjacent_5fdifference_23',['adjacent_difference',['http://en.cppreference.com/w/cpp/algorithm/adjacent_difference.html',1,'std']]],
@@ -92,8 +92,8 @@ var searchData=
   ['atomic_5fthread_5ffence_89',['atomic_thread_fence',['http://en.cppreference.com/w/cpp/atomic/atomic_thread_fence.html',1,'std']]],
   ['auto_5fptr_90',['auto_ptr',['http://en.cppreference.com/w/cpp/memory/auto_ptr.html',1,'std::auto_ptr'],['http://en.cppreference.com/w/cpp/memory/auto_ptr/auto_ptr.html',1,'std::auto_ptr::auto_ptr()']]],
   ['autodiff_91',['autodiff',['../technicalAutodiff.html',1,'Automatic Differentiation (Autodiff)'],['../basicAutodiff.html',1,'Introduction to Automatic Differentiation (Autodiff)']]],
-  ['autodiff_20enabled_20functions_92',['autodiff enabled functions',['../technicalAutodiff.html#autotoc_md16',1,'Adding Autodiff to a Function that Composites autodiff enabled functions'],['../todo.html#_todo000018',1,'Adding Autodiff to a Function that Composites autodiff enabled functions']]],
-  ['autodiff_20support_20to_20a_20function_93',['autodiff support to a function',['../todo.html#_todo000016',1,'Adding Autodiff Support to a Function'],['../technicalAutodiff.html#autotoc_md14',1,'Adding Autodiff Support to a Function']]],
-  ['autodiff_20to_20a_20function_20that_20composites_20autodiff_20enabled_20functions_94',['autodiff to a function that composites autodiff enabled functions',['../technicalAutodiff.html#autotoc_md16',1,'Adding Autodiff to a Function that Composites autodiff enabled functions'],['../todo.html#_todo000018',1,'Adding Autodiff to a Function that Composites autodiff enabled functions']]],
+  ['autodiff_20enabled_20functions_92',['autodiff enabled functions',['../technicalAutodiff.html#autotoc_md16',1,'Adding Autodiff to a Function that Composites autodiff enabled functions'],['../todo.html#_todo000017',1,'Adding Autodiff to a Function that Composites autodiff enabled functions']]],
+  ['autodiff_20support_20to_20a_20function_93',['autodiff support to a function',['../todo.html#_todo000015',1,'Adding Autodiff Support to a Function'],['../technicalAutodiff.html#autotoc_md14',1,'Adding Autodiff Support to a Function']]],
+  ['autodiff_20to_20a_20function_20that_20composites_20autodiff_20enabled_20functions_94',['autodiff to a function that composites autodiff enabled functions',['../technicalAutodiff.html#autotoc_md16',1,'Adding Autodiff to a Function that Composites autodiff enabled functions'],['../todo.html#_todo000017',1,'Adding Autodiff to a Function that Composites autodiff enabled functions']]],
   ['automatic_20differentiation_20autodiff_95',['automatic differentiation autodiff',['../technicalAutodiff.html',1,'Automatic Differentiation (Autodiff)'],['../basicAutodiff.html',1,'Introduction to Automatic Differentiation (Autodiff)']]]
 ];

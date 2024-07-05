@@ -1,5 +1,6 @@
 var dir_70e3a06b4733149dbb3ba4722d4ce4e8 =
 [
+    [ "dataloaders", "dir_25a424154503236b76a5d2c754561e59.html", "dir_25a424154503236b76a5d2c754561e59" ],
     [ "optimizers", "dir_36c04f57e83c7db486573f850c1f89dd.html", "dir_36c04f57e83c7db486573f850c1f89dd" ],
     [ "adapters.hpp", "adapters_8hpp.html", "adapters_8hpp" ],
     [ "dataloader.hpp", "dataloader_8hpp_source.html", null ],

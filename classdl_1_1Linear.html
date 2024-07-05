@@ -214,13 +214,165 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0e3e56c7c5d6a078704f6c8836ced980" id="r_a0e3e56c7c5d6a078704f6c8836ced980"><td class="memItemLeft" align="right" valign="top"><a id="a0e3e56c7c5d6a078704f6c8836ced980" name="a0e3e56c7c5d6a078704f6c8836ced980"></a>
 virtual <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><b>forward</b> (<a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> input) noexcept override</td></tr>
 <tr class="separator:a0e3e56c7c5d6a078704f6c8836ced980"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f0dc4a546623c83359e1802a27d1962" id="r_a6f0dc4a546623c83359e1802a27d1962"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Linear.html#a6f0dc4a546623c83359e1802a27d1962">weights</a> () noexcept</td></tr>
+<tr class="separator:a6f0dc4a546623c83359e1802a27d1962"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad72816a6c0cc6865c845ee402557c5f7" id="r_ad72816a6c0cc6865c845ee402557c5f7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Linear.html#ad72816a6c0cc6865c845ee402557c5f7">weights</a> () const noexcept</td></tr>
+<tr class="separator:ad72816a6c0cc6865c845ee402557c5f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9701295be88f563a17bbaeee421ec79e" id="r_a9701295be88f563a17bbaeee421ec79e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Linear.html#a9701295be88f563a17bbaeee421ec79e">bias</a> () noexcept</td></tr>
+<tr class="separator:a9701295be88f563a17bbaeee421ec79e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25de5cd2b22626dc414e1e1c88c496b1" id="r_a25de5cd2b22626dc414e1e1c88c496b1"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Linear.html#a25de5cd2b22626dc414e1e1c88c496b1">bias</a> () const noexcept</td></tr>
+<tr class="separator:a25de5cd2b22626dc414e1e1c88c496b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae513fdcbdf6290d69fa5661bc406ac94" id="r_ae513fdcbdf6290d69fa5661bc406ac94"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classdl_1_1TensorPtr.html">dl::TensorPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdl_1_1Linear.html#ae513fdcbdf6290d69fa5661bc406ac94">operator()</a> (<a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> input) noexcept</td></tr>
+<tr class="separator:ae513fdcbdf6290d69fa5661bc406ac94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Applies a learnable linear transformation with optional bias. </p>
 <p>Given a vector \(x\) computes \(xW^\top + b\). </p>
 
 <p class="definition">Definition at line <a class="el" href="linear_8hpp_source.html#l00012">12</a> of file <a class="el" href="linear_8hpp_source.html">linear.hpp</a>.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a25de5cd2b22626dc414e1e1c88c496b1" name="a25de5cd2b22626dc414e1e1c88c496b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25de5cd2b22626dc414e1e1c88c496b1">&#9670;&#160;</a></span>bias() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp; dl::Linear::bias </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="linear_8hpp_source.html#l00027">27</a> of file <a class="el" href="linear_8hpp_source.html">linear.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   27</span>{ <span class="keywordflow">return</span> _bias; }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a9701295be88f563a17bbaeee421ec79e" name="a9701295be88f563a17bbaeee421ec79e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9701295be88f563a17bbaeee421ec79e">&#9670;&#160;</a></span>bias() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp; dl::Linear::bias </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="linear_8hpp_source.html#l00026">26</a> of file <a class="el" href="linear_8hpp_source.html">linear.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   26</span>{ <span class="keywordflow">return</span> _bias; }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae513fdcbdf6290d69fa5661bc406ac94" name="ae513fdcbdf6290d69fa5661bc406ac94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae513fdcbdf6290d69fa5661bc406ac94">&#9670;&#160;</a></span>operator()()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdl_1_1TensorPtr.html">dl::TensorPtr</a> dl::Linear::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a>&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="linear_8hpp_source.html#l00029">29</a> of file <a class="el" href="linear_8hpp_source.html">linear.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   29</span>{ <span class="keywordflow">return</span> forward(input); }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ad72816a6c0cc6865c845ee402557c5f7" name="ad72816a6c0cc6865c845ee402557c5f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad72816a6c0cc6865c845ee402557c5f7">&#9670;&#160;</a></span>weights() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp; dl::Linear::weights </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="linear_8hpp_source.html#l00025">25</a> of file <a class="el" href="linear_8hpp_source.html">linear.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   25</span>{ <span class="keywordflow">return</span> _weights; }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a6f0dc4a546623c83359e1802a27d1962" name="a6f0dc4a546623c83359e1802a27d1962"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f0dc4a546623c83359e1802a27d1962">&#9670;&#160;</a></span>weights() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classdl_1_1TensorPtr.html">TensorPtr</a> &amp; dl::Linear::weights </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="linear_8hpp_source.html#l00024">24</a> of file <a class="el" href="linear_8hpp_source.html">linear.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   24</span>{ <span class="keywordflow">return</span> _weights; }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>dl/model/<a class="el" href="linear_8hpp_source.html">linear.hpp</a></li>
 </ul>
 </div><!-- contents -->

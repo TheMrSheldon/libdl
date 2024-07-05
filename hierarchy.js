@@ -14,7 +14,9 @@ var hierarchy =
     [ "nlp::BERTConfig", "structnlp_1_1BERTConfig.html", null ],
     [ "dl::WordPieceTokenizer::Conf", "structdl_1_1WordPieceTokenizer_1_1Conf.html", null ],
     [ "dl::Dataloader< typename >", "classdl_1_1Dataloader.html", null ],
-    [ "dl::Dataloader< R(Args...)>", "classdl_1_1Dataloader_3_01R_07Args_8_8_8_08_4.html", null ],
+    [ "dl::Dataloader< R(Args...)>", "classdl_1_1Dataloader_3_01R_07Args_8_8_8_08_4.html", [
+      [ "dl::MemoryDataloader< R(Args...)>", "classdl_1_1MemoryDataloader_3_01R_07Args_8_8_8_08_4.html", null ]
+    ] ],
     [ "dl::Dataset< typename >", "classdl_1_1Dataset.html", null ],
     [ "dl::Dataset< float(Query, Document)>", "classdl_1_1Dataset.html", [
       [ "ir::IRDataset< float(Query, Document)>", "classir_1_1IRDataset_3_01float_07Query_00_01Document_08_4.html", null ]
@@ -34,6 +36,7 @@ var hierarchy =
     [ "ir::IRDataset< typename >", "classir_1_1IRDataset.html", null ],
     [ "dl::utils::LineIterator", "structdl_1_1utils_1_1LineIterator.html", null ],
     [ "dl::MeanError", "classdl_1_1MeanError.html", null ],
+    [ "dl::MemoryDataloader< typename >", "classdl_1_1MemoryDataloader.html", null ],
     [ "dl::Model< typename >", "classdl_1_1Model.html", null ],
     [ "dl::Model< dl::TensorPtr(const dl::TensorPtr &)>", "classdl_1_1Model.html", [
       [ "nlp::BERT", "classnlp_1_1BERT.html", null ],

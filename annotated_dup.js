@@ -30,6 +30,8 @@ var annotated_dup =
       [ "LayerNorm", "classdl_1_1LayerNorm.html", null ],
       [ "Linear", "classdl_1_1Linear.html", null ],
       [ "MeanError", "classdl_1_1MeanError.html", null ],
+      [ "MemoryDataloader", "classdl_1_1MemoryDataloader.html", null ],
+      [ "MemoryDataloader< R(Args...)>", "classdl_1_1MemoryDataloader_3_01R_07Args_8_8_8_08_4.html", null ],
       [ "Model", "classdl_1_1Model.html", null ],
       [ "Model< R(Args...)>", "classdl_1_1Model_3_01R_07Args_8_8_8_08_4.html", "classdl_1_1Model_3_01R_07Args_8_8_8_08_4" ],
       [ "ModelBase", "classdl_1_1ModelBase.html", null ],

@@ -43,7 +43,7 @@ var searchData=
   ['operator_5e_3d_40',['operator^=',['http://en.cppreference.com/w/cpp/atomic/atomic/operator_arith2.html',1,'std::atomic::operator^=()'],['http://en.cppreference.com/w/cpp/utility/bitset/operator_logic.html',1,'std::bitset::operator^=()']]],
   ['operator_7c_3d_41',['operator|=',['http://en.cppreference.com/w/cpp/atomic/atomic/operator_arith2.html',1,'std::atomic::operator|=()'],['http://en.cppreference.com/w/cpp/utility/bitset/operator_logic.html',1,'std::bitset::operator|=(T... args)']]],
   ['operator_7e_42',['operator~',['http://en.cppreference.com/w/cpp/utility/bitset/operator_logic.html',1,'std::bitset']]],
-  ['optimization_43',['optimization',['../todo.html#_todo000021',1,'Optimization'],['../technicalTransformer.html#autotoc_md22',1,'Optimization']]],
+  ['optimization_43',['optimization',['../todo.html#_todo000020',1,'Optimization'],['../technicalTransformer.html#autotoc_md22',1,'Optimization']]],
   ['optimizer_44',['Optimizer',['../classdl_1_1Optimizer.html',1,'dl']]],
   ['optional_45',['optional',['http://en.cppreference.com/w/cpp/experimental/optional.html',1,'std::experimental::optional'],['http://en.cppreference.com/w/cpp/experimental/optional/optional.html',1,'std::experimental::optional::optional()']]],
   ['ostream_46',['ostream',['http://en.cppreference.com/w/cpp/io/basic_ostream/basic_ostream.html',1,'std::ostream::ostream()'],['http://en.cppreference.com/w/cpp/io/basic_ostream.html',1,'std::ostream']]],

@@ -187,7 +187,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="evaluators_8hpp_source.html#l00013">13</a> of file <a class="el" href="evaluators_8hpp_source.html">evaluators.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="evaluators_8hpp_source.html#l00014">14</a> of file <a class="el" href="evaluators_8hpp_source.html">evaluators.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a674c83556c945bb47e67d49464088e98" name="a674c83556c945bb47e67d49464088e98"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a674c83556c945bb47e67d49464088e98">&#9670;&#160;</a></span>MeanError()</h2>
@@ -212,8 +212,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="evaluators_8hpp_source.html#l00019">19</a> of file <a class="el" href="evaluators_8hpp_source.html">evaluators.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   19</span>: sum(dl::constant(0)), num(0) {}</div>
+<p class="definition">Definition at line <a class="el" href="evaluators_8hpp_source.html#l00020">20</a> of file <a class="el" href="evaluators_8hpp_source.html">evaluators.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   20</span>: sum(dl::constant(0)), num(0) {}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -241,8 +241,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="evaluators_8hpp_source.html#l00027">27</a> of file <a class="el" href="evaluators_8hpp_source.html">evaluators.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   27</span>{ <span class="keywordflow">return</span> sum / (float)num; }</div>
+<p class="definition">Definition at line <a class="el" href="evaluators_8hpp_source.html#l00028">28</a> of file <a class="el" href="evaluators_8hpp_source.html">evaluators.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   28</span>{ <span class="keywordflow">return</span> sum / (float)num; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -270,12 +270,12 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="evaluators_8hpp_source.html#l00021">21</a> of file <a class="el" href="evaluators_8hpp_source.html">evaluators.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   21</span>                                                         {</div>
-<div class="line"><span class="lineno">   22</span>            sum = sum + <a class="code hl_function" href="group__Statistics.html#ga5f7cb3b53798da5ef166e6fda187651b">dl::sum</a>(loss);</div>
-<div class="line"><span class="lineno">   23</span>            num += <a class="code hl_function" href="math_8hpp.html#a72b6767ec5bd2b488b279ca1fa532ab0">dl::numEntries</a>(loss);</div>
-<div class="line"><span class="lineno">   24</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><span class="lineno">   25</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="evaluators_8hpp_source.html#l00022">22</a> of file <a class="el" href="evaluators_8hpp_source.html">evaluators.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   22</span>                                                         {</div>
+<div class="line"><span class="lineno">   23</span>            sum = sum + <a class="code hl_function" href="group__Statistics.html#ga5f7cb3b53798da5ef166e6fda187651b">dl::sum</a>(loss);</div>
+<div class="line"><span class="lineno">   24</span>            num += <a class="code hl_function" href="math_8hpp.html#a72b6767ec5bd2b488b279ca1fa532ab0">dl::numEntries</a>(loss);</div>
+<div class="line"><span class="lineno">   25</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><span class="lineno">   26</span>        }</div>
 <div class="ttc" id="agroup__Statistics_html_ga5f7cb3b53798da5ef166e6fda187651b"><div class="ttname"><a href="group__Statistics.html#ga5f7cb3b53798da5ef166e6fda187651b">dl::sum</a></div><div class="ttdeci">TensorPtr sum(TensorPtr x) noexcept</div><div class="ttdoc">Sum.</div></div>
 <div class="ttc" id="amath_8hpp_html_a72b6767ec5bd2b488b279ca1fa532ab0"><div class="ttname"><a href="math_8hpp.html#a72b6767ec5bd2b488b279ca1fa532ab0">dl::numEntries</a></div><div class="ttdeci">size_t numEntries(const TensorPtr &amp;tensor) noexcept</div><div class="ttdoc">Returns the number of entries in the tensor.</div></div>
 </div><!-- fragment -->
