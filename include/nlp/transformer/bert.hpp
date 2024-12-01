@@ -35,13 +35,10 @@ namespace nlp {
 		}
 
 		virtual dl::TensorPtr forward(const dl::TensorPtr& inputIds, const dl::TensorPtr& inputTokenTypes) {
-			/** Note that the embeddings returned are references to tensors instead of tensors since they return the
-			 * references to the learned embeddings. **/
-			// auto& inputEmbeds = wordEmbeddings.forward(std::forward<decltype(inputIds)>(inputIds));
-			// auto& typeEmbeds = tokenTypeEmbeddings.forward(std::forward<decltype(inputTokenTypes)>(inputTokenTypes));
-			// return layerNorm.forward(inputEmbeds + typeEmbeds + posEmbeds);
-			/** \todo implement **/
-			throw std::runtime_error("Not yet implemented");
+			auto posEmbeds = positionalEmbeddings.forward(dl::arange(0, inputIds->shape(-1)));
+			auto inputEmbeds = wordEmbeddings.forward(inputIds);
+			//auto typeEmbeds = tokenTypeEmbeddings.forward(inputTokenTypes);
+			return layerNorm.forward(inputEmbeds /*+ typeEmbeds*/ + posEmbeds);
 		}
 	};
 
@@ -62,7 +59,7 @@ namespace nlp {
      * 
      */
 	class BERT : public dl::Model<dl::TensorPtr(const dl::TensorPtr&)> {
-	public:
+	private:
 		static constexpr dl::TransformerConf transformerConf{
 				.dimensions = {.model = 768, .key = 64, .value = 64, .inner = 3072},
 				.numEncoders = 12,
@@ -81,9 +78,21 @@ namespace nlp {
 		}
 
 		virtual dl::TensorPtr forward(const dl::TensorPtr& input) override {
+			/** \todo support tokentypes **/
+			return pooling.forward(encoder.forward(embeddings.forward(input, nullptr)));
+		}
+	};
+
+	class BERTMLMPrediction : public dl::Model<dl::TensorPtr(const dl::TensorPtr&)> {
+	private:
+		BERT bert;
+
+	public:
+		BERTMLMPrediction(BERTConfig config) : bert(config) {}
+
+		virtual dl::TensorPtr forward(const dl::TensorPtr& input) override {
 			/** \todo implement **/
-			throw std::runtime_error("Not yet implemented");
-			// return pooling.forward(encoder.forward(embeddings.forward(input)));
+			throw std::runtime_error("Not implemmented");
 		}
 	};
 } // namespace nlp

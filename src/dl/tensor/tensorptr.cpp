@@ -1,9 +1,12 @@
 #include <dl/device.hpp>
 #include <dl/tensor/tensorimpl.hpp>
+#include <dl/tensor/tensoriterator.hpp>
 #include <dl/tensor/tensorptr.hpp>
 
 using dl::Device;
+using dl::TensorIter;
 using dl::TensorPtr;
+using dl::TensorSentinel;
 
 TensorPtr::TensorPtr(const TensorPtr& other) : data(other.data) {}
 TensorPtr::TensorPtr(int value) : TensorPtr(std::move(dl::constant(value))) {}
@@ -13,6 +16,9 @@ TensorPtr::TensorPtr(double value) : TensorPtr(std::move(dl::constant(value))) {
 TensorPtr::TensorPtr(InitializerTensor<float> value) : TensorPtr(std::move(dl::constant(std::move(value)))) {}
 
 // TensorPtr::TensorPtr(InitializerTensor<double> value) : TensorPtr(std::move(dl::constant(std::move(value)))) {}
+
+TensorIter TensorPtr::begin() noexcept { return TensorIter(*this); }
+TensorSentinel TensorPtr::end() const noexcept { return TensorSentinel{}; }
 
 TensorPtr& TensorPtr::operator=(const TensorPtr& other) {
 	data = other.data;

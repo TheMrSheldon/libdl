@@ -15,9 +15,6 @@ namespace dl {
 		}
 		virtual ~Embedding() = default;
 
-		virtual dl::TensorPtr forward(const dl::TensorPtr input) {
-			/** \todo implement **/
-			throw std::runtime_error("Not yet implemented");
-		}
+		virtual dl::TensorPtr forward(const dl::TensorPtr input) { return weight->get({input}); }
 	};
 } // namespace dl

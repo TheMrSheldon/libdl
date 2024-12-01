@@ -210,6 +210,14 @@ namespace dl {
 	 */
 	[[nodiscard]] TensorPtr erf(TensorPtr x) noexcept;
 
+	/**
+	 * @brief Recitifed Linear Unit
+	 * @details
+	 * \f[\text{RELu}(x) := \max(0, x)\f]
+	 * 
+	 * @param x 
+	 * @return TensorPtr 
+	 */
 	[[nodiscard]] TensorPtr relu(TensorPtr x) noexcept;
 
 	// Tensor-Scalar Operations
@@ -243,7 +251,6 @@ namespace dl {
 	 */
 	[[nodiscard]] TensorPtr transpose(TensorPtr x, std::vector<int>&& permutation) noexcept;
 
-	[[nodiscard]] TensorPtr softmax(TensorPtr x) noexcept;
 	/**
 	 * @brief Computes the softmax function of the input vector.
 	 * @details Let \f(x \in \mathbb R^n\f) be a vector, the softmax is defined as

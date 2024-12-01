@@ -1,5 +1,6 @@
 #pragma once
 
+#include "indexspec.hpp"
 #include "math.hpp"
 #include "shape.hpp"
 
@@ -125,6 +126,8 @@ namespace dl {
 		 * @param shape The new shape for the tensor.
 		 */
 		virtual void reshape(SShape shape) noexcept = 0;
+
+		virtual TensorPtr get(IndexSpec idx) const noexcept = 0;
 
 		virtual TensorPtr clone() const noexcept = 0;
 

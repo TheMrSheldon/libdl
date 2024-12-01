@@ -7,6 +7,8 @@
 
 namespace dl {
 	class TensorImpl;
+	struct TensorSentinel;
+	struct TensorIter;
 
 	template <typename T>
 	struct InitializerTensor {
@@ -49,7 +51,7 @@ namespace dl {
 		explicit TensorPtr(std::shared_ptr<TensorImpl>&& data) : data(std::move(data)) {}
 
 	public:
-		TensorPtr(TensorPtr&& other) : data(std::move(other.data)){};
+		TensorPtr(TensorPtr&& other) : data(std::move(other.data)) {};
 		TensorPtr(const TensorPtr& other);
 		TensorPtr(std::nullptr_t p) : data(p) {}
 		TensorPtr(int value);
@@ -58,6 +60,9 @@ namespace dl {
 		TensorPtr(InitializerTensor<int> value);
 		TensorPtr(InitializerTensor<float> value);
 		TensorPtr(InitializerTensor<double> value);
+
+		TensorIter begin() noexcept;
+		TensorSentinel end() const noexcept;
 
 		TensorImpl* operator->() noexcept { return data.get(); }
 		const TensorImpl* operator->() const noexcept { return data.get(); }
@@ -86,3 +91,8 @@ namespace dl {
 
 	using TensorRef = std::reference_wrapper<TensorPtr>;
 } // namespace dl
+
+#include "tensoriterator.hpp"
+
+// #include <ranges>
+// static_assert(std::ranges::range<dl::TensorPtr>);

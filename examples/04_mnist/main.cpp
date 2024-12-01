@@ -7,6 +7,7 @@
 #include <boost/iostreams/filtering_stream.hpp>
 
 #include <dl/learning/adapters.hpp>
+#include <dl/learning/dataloaders/memorydataloader.hpp>
 #include <dl/learning/evaluators.hpp>
 #include <dl/learning/loss.hpp>
 #include <dl/learning/optimizers/gradientdescent.hpp>
@@ -15,6 +16,9 @@
 #include <dl/model/linear.hpp>
 #include <dl/model/model.hpp>
 #include <dl/utils/urlstream.hpp>
+
+static_assert(std::ranges::viewable_range<dl::TensorPtr>);
+static_assert(std::ranges::input_range<dl::TensorPtr>);
 
 /**
  * @brief Converts the given uint32 from network byte order (big endian) to the host byte order.
@@ -98,6 +102,9 @@ static_assert(sizeof(MNISTImageFile::header) == 16);
 
 class MNIST : public dl::Dataset<dl::TensorPtr(dl::TensorPtr)> {
 private:
+	using MemDL = dl::MemoryDataloader<dl::TensorPtr(dl::TensorPtr)>;
+
+private:
 	dl::logging::LoggerPtr logger;
 	std::string mirror = "https://ossci-datasets.s3.amazonaws.com/mnist/";
 	dl::TensorPtr trainImages = nullptr;
@@ -130,7 +137,11 @@ public:
 	MNIST() : logger(dl::logging::getLogger("MNIST")) { download(); }
 
 	virtual std::unique_ptr<dl::Dataloader<dl::TensorPtr(dl::TensorPtr)>> trainingData() override {
-		throw std::runtime_error("Not yet implemented");
+		std::vector<MemDL::Instance> data;
+		for (const auto& entry : std::views::zip(trainLabels, trainImages))
+			data.emplace_back(entry);
+		return std::make_unique<MemDL>(data);
+		//throw std::runtime_error("Not yet implemented");
 	}
 	virtual std::unique_ptr<dl::Dataloader<dl::TensorPtr(dl::TensorPtr)>> validationData() override {
 		throw std::runtime_error("Not yet implemented");
@@ -140,18 +151,64 @@ public:
 	}
 };
 
+/*namespace dl {
+	template <typename>
+	struct _Apply;
+	template <typename R, typename... Args>
+	struct _Apply<R(Args...)> : public Model<R(Args...)> {
+		std::function<R(Args...)> fun;
+
+		explicit _Apply(std::function<R(Args...)> fun) noexcept : fun(fun) {}
+
+		R forward(Args... args) override { return fun(std::forward<Args>(args)...); }
+	};
+
+	template <typename... Args>
+	auto apply(std::invocable<Args...> auto fun) {
+		//auto apply(std::function<Sign> fun) -> _Apply<Sign> {
+		using R = decltype(fun(std::declval<Args>()...));
+		return _Apply<R(Args...)>{fun};
+	}
+} // namespace dl*/
+
+namespace dl {
+	template <typename>
+	struct _Apply;
+	template <typename R, typename... Args>
+	struct _Apply<R(Args...)> : public Model<R(Args...)> {
+		std::function<R(Args...)> fun;
+
+		explicit _Apply(std::function<R(Args...)> fun) noexcept : fun(fun) {}
+
+		R forward(Args... args) override { return fun(std::forward<Args>(args)...); }
+	};
+
+	template <class... Args>
+	auto apply(auto&& fun, auto&&... args) {
+		using R = decltype(fun(std::declval<Args>()..., args...));
+		auto bound = [fun, ... boundargs(std::forward<decltype(args)>(args))](Args&&... call_args) {
+			return std::invoke(fun, std::forward<Args>(call_args)..., std::forward<decltype(boundargs)>(boundargs)...);
+		};
+		return _Apply<R(Args...)>{bound};
+	}
+} // namespace dl
+
 int main(int argc, char* argv[]) {
 	dl::logging::setVerbosity(dl::logging::Verbosity::Debug);
 	auto logger = dl::logging::getLogger("main");
 
-	dl::Linear model(28 * 28, 1);
+	// dl::Linear model(28 * 28, 1);
+	//auto reshape = dl::apply<dl::TensorPtr>(std::bind(dl::reshape, std::placeholders::_1, dl::SShape{-1, 28 * 28}));
+	auto reshape = dl::apply<dl::TensorPtr&>(dl::reshape, dl::SShape{-1, 28 * 28});
+	auto model = reshape | dl::Linear{28 * 28, 1};
 	auto conf = dl::TrainerConfBuilder<decltype(model)>()
 						.setDataset<MNIST>()
 						.setOptimizer<dl::optim::GradientDescent>(model.parameters())
 						.addObserver(dl::observers::limitEpochs(10))
+						.addObserver(dl::observers::consoleUI())
 						.build();
 	auto trainer = dl::Trainer(std::move(conf));
 	trainer.fit(model, dl::lossAdapter(dl::loss::bce));
-	trainer.test(model, dl::MeanError(), dl::lossAdapter(dl::loss::bce));
+	// trainer.test(model, dl::MeanError(), dl::lossAdapter(dl::loss::bce));
 	return 0;
 }

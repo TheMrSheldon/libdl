@@ -13,9 +13,10 @@ namespace dl {
 
 	template <typename R, typename... Args>
 	class MemoryDataloader<R(Args...)> : public Dataloader<R(Args...)> {
-	private:
+	public:
 		using Instance = typename std::tuple<R, std::remove_reference_t<Args>...>;
 		using Iterator = typename dl::utils::GenericIterator<Instance>;
+	private:
 		std::vector<Instance> data;
 
 	public:

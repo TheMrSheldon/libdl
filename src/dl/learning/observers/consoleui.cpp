@@ -40,7 +40,7 @@ private:
 	static constexpr auto WindowBorderColor = ftxui::Color::GrayDark;
 
 public:
-	ConsoleUI() {
+	ConsoleUI() : model(nullptr) {
 		renderThread = std::thread([this] {
 			auto tmp = ftxui::ScreenInteractive::Fullscreen();
 			screen = &tmp;

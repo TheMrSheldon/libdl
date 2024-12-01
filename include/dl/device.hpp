@@ -60,6 +60,11 @@ namespace dl {
 		virtual TensorPtr constant(float value, bool requiresGrad = false) const noexcept = 0;
 		virtual TensorPtr constant(double value, bool requiresGrad = false) const noexcept = 0;
 		virtual TensorPtr constant(InitializerTensor<float>&& value, bool requiresGrad = false) const noexcept = 0;
+
+		virtual TensorPtr arange(int32_t start, int32_t stop, int32_t step) const noexcept = 0;
+		virtual TensorPtr linspace(int32_t start, int32_t stop, int32_t numsamples) const noexcept = 0;
+		virtual TensorPtr logspace(int32_t start, int32_t stop, int32_t numsamples) const noexcept = 0;
+
 		virtual TensorPtr fromBytesFP32(const char* buffer, size_t bufsize, Shape shape) const noexcept = 0;
 
 		template <typename T>
@@ -122,6 +127,19 @@ namespace dl {
 	}
 	inline TensorPtr constant(InitializerTensor<float>&& value, Device const& device = Device::getDefault()) {
 		return device.constant(std::move(value));
+	}
+
+	inline TensorPtr
+	arange(int32_t start, int32_t stop, int32_t step = 1, Device const& device = Device::getDefault()) {
+		return device.arange(start, stop, step);
+	}
+	inline TensorPtr
+	linspace(int32_t start, int32_t stop, int32_t numsamples, Device const& device = Device::getDefault()) {
+		return device.linspace(start, stop, numsamples);
+	}
+	inline TensorPtr
+	logspace(int32_t start, int32_t stop, int32_t numsamples, Device const& device = Device::getDefault()) {
+		return device.logspace(start, stop, numsamples);
 	}
 
 	template <typename T>

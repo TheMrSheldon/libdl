@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DL_MODEL_MODEL_HPP
+#define DL_MODEL_MODEL_HPP
 
 #include "../tensor/tensorimpl.hpp"
 #include "../tensor/tensorptr.hpp"
@@ -30,6 +31,9 @@ namespace dl {
 	};
 
 	template <typename>
+	class SeqModel;
+
+	template <typename>
 	class Model {};
 
 	template <typename R, typename... Args>
@@ -55,5 +59,13 @@ namespace dl {
 		/** \todo For later: these const member functions make sense to indicate that we know at compile time that the
 		 * instance is not modified (e.g. since it is not part of the computation graph for auto differentiation. **/
 		// R operator()(Args&&... args) const { return this->forward(std::forward<Args>(args)...); }
+
+		// Concatinating two models (i.e., executing the right after the left)
+		template <typename R2>
+		SeqModel<R2(Args...)> operator|(Model<R2(R)>&& right);
 	};
 } // namespace dl
+
+#include "seqmodel.hpp"
+
+#endif
