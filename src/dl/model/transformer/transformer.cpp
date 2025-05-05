@@ -22,10 +22,10 @@ Transformer::Transformer(TransformerConf conf) noexcept
 	}
 }
 
-TensorPtr Transformer::forward(TensorPtr input) {
+TensorPtr Transformer::operator()(TensorPtr input) {
 	TensorPtr tmp = input;
 	for (size_t i = 0; i < encoders.size(); ++i)
-		tmp = encoders[i]->forward(tmp);
+		tmp = (*encoders[i])(tmp);
 	return tmp;
 }
 
@@ -49,11 +49,10 @@ TransformerEncoder::TransformerEncoder(TransformerConf conf) noexcept
 
 TensorPtr TransformerEncoder::multiHeadAttention(TensorPtr query, TensorPtr key, TensorPtr value) noexcept {
 	auto attn = scaledDotProductAttention(query, key, value);
-	return weightOut.forward(attn);
+	return weightOut(attn);
 }
 
 TensorPtr TransformerEncoder::scaledDotProductAttention(TensorPtr query, TensorPtr key, TensorPtr value) noexcept {
-	/** \todo use std::move to reduce copying temporaries **/
 	// Reshape key and query and compute (QK^T) batched
 	query->reshape({-1, (int)(conf.numAttnHeads), (int)(conf.dimensions.key)});
 	key->reshape({-1, (int)(conf.numAttnHeads), (int)(conf.dimensions.key)});
@@ -70,9 +69,9 @@ TensorPtr TransformerEncoder::scaledDotProductAttention(TensorPtr query, TensorP
 	return dl::reshape(dl::transpose(tmp, {0, 1}), {-1, (int)conf.dimensions.model});
 }
 
-TensorPtr TransformerEncoder::forward(TensorPtr input) {
-	auto mha = multiHeadAttention(weightQuery.forward(input), weightKey.forward(input), weightValue.forward(input));
-	auto attention = mhaNorm.forward(mha + input);
-	auto intermed = BertGELU(weightIntermed.forward(attention));
-	return ffnNorm.forward(weightIntermedOut.forward(intermed) + attention);
+TensorPtr TransformerEncoder::operator()(TensorPtr input) {
+	auto mha = multiHeadAttention(weightQuery(input), weightKey(input), weightValue(input));
+	auto attention = mhaNorm(mha + input);
+	auto intermed = BertGELU(weightIntermed(attention));
+	return ffnNorm(weightIntermedOut(intermed) + attention);
 }

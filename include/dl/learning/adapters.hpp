@@ -23,8 +23,9 @@ namespace dl {
      * @return A loss adapter for optimizing the specified loss objective.
      */
 	auto lossAdapter(auto lossObjective) {
-		constexpr auto func = [](auto loss, auto& model, auto& x, auto& y) { return loss(model(x), y); };
-		return std::bind_front(func, lossObjective);
+		return [loss = std::move(lossObjective)](auto& model, auto&& x, auto&& y) {
+			return loss(model(std::forward<decltype(x)>(x)), std::forward<decltype(y)>(y));
+		};
 	}
 
 } // namespace dl

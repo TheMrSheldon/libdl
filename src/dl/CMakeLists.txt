@@ -67,7 +67,7 @@ FetchContent_Declare(xtensor GIT_REPOSITORY https://github.com/xtensor-stack/xte
 FetchContent_MakeAvailable(xtensor)
 
 # Dependency of xtensor-blas
-FetchContent_Declare(openblas GIT_REPOSITORY https://github.com/OpenMathLib/OpenBLAS.git GIT_TAG v0.3.27 EXCLUDE_FROM_ALL)
+FetchContent_Declare(openblas GIT_REPOSITORY https://github.com/OpenMathLib/OpenBLAS.git GIT_TAG v0.3.29 EXCLUDE_FROM_ALL)
 FetchContent_MakeAvailable(openblas)
 
 # Dependency of xtensor

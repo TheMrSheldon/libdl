@@ -17,6 +17,6 @@ Linear::Linear(size_t inFeatures, size_t outFeatures, const Device& device, bool
 Linear::Linear(size_t inFeatures, size_t outFeatures, bool bias) noexcept
 		: Linear(inFeatures, outFeatures, Device::getDefault(), bias) {}
 
-TensorPtr Linear::forward(TensorPtr input) noexcept {
+TensorPtr Linear::operator()(TensorPtr input) noexcept {
 	return dl::matmul(input, dl::transpose(_weights, {-1, -2})) + _bias;
 }

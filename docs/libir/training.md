@@ -9,7 +9,7 @@ We start of by defining our ranking model.
 class MonoBERT : public dl::ModelBase {
 private:
 public:
-    dl::Tensor forward(ir::Query, ir::Document);
+    dl::Tensor operator()(ir::Query, ir::Document);
 };
 ```
 

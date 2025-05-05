@@ -15,7 +15,7 @@ namespace nlp {
 		size_t typeVocabSize;
 	};
 
-	class BERTEmbeddings : public dl::Model<dl::TensorPtr(const dl::TensorPtr&, const dl::TensorPtr&)> {
+	class BERTEmbeddings : public dl::Model {
 	private:
 		dl::Embedding wordEmbeddings;
 		dl::Embedding positionalEmbeddings;
@@ -23,7 +23,7 @@ namespace nlp {
 		dl::LayerNorm layerNorm;
 
 	public:
-		BERTEmbeddings(BERTConfig bertConf, dl::TransformerConf config)
+		BERTEmbeddings(const BERTConfig& bertConf, const dl::TransformerConf& config)
 				: wordEmbeddings(bertConf.vocabSize, config.dimensions.model),
 				  positionalEmbeddings(bertConf.maxPositionEmbeddings, config.dimensions.model),
 				  tokenTypeEmbeddings(bertConf.typeVocabSize, config.dimensions.model),
@@ -34,31 +34,32 @@ namespace nlp {
 			registerSubmodel("LayerNorm", layerNorm);
 		}
 
-		virtual dl::TensorPtr forward(const dl::TensorPtr& inputIds, const dl::TensorPtr& inputTokenTypes) {
-			auto posEmbeds = positionalEmbeddings.forward(dl::arange(0, inputIds->shape(-1)));
-			auto inputEmbeds = wordEmbeddings.forward(inputIds);
-			//auto typeEmbeds = tokenTypeEmbeddings.forward(inputTokenTypes);
-			return layerNorm.forward(inputEmbeds /*+ typeEmbeds*/ + posEmbeds);
+		dl::TensorPtr operator()(const dl::TensorPtr& inputIds, const dl::TensorPtr& inputTokenTypes) {
+			auto posEmbeds = positionalEmbeddings(dl::arange(0, inputIds->shape(-1)));
+			auto inputEmbeds = wordEmbeddings(inputIds);
+			//auto typeEmbeds = tokenTypeEmbeddings(inputTokenTypes);
+			return layerNorm(inputEmbeds /*+ typeEmbeds*/ + posEmbeds);
 		}
 	};
 
-	class BERTPooling : public dl::Model<dl::TensorPtr(const dl::TensorPtr&)> {
+	class BERTPooling : public dl::Model {
 	private:
 		dl::Linear dense;
 
 	public:
-		BERTPooling(dl::TransformerConf conf) noexcept : dense(conf.dimensions.model, conf.dimensions.model) {
+		explicit BERTPooling(const dl::TransformerConf& conf) noexcept
+				: dense(conf.dimensions.model, conf.dimensions.model) {
 			registerSubmodel("dense", dense);
 		}
 
-		virtual dl::TensorPtr forward(const dl::TensorPtr& input) { return nullptr; }
+		dl::TensorPtr operator()(const dl::TensorPtr& input) { return nullptr; }
 	};
 
 	/**
      * @brief \cite bert
      * 
      */
-	class BERT : public dl::Model<dl::TensorPtr(const dl::TensorPtr&)> {
+	class BERT : public dl::Model {
 	private:
 		static constexpr dl::TransformerConf transformerConf{
 				.dimensions = {.model = 768, .key = 64, .value = 64, .inner = 3072},
@@ -70,27 +71,27 @@ namespace nlp {
 		BERTPooling pooling;
 
 	public:
-		BERT(BERTConfig config)
+		explicit BERT(const BERTConfig& config)
 				: embeddings(config, transformerConf), encoder(transformerConf), pooling(transformerConf) {
 			registerSubmodel("bert.embeddings", embeddings);
 			registerSubmodel("bert", encoder);
 			registerSubmodel("bert.pooler", pooling);
 		}
 
-		virtual dl::TensorPtr forward(const dl::TensorPtr& input) override {
+		dl::TensorPtr operator()(const dl::TensorPtr& input) {
 			/** \todo support tokentypes **/
-			return pooling.forward(encoder.forward(embeddings.forward(input, nullptr)));
+			return pooling(encoder(embeddings(input, nullptr)));
 		}
 	};
 
-	class BERTMLMPrediction : public dl::Model<dl::TensorPtr(const dl::TensorPtr&)> {
+	class BERTMLMPrediction : public dl::Model {
 	private:
 		BERT bert;
 
 	public:
-		BERTMLMPrediction(BERTConfig config) : bert(config) {}
+		explicit BERTMLMPrediction(const BERTConfig& config) : bert(config) {}
 
-		virtual dl::TensorPtr forward(const dl::TensorPtr& input) override {
+		dl::TensorPtr operator()(const dl::TensorPtr& input) {
 			/** \todo implement **/
 			throw std::runtime_error("Not implemmented");
 		}

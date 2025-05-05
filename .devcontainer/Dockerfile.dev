@@ -7,9 +7,11 @@ FROM ubuntu:24.04
 USER root
 
 RUN <<EOF
+    add-apt-repository universe
     apt-get update
+    #
     # Basic Requirements for compiling the code
-    apt-get -y install g++-13 cmake git
+    apt-get -y install g++-14 cmake git
     # Needed for the development environment
     apt-get -y install cppcheck gdb clang-format
     # Needed for the documentation

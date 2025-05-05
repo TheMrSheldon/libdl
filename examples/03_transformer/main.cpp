@@ -63,9 +63,9 @@ int main(void) {
 	auto bert = loadModelFromHuggingFace("google-bert/bert-base-uncased");
 	auto ids = dl::constant({101, 17662, 2227, 5925, 3207, 2546, 102}); //(std::move(tokens));
 	std::cout << ids << std::endl;
-	auto embeddings = bert.forward(ids);
+	auto embeddings = bert(ids);
 	std::cout << embeddings << std::endl;
 
-	auto output = bert.encoder.forward(embeddings);
+	auto output = bert.encoder(embeddings);
 	std::cout << output << std::endl;
 }

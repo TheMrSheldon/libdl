@@ -8,9 +8,9 @@
 using dl::ModelBase;
 using dl::TensorPtr;
 
-void ModelBase::registerParameter(std::string name, TensorPtr& tensor) {
+void ModelBase::registerParameter(const std::string_view& name, TensorPtr& tensor) {
 	tensor->setRequiresGrad(true);
-	_parameters.insert({name, tensor});
+	_parameters.insert({std::string{name}, tensor});
 }
 
 size_t ModelBase::numParameters() const noexcept {

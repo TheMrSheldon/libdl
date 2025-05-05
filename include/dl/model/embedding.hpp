@@ -5,7 +5,7 @@
 #include "model.hpp"
 
 namespace dl {
-	class Embedding : public dl::Model<dl::TensorPtr(const dl::TensorPtr)> {
+	class Embedding : public dl::Model {
 	private:
 		dl::TensorPtr weight;
 
@@ -15,6 +15,6 @@ namespace dl {
 		}
 		virtual ~Embedding() = default;
 
-		virtual dl::TensorPtr forward(const dl::TensorPtr input) { return weight->get({input}); }
+		dl::TensorPtr operator()(const dl::TensorPtr input) { return weight->get({input}); }
 	};
 } // namespace dl

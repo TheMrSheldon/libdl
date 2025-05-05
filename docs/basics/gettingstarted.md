@@ -47,6 +47,7 @@ Create a new file called `main.cpp` in your `src` directory with the following c
     ```
     will only print out `RightDerived Destroyed` and **not** `WrongDerived Destroyed`.
     \note This problem is not exclusive to raw pointers and can also occur if you don't use them. In this case, raw pointers are the simplest form of showing it crash and burn.
+    \important Implementing a virtual destructor triggers the [Rule of 5]()
 2. Passing child-types by value. Consider the following example:
     ```{cpp}
     #include <iostream>
@@ -85,3 +86,23 @@ Create a new file called `main.cpp` in your `src` directory with the following c
     ```
 3. Do not forget include guards in your headers
 4. [Rule of 3, Rule of 5, Rule of 0](https://en.cppreference.com/w/cpp/language/rule_of_three)
+5. Use [member initializer lists](https://en.cppreference.com/w/cpp/language/constructor#Member_initializer_list)
+    ```{cpp}
+    #include <cstdio>
+
+    class A {
+    public:
+        A() { std::printf("A()\n"); }
+        ~A() { std::printf("~A()\n"); }
+    };
+
+    class B {
+    public:
+        A a;
+        B() { a = A(); }
+    };
+
+    int main(int argc, char* argv[]) {
+        B b;
+    }
+    ```

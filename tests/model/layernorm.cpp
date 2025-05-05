@@ -12,17 +12,17 @@ TEST_CASE("LayerNorm", "[Model]") {
 		dl::LayerNorm norm({3});
 		{
 			auto input = dl::constant({{1.0f, 2.0f, 3.0f}});
-			auto output = norm.forward(input);
+			auto output = norm(input);
 			CHECK(dl::allclose(output, dl::constant({{-1.225f, 0, 1.225f}}), 1e-5, 1e-3));
 		}
 		{
 			auto input = dl::constant({{4.0f, 4.0f, 6.0f}});
-			auto output = norm.forward(input);
+			auto output = norm(input);
 			CHECK(dl::allclose(output, dl::constant({{-0.707f, -0.707f, 1.414f}}), 1e-5, 1e-3));
 		}
 		{
 			auto input = dl::constant({{1.0f, 2.0f, 3.0f}, {4.0f, 4.0f, 6.0f}});
-			auto output = norm.forward(input);
+			auto output = norm(input);
 			CHECK(dl::allclose(output, dl::constant({{-1.225f, 0, 1.225f}, {-0.707f, -0.707f, 1.414f}}), 1e-5, 1e-3));
 		}
 	}

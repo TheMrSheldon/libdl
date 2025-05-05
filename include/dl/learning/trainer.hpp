@@ -12,7 +12,6 @@
 
 namespace dl {
 	class ModelBase;
-	template <typename>
 	class Model;
 	class Device;
 	template <typename>

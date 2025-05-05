@@ -155,12 +155,12 @@ public:
 	template <typename>
 	struct _Apply;
 	template <typename R, typename... Args>
-	struct _Apply<R(Args...)> : public Model<R(Args...)> {
+	struct _Apply<R(Args...)> : public Model {
 		std::function<R(Args...)> fun;
 
 		explicit _Apply(std::function<R(Args...)> fun) noexcept : fun(fun) {}
 
-		R forward(Args... args) override { return fun(std::forward<Args>(args)...); }
+		R operator()(Args... args) { return fun(std::forward<Args>(args)...); }
 	};
 
 	template <typename... Args>
@@ -172,24 +172,21 @@ public:
 } // namespace dl*/
 
 namespace dl {
-	template <typename>
-	struct _Apply;
-	template <typename R, typename... Args>
-	struct _Apply<R(Args...)> : public Model<R(Args...)> {
-		std::function<R(Args...)> fun;
+	template <typename T>
+	struct _Apply : public Model {
+		T val;
 
-		explicit _Apply(std::function<R(Args...)> fun) noexcept : fun(fun) {}
+		explicit _Apply(T&& val) noexcept : val(val) {}
 
-		R forward(Args... args) override { return fun(std::forward<Args>(args)...); }
+		template <typename... Args>
+		auto operator()(Args&&... args) {
+			return val(std::forward<Args>(args)...);
+		}
 	};
 
-	template <class... Args>
 	auto apply(auto&& fun, auto&&... args) {
-		using R = decltype(fun(std::declval<Args>()..., args...));
-		auto bound = [fun, ... boundargs(std::forward<decltype(args)>(args))](Args&&... call_args) {
-			return std::invoke(fun, std::forward<Args>(call_args)..., std::forward<decltype(boundargs)>(boundargs)...);
-		};
-		return _Apply<R(Args...)>{bound};
+		auto bound = std::bind(fun, std::forward<decltype(args)>(args)...);
+		return _Apply<decltype(bound)>{std::move(bound)};
 	}
 } // namespace dl
 
@@ -199,7 +196,7 @@ int main(int argc, char* argv[]) {
 
 	// dl::Linear model(28 * 28, 1);
 	//auto reshape = dl::apply<dl::TensorPtr>(std::bind(dl::reshape, std::placeholders::_1, dl::SShape{-1, 28 * 28}));
-	auto reshape = dl::apply<dl::TensorPtr&>(dl::reshape, dl::SShape{-1, 28 * 28});
+	auto reshape = dl::apply(dl::reshape, std::placeholders::_1, dl::SShape{-1, 28 * 28});
 	auto model = reshape | dl::Linear{28 * 28, 1};
 	auto conf = dl::TrainerConfBuilder<decltype(model)>()
 						.setDataset<MNIST>()

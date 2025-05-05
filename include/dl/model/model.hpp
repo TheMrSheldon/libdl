@@ -16,8 +16,8 @@ namespace dl {
 		std::map<std::string, dl::TensorRef> _parameters;
 
 	protected:
-		void registerParameter(std::string name, TensorPtr& tensor);
-		void registerParameters(std::string prefix, std::ranges::range auto& tensors) {
+		void registerParameter(const std::string_view& name, TensorPtr& tensor);
+		void registerParameters(const std::string_view& prefix, std::ranges::range auto& tensors) {
 			for (auto&& [key, value] : tensors)
 				_parameters.insert({std::format("{}.{}", prefix, key), value});
 		}
@@ -30,39 +30,32 @@ namespace dl {
 		const std::map<std::string, dl::TensorRef>& parameters() const noexcept { return _parameters; }
 	};
 
-	template <typename>
+	template <typename M1, typename M2>
 	class SeqModel;
 
-	template <typename>
-	class Model {};
-
-	template <typename R, typename... Args>
-	class Model<R(Args...)> : public virtual ModelBase {
-	public:
-		using signature = R(Args...);
-
+	class Model : public virtual ModelBase {
 	protected:
-		void registerSubmodel(std::string prefix, const ModelBase& model) {
+		void registerSubmodel(const std::string_view& prefix, const ModelBase& model) {
 			registerParameters(prefix, model.parameters());
 		}
-
-		virtual R forward(Args... args) = 0;
-		/** \todo For later: these const member functions make sense to indicate that we know at compile time that the
-		 * instance is not modified (e.g. since it is not part of the computation graph for auto differentiation. **/
-		// virtual R forward(Args... args) const = 0;
 
 	public:
 		virtual ~Model() = default;
 		void to(const Device& device) noexcept;
 
-		R operator()(Args&&... args) { return this->forward(std::forward<Args>(args)...); }
-		/** \todo For later: these const member functions make sense to indicate that we know at compile time that the
-		 * instance is not modified (e.g. since it is not part of the computation graph for auto differentiation. **/
-		// R operator()(Args&&... args) const { return this->forward(std::forward<Args>(args)...); }
-
+#ifndef __cpp_explicit_this_parameter
+#error "I need deducing this :("
+#endif
 		// Concatinating two models (i.e., executing the right after the left)
-		template <typename R2>
-		SeqModel<R2(Args...)> operator|(Model<R2(R)>&& right);
+		/**
+		 * @brief Concatenates two models (i.e., executing the right after the left (this))
+		 * @details Note that the parameters **must** be passed by value to ensure that the inferred type is not downcasted.
+		 * 
+		 * @param self 
+		 * @param right 
+		 * @return A model that invokes the self (this) model first and then right on the outputs of self.
+		 */
+		auto operator|(this auto self, auto right) -> SeqModel<decltype(self), decltype(right)>;
 	};
 } // namespace dl
 

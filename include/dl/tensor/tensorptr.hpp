@@ -20,10 +20,10 @@ namespace dl {
 		std::vector<size_t> shape;
 
 		InitializerTensor(InitializerTensor<T>&& other) noexcept : data(std::move(data)), shape(std::move(shape)) {}
-		InitializerTensor(std::initializer_list<T>&& value) noexcept : data(value), shape({value.size()}) {}
+		InitializerTensor(std::initializer_list<T>&& value) noexcept : data(value), shape({data.size()}) {}
 		InitializerTensor(std::initializer_list<InitializerTensor>&& value) noexcept : data(), shape() {
 			/** \todo Check if all values have the same size**/
-			shape = {value.size()};
+			shape = {data.size()};
 			data.reserve(std::accumulate(value.begin(), value.end(), 0, [](size_t acc, auto& v) {
 				return acc + v.data.size();
 			}));

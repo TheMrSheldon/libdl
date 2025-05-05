@@ -14,7 +14,7 @@ TEST_CASE("Linear", "[Model]") {
 		linear.bias() = dl::InitializerTensor<float>{0.0f, 1.0f, 2.0f, 3.0f, 4.0f};
 		{
 			dl::TensorPtr input = dl::InitializerTensor<float>{1, 2, 3, 4};
-			auto output = linear.forward(input);
+			auto output = linear(input);
 			//CHECK(dl::allclose(output, dl::constant({{-1.225f, 0, 1.225f}}), 1e-5, 1e-3));
 		}
 	}

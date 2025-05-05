@@ -6,12 +6,12 @@
 
 #include <catch2/catch_test_macros.hpp>
 
-class DummyModel : public dl::Model<void(void)> {
+class DummyModel : public dl::Model {
 public:
 	dl::TensorPtr weight;
 	DummyModel() noexcept : weight(dl::empty({20, 20})) { registerParameter("weight", weight); }
 
-	virtual void forward() {}
+	void operator()() {}
 };
 
 TEST_CASE("Safetensors", "[IO]") {

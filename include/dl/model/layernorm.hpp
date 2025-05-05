@@ -9,7 +9,7 @@ namespace dl {
      * @brief Implements layer normalization as proposed by \cite layernorm.
      * 
      */
-	class LayerNorm final : public Model<TensorPtr(TensorPtr)> {
+	class LayerNorm final : public Model {
 	private:
 		TensorPtr beta;
 		TensorPtr gamma;
@@ -19,6 +19,6 @@ namespace dl {
 		virtual ~LayerNorm() = default;
 
 	public:
-		virtual TensorPtr forward(TensorPtr input) noexcept override;
+		TensorPtr operator()(TensorPtr input) noexcept;
 	};
 } // namespace dl
