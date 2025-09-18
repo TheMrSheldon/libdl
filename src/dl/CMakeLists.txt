@@ -98,6 +98,13 @@ FetchContent_Declare(cpr GIT_REPOSITORY https://github.com/libcpr/cpr.git
 FetchContent_MakeAvailable(cpr)
 target_link_libraries(dl PRIVATE cpr::cpr)
 
+# Compiletime regular expressions
+FetchContent_Declare(ctre GIT_REPOSITORY https://github.com/hanickadot/compile-time-regular-expressions.git
+                         GIT_TAG v3.10.0)# EXCLUDE_FROM_ALL)
+FetchContent_MakeAvailable(ctre)
+target_link_libraries(dl PUBLIC ctre::ctre)
+
+
 # hat-trie (for WordPiece tokenization)
 FetchContent_Declare(hattrie GIT_REPOSITORY https://github.com/Tessil/hat-trie.git GIT_TAG 906e6ab EXCLUDE_FROM_ALL)
 FetchContent_MakeAvailable(hattrie)

@@ -17,6 +17,7 @@ add_executable(tests
 	tensor/autodiff.cpp
 	tensor/basics.cpp
 	tensor/math.cpp
+	tensor/rearrange.cpp
 )
 
 # file(COPY testfiles ${CMAKE_CURRENT_BINARY_DIR})

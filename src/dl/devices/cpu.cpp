@@ -163,19 +163,23 @@ namespace dl {
 			return createResult(tmp::matmul(data, downcast(other).data), requiresGrad() || other->requiresGrad());
 		}
 
-		virtual TensorPtr transpose(std::vector<size_t>&& perm) const noexcept {
+		virtual TensorPtr transpose(std::vector<dl::UIndex>&& perm) const noexcept {
 			// libdl expects the permutation as a cycle (e.g., {0, 1, 3}) but xtensor can get multiple cycles for the
 			// permutation. We convert this here such that the example cycle would be the permutation:
 			// {1, 3, 2, 0}
-			std::vector<size_t> p(numDim(), 0);
-			for (size_t i = 0; i < p.size(); ++i)
+			std::vector<dl::UIndex> p(numDim(), 0);
+			for (dl::UIndex i = 0; i < p.size(); ++i)
 				p[i] = i;
 			auto prev = perm.back();
-			for (auto& i : perm) {
+			for (const auto& i : perm) {
 				p[prev] = i;
 				prev = i;
 			}
 			return createResult(xt::transpose(data, p), requiresGrad());
+		}
+
+		virtual TensorPtr permute(std::vector<dl::UIndex>&& perm) const noexcept {
+			return createResult(xt::transpose(data, perm), requiresGrad());
 		}
 
 		virtual TensorPtr pow(float exponent) const noexcept override {

@@ -236,7 +236,7 @@ TensorPtr dl::matmul(TensorPtr left, TensorPtr right) noexcept {
 	return tensor;
 }
 
-TensorPtr dl::transpose(TensorPtr x, std::vector<int>&& perm) noexcept {
+TensorPtr dl::transpose(TensorPtr x, std::vector<dl::Index>&& perm) noexcept {
 	auto p = perm | std::views::transform([&x](int d) { return (d < 0) ? (x->numDim() + d) : d; });
 	/** \todo use ranges::to() when this is available **/
 	std::vector<size_t> vec;
@@ -251,6 +251,19 @@ TensorPtr dl::transpose(TensorPtr x, std::vector<int>&& perm) noexcept {
 			if (x->gradfn)
 				x->gradfn(x->grad);
 		};
+	}
+	return tensor;
+}
+
+TensorPtr dl::permute(TensorPtr x, std::vector<dl::Index>&& perm) noexcept {
+	auto p = perm | std::views::transform([&x](int d) { return (d < 0) ? (x->numDim() + d) : d; });
+	/** \todo use ranges::to() when this is available **/
+	std::vector<size_t> vec;
+	for (auto tmp : p)
+		vec.push_back(tmp);
+	auto tensor = x->transpose(std::move(vec));
+	if (tensor->requiresGrad()) {
+		abort(); /** \todo implement me :( **/
 	}
 	return tensor;
 }

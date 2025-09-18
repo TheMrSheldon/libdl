@@ -7,19 +7,22 @@
 namespace dl {
 	class TensorPtr;
 
+	using Index = long;
+	using UIndex = size_t;
+
 	namespace idx {
 		struct All {};
 		struct NewDim {};
 		struct Range {
-			signed from;
-			signed to;
+			Index from;
+			Index to;
 		};
 
 		constexpr All all;
 		constexpr NewDim newdim;
 	}; // namespace idx
 
-	using IdxSlice = std::variant<signed, idx::All, idx::NewDim, idx::Range, TensorPtr>;
+	using IdxSlice = std::variant<Index, idx::All, idx::NewDim, idx::Range, TensorPtr>;
 	using IndexSpec = std::vector<IdxSlice>;
 } // namespace dl
 

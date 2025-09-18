@@ -86,7 +86,8 @@ namespace dl {
 		 */
 		virtual TensorPtr fma(const TensorPtr& factor, const TensorPtr& summand) const noexcept = 0;
 		virtual TensorPtr matmul(const TensorPtr& other) const noexcept = 0;
-		virtual TensorPtr transpose(std::vector<size_t>&& permutation) const noexcept = 0;
+		virtual TensorPtr transpose(std::vector<dl::UIndex>&& permutation) const noexcept = 0;
+		virtual TensorPtr permute(std::vector<dl::UIndex>&& perm) const noexcept = 0;
 
 		// Powers:
 		virtual TensorPtr pow(float exponent) const noexcept = 0;

@@ -20,6 +20,7 @@
 
 #pragma once
 
+#include "indexspec.hpp"
 #include "shape.hpp"
 #include "tensorptr.hpp"
 
@@ -243,13 +244,15 @@ namespace dl {
 	/**
 	 * @brief Transposes the given tensor at the specified coordinates.
 	 * @details Transposes the given tensor by permuting the dimensions. For example, if the input was a matrix, then
-	 * \f(x \in \mathbb{R}^n\times m\f) the matrix transposition could be computed via `dl::transpose(x, {0, 1});`.
+	 * \f(x \in \mathbb{R}^{n\times m}\f) the matrix transposition could be computed via `dl::transpose(x, {0, 1});`.
 	 * 
 	 * @param x the tensor to be tranposed.
 	 * @param permutation the permutation to apply to the dimensions.
 	 * @return a new tensor with the permutation \p permutation applied to the dimensions.
 	 */
-	[[nodiscard]] TensorPtr transpose(TensorPtr x, std::vector<int>&& permutation) noexcept;
+	[[nodiscard]] TensorPtr transpose(TensorPtr x, std::vector<dl::Index>&& permutation) noexcept;
+
+	[[nodiscard]] TensorPtr permute(TensorPtr x, std::vector<dl::Index>&& permutation) noexcept;
 
 	/**
 	 * @brief Computes the softmax function of the input vector.

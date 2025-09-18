@@ -4,4 +4,5 @@ The following pages describe some interesting algorithms and their implementatio
 
 - \subpage technicalTensors
 - \subpage technicalAutodiff
-- \subpage technicalTransformer 
+- \subpage technicalRearrange
+- \subpage technicalTransformer
